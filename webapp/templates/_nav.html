@@ -1,0 +1,5 @@
+<nav class="tabs">
+  <a href="{{ url_for('portada') }}" class="tab{{ ' active' if active == 'portada' else '' }}">Home</a>
+  <a href="{{ url_for('grafo') }}" class="tab{{ ' active' if active == 'grafo' else '' }}">Graph explorer</a>
+  <a href="{{ url_for('buscador') }}" class="tab{{ ' active' if active == 'buscador' else '' }}">Word search</a>
+</nav>

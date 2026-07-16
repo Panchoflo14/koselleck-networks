@@ -1,0 +1,77 @@
+# Project configuration
+
+# Default: a sibling folder next to this repo. Override in config.local.yml
+# (gitignored, not committed) if your data lives elsewhere - e.g. deliberately
+# outside any cloud-synced folder, to avoid sync conflicts while scripts
+# actively rewrite multi-GB files.
+data_root: "../koselleck-data"
+
+paths:
+  corpus_tcp:      corpus/tcp
+  corpus_gutenberg: corpus/gutenberg
+  extracted:       processed             # flat per-document extraction (parse_tcp.py)
+  processed:       processed/periods     # per-period bucketed text (bucket_periods.py)
+  vocab:           processed/vocab
+  embeddings:      embeddings
+  networks:        networks
+  communities:     communities
+
+# Time slices (start_year, end_year, label)
+# Uniform 20-year windows across the whole range, not just around the
+# Sattelzeit. Fine resolution only near 1770-1830 would bias the method
+# toward finding reorganization only where we already expected it - Heuser's
+# own chapter found a second, unrelated acceleration window around 1905-25,
+# which a Sattelzeit-only fine resolution could never have detected. Uniform
+# windows also give a consistent time step for the interactive search tool.
+# 1810-1900 stays defined here even though TCP alone barely covers it - it
+# fills in once the Gutenberg supplement is sourced; embeddings.py already
+# skips any period below MIN_DOCS instead of failing on it.
+periods:
+  - [1500, 1520, "1500-1520"]
+  - [1520, 1540, "1520-1540"]
+  - [1540, 1560, "1540-1560"]
+  - [1560, 1580, "1560-1580"]
+  - [1580, 1600, "1580-1600"]
+  - [1600, 1620, "1600-1620"]
+  - [1620, 1640, "1620-1640"]
+  - [1640, 1660, "1640-1660"]
+  - [1660, 1680, "1660-1680"]
+  - [1680, 1700, "1680-1700"]
+  - [1700, 1720, "1700-1720"]
+  - [1720, 1740, "1720-1740"]
+  - [1740, 1760, "1740-1760"]
+  - [1760, 1780, "1760-1780"]
+  - [1780, 1800, "1780-1800"]
+  - [1800, 1820, "1800-1820"]   # Sattelzeit closes here
+  - [1820, 1840, "1820-1840"]
+  - [1840, 1860, "1840-1860"]
+  - [1860, 1880, "1860-1880"]
+  - [1880, 1900, "1880-1900"]
+
+sattelzeit_window: [1770, 1830]
+
+# word2vec training
+word2vec:
+  vector_size: 200
+  window: 5
+  min_count: 50
+  workers: 4
+  epochs: 10
+  seed: 42
+
+# Network construction
+# top_k, not a fixed threshold: at this vocab scale (tens of thousands of
+# words per period) a 0.3 cosine threshold produced near-complete graphs
+# (density ~0.1, tens to hundreds of millions of edges per period) - useless
+# for community detection and impractically large as GraphML. top_k keeps
+# each word's 15 nearest neighbours, bounding the graph to roughly V*15 edges
+# regardless of vocab size.
+network:
+  similarity_threshold: 0.3   # unused while top_k is set; kept as a documented fallback
+  top_k: 15                   # keep only the k nearest neighbours per word
+
+# Community detection (Leiden)
+leiden:
+  resolution_sweep: [0.1, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0]
+  n_iterations: 10
+  seed: 42

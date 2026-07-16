@@ -1,0 +1,73 @@
+# One-off extraction for community labeling (not part of the main pipeline).
+# For each populated period, at a single fixed resolution, lists every
+# Leiden community's size and its top-degree member words - the same
+# "most-connected words per community" view the webapp's full-network mode
+# already computes (webapp/app.py:top_k_per_community), just dumped to JSON
+# instead of served over an API, so a human (or an agent) can read every
+# period's communities at once and assign each one a plain-language label.
+#
+# Output: <communities>/community_words_res<resolution>.json
+#   { period: { community_id_str: {n_words, top_words: [...]} } }
+
+import json
+import sys
+from collections import defaultdict
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+import igraph as ig
+import pandas as pd
+
+from pipeline_config import load_config
+
+RESOLUTION = 1.0
+TOP_K = 25  # words per community - enough to judge a theme confidently
+
+
+def main():
+    config = load_config()
+    data_root = Path(config["data_root"])
+    networks_dir = data_root / config["paths"]["networks"]
+    communities_dir = data_root / config["paths"]["communities"]
+
+    out = {}
+    for _, _, label in config["periods"]:
+        graph_path = networks_dir / f"{label}.graphml"
+        comm_path = communities_dir / f"{label}.csv"
+        if not graph_path.exists() or not comm_path.exists():
+            continue
+
+        g = ig.Graph.Read_GraphML(str(graph_path))
+        df = pd.read_csv(comm_path, keep_default_na=False, na_values=[])
+        col = f"res_{RESOLUTION}"
+        if col not in df.columns:
+            continue
+        comm_map = df.set_index("word")[col].to_dict()
+
+        degrees = g.degree()
+        by_community = defaultdict(list)
+        for v, d in zip(g.vs, degrees):
+            cid = comm_map.get(v["name"])
+            if cid is None:
+                continue
+            by_community[int(cid)].append((d, v["name"]))
+
+        period_out = {}
+        for cid, members in by_community.items():
+            members.sort(reverse=True)
+            period_out[str(cid)] = {
+                "n_words": len(members),
+                "top_words": [w for _, w in members[:TOP_K]],
+            }
+        out[label] = period_out
+        print(f"{label}: {len(period_out)} communities")
+
+    out_path = communities_dir / f"community_words_res{RESOLUTION}.json"
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(out, f, indent=2)
+    print(f"written -> {out_path}")
+
+
+if __name__ == "__main__":
+    main()

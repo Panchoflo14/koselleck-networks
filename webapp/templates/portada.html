@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>koselleck-networks</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="page portada-page">
+    {% include "_nav.html" %}
+    <header>
+      <span class="eyebrow">koselleck-networks</span>
+      <h1>Did the Sattelzeit reorganize the vocabulary as a system?</h1>
+      <p class="subtitle">Reinhart Koselleck argued that 1770-1830 was not just an era when many words changed
+      meaning independently, but a moment when the conceptual vocabulary of the language reorganized together,
+      as a system. This tool lets you explore the same underlying data - words and how closely they cluster
+      with each other, period by period - through two different interfaces. We're not yet sure which one is
+      more useful for a historian's own workflow, so both are here.</p>
+    </header>
+
+    <div class="portada-cards">
+      <a class="portada-card" href="{{ url_for('grafo') }}">
+        <span class="portada-card-eyebrow">Graph explorer</span>
+        <h2>See the network</h2>
+        <p>A word and its closest neighbours drawn as a network diagram. Move the period slider to watch the
+        neighbourhood - and the wider community structure - reorganize across time. Best for getting an
+        intuitive, visual sense of how a whole cluster of words moves together.</p>
+      </a>
+      <a class="portada-card" href="{{ url_for('buscador') }}">
+        <span class="portada-card-eyebrow">Word search</span>
+        <h2>Look up a word</h2>
+        <p>Type a word and get back a plain list: its closest neighbours by similarity, its community, and
+        whether that community changed since the period before. No diagram to read - closer to looking a word
+        up in a period dictionary or thesaurus.</p>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

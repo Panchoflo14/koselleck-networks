@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>koselleck-networks &middot; word search</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body data-seed-period="{{ seed_period }}" data-seed-word="{{ seed_word }}">
+  <div class="page buscador-page">
+    {% include "_nav.html" %}
+    <header>
+      <span class="eyebrow">koselleck-networks</span>
+      <h1>Word search</h1>
+      <p class="subtitle">Type a word and a period. You get back its closest neighbours by similarity - a plain
+      list, the same data as the graph explorer, no diagram to read - plus whether the word's community changed
+      since the period before.</p>
+    </header>
+
+    <div class="search-card">
+      <form id="search-form" class="search-form">
+        <div class="control-row">
+          <label for="search-input" class="control-label">Word</label>
+          <input type="text" id="search-input" placeholder="e.g. reason, virtue, nature..." autocomplete="off">
+        </div>
+        <div class="control-row">
+          <label for="search-period" class="control-label">Period</label>
+          <select id="search-period"></select>
+        </div>
+        <div class="control-row">
+          <button type="submit">Search</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="search-status" class="search-status"></div>
+
+    <div id="search-results" class="search-results hidden">
+      <div class="search-summary-card">
+        <h2 id="search-word-heading"></h2>
+        <dl id="search-word-meta" class="search-meta"></dl>
+        <details id="label-caveat" class="caveat">
+          <summary>why this community's name alone can be misleading</summary>
+          <p id="label-caveat-text">Loading...</p>
+        </details>
+      </div>
+
+      <div class="neighbors-card">
+        <h3>Closest neighbours in this period, by similarity</h3>
+        <p class="search-hint">Rows in the same community as the searched word are marked. Click a word to look it up in turn.</p>
+        <table class="neighbors-table">
+          <thead>
+            <tr><th>Word</th><th>Cosine similarity</th><th>Community</th></tr>
+          </thead>
+          <tbody id="neighbors-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='buscador.js') }}"></script>
+</body>
+</html>

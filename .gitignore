@@ -1,0 +1,19 @@
+﻿# data lives outside the repo; never commit corpora or models
+.venv/
+data/
+*.bin
+*.npy
+*.model
+*.vec
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+config.local.yml
+
+# editor / OS cruft
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+CLAUDE.md
