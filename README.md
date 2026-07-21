@@ -20,9 +20,11 @@ A fuller write-up of the method, aimed at both technical and non-technical reade
 
 ## Corpus
 
-Primary: TCP (EEBO-TCP 1500-1700, ECCO-TCP 1700-1800, Evans-TCP 1639-1800) - curated TEI/SGML, no OCR noise. Supplemented with Project Gutenberg for 1800-1900, since TCP ends at 1800 and the Sattelzeit runs to 1830.
+Primary: the Text Creation Partnership (TCP) - EEBO-TCP (1500-1700, both released phases), ECCO-TCP (1700-1800), and Evans-TCP (1639-1800). Curated, double-keyed TEI/SGML transcription, no OCR noise. Planned supplement: Project Gutenberg for 1800-1900, since TCP ends at 1800 and the Sattelzeit runs to 1830 - **not yet implemented**, there is no ingestion script for it in `src/` yet, so the pipeline as it stands only covers 1500-1800.
 
-**The corpus and the trained embeddings/networks are not included in this repository** - only the pipeline code that builds them. TCP access is restricted (obtained via institutional agreement, not freely redistributable), and the derived data is large (the per-period similarity networks alone run to several hundred MB). See Data below.
+**TCP is public domain.** All three components used here (EEBO-TCP phases 1 and 2, ECCO-TCP, and Evans-TCP) have concluded their period of exclusivity. In TCP's own words: "we impose no restrictions whatever, and... you may do anything with them that you like: you may translate them, edit them, revise them, illustrate them, perform them, or re-publish them, with or without attribution" ([licensing FAQ](https://www.textpartnership.net/pages/faq.html)).
+
+**The corpus and the trained embeddings/networks are still not included in this repository** - only the pipeline code that builds them. That's a size decision, not a rights one: the raw TCP zips and the derived per-period networks together run to many GB, and anyone can fetch the same public files directly (see Data below) rather than have this repo carry a copy.
 
 ## Repo layout
 
@@ -47,6 +49,25 @@ The pipeline expects a `data_root` folder with `corpus/`, `processed/`, `embeddi
 - Deployment / no local file: set the `DATA_ROOT` environment variable - it takes priority over both config files.
 
 Without real data, `python webapp/app.py` still runs but every period shows as a coverage gap.
+
+#### Getting the TCP corpus
+
+Download the bulk P4 XML zip shards straight from TCP (public domain, see Corpus above):
+
+- Official FAQ with current download links: [textpartnership.net/pages/faq.html](https://www.textpartnership.net/pages/faq.html)
+- Mirrors (Dropbox, with Box.com as backup) are linked from that FAQ for EEBO Phase 1 & 2, ECCO, and Evans.
+
+`parse_tcp.py` reads the zips in place (no need to unzip them first) and expects this layout under `<data_root>/corpus/tcp/`:
+
+```
+corpus/tcp/
+  eebo/eebo_phase1/P4_XML_TCP/*.zip
+  eebo/eebo_phase2/P4_XML_TCP_Ph2/*.zip
+  ecco/p4/ecco_p4_released.zip
+  evans/P4_XML_TCP/N[0-3].zip
+```
+
+Only the "released" (quality-checked) shards are read; TCP's "unedited" variants are skipped on purpose. There is currently no Gutenberg ingestion step, so with TCP alone the pipeline covers 1500-1800; periods past that stay empty until that supplement is built.
 
 ## Running the pipeline
 
@@ -84,8 +105,8 @@ For a free/cheap host (e.g. [Render](https://render.com)):
 ## Collaborators
 
 - Ryan Heuser - author of "Computing Koselleck," the word-level antecedent method this project extends.
-- Jamie McGarry - provided TCP corpus access and Cambridge archive support.
+- Jamie McGarry - pointed to the public TCP corpus and has Cambridge institutional access to the fuller restricted EEBO/ECCO/Evans archives beyond the public TCP subset, if a future window needs more text than TCP alone provides.
 
 ## License
 
-MIT for the code in this repository (see `LICENSE`). This does not extend to the corpus itself (TCP access is separately restricted) or to any embeddings/network data, which are not included here.
+MIT for the code in this repository (see `LICENSE`). The TCP corpus itself is public domain (see Corpus above) and not affected by this repo's license either way. Trained embeddings and networks are not included here at all, for size reasons, not rights ones.
