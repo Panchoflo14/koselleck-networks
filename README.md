@@ -16,7 +16,7 @@ This project extends that test to the network level: build a word-similarity net
 6. Test whether that reorganization peaks in 1770-1830, and whether it survives the resolution sweep - not just one cherry-picked setting.
 7. Cross-check words that changed cluster at the pivot against dated dictionary senses (OED etc.) as a second, independent line of evidence.
 
-Full method notes and current findings live in the project's Obsidian cell, not in this repo.
+A fuller write-up of the method, aimed at both technical and non-technical readers, is in [`docs/method.pdf`](docs/method.pdf) (source in `docs/method.tex`). Current findings and day-to-day project notes live in the project's Obsidian cell, not in this repo.
 
 ## Corpus
 
@@ -28,6 +28,7 @@ Primary: TCP (EEBO-TCP 1500-1700, ECCO-TCP 1700-1800, Evans-TCP 1639-1800) - cur
 
 - `src/` - the pipeline: `parse_tcp.py` -> `bucket_periods.py` -> `embeddings.py` -> `network.py` -> `community.py` -> `metrics.py`, plus `pipeline_config.py` (shared config loader) and one-off analysis scripts (`extract_community_words.py`, `subsample_control.py`).
 - `webapp/` - a Flask app for exploring the results interactively: a graph explorer (`/grafo`) and a plain word-search tool (`/buscador`), both reading the same pre-built per-period networks.
+- `docs/` - `method.tex`/`method.pdf`, a plain-language method write-up for a mixed technical/non-technical audience.
 - `config.yml` - shared, versioned settings (period slices, word2vec/Leiden hyperparameters).
 
 ## Setup

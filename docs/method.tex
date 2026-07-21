@@ -1,0 +1,226 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{montserrat}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{setspace}
+
+\setstretch{1.2}
+\setlist[enumerate]{itemsep=0.6em}
+\setlength{\parskip}{0.4em}
+
+\definecolor{accent}{HTML}{1B3A5C}
+
+\titleformat{\section}{\normalfont\Large\bfseries\color{accent}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries\color{accent}}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.4em}{0.8em}
+\titlespacing*{\subsection}{0pt}{1.2em}{0.6em}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=accent,
+  urlcolor=accent,
+  citecolor=accent,
+  pdftitle={Testing the Sattelzeit as a Network Event},
+}
+
+\title{\color{accent}\textbf{Testing the Sattelzeit as a Network Event}\\[0.3em]
+\Large\normalfont A method note on \texttt{koselleck-networks}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+{\hypersetup{linkcolor=accent}
+\tableofcontents}
+\vspace{1em}
+
+\newpage
+
+\section{Context}
+
+The historian Reinhart Koselleck argued that the period 1770 -- 1830 (the
+\textbf{Sattelzeit}, German for ``saddle period'') was not simply an era
+in which many words happened to change meaning at the same time. He
+claimed it was a moment when the whole vocabulary of politics and society
+reorganized \textbf{as a system} -- concepts shifted together, in
+relation to one another, rather than drifting independently one at a
+time. This has always been argued in prose, from close reading of texts.
+It has never been tested computationally.
+
+Ryan Heuser's \emph{Computing Koselleck} took the first step towards such
+a test: he trained a separate word-embedding model for each historical
+period and measured how far each individual word moves from one period
+to the next. He found that this movement is unusually large around
+1770 -- 1830, which supports the idea that something real happened in that
+window. But his method looks at one word at a time. It cannot say
+whether words moved \textbf{together}, as a system reorganizing around a
+shared structure, or whether each word's shift is its own independent
+event that simply happens to cluster in time.
+
+This project adds that second, missing test. Instead of asking how far a
+single word moves, it asks whether the \textbf{groupings} among words --
+the way the whole vocabulary is organized into clusters of related
+meaning -- change unusually around the same decades. If Koselleck is
+right, we should see the cluster structure itself reorganize at the
+Sattelzeit, not just individual words drifting off on their own.
+
+\section{Method}
+
+The method reuses the same per-period training that Heuser's approach
+uses, so the two studies remain directly comparable, and adds a network
+layer on top that a word-by-word approach cannot produce.
+
+\begin{enumerate}[leftmargin=*]
+
+  \item \textbf{Split the corpus into time windows.} The corpus is
+    divided into even 20-year windows, from 1500 to 1900. The windows are
+    uniform across the whole timeline, not just around the Sattelzeit: if
+    the method measured more finely right where reorganization was
+    expected and more coarsely everywhere else, it would be biased toward
+    finding exactly what it was looking for. Heuser's own results, in
+    fact, show a second spike of word-level change around 1905 -- 1925,
+    unrelated to the Sattelzeit -- a pattern that a Sattelzeit-only
+    sampling scheme could never have picked up.
+
+  \item \textbf{Train a language model per period.} For each time window,
+    a model (\textbf{word2vec}) is trained independently, learning a
+    numeric representation of every word from how it is actually used in
+    that period's text: words that appear in similar contexts end up with
+    similar representations. Training a separate model per period, rather
+    than one model updated continuously, is what makes it possible to
+    later measure both individual word drift and whole-system
+    reorganization: a word's meaning only makes sense relative to the
+    other words trained alongside it, in that same period.
+
+  \item \textbf{Build a word-similarity network.} From those
+    representations, a network is built for each period: every word is a
+    node, linked to its 15 closest neighbours by \textbf{cosine
+    similarity} (a standard measure of how alike two words'
+    representations are). A fixed number of nearest neighbours is used
+    instead of a similarity threshold, because at this vocabulary scale a
+    fixed threshold produces networks that are almost fully connected --
+    tens of millions of edges per period, unusable and with no meaningful
+    structure to cluster. Purely grammatical words (articles,
+    prepositions, pronouns) and single-letter tokens are excluded as
+    network nodes: the interest is in words that carry conceptual
+    content, not the grammatical scaffolding of the language (those
+    grammatical words are still used during training itself, since they
+    help place every other word correctly).
+
+  \item \textbf{Detect communities.} A \textbf{community detection}
+    algorithm (\textbf{Leiden}) is run on each network, grouping words
+    that are densely connected to one another. In practice, these groups
+    function as semantic fields: sets of words that, in that period, are
+    used in similar ways to each other more than to the rest of the
+    vocabulary.
+
+  \item \textbf{Repeat detection at several levels of detail.} Community
+    detection does not have one single ``correct'' answer: a parameter
+    called \textbf{resolution} controls how many groups appear and how
+    large they are. For that reason every network is processed at seven
+    different resolution settings, and any claim about reorganization has
+    to hold up across most of those settings, not just one chosen after
+    the fact. This is a hard rule of the project: no finding is reported
+    if it only holds at a single, convenient resolution.
+
+  \item \textbf{Compare consecutive periods.} For each pair of
+    consecutive periods, the comparison is restricted to words that
+    appear in both (each period has its own vocabulary). The best
+    possible match between one period's groups and the next period's
+    groups is found first -- group numbers do not mean the same thing
+    from one period to the next, so the correspondence has to be
+    established before anything can be compared -- and then the fraction
+    of shared words that still ended up in a different group, despite
+    that best match, is measured. That fraction, how much of the shared
+    vocabulary ``migrated'' to a new group, is what this project calls
+    the \textbf{migration fraction} -- its central measurement of how
+    much reorganization happened between two periods.
+
+  \item \textbf{Test whether reorganization concentrates at the
+    Sattelzeit.} The hypothesis predicts that the migration fraction
+    should be unusually high specifically for the transitions that fall
+    inside or close out the 1770 -- 1830 window, compared to every other
+    transition across the full 1500 -- 1900 timeline.
+
+  \item \textbf{Dictionary cross-check (not yet implemented).} As a
+    second line of evidence, independent of the network entirely, the
+    plan is to take the words that change group right at the pivot and
+    check whether the OED or other period dictionaries independently
+    record a dated sense change at the same moment. This layer is not yet
+    designed: the corpus mixes British and American sources, and matching
+    each source against the wrong regional dictionary would invalidate
+    the comparison, so the choice of dictionary per source has to be
+    resolved first.
+
+\end{enumerate}
+
+\subsection{Corpus}
+
+The primary source is the \textbf{Text Creation Partnership (TCP)}:
+curated, manually corrected transcriptions with no OCR noise, covering
+1500 -- 1800 (EEBO-TCP, ECCO-TCP, Evans-TCP). Since the Sattelzeit extends
+to 1830 and TCP stops at 1800, the plan is to supplement 1800 -- 1900 with
+Project Gutenberg. HistWords (pre-trained historical embeddings) is used
+only as an independent sanity check, not as primary evidence.
+
+\section{The interactive explorer}
+
+Alongside the pipeline, a small web tool makes the per-period networks
+directly explorable, without reading raw numbers. It has two views of
+the same underlying data.
+
+\textbf{Graph explorer.} A period slider drives a force-directed network
+diagram: nodes are words, their size reflects how connected they are,
+and their color marks which community they belong to in that period. A
+search box focuses the view on one word and its neighbourhood; moving the
+slider one period at a time shows that neighbourhood evolving, and a
+change in a word's color between periods marks a real change of
+community, not just a coincidence of the diagram's layout. A side panel
+explains the method in plain terms and shows, for the currently selected
+resolution, how the migration measurement holds up across all seven
+resolution settings -- the same robustness check described above, made
+visible rather than just claimed.
+
+\textbf{Word search.} The same underlying data, presented as a plain
+table instead of a diagram: type a word and a period, and get back its
+closest neighbours by similarity, each neighbour's community, and whether
+the searched word's own community changed since the previous period.
+Useful when the actual numbers matter more than the picture.
+
+Every community shown in either view carries a short, plain-English
+label (for example ``Government \& Law'', ``Moral Character \& Virtue'').
+These labels were generated by having a language model read each
+community's most representative words and summarize the shared theme in
+a few words -- a convenience for a human reader, not a finding in
+themselves. Roughly half of all communities were honestly flagged, by
+the same process, as \textbf{``mixed''}: the corpus is multilingual
+(English, Latin, Law French, Welsh, Scots, and more) and early modern,
+and a community detected by this method sometimes groups words by shared
+grammar -- verb conjugations, comparative forms, spelling variants --
+rather than by shared topic. Both views surface this caveat directly next
+to the labels, rather than presenting every label as equally reliable.
+
+\section{Current limitations}
+
+Two limitations shape what can be claimed right now, and both are
+visible in the tool itself rather than hidden.
+
+\textbf{Corpus coverage.} The corpus does not yet cover 1800 -- 1900 with
+the same density as earlier periods, since the Gutenberg supplement
+described above has not been sourced yet. The periods with the least
+surviving text are, not coincidentally, the ones closing the Sattelzeit
+window, so any comparison across that boundary currently rests on a
+thinner sample than the rest of the timeline.
+
+\textbf{Label reliability.} The community labels described above are a
+single, unvalidated read-through by a language model, not a checked
+ground truth -- useful for orientation, not for citation.
+
+\end{document}
