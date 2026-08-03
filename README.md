@@ -1,14 +1,18 @@
-# koselleck-networks
+# Koselleck Machine
+
+*(repo name: `koselleck-networks`)*
 
 Does word meaning in English shift together, as a system, during the Sattelzeit (roughly 1770-1830) - or does it just look that way because we usually study one word at a time?
 
-Reinhart Koselleck argued that this period was a collective turning point in political and social vocabulary, not just a string of unrelated word changes. Ryan Heuser's ["Computing Koselleck"](https://ryanheuser.org) tested this computationally by training a word embedding per time period and tracking how individual words drift - and confirmed a real spike of change around 1770-1830. But his method looks at one word at a time, so it can't say whether words moved *together*, as a reorganizing system, or just happened to move at the same time for unrelated reasons.
+Reinhart Koselleck argued that this period was a collective turning point in political and social vocabulary, not just a string of unrelated word changes. Ryan Heuser's ["Computing Koselleck"](https://doi.org/10.1017/9781009263610.012) tested this computationally by training a word embedding per time period and tracking how individual words drift - and confirmed a real spike of change around 1770-1830. But his method looks at one word at a time, so it can't say whether words moved *together*, as a reorganizing system, or just happened to move at the same time for unrelated reasons.
 
 This project extends that test to the network level: build a word-similarity network per period, run community detection on it, and measure whether the *cluster structure itself* reorganizes around the Sattelzeit - something a one-word-at-a-time method can't see.
 
+What this repository ships is the method, not a dataset: the pipeline that turns a period-sliced corpus into per-period networks, communities, and reorganization measurements, plus the **Koselleck Machine** - a small web tool for inspecting the result. The corpus is public and fetched separately (see [Data](#data)), and every trained model here is rebuildable from it - the contribution is the measurement, not the data.
+
 ## Method, in short
 
-1. Split the corpus into uniform 20-year windows (1500-1900).
+1. Split the corpus into uniform 20-year windows - currently 1500-1900, set by the `periods` list in `config.yml`. That range matches the corpus assembled so far, not a limit of the method: the same pipeline runs unchanged over any other span or window size, given a period-dated corpus to feed it.
 2. Train a separate word embedding on each window (mirrors Heuser, keeps results comparable).
 3. Build a word-similarity network per window - each word linked to its 15 closest neighbours by cosine similarity.
 4. Run community detection (Leiden) on each network, at seven levels of clustering detail.
@@ -29,7 +33,7 @@ Primary: the Text Creation Partnership (TCP) - EEBO-TCP (1500-1700, both release
 ## Repo layout
 
 - `src/` - the pipeline: `parse_tcp.py` -> `bucket_periods.py` -> `embeddings.py` -> `network.py` -> `community.py` -> `metrics.py`, plus `pipeline_config.py` (shared config loader) and one-off analysis scripts (`extract_community_words.py`, `subsample_control.py`).
-- `webapp/` - a Flask app for exploring the results interactively: a graph explorer (`/grafo`) and a plain word-search tool (`/buscador`), both reading the same pre-built per-period networks.
+- `webapp/` - the Koselleck Machine, a Flask app for exploring the results interactively: a graph explorer (`/grafo`) and a plain word-search tool (`/buscador`), both reading the same pre-built per-period networks.
 - `docs/` - `method.tex`/`method.pdf`, a plain-language method write-up for a mixed technical/non-technical audience.
 - `config.yml` - shared, versioned settings (period slices, word2vec/Leiden hyperparameters).
 
@@ -48,26 +52,77 @@ The pipeline expects a `data_root` folder with `corpus/`, `processed/`, `embeddi
 - Local development: create `config.local.yml` (gitignored) with `data_root: "/path/to/your/data"`.
 - Deployment / no local file: set the `DATA_ROOT` environment variable - it takes priority over both config files.
 
+Once the pipeline has run, a populated `data_root` looks like this:
+
+```
+<data_root>/
+  corpus/
+    tcp/regions/<region>/<source>/*.zip   raw TCP P4 XML shards (layout below)
+    gutenberg/                            placeholder for the planned 1800-1900 supplement, unused
+  processed/
+    all_docs.jsonl                        one JSON record per parsed document (region, source, doc_id, year, text)
+    manifest.csv                          region,source,doc_id,year,chars - one row per document
+    periods/                              corpus text split into 20-year windows: 1500-1520.txt, 1500-1520_british.txt, ...
+    vocab/                                per-period vocabulary counts
+  embeddings/
+    1500-1520.model                       one word2vec model per period, plus
+    1500-1520_british.model               one per period per region where region-split data was built
+  networks/
+    1500-1520.graphml                     one word-similarity network per period and variant
+  communities/
+    1500-1520.csv                         Leiden community assignments per period and variant
+```
+
+Only `corpus/` is filled in by hand; everything else is created by the pipeline. Files ending `_<region>` are the optional region-split variants - absent if the pipeline only ran on the combined corpus, and the webapp adapts either way. Exact folder names come from `config.yml`'s `paths` block, which is the authoritative reference if you rename anything.
+
 Without real data, `python webapp/app.py` still runs but every period shows as a coverage gap.
 
 #### Getting the TCP corpus
 
 Download the bulk P4 XML zip shards straight from TCP (public domain, see Corpus above):
 
-- Official FAQ with current download links: [textpartnership.net/pages/faq.html](https://www.textpartnership.net/pages/faq.html)
-- Mirrors (Dropbox, with Box.com as backup) are linked from that FAQ for EEBO Phase 1 & 2, ECCO, and Evans.
+- Official FAQ (licensing, current links): [textpartnership.net/pages/faq.html](https://www.textpartnership.net/pages/faq.html)
+- [EEBO-TCP (phases 1 & 2)](https://www.dropbox.com/scl/fo/81t1fgq4gfaggt9y4p67i/ACgCHAzfcwkZEebBR8GNO8Q?rlkey=2fqe4jvipmmu06vyzurx42guq&e=1&dl=0)
+- [ECCO-TCP](https://www.dropbox.com/scl/fo/odtdrh2uzc9arlqsx4fn3/AC8NHey70dE8YK6npd3hrQ8?rlkey=pcqpcue5ntdyofkufjeluhhnc&e=1&dl=0)
+- [Evans-TCP](https://www.dropbox.com/scl/fo/abjybd1nhzz7g54ts3bna/AM5Bx1GDhKLGcG2avqc8PL4?rlkey=1shvvca84dbwbbhdqzaoscwzu&e=1&dl=0)
 
-`parse_tcp.py` reads the zips in place (no need to unzip them first) and expects this layout under `<data_root>/corpus/tcp/`:
+`parse_tcp.py` reads the zips in place (no need to unzip them first) and discovers them itself by scanning `<data_root>/corpus/tcp/regions/<region>/<source>/*.zip` - it does not hardcode which regions or sources exist. Lay the TCP shards out like this:
 
 ```
-corpus/tcp/
-  eebo/eebo_phase1/P4_XML_TCP/*.zip
-  eebo/eebo_phase2/P4_XML_TCP_Ph2/*.zip
-  ecco/p4/ecco_p4_released.zip
-  evans/P4_XML_TCP/N[0-3].zip
+corpus/tcp/regions/
+  british/eebo_phase1/*.zip   (P4 XML shards, e.g. A0.zip..B3.zip)
+  british/eebo_phase2/*.zip
+  british/ecco/ecco_p4_released.zip
+  american/evans/*.zip        (N0.zip..N3.zip)
 ```
 
-Only the "released" (quality-checked) shards are read; TCP's "unedited" variants are skipped on purpose. There is currently no Gutenberg ingestion step, so with TCP alone the pipeline covers 1500-1800; periods past that stay empty until that supplement is built.
+The top-level folder name under `regions/` (here `british`/`american`) becomes the region tag used throughout the pipeline and the webapp's region toggle (see below) - it can be anything, the code never assumes British/American specifically. The next level down (`eebo_phase1`, `evans`, ...) is just a label kept for the manifest/diagnostics and can also be named freely. If what you want to add is *not* a TCP shard, see [Adding a new corpus](#adding-a-new-corpus) below.
+
+Only "released" (quality-checked) shards are read; TCP's "unedited" variants are skipped on purpose (matched by filename, regardless of which region/source folder they're in). There is currently no Gutenberg ingestion step, so with TCP alone the pipeline covers 1500-1800; periods past that stay empty until that supplement is built.
+
+Everything under `corpus/tcp/` outside `regions/` (older format variants, reference files) is ignored by the pipeline - safe to leave in place or delete, your call.
+
+#### Adding a new corpus
+
+Two cases. Only one of them touches code.
+
+**Case A - it is already in TCP's P4 XML format** (another TCP release, or a re-packaged TCP subset). **No code change at all.** Drop the zip(s) at:
+
+```
+<data_root>/corpus/tcp/regions/<a-region-name>/<a-source-name>/*.zip
+```
+
+and rerun the pipeline from `src/parse_tcp.py`. Both folder names are free-form and nothing needs registering anywhere: the *region* level becomes the region tag carried through the whole pipeline and the webapp's region toggle, and the *source* level is just a label kept in the manifest for diagnostics. `parse_tcp.py` discovers both by scanning the folder tree. Shards whose filename marks them as TCP "unedited" variants are skipped automatically.
+
+**Case B - it is in any other raw format** (plain text, JSON, a different XML flavour, OCR dumps). **One file changes: `src/parse_tcp.py`.** Add a reader next to `iter_xml_members` that walks the new format and, for each document, produces the same record the TCP path already writes to `processed/all_docs.jsonl`:
+
+```json
+{"region": "...", "source": "...", "doc_id": "...", "year": 1782, "text": "..."}
+```
+
+plus the matching `region,source,doc_id,year,chars` row in `manifest.csv`. Documents with no extractable year or no text are dropped, same as in the TCP path. That is the entire contract: everything downstream - `bucket_periods.py`, `embeddings.py`, `network.py`, `community.py`, `metrics.py`, and the webapp - reads only those normalised records and needs no change. Period boundaries and model hyperparameters are configuration, not code, and live in `config.yml`.
+
+In both cases, if the new material introduces a region name that did not exist before, the region-split outputs and the webapp's region toggle pick it up on their own - there is no list of valid regions anywhere to update.
 
 ## Running the pipeline
 
@@ -90,7 +145,11 @@ python webapp/app.py
 
 Then open http://127.0.0.1:5000. Three pages: a landing page, `/grafo` (D3 graph explorer - pick a period and a word, see its neighbourhood; toggle a full-network sampled view), and `/buscador` (plain word-lookup table: nearest neighbours, community, whether the word's community changed since the previous period).
 
+If the pipeline was run for region-split data too (see Data above), both pages also expose a region toggle (combined / one option per region built) - it only appears for regions this deployment actually has built network files for, read off the data itself, never hardcoded.
+
 ## Deployment
+
+**Status: not yet live.** Right now the Koselleck Machine only runs locally (see [Running the webapp locally](#running-the-webapp-locally) above) - a hosted deployment is in progress, not finished. The instructions below are the intended setup, not a working URL yet.
 
 The Flask app in `webapp/` runs as-is on any host that can run Python (it is **not** a static site - GitHub Pages alone cannot serve it, since Pages only serves static files and this app computes responses server-side from the network data on every request).
 

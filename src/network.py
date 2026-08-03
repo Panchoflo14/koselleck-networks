@@ -16,7 +16,7 @@ import numpy as np
 from gensim.models import Word2Vec
 from tqdm import tqdm
 
-from pipeline_config import load_config
+from pipeline_config import load_config, variant_label, variant_labels
 
 BATCH_SIZE = 2000
 
@@ -121,23 +121,28 @@ def main():
     threshold = net_cfg.get("similarity_threshold")
     top_k = net_cfg.get("top_k")
 
-    for _, _, label in config["periods"]:
-        model_path = embeddings_dir / f"{label}.model"
+    for label, region in variant_labels(config):
+        variant = variant_label(label, region)
+        out_path = networks_dir / f"{variant}.graphml"
+        if out_path.exists():
+            print(f"skip {variant}: graphml already exists (delete it to force rebuilding)")
+            continue
+
+        model_path = embeddings_dir / f"{variant}.model"
         if not model_path.exists():
-            print(f"skip {label}: no model file")
+            print(f"skip {variant}: no model file")
             continue
 
         model = Word2Vec.load(str(model_path))
-        print(f"{label}: building graph over {len(model.wv)} words")
+        print(f"{variant}: building graph over {len(model.wv)} words")
 
-        g = build_graph(model, threshold=threshold, top_k=top_k, label=label)
+        g = build_graph(model, threshold=threshold, top_k=top_k, label=variant)
 
-        print(f"{label}: writing graphml ({g.vcount()} nodes, {g.ecount()} edges)...")
-        out_path = networks_dir / f"{label}.graphml"
+        print(f"{variant}: writing graphml ({g.vcount()} nodes, {g.ecount()} edges)...")
         g.write_graphml(str(out_path))
 
         density = g.ecount() / (g.vcount() * (g.vcount() - 1) / 2) if g.vcount() > 1 else 0
-        print(f"{label}: done, density {density:.4f} -> {out_path}")
+        print(f"{variant}: done, density {density:.4f} -> {out_path}")
 
 
 if __name__ == "__main__":

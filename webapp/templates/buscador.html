@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>koselleck-networks &middot; word search</title>
+<title>Koselleck Machine &middot; word search</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body data-seed-period="{{ seed_period }}" data-seed-word="{{ seed_word }}">
   <div class="page buscador-page">
     {% include "_nav.html" %}
     <header>
-      <span class="eyebrow">koselleck-networks</span>
+      <span class="eyebrow">Koselleck Machine</span>
       <h1>Word search</h1>
       <p class="subtitle">Type a word and a period. You get back its closest neighbours by similarity - a plain
       list, the same data as the graph explorer, no diagram to read - plus whether the word's community changed
@@ -26,6 +26,10 @@
         <div class="control-row">
           <label for="search-period" class="control-label">Period</label>
           <select id="search-period"></select>
+        </div>
+        <div class="control-row" id="region-row" style="display:none;">
+          <span class="control-label">Sources</span>
+          <div id="region-toggle" class="region-toggle"></div>
         </div>
         <div class="control-row">
           <button type="submit">Search</button>

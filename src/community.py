@@ -14,7 +14,7 @@ import igraph as ig
 import leidenalg as la
 from tqdm import tqdm
 
-from pipeline_config import load_config
+from pipeline_config import load_config, variant_label, variant_labels
 
 
 def run_sweep(g, resolutions, n_iterations, seed):
@@ -52,19 +52,21 @@ def main():
     seed = leiden_cfg["seed"]
 
     summary_rows = []
+    variants = variant_labels(config)
 
-    for _, _, label in tqdm(config["periods"], desc="periods"):
-        graph_path = networks_dir / f"{label}.graphml"
+    for label, region in tqdm(variants, desc="periods"):
+        variant = variant_label(label, region)
+        graph_path = networks_dir / f"{variant}.graphml"
         if not graph_path.exists():
-            print(f"skip {label}: no network file")
+            print(f"skip {variant}: no network file")
             continue
 
         g = ig.Graph.Read_GraphML(str(graph_path))
-        print(f"{label}: sweeping {len(resolutions)} resolutions over {g.vcount()} nodes")
+        print(f"{variant}: sweeping {len(resolutions)} resolutions over {g.vcount()} nodes")
 
         memberships, modularities = run_sweep(g, resolutions, n_iterations, seed)
 
-        out_path = communities_dir / f"{label}.csv"
+        out_path = communities_dir / f"{variant}.csv"
         with open(out_path, "w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
             writer.writerow(["word"] + [f"res_{res}" for res in resolutions])
@@ -73,8 +75,8 @@ def main():
 
         for res in resolutions:
             n_communities = len(set(memberships[res]))
-            summary_rows.append([label, res, n_communities, modularities[res]])
-            print(f"{label}: res={res} -> {n_communities} communities, modularity={modularities[res]:.4f}")
+            summary_rows.append([variant, res, n_communities, modularities[res]])
+            print(f"{variant}: res={res} -> {n_communities} communities, modularity={modularities[res]:.4f}")
 
     summary_path = communities_dir / "modularity_summary.csv"
     with open(summary_path, "w", newline="", encoding="utf-8") as f:

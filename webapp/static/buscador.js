@@ -13,12 +13,68 @@ const resultsEl = document.getElementById("search-results");
 const wordHeadingEl = document.getElementById("search-word-heading");
 const wordMetaEl = document.getElementById("search-word-meta");
 const neighborsBody = document.getElementById("neighbors-body");
+const regionRow = document.getElementById("region-row");
+const regionToggleEl = document.getElementById("region-toggle");
 
 const SEED_PERIOD = document.body.dataset.seedPeriod;
 const SEED_WORD = document.body.dataset.seedWord;
 
 let periods = [];
+let REGIONS = [];
+let activeRegion = null; // null = combined; otherwise one of REGIONS
 const wordPeriodsCache = new Map();
+
+function periodHasData(p) {
+  return activeRegion ? p.regions.includes(activeRegion) : p.has_data;
+}
+
+async function loadRegions() {
+  const res = await fetch("/api/regions");
+  REGIONS = await res.json();
+  renderRegionToggle();
+}
+
+function renderRegionToggle() {
+  if (!REGIONS.length) {
+    regionRow.style.display = "none";
+    return;
+  }
+  regionRow.style.display = "";
+  regionToggleEl.innerHTML = "";
+  const options = [{ value: null, label: "Combined" }]
+    .concat(REGIONS.map((r) => ({ value: r, label: r.charAt(0).toUpperCase() + r.slice(1) })));
+  options.forEach((opt) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "region-btn" + (activeRegion === opt.value ? " active" : "");
+    btn.textContent = opt.label;
+    btn.addEventListener("click", () => setRegion(opt.value));
+    regionToggleEl.appendChild(btn);
+  });
+}
+
+function setRegion(region) {
+  if (region === activeRegion) return;
+  activeRegion = region;
+  renderRegionToggle();
+  renderPeriodOptions();
+  if (inputEl.value.trim()) runSearch(inputEl.value, periodSelect.value);
+}
+
+function renderPeriodOptions() {
+  const current = periodSelect.value;
+  periodSelect.innerHTML = "";
+  periods.forEach((p) => {
+    const has = periodHasData(p);
+    const opt = document.createElement("option");
+    opt.value = p.label;
+    opt.textContent = p.label + (has ? "" : " (no data)");
+    opt.disabled = !has;
+    periodSelect.appendChild(opt);
+  });
+  const stillValid = periods.find((p) => p.label === current && periodHasData(p));
+  periodSelect.value = stillValid ? current : (periods.find((p) => periodHasData(p)) || {}).label || "";
+}
 
 // Runs once at load - the mixed-fraction is a property of the whole
 // labeling pass (all 308 communities), not of whatever word is on screen.
@@ -40,16 +96,10 @@ loadLabelCaveat();
 async function loadPeriods() {
   const res = await fetch("/api/periods");
   periods = await res.json();
-  periodSelect.innerHTML = "";
-  periods.forEach((p) => {
-    const opt = document.createElement("option");
-    opt.value = p.label;
-    opt.textContent = p.label + (p.has_data ? "" : " (no data)");
-    opt.disabled = !p.has_data;
-    periodSelect.appendChild(opt);
-  });
-  const seedIndex = periods.findIndex((p) => p.label === SEED_PERIOD && p.has_data);
-  periodSelect.value = seedIndex >= 0 ? SEED_PERIOD : (periods.find((p) => p.has_data) || {}).label || "";
+  await loadRegions();
+  renderPeriodOptions();
+  const seedIndex = periods.findIndex((p) => p.label === SEED_PERIOD && periodHasData(p));
+  if (seedIndex >= 0) periodSelect.value = SEED_PERIOD;
 
   if (SEED_WORD) {
     inputEl.value = SEED_WORD;
@@ -82,10 +132,14 @@ async function runSearch(rawWord, periodLabel) {
   statusEl.textContent = `Searching "${word}" in ${periodLabel}...`;
   resultsEl.classList.add("hidden");
 
-  let res = await fetch(`/api/search/${encodeURIComponent(periodLabel)}/${encodeURIComponent(word)}`);
+  const regionParam = activeRegion ? `?region=${encodeURIComponent(activeRegion)}` : "";
+  let res = await fetch(`/api/search/${encodeURIComponent(periodLabel)}/${encodeURIComponent(word)}${regionParam}`);
   let data = await res.json();
 
   if (!data.found) {
+    // word-periods is combined-only (see webapp/app.py) - a fine fallback
+    // even in region mode, it just isn't guaranteed to land on a period the
+    // active region also has data for; the second fetch below still checks.
     const wordPeriods = await getWordPeriods(word);
     if (!wordPeriods.length) {
       statusEl.textContent = `"${word}" doesn't appear in any period of this corpus. Try another word.`;
@@ -94,11 +148,13 @@ async function runSearch(rawWord, periodLabel) {
     if (!wordPeriods.includes(periodLabel)) {
       periodLabel = wordPeriods[0];
       periodSelect.value = periodLabel;
-      statusEl.textContent = `"${word}" isn't in the period you had selected - jumped to ${periodLabel}, its earliest appearance.`;
-      res = await fetch(`/api/search/${encodeURIComponent(periodLabel)}/${encodeURIComponent(word)}`);
+      const regionNote = activeRegion ? ` (${activeRegion})` : "";
+      statusEl.textContent = `"${word}" isn't in the period you had selected - jumped to ${periodLabel}${regionNote}, its earliest appearance.`;
+      res = await fetch(`/api/search/${encodeURIComponent(periodLabel)}/${encodeURIComponent(word)}${regionParam}`);
       data = await res.json();
       if (!data.found) {
-        statusEl.textContent = `"${word}" could not be looked up in ${periodLabel}. Try another word.`;
+        const regionSuffix = activeRegion ? ` for the ${activeRegion} source` : "";
+        statusEl.textContent = `"${word}" could not be looked up in ${periodLabel}${regionSuffix}. Try another word.`;
         return;
       }
     }

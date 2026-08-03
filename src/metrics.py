@@ -22,7 +22,7 @@ import numpy as np
 from scipy.optimize import linear_sum_assignment
 from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score
 
-from pipeline_config import load_config
+from pipeline_config import discover_regions, load_config, variant_label
 
 MIN_SHARED_WORDS = 20
 
@@ -77,32 +77,39 @@ def main():
     communities_dir = data_root / config["paths"]["communities"]
 
     resolutions = config["leiden"]["resolution_sweep"]
-    labels = [label for _, _, label in config["periods"]]
+    base_labels = [label for _, _, label in config["periods"]]
+    regions = discover_regions(config)
 
     rows = []
-    for label_a, label_b in zip(labels, labels[1:]):
-        path_a = communities_dir / f"{label_a}.csv"
-        path_b = communities_dir / f"{label_b}.csv"
-        if not path_a.exists() or not path_b.exists():
-            print(f"skip {label_a} -> {label_b}: missing community file")
-            continue
+    # consecutive-period transitions are computed separately per variant
+    # (combined, then each region) - never across regions, since a region's
+    # own chronological reorganization is the thing being measured, not how
+    # one region's period compares to a different region's neighbouring one.
+    for region in [None] + regions:
+        labels = [variant_label(label, region) for label in base_labels]
+        for label_a, label_b in zip(labels, labels[1:]):
+            path_a = communities_dir / f"{label_a}.csv"
+            path_b = communities_dir / f"{label_b}.csv"
+            if not path_a.exists() or not path_b.exists():
+                print(f"skip {label_a} -> {label_b}: missing community file")
+                continue
 
-        part_a = load_partitions(path_a, resolutions)
-        part_b = load_partitions(path_b, resolutions)
-        shared = sorted(set(part_a) & set(part_b))
-        if len(shared) < MIN_SHARED_WORDS:
-            print(f"skip {label_a} -> {label_b}: only {len(shared)} shared words")
-            continue
+            part_a = load_partitions(path_a, resolutions)
+            part_b = load_partitions(path_b, resolutions)
+            shared = sorted(set(part_a) & set(part_b))
+            if len(shared) < MIN_SHARED_WORDS:
+                print(f"skip {label_a} -> {label_b}: only {len(shared)} shared words")
+                continue
 
-        for res in resolutions:
-            labels_a = [part_a[w][res] for w in shared]
-            labels_b = [part_b[w][res] for w in shared]
-            nmi = normalized_mutual_info_score(labels_a, labels_b)
-            ari = adjusted_rand_score(labels_a, labels_b)
-            migration = migration_fraction(labels_a, labels_b)
-            rows.append([label_a, label_b, res, len(shared), nmi, ari, migration])
-            print(f"{label_a} -> {label_b}: res={res} n_shared={len(shared)} "
-                  f"nmi={nmi:.4f} ari={ari:.4f} migration={migration:.4f}")
+            for res in resolutions:
+                labels_a = [part_a[w][res] for w in shared]
+                labels_b = [part_b[w][res] for w in shared]
+                nmi = normalized_mutual_info_score(labels_a, labels_b)
+                ari = adjusted_rand_score(labels_a, labels_b)
+                migration = migration_fraction(labels_a, labels_b)
+                rows.append([label_a, label_b, res, len(shared), nmi, ari, migration])
+                print(f"{label_a} -> {label_b}: res={res} n_shared={len(shared)} "
+                      f"nmi={nmi:.4f} ari={ari:.4f} migration={migration:.4f}")
 
     out_path = communities_dir / "transitions.csv"
     with open(out_path, "w", newline="", encoding="utf-8") as f:

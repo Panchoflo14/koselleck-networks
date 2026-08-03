@@ -30,7 +30,7 @@
 }
 
 \title{\color{accent}\textbf{Testing the Sattelzeit as a Network Event}\\[0.3em]
-\Large\normalfont A method note on \texttt{koselleck-networks}}
+\Large\normalfont A method note on the \textbf{Koselleck Machine}}
 \author{}
 \date{\today}
 
@@ -80,14 +80,18 @@ layer on top that a word-by-word approach cannot produce.
 \begin{enumerate}[leftmargin=*]
 
   \item \textbf{Split the corpus into time windows.} The corpus is
-    divided into even 20-year windows, from 1500 to 1900. The windows are
-    uniform across the whole timeline, not just around the Sattelzeit: if
-    the method measured more finely right where reorganization was
+    divided into even 20-year windows, currently 1500 to 1900. The windows
+    are uniform across the whole timeline, not just around the Sattelzeit:
+    if the method measured more finely right where reorganization was
     expected and more coarsely everywhere else, it would be biased toward
     finding exactly what it was looking for. Heuser's own results, in
     fact, show a second spike of word-level change around 1905 -- 1925,
     unrelated to the Sattelzeit -- a pattern that a Sattelzeit-only
-    sampling scheme could never have picked up.
+    sampling scheme could never have picked up. The 1500 -- 1900 span
+    reflects the corpus assembled for this project so far, not a limit of
+    the method itself -- the same pipeline applies unchanged to any other
+    span or window size, set entirely in configuration, given a
+    period-dated corpus to feed it.
 
   \item \textbf{Train a language model per period.} For each time window,
     a model (\textbf{word2vec}) is trained independently, learning a
@@ -121,14 +125,49 @@ layer on top that a word-by-word approach cannot produce.
     used in similar ways to each other more than to the rest of the
     vocabulary.
 
+    This differs from familiar clustering methods such as $k$-means in a
+    basic way. $k$-means fixes a number of groups in advance and assigns
+    each item to whichever group's average position it sits closest to.
+    Leiden does neither: it does not fix the number of groups beforehand,
+    and it never compares a word to a group's ``average'' -- it only ever
+    asks a relational question about a word's actual connections. For any
+    word, and any group it is already directly connected to, Leiden checks
+    whether moving that word into the group would make the network as a
+    whole denser \emph{within} groups and sparser \emph{between} them than
+    plain chance would predict, given how connected that word and that
+    group already are overall. If the move helps, it is made; if not, the
+    word stays put or a different move is tried. Repeating this, word by
+    word, until no single move can improve things any further, is the
+    entire algorithm.
+
+    The number this process is trying to improve at every step has a name,
+    \textbf{modularity} (written $Q$). It compares how connected the words
+    placed inside the same group actually are against how connected they
+    would be expected to be if the same set of connections had been handed
+    out at random instead. A grouping that captures real structure scores
+    well above zero; a grouping no better than chance scores around zero;
+    a grouping that forces genuinely unrelated words together scores
+    \emph{below} zero, actively worse than not grouping at all. Leiden's
+    search is nothing more than hill-climbing on this one number.
+
   \item \textbf{Repeat detection at several levels of detail.} Community
     detection does not have one single ``correct'' answer: a parameter
     called \textbf{resolution} controls how many groups appear and how
-    large they are. For that reason every network is processed at seven
-    different resolution settings, and any claim about reorganization has
-    to hold up across most of those settings, not just one chosen after
-    the fact. This is a hard rule of the project: no finding is reported
-    if it only holds at a single, convenient resolution.
+    large they are, by changing how large a word's own connections have to
+    be, relative to chance, before joining a group is judged worthwhile.
+    For that reason every network is processed at seven different
+    resolution settings, and any claim about reorganization has to hold up
+    across most of those settings, not just one chosen after the fact.
+    Critically, no single setting among the seven is ever treated as
+    ``the'' result and the rest discarded -- the sweep's entire purpose is
+    to check that the same conclusion holds broadly across settings, not
+    to pick whichever one happens to agree with the hypothesis. This is a
+    hard rule of the project: no finding is reported if it only holds at a
+    single, convenient resolution. (One setting, resolution 1.0 -- plain
+    textbook modularity, with no bias toward larger or smaller groups --
+    is used separately, only to choose a single picture to display in the
+    interactive explorer described below. That is a display choice with no
+    bearing on which finding gets reported as real.)
 
   \item \textbf{Compare consecutive periods.} For each pair of
     consecutive periods, the comparison is restricted to words that
@@ -149,6 +188,25 @@ layer on top that a word-by-word approach cannot produce.
     inside or close out the 1770 -- 1830 window, compared to every other
     transition across the full 1500 -- 1900 timeline.
 
+  \item \textbf{Repeat the whole measurement per region.} The corpus is not
+    evenly British across the timeline, and the imbalance is worst exactly
+    where it matters most: in 1780 -- 1800 the American material
+    (Evans-TCP, 1681 documents) outweighs the British (ECCO-TCP, 910
+    documents), because ECCO's public transcriptions thin out sharply at
+    the end of the eighteenth century. A change in the cluster structure
+    across that boundary could therefore reflect a change in \emph{who was
+    writing} rather than a change in the language. To separate the two,
+    every step above -- training, network construction, community
+    detection, the resolution sweep, and the migration fraction -- is also
+    run on each region's documents alone, in addition to the combined
+    corpus. If the reorganization is real, it should show up inside the
+    British-only and the American-only timelines as well, not only in the
+    mixture of them; if it shows up only in the combined run, it is an
+    artifact of corpus composition rather than semantic history. Nothing
+    here hardcodes which regions exist: a document's region is simply the
+    top-level folder its source was filed under, so the same check extends
+    to any other split of the corpus.
+
   \item \textbf{Dictionary cross-check (not yet implemented).} As a
     second line of evidence, independent of the network entirely, the
     plan is to take the words that change group right at the pivot and
@@ -168,13 +226,16 @@ curated, manually corrected transcriptions with no OCR noise, covering
 1500 -- 1800 (EEBO-TCP, ECCO-TCP, Evans-TCP). Since the Sattelzeit extends
 to 1830 and TCP stops at 1800, the plan is to supplement 1800 -- 1900 with
 Project Gutenberg. HistWords (pre-trained historical embeddings) is used
-only as an independent sanity check, not as primary evidence.
+only as an independent sanity check, not as primary evidence. Each source
+is filed under a region (currently \texttt{british} for EEBO-TCP and
+ECCO-TCP, \texttt{american} for Evans-TCP), which is what makes the
+per-region rerun described above possible at all.
 
 \section{The interactive explorer}
 
-Alongside the pipeline, a small web tool makes the per-period networks
-directly explorable, without reading raw numbers. It has two views of
-the same underlying data.
+Alongside the pipeline, a small web tool -- the \textbf{Koselleck
+Machine} -- makes the per-period networks directly explorable, without
+reading raw numbers. It has two views of the same underlying data.
 
 \textbf{Graph explorer.} A period slider drives a force-directed network
 diagram: nodes are words, their size reflects how connected they are,
@@ -193,6 +254,13 @@ table instead of a diagram: type a word and a period, and get back its
 closest neighbours by similarity, each neighbour's community, and whether
 the searched word's own community changed since the previous period.
 Useful when the actual numbers matter more than the picture.
+
+\textbf{Region toggle.} Where the per-region runs described above have been
+built, both views also offer a region switch -- combined, British only,
+American only -- so the same word in the same period can be compared across
+the sub-corpora directly, and a shift can be checked against the possibility
+that it only exists in the mixture. The switch lists only the regions that
+were actually built, read off the data itself rather than assumed.
 
 Every community shown in either view carries a short, plain-English
 label (for example ``Government \& Law'', ``Moral Character \& Virtue'').
@@ -217,7 +285,12 @@ the same density as earlier periods, since the Gutenberg supplement
 described above has not been sourced yet. The periods with the least
 surviving text are, not coincidentally, the ones closing the Sattelzeit
 window, so any comparison across that boundary currently rests on a
-thinner sample than the rest of the timeline.
+thinner sample than the rest of the timeline. That gap skews composition
+and not only volume: with ECCO thin after 1780, the 1780 -- 1800 window
+holds more American than British documents, which is why the per-region
+rerun exists. It bounds the problem rather than solving it -- each
+regional sub-corpus is thinner still than the combined one, so per-region
+results carry wider uncertainty than the headline numbers.
 
 \textbf{Label reliability.} The community labels described above are a
 single, unvalidated read-through by a language model, not a checked

@@ -35,6 +35,8 @@ const caveatText = document.getElementById("caveat-text");
 const changedPanel = document.getElementById("changed-panel");
 const changedSummaryEl = document.getElementById("changed-summary");
 const changedListEl = document.getElementById("changed-list");
+const regionRow = document.getElementById("region-row");
+const regionToggleEl = document.getElementById("region-toggle");
 const sidebarTabs = [...document.querySelectorAll(".sidebar-tab")];
 const sidebarPages = { method: document.getElementById("page-method"), findings: document.getElementById("page-findings") };
 
@@ -55,6 +57,8 @@ const SEED_WORD = document.body.dataset.seedWord;
 const PALETTE = ["#00768a", "#a8372a", "#1b4ba9", "#993366", "#2d7917", "#7f51c1", "#8a6400", "#7d2278"];
 
 let periods = [];
+let REGIONS = []; // e.g. ["american", "british"] - whatever this deployment actually has built, see /api/regions
+let activeRegion = null; // null = combined; otherwise one of REGIONS
 let currentIndex = 0;
 let focusWord = SEED_WORD || "";
 let activeResolution = 1.0; // which Leiden resolution's community column drives color/changed-words
@@ -126,8 +130,55 @@ function median(values) {
   return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
 }
 
+// Whether a period has data for whatever's currently selected (combined, or
+// one region) - a region can have gaps (e.g. no American arm before 1639)
+// that the combined period doesn't, so this can't just read p.has_data once
+// a region is active.
+function periodHasData(p) {
+  return activeRegion ? p.regions.includes(activeRegion) : p.has_data;
+}
+
+async function loadRegions() {
+  const res = await fetch("/api/regions");
+  REGIONS = await res.json();
+  renderRegionToggle();
+}
+
+function renderRegionToggle() {
+  if (!REGIONS.length) {
+    regionRow.style.display = "none";
+    return;
+  }
+  regionRow.style.display = "";
+  regionToggleEl.innerHTML = "";
+  const options = [{ value: null, label: "Combined" }]
+    .concat(REGIONS.map((r) => ({ value: r, label: r.charAt(0).toUpperCase() + r.slice(1) })));
+  options.forEach((opt) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "region-btn" + (activeRegion === opt.value ? " active" : "");
+    btn.textContent = opt.label;
+    btn.addEventListener("click", () => setRegion(opt.value));
+    regionToggleEl.appendChild(btn);
+  });
+}
+
+async function setRegion(region) {
+  if (region === activeRegion) return;
+  activeRegion = region;
+  // Leiden ids from one region's network have no correspondence to another
+  // region's (or the combined network's) ids - a fresh color slot per id is
+  // correct here for the same reason a resolution change clears it too.
+  communityColorMap.clear();
+  renderRegionToggle();
+  buildTicks();
+  await loadTransitions();
+  loadPeriod(currentIndex);
+}
+
 async function loadTransitions() {
-  const res = await fetch("/api/transitions");
+  const params = activeRegion ? `?region=${encodeURIComponent(activeRegion)}` : "";
+  const res = await fetch(`/api/transitions${params}`);
   allTransitions = await res.json();
   const resolutions = [...new Set(allTransitions.map((t) => t.resolution))];
   medianByResolution = new Map(resolutions.map((r) => [
@@ -165,6 +216,7 @@ async function loadPeriods() {
   sliderEl.value = currentIndex;
   focusInput.value = focusWord;
 
+  await loadRegions();
   await loadTransitions();
   loadLabelCaveat();
   await loadPeriod(currentIndex);
@@ -173,16 +225,17 @@ async function loadPeriods() {
 function buildTicks() {
   ticksEl.innerHTML = "";
   periods.forEach((p) => {
+    const has = periodHasData(p);
     const tick = document.createElement("span");
-    tick.className = "tick" + (p.has_data ? "" : " gap");
-    tick.title = p.label + (p.has_data ? "" : " (no data)");
+    tick.className = "tick" + (has ? "" : " gap");
+    tick.title = p.label + (has ? "" : " (no data)");
     ticksEl.appendChild(tick);
   });
 }
 
 function prevPopulatedLabel(index) {
   for (let i = index - 1; i >= 0; i--) {
-    if (periods[i] && periods[i].has_data) return periods[i].label;
+    if (periods[i] && periodHasData(periods[i])) return periods[i].label;
   }
   return null;
 }
@@ -297,9 +350,10 @@ async function loadPeriod(index) {
   periodLabelEl.textContent = period.label;
   hideTooltip();
 
-  if (!period.has_data) {
-    statusEl.textContent = `${period.label}: no data in this period - corpus coverage gap.`;
-    showFocusPrompt(`<strong>${escapeHtml(period.label)}</strong> has no data yet - a corpus coverage gap.`);
+  if (!periodHasData(period)) {
+    const regionNote = activeRegion ? ` for the ${activeRegion} source` : "";
+    statusEl.textContent = `${period.label}: no data in this period${regionNote} - corpus coverage gap.`;
+    showFocusPrompt(`<strong>${escapeHtml(period.label)}</strong> has no data${escapeHtml(regionNote)} - a corpus coverage gap.`);
     findingsBanner.classList.add("hidden");
     changedPanel.classList.add("hidden");
     hideInfoPanel();
@@ -320,14 +374,19 @@ async function loadPeriod(index) {
   }
   if (focusWord) params.set("focus", focusWord);
   if (prevLabel) params.set("align_to", prevLabel);
+  if (activeRegion) params.set("region", activeRegion);
 
   // Community labels (plain-English themes, see webapp/app.py's get_labels)
-  // are keyed by this period's *raw* Leiden id, independent of the
-  // align_to color remapping in the graph response - fetched alongside it
-  // so both are ready before the first render.
+  // are region-specific - each region's own Leiden run assigns completely
+  // different ids to completely different word groups, so this fetches
+  // whichever region's own labels file the backend has (tooltip/legend
+  // already fall back to "#<id>" when communityLabels has nothing for
+  // that id, e.g. a region whose labels haven't been generated yet).
+  const labelsParams = new URLSearchParams({ res: String(activeResolution) });
+  if (activeRegion) labelsParams.set("region", activeRegion);
   const [res, labelsRes] = await Promise.all([
     fetch(`/api/graph/${encodeURIComponent(period.label)}?${params.toString()}`),
-    fetch(`/api/community-labels/${encodeURIComponent(period.label)}?res=${activeResolution}`),
+    fetch(`/api/community-labels/${encodeURIComponent(period.label)}?${labelsParams.toString()}`),
   ]);
   const data = await res.json();
   communityLabels = new Map(Object.entries(await labelsRes.json()));
@@ -630,7 +689,8 @@ async function updateChangedPanel(period, prevLabel) {
     changedPanel.classList.add("hidden");
     return;
   }
-  const res = await fetch(`/api/changed/${encodeURIComponent(period.label)}?res=${activeResolution}`);
+  const regionParam = activeRegion ? `&region=${encodeURIComponent(activeRegion)}` : "";
+  const res = await fetch(`/api/changed/${encodeURIComponent(period.label)}?res=${activeResolution}${regionParam}`);
   const data = await res.json();
   if (!data.n_changed) {
     changedPanel.classList.add("hidden");
@@ -706,9 +766,10 @@ async function updateFocusInfoPanel() {
     return;
   }
 
+  const regionParam = activeRegion ? `?region=${encodeURIComponent(activeRegion)}` : "";
   const [curRes, prevRes] = await Promise.all([
-    fetch(`/api/neighbors/${encodeURIComponent(period.label)}/${encodeURIComponent(node.id)}`).then((r) => r.json()),
-    fetch(`/api/neighbors/${encodeURIComponent(prevLabel)}/${encodeURIComponent(node.id)}`).then((r) => r.json()),
+    fetch(`/api/neighbors/${encodeURIComponent(period.label)}/${encodeURIComponent(node.id)}${regionParam}`).then((r) => r.json()),
+    fetch(`/api/neighbors/${encodeURIComponent(prevLabel)}/${encodeURIComponent(node.id)}${regionParam}`).then((r) => r.json()),
   ]);
 
   let continuityHtml = `<span class="muted">"${escapeHtml(node.id)}" not found in ${prevLabel}.</span>`;

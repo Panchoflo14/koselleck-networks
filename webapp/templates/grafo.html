@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>koselleck-networks &middot; graph explorer</title>
+<title>Koselleck Machine &middot; graph explorer</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body class="grafo-body" data-seed-period="{{ seed_period }}" data-seed-word="{{ seed_word }}">
   <div class="app-shell">
     <header class="app-header">
       <div class="app-header-left">
-        <span class="eyebrow">koselleck-networks</span>
+        <span class="eyebrow">Koselleck Machine</span>
         <h1>Graph explorer</h1>
       </div>
       {% include "_nav.html" %}
@@ -26,6 +26,10 @@
             <button type="button" id="reset-view" class="reset-view-btn">Reset view</button>
           </div>
           <div id="period-ticks" class="period-ticks"></div>
+          <div class="control-row" id="region-row" style="display:none;">
+            <span class="control-label">Sources</span>
+            <div id="region-toggle" class="region-toggle"></div>
+          </div>
           <div class="control-row">
             <form id="focus-form">
               <input type="text" id="focus-input" placeholder="a word, e.g. reason, virtue, nature..." autocomplete="off">

@@ -17,6 +17,13 @@
 # corpus coverage problem (TCP thins out after 1700, nothing yet for
 # 1830-1900) visible in the tool itself.
 #
+# A region query param (?region=british / ?region=american) switches most
+# endpoints from the combined network to a region-only one built from the
+# same period's British- or American-only text (see src/bucket_periods.py
+# and pipeline_config.variant_label). REGIONS below lists which regions this
+# deployment actually has built data for - empty if none, in which case the
+# frontend just never shows the toggle.
+#
 # Run: python webapp/app.py, then open http://127.0.0.1:5000
 
 import csv
@@ -32,7 +39,7 @@ import pandas as pd
 from flask import Flask, jsonify, render_template, request
 
 from metrics import align_communities
-from pipeline_config import load_config
+from pipeline_config import discover_built_regions, load_config, variant_label
 
 app = Flask(__name__)
 
@@ -42,6 +49,13 @@ networks_dir = data_root / config["paths"]["networks"]
 communities_dir = data_root / config["paths"]["communities"]
 PERIODS = [label for _, _, label in config["periods"]]
 RESOLUTIONS = config["leiden"]["resolution_sweep"]  # the 7 swept values, e.g. 0.1 .. 2.0
+# Region toggle options (e.g. ["american", "british"]) - read straight off
+# which region-split network files actually got built, not hardcoded and not
+# dependent on the raw corpus being present (a deployed webapp never has it).
+# A clone/deployment with no region-split data at all just gets an empty list
+# here, and the frontend never renders a toggle it can't back with real files
+# (see /api/periods, which reports has_data per region too).
+REGIONS = discover_built_regions(config)
 HEADLINE_RES = 1.0  # resolution shown by default in the UI
 DEFAULT_K = 12  # words kept per community in "full network" mode
 SEED_PERIOD = "1800-1820"  # lands on the transition that closes the Sattelzeit
@@ -51,7 +65,7 @@ _graph_cache = {}
 _community_df_cache = {}
 _community_cache = {}
 _transitions_cache = None
-_labels_cache = None
+_labels_cache = {}  # keyed by region (None = combined)
 LABELS_RESOLUTION = 1.0  # community_labels_res1.0.json only covers this resolution
 
 
@@ -70,39 +84,49 @@ def resolve_resolution(value):
     return HEADLINE_RES
 
 
-def get_graph(label):
-    if label not in _graph_cache:
-        path = networks_dir / f"{label}.graphml"
-        _graph_cache[label] = ig.Graph.Read_GraphML(str(path)) if path.exists() else None
-    return _graph_cache[label]
+def resolve_region(value):
+    """None (combined) unless value names a region that's actually built - an
+    unknown/typo'd region silently falls back to combined rather than
+    erroring, same spirit as resolve_resolution's snap-to-nearest-valid-value
+    below."""
+    return value if value in REGIONS else None
 
 
-def get_community_df(label):
-    """The raw per-period community CSV, cached once - has one res_<r>
+def get_graph(label, region=None):
+    key = (label, region)
+    if key not in _graph_cache:
+        path = networks_dir / f"{variant_label(label, region)}.graphml"
+        _graph_cache[key] = ig.Graph.Read_GraphML(str(path)) if path.exists() else None
+    return _graph_cache[key]
+
+
+def get_community_df(label, region=None):
+    """The raw per-variant community CSV, cached once - has one res_<r>
     column per swept resolution, so a resolution switch is just picking a
     different column out of an already-cached DataFrame, not a fresh read."""
-    if label not in _community_df_cache:
-        path = communities_dir / f"{label}.csv"
+    key = (label, region)
+    if key not in _community_df_cache:
+        path = communities_dir / f"{variant_label(label, region)}.csv"
         if path.exists():
             # keep_default_na=False: pandas otherwise parses the literal
             # vocabulary word "nan" as a float NaN (one of its default NA
             # tokens), which used to silently fall back to community -1 and
             # now would crash any set operation mixing str and float keys
             # (e.g. /api/changed intersecting two periods' word sets).
-            _community_df_cache[label] = pd.read_csv(path, keep_default_na=False, na_values=[])
+            _community_df_cache[key] = pd.read_csv(path, keep_default_na=False, na_values=[])
         else:
-            _community_df_cache[label] = None
-    return _community_df_cache[label]
+            _community_df_cache[key] = None
+    return _community_df_cache[key]
 
 
-def get_communities(label, res=HEADLINE_RES):
+def get_communities(label, res=HEADLINE_RES, region=None):
     """Cached as a plain {word: community_id} dict, not a DataFrame - this
     gets looked up once per vertex (tens of thousands per period), and a
     pandas .loc scalar lookup in that loop is slow enough to make the graph
     endpoint take the better part of a minute; a dict lookup is O(1))."""
-    key = (label, res)
+    key = (label, res, region)
     if key not in _community_cache:
-        df = get_community_df(label)
+        df = get_community_df(label, region)
         col = f"res_{res}"
         if df is None or col not in df.columns:
             _community_cache[key] = None
@@ -134,27 +158,28 @@ def top_k_per_community(g, comm_map, k):
     return selected
 
 
-def prev_populated_label(label):
-    """The chronologically previous period with network data - used both to
-    report a transition's finding and to align this period's community
-    colors to it. Always the true predecessor in the corpus sequence, not
-    whatever the user last happened to look at, so it matches what
-    migration_fraction was actually computed between."""
+def prev_populated_label(label, region=None):
+    """The chronologically previous period with network data *in this same
+    region variant* - used both to report a transition's finding and to
+    align this period's community colors to it. Always the true predecessor
+    in the corpus sequence, not whatever the user last happened to look at,
+    so it matches what migration_fraction was actually computed between. A
+    region can have gaps a combined period doesn't (e.g. no American arm
+    before Evans starts in 1639), so this has to check the region-specific
+    file, not just whether the combined period has data."""
     idx = PERIODS.index(label)
     for prior in reversed(PERIODS[:idx]):
-        if (networks_dir / f"{prior}.graphml").exists():
+        if (networks_dir / f"{variant_label(prior, region)}.graphml").exists():
             return prior
     return None
 
 
-def get_transitions():
-    """communities/transitions.csv, cached - migration_fraction / nmi / ari
-    per (period_from, period_to, resolution), already computed by
-    src/metrics.py. Served as-is so the frontend can show the headline
-    number *and* the full resolution sweep next to it, per the project's
-    hard rule that a reorganization claim must survive that sweep - a UI
-    that shows one cherry-picked number would repeat at the interface level
-    the same overselling the project's methodology avoids."""
+def _all_transition_rows():
+    """communities/transitions.csv, cached, unfiltered - migration_fraction /
+    nmi / ari per (period_from, period_to, resolution), already computed by
+    src/metrics.py for the combined variant AND, separately, for each
+    region's own chronological chain (metrics.py never compares one region's
+    period to a different region's neighbouring one)."""
     global _transitions_cache
     if _transitions_cache is None:
         rows = []
@@ -175,31 +200,59 @@ def get_transitions():
     return _transitions_cache
 
 
-def get_labels():
-    """community_labels_res<LABELS_RESOLUTION>.json, cached - {period: {raw
-    community id (str): {label, n_words}}}, Claude-assigned plain-English
-    themes from each community's top-degree words (src/extract_community_words.py
-    + a manual read-through, not empirically derived). Keyed by the *raw*
-    Leiden community id for that period, not the align_to-remapped id used
-    for cross-period color continuity - a label describes what a period's
-    community actually contains, independent of which color slot it was
-    matched to for display purposes. Missing file (not generated yet, or a
-    resolution other than LABELS_RESOLUTION) degrades to no labels, not an
-    error - labels are a reading aid layered on top of a fully working tool,
-    never a dependency for it."""
+def get_transitions(region=None):
+    """This one variant's own transition rows, filtered out of the shared
+    cache by matching consecutive-period label pairs (see
+    _all_transition_rows) - so the frontend can show the headline number
+    *and* the full resolution sweep next to it, per the project's hard rule
+    that a reorganization claim must survive that sweep, without ever mixing
+    one region's chain with another's or with the combined one. Rows come
+    back with plain period labels (period_from/period_to stripped of any
+    _<region> suffix) regardless of which region was requested - the
+    frontend already keys everything (its periods array, prevPopulatedLabel,
+    ...) off plain labels, and the region is already implied by which
+    endpoint/query param was used to fetch this list in the first place."""
+    variants = [variant_label(label, region) for label in PERIODS]
+    plain_of = dict(zip(variants, PERIODS))
+    pairs = set(zip(variants, variants[1:]))
+    return [
+        {**r, "period_from": plain_of[r["period_from"]], "period_to": plain_of[r["period_to"]]}
+        for r in _all_transition_rows() if (r["period_from"], r["period_to"]) in pairs
+    ]
+
+
+def get_labels(region=None):
+    """community_labels_res<LABELS_RESOLUTION>[_<region>].json, cached per
+    region - {period: {raw community id (str): {label, n_words}}},
+    Claude-assigned plain-English themes from each community's top-degree
+    words (src/extract_community_words.py + a manual read-through, not
+    empirically derived). Keyed by the *raw* Leiden community id for that
+    period, not the align_to-remapped id used for cross-period color
+    continuity - a label describes what a period's community actually
+    contains, independent of which color slot it was matched to for display
+    purposes. Each region has its own file because a region's own Leiden run
+    assigns different ids to different word groups than the combined run -
+    reusing the combined file for a region would attach a confidently wrong
+    name. Missing file (not generated yet for that region, or a resolution
+    other than LABELS_RESOLUTION) degrades to no labels, not an error -
+    labels are a reading aid layered on top of a fully working tool, never a
+    dependency for it."""
     global _labels_cache
-    if _labels_cache is None:
-        path = communities_dir / f"community_labels_res{LABELS_RESOLUTION}.json"
+    if region not in _labels_cache:
+        suffix = "" if region is None else f"_{region}"
+        path = communities_dir / f"community_labels_res{LABELS_RESOLUTION}{suffix}.json"
         if path.exists():
             with open(path, encoding="utf-8") as f:
-                _labels_cache = json.load(f)
+                _labels_cache[region] = json.load(f)
         else:
-            _labels_cache = {}
-    return _labels_cache
+            _labels_cache[region] = {}
+    return _labels_cache[region]
 
 
-def label_of(label, raw_cid):
-    period_labels = get_labels().get(label, {})
+def label_of(label, raw_cid, region=None):
+    """Plain-English theme for one period's raw community id in the given
+    region (None = combined) - None if no label exists for it yet."""
+    period_labels = get_labels(region).get(label, {})
     entry = period_labels.get(str(raw_cid))
     return entry["label"] if entry else None
 
@@ -248,30 +301,51 @@ def buscador():
 
 @app.route("/api/periods")
 def periods():
+    """Per period: whether the combined network exists, plus which regions
+    (out of the globally available REGIONS) actually have a built network
+    for that specific period - a region can have gaps a combined period
+    doesn't (e.g. no American arm before 1639), so the frontend toggle has
+    to check this per period, not just once globally."""
     return jsonify([
-        {"label": label, "has_data": (networks_dir / f"{label}.graphml").exists()}
+        {
+            "label": label,
+            "has_data": (networks_dir / f"{label}.graphml").exists(),
+            "regions": [r for r in REGIONS if (networks_dir / f"{variant_label(label, r)}.graphml").exists()],
+        }
         for label in PERIODS
     ])
 
 
+@app.route("/api/regions")
+def regions():
+    """Region toggle options this deployment actually has data for at all
+    (e.g. ["american", "british"]), independent of any one period - lets the
+    frontend decide whether to render the toggle UI at all before it even
+    knows which period is selected."""
+    return jsonify(REGIONS)
+
+
 @app.route("/api/transitions")
 def transitions():
-    return jsonify(get_transitions())
+    region = resolve_region(request.args.get("region"))
+    return jsonify(get_transitions(region))
 
 
 @app.route("/api/community-labels/<label>")
 def community_labels(label):
-    """{raw community id (string) -> plain-English label} for one period, at
-    the fixed resolution the labels were generated for. Empty (not missing -
-    still 200) if the labels file doesn't exist yet or the requested
-    resolution isn't LABELS_RESOLUTION, so the frontend can just skip
-    rendering labels rather than special-casing an error."""
+    """{raw community id (string) -> plain-English label} for one period (and
+    region, if given), at the fixed resolution the labels were generated for.
+    Empty (not missing - still 200) if the labels file doesn't exist yet for
+    that region or the requested resolution isn't LABELS_RESOLUTION, so the
+    frontend can just skip rendering labels rather than special-casing an
+    error."""
     if label not in PERIODS:
         return jsonify({"error": "unknown period"}), 404
     res = resolve_resolution(request.args.get("res", HEADLINE_RES))
     if abs(res - LABELS_RESOLUTION) > 1e-9:
         return jsonify({})
-    return jsonify({cid: entry["label"] for cid, entry in get_labels().get(label, {}).items()})
+    region = resolve_region(request.args.get("region"))
+    return jsonify({cid: entry["label"] for cid, entry in get_labels(region).get(label, {}).items()})
 
 
 @app.route("/api/label-caveat")
@@ -294,14 +368,15 @@ def changed(label):
         return jsonify({"error": "unknown period"}), 404
 
     res = resolve_resolution(request.args.get("res", HEADLINE_RES))
-    prev_label = prev_populated_label(label)
+    region = resolve_region(request.args.get("region"))
+    prev_label = prev_populated_label(label, region)
     empty = {"period_from": prev_label, "period_to": label,
              "n_shared_words": 0, "n_changed": 0, "words": []}
     if prev_label is None:
         return jsonify(empty)
 
-    comm_prev = get_communities(prev_label, res)
-    comm_curr = get_communities(label, res)
+    comm_prev = get_communities(prev_label, res, region)
+    comm_curr = get_communities(label, res, region)
     if comm_prev is None or comm_curr is None:
         return jsonify(empty)
 
@@ -314,7 +389,7 @@ def changed(label):
     _, moved = align_communities(labels_prev, labels_curr)
     changed_words = [w for w, m in zip(shared, moved) if m]
 
-    g = get_graph(label)
+    g = get_graph(label, region)
     if g is not None:
         degree_of = {v["name"]: d for v, d in zip(g.vs, g.degree())}
         changed_words.sort(key=lambda w: -degree_of.get(w, 0))
@@ -334,7 +409,8 @@ def graph(label):
     if label not in PERIODS:
         return jsonify({"error": "unknown period"}), 404
 
-    g = get_graph(label)
+    region = resolve_region(request.args.get("region"))
+    g = get_graph(label, region)
     if g is None:
         return jsonify({"period": label, "gap": True, "nodes": [], "edges": []})
 
@@ -344,7 +420,7 @@ def graph(label):
     align_to = request.args.get("align_to", "").strip()
     res = resolve_resolution(request.args.get("res", HEADLINE_RES))
 
-    comm_map = get_communities(label, res)
+    comm_map = get_communities(label, res, region)
     focused_word = None
 
     if full:
@@ -378,7 +454,7 @@ def graph(label):
 
     mapping = {}
     if align_to and align_to in PERIODS and align_to != label:
-        comm_prev = get_communities(align_to, res)
+        comm_prev = get_communities(align_to, res, region)
         if comm_prev is not None and comm_map is not None:
             shared = sorted(set(comm_prev) & set(comm_map))
             if shared:
@@ -436,7 +512,9 @@ def word_periods(word):
     """Every populated period whose network contains this word, in
     chronological order - lets the frontend jump straight to the earliest
     one instead of dead-ending on "doesn't appear here" when a search word
-    just isn't in the period currently on screen."""
+    just isn't in the period currently on screen. Deliberately combined-only
+    (no region param): this is a "does this word exist at all" lookup used
+    before a period is even chosen, not a per-toggle view."""
     word = word.strip().lower()
     found = []
     for label in PERIODS:
@@ -457,7 +535,8 @@ def neighbors(label, word):
     to compute continuity (neighbour overlap with the previous period) when
     a node is clicked, without pulling every node's full neighbour list on
     every period load."""
-    g = get_graph(label)
+    region = resolve_region(request.args.get("region"))
+    g = get_graph(label, region)
     if g is None:
         return jsonify({"found": False, "neighbors": []})
     try:
@@ -484,7 +563,8 @@ def search(label, word):
 
     word = word.strip().lower()
     res = resolve_resolution(request.args.get("res", HEADLINE_RES))
-    g = get_graph(label)
+    region = resolve_region(request.args.get("region"))
+    g = get_graph(label, region)
     if g is None:
         return jsonify({"found": False, "period": label, "word": word})
 
@@ -493,7 +573,7 @@ def search(label, word):
     except ValueError:
         return jsonify({"found": False, "period": label, "word": word})
 
-    comm_map = get_communities(label, res)
+    comm_map = get_communities(label, res, region)
     community = community_of(comm_map, word)
 
     neighbor_rows = []
@@ -506,15 +586,15 @@ def search(label, word):
             "word": other_name,
             "similarity": round(edge["weight"], 3),
             "community": other_community,
-            "community_label": label_of(label, other_community),
+            "community_label": label_of(label, other_community, region),
         })
     neighbor_rows.sort(key=lambda r: -r["similarity"])
 
-    prev_label = prev_populated_label(label)
+    prev_label = prev_populated_label(label, region)
     prev_community = None
     changed_community = None
     if prev_label:
-        comm_prev = get_communities(prev_label, res)
+        comm_prev = get_communities(prev_label, res, region)
         if comm_prev is not None and comm_map is not None and word in comm_prev and word in comm_map:
             shared = sorted(set(comm_prev) & set(comm_map))
             labels_prev = [comm_prev[w] for w in shared]
@@ -529,11 +609,11 @@ def search(label, word):
         "word": word,
         "degree": g.degree(v.index),
         "community": community,
-        "community_label": label_of(label, community),
+        "community_label": label_of(label, community, region),
         "neighbors": neighbor_rows,
         "prev_period": prev_label,
         "prev_community": prev_community,
-        "prev_community_label": label_of(prev_label, prev_community) if prev_label and prev_community is not None else None,
+        "prev_community_label": label_of(prev_label, prev_community, region) if prev_label and prev_community is not None else None,
         "changed_community": changed_community,
     })
 

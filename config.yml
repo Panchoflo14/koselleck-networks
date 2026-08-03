@@ -7,7 +7,14 @@
 data_root: "../koselleck-data"
 
 paths:
-  corpus_tcp:      corpus/tcp
+  # corpus_tcp must contain ONLY region folders, one level deep:
+  # <corpus_tcp>/<region>/<source>/*.zip - e.g. regions/british/eebo_phase1/.
+  # The region folder name becomes the region tag used to build region-split
+  # networks (see bucket_periods.py); adding a new corpus already in TCP's P4
+  # XML format is just dropping its zips under <region>/<a-source-name>/, no
+  # code change needed. Anything outside this "regions" folder (old format
+  # variants, reference files) is ignored by the pipeline.
+  corpus_tcp:      corpus/tcp/regions
   corpus_gutenberg: corpus/gutenberg
   extracted:       processed             # flat per-document extraction (parse_tcp.py)
   processed:       processed/periods     # per-period bucketed text (bucket_periods.py)

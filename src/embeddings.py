@@ -1,6 +1,9 @@
-# Train one word2vec model per period slice using gensim.
-# Input:  processed/<label>.txt (one document per line, from parse_tcp.py)
-# Output: <embeddings>/<label>.model
+# Train one word2vec model per period slice using gensim, plus one per
+# region-split variant (see pipeline_config.variant_labels) if bucket_periods.py
+# wrote any <label>_<region>.txt files - trained exactly the same way, just on
+# a region-restricted subset of the period's documents.
+# Input:  processed/<label>.txt / <label>_<region>.txt (from bucket_periods.py)
+# Output: <embeddings>/<label>.model / <label>_<region>.model
 
 import logging
 import re
@@ -10,7 +13,7 @@ from pathlib import Path
 from gensim.models import Word2Vec
 from gensim.models.callbacks import CallbackAny2Vec
 
-from pipeline_config import load_config
+from pipeline_config import load_config, variant_label, variant_labels
 
 # gensim's own INFO-level logging (periodic %-progress, words/sec during
 # vocab-building and training) is useful when watching a terminal directly,
@@ -85,19 +88,25 @@ def main():
 
     w2v_cfg = config["word2vec"]
 
-    for _, _, label in config["periods"]:
-        period_file = processed_dir / f"{label}.txt"
+    for label, region in variant_labels(config):
+        variant = variant_label(label, region)
+        model_path = embeddings_dir / f"{variant}.model"
+        if model_path.exists():
+            print(f"skip {variant}: model already exists (delete it to force retraining)")
+            continue
+
+        period_file = processed_dir / f"{variant}.txt"
         if not period_file.exists():
-            print(f"skip {label}: no processed file (run parse_tcp.py first)")
+            print(f"skip {variant}: no processed file (run parse_tcp.py/bucket_periods.py first)")
             continue
 
         docs = load_documents(period_file)
         if len(docs) < MIN_DOCS:
-            print(f"skip {label}: only {len(docs)} documents (< {MIN_DOCS}), not enough for a period-level signal")
+            print(f"skip {variant}: only {len(docs)} documents (< {MIN_DOCS}), not enough for a period-level signal")
             continue
 
         n_tokens = sum(len(d) for d in docs)
-        print(f"{label}: training on {len(docs)} documents, {n_tokens} tokens")
+        print(f"{variant}: training on {len(docs)} documents, {n_tokens} tokens")
 
         model = Word2Vec(
             sentences=docs,
@@ -107,10 +116,10 @@ def main():
             workers=w2v_cfg["workers"],
             epochs=w2v_cfg["epochs"],
             seed=w2v_cfg["seed"],
-            callbacks=[EpochProgress(label, w2v_cfg["epochs"])],
+            callbacks=[EpochProgress(variant, w2v_cfg["epochs"])],
         )
-        model.save(str(embeddings_dir / f"{label}.model"))
-        print(f"{label}: vocab size {len(model.wv)}")
+        model.save(str(model_path))
+        print(f"{variant}: vocab size {len(model.wv)}")
 
 
 if __name__ == "__main__":

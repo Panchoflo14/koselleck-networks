@@ -6,7 +6,13 @@
 # instead of served over an API, so a human (or an agent) can read every
 # period's communities at once and assign each one a plain-language label.
 #
-# Output: <communities>/community_words_res<resolution>.json
+# Runs once for the combined corpus and once per region discovered on disk
+# (see pipeline_config.discover_built_regions) - a region's own Leiden run
+# has its own community numbering, so it needs its own words file and,
+# downstream, its own labels file. See webapp/app.py:label_of for why a
+# region can never reuse the combined labels directly.
+#
+# Output: <communities>/community_words_res<resolution>[_<region>].json
 #   { period: { community_id_str: {n_words, top_words: [...]} } }
 
 import json
@@ -19,22 +25,22 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import igraph as ig
 import pandas as pd
 
-from pipeline_config import load_config
+from pipeline_config import discover_built_regions, load_config, variant_label
 
 RESOLUTION = 1.0
 TOP_K = 25  # words per community - enough to judge a theme confidently
 
 
-def main():
-    config = load_config()
+def extract(config, region):
     data_root = Path(config["data_root"])
     networks_dir = data_root / config["paths"]["networks"]
     communities_dir = data_root / config["paths"]["communities"]
 
     out = {}
     for _, _, label in config["periods"]:
-        graph_path = networks_dir / f"{label}.graphml"
-        comm_path = communities_dir / f"{label}.csv"
+        stem = variant_label(label, region)
+        graph_path = networks_dir / f"{stem}.graphml"
+        comm_path = communities_dir / f"{stem}.csv"
         if not graph_path.exists() or not comm_path.exists():
             continue
 
@@ -61,12 +67,20 @@ def main():
                 "top_words": [w for _, w in members[:TOP_K]],
             }
         out[label] = period_out
-        print(f"{label}: {len(period_out)} communities")
+        print(f"{stem}: {len(period_out)} communities")
 
-    out_path = communities_dir / f"community_words_res{RESOLUTION}.json"
+    suffix = "" if region is None else f"_{region}"
+    out_path = communities_dir / f"community_words_res{RESOLUTION}{suffix}.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(out, f, indent=2)
     print(f"written -> {out_path}")
+
+
+def main():
+    config = load_config()
+    extract(config, None)
+    for region in discover_built_regions(config):
+        extract(config, region)
 
 
 if __name__ == "__main__":

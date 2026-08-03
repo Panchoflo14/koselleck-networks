@@ -17,3 +17,16 @@ config.local.yml
 .DS_Store
 Thumbs.db
 CLAUDE.md
+
+# LaTeX build byproducts - only method.tex/method.pdf are kept
+docs/*.aux
+docs/*.log
+docs/*.out
+docs/*.toc
+docs/*.bbl
+docs/*.blg
+docs/*.bcf
+docs/*.fls
+docs/*.fdb_latexmk
+docs/*.synctex.gz
+docs/*.run.xml

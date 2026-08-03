@@ -577,6 +577,30 @@ html:has(body.grafo-body), body.grafo-body {
   color: var(--ink);
 }
 
+.region-toggle {
+  display: inline-flex;
+  gap: 0.3rem;
+}
+.region-btn {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+.region-btn:hover {
+  border-color: var(--accent-net);
+  color: var(--ink);
+}
+.region-btn.active {
+  background: var(--accent-net);
+  border-color: var(--accent-net);
+  color: var(--card);
+}
+
 .sidebar {
   flex: 0 0 380px;
   width: 380px;
@@ -790,6 +814,19 @@ html:has(body.grafo-body), body.grafo-body {
   cursor: pointer;
 }
 .search-form button:hover { opacity: 0.85; }
+
+/* .region-btn (defined above) needs to win over the ".search-form button"
+   red-fill rule above when the toggle sits inside a search form. */
+.search-form .region-btn {
+  font-weight: 400;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+}
+.search-form .region-btn:hover { border-color: var(--accent-net); color: var(--ink); opacity: 1; }
+.search-form .region-btn.active { background: var(--accent-net); border-color: var(--accent-net); color: var(--card); }
 
 .search-status {
   color: var(--muted);
