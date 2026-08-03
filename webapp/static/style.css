@@ -1023,6 +1023,10 @@ html:has(body.grafo-body), body.grafo-body {
 .timeline-card.timeline-found:hover {
   border-color: var(--accent-net);
 }
+.timeline-card.timeline-found:focus-visible {
+  outline: 2px solid var(--accent-net);
+  outline-offset: 2px;
+}
 .timeline-card.timeline-found.selected {
   border-color: var(--accent-hist);
   border-width: 2px;

@@ -24,6 +24,12 @@ const drilldownCloseBtn = document.getElementById("drilldown-close");
 
 const SEED_WORD = document.body.dataset.seedWord;
 
+// Search boxes are expected to behave like search boxes: clicking in to
+// search again should let a new word fully replace the old one, not insert
+// into it. Without this, clicking in and typing over the seeded/previous
+// word appends instead of replacing (e.g. "system" -> "systemsystem").
+inputEl.addEventListener("focus", () => inputEl.select());
+
 let REGIONS = [];
 let activeRegion = null; // null = combined; otherwise one of REGIONS
 
@@ -289,7 +295,17 @@ function renderTimeline(data) {
       const meta = [`#${p.community_raw}`];
       if (p.n_words_in_community) meta.push(`${p.n_words_in_community.toLocaleString()} words`);
       card.innerHTML = `${label}<span class="timeline-card-meta">${meta.join(" &middot; ")}</span>`;
-      card.addEventListener("click", () => openDrilldown(p.period, data.word, card));
+      card.tabIndex = 0;
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-label", `${data.word} in ${p.period}: ${p.community_label || "unlabeled community"}. Open full neighbourhood.`);
+      const open = () => openDrilldown(p.period, data.word, card);
+      card.addEventListener("click", open);
+      card.addEventListener("keydown", (ev) => {
+        if (ev.key === "Enter" || ev.key === " ") {
+          ev.preventDefault();
+          open();
+        }
+      });
 
       if (prevFoundCard && i > 0) {
         const arrow = document.createElement("div");
