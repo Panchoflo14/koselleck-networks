@@ -748,6 +748,17 @@ html:has(body.grafo-body), body.grafo-body {
 .portada-card:hover {
   border-color: var(--accent-net);
 }
+.portada-card.primary {
+  border-color: var(--accent-hist);
+  border-width: 2px;
+  flex-basis: 100%;
+}
+.portada-card.primary .portada-card-eyebrow {
+  color: var(--accent-hist);
+}
+.portada-card.secondary {
+  opacity: 0.85;
+}
 .portada-card-eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -914,5 +925,182 @@ html:has(body.grafo-body), body.grafo-body {
   cursor: pointer;
   padding: 0;
   font-size: inherit;
+}
+
+/* Timeline tab */
+.timeline-results {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.timeline-track {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  overflow-x: auto;
+  padding: 0.5rem 0.2rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  /* .page is a column flexbox; without this, a flex child's default
+     min-width:auto lets its own oversized content (20 fixed-width period
+     columns) push .timeline-track - and with it .page/body - wider instead
+     of scrolling internally, so the whole page scrolls sideways instead of
+     just the track. */
+  min-width: 0;
+}
+
+.timeline-col {
+  flex: 0 0 auto;
+  width: 9.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0 0.4rem;
+  position: relative;
+}
+
+.timeline-period-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Sits in normal flow just before the period label of the period it points
+   INTO, so it visually reads as "the step between the previous card and
+   this one" without needing absolute positioning math per pair. */
+.timeline-arrow {
+  width: 100%;
+  height: 2px;
+  background: var(--line);
+  position: relative;
+  margin-top: -0.2rem;
+}
+.timeline-arrow::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: -3px;
+  border: 4px solid transparent;
+  border-left-color: var(--line);
+}
+.timeline-arrow.stable { background: var(--accent-net); }
+.timeline-arrow.stable::after { border-left-color: var(--accent-net); }
+.timeline-arrow.changed { background: var(--accent-hist); }
+.timeline-arrow.changed::after { border-left-color: var(--accent-hist); }
+
+.timeline-card {
+  width: 100%;
+  min-height: 5.5rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+  padding: 0.6rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+}
+.timeline-card.timeline-gap,
+.timeline-card.timeline-absent {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--muted);
+  border-style: dashed;
+}
+.timeline-card.timeline-gap { opacity: 0.55; }
+.timeline-card.timeline-uncertain {
+  border-style: dashed;
+  background: var(--gap-bg);
+}
+.timeline-card.timeline-found {
+  cursor: pointer;
+}
+.timeline-card.timeline-found:hover {
+  border-color: var(--accent-net);
+}
+.timeline-card.timeline-found.selected {
+  border-color: var(--accent-hist);
+  border-width: 2px;
+}
+
+.drilldown-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.drilldown-header h2 { margin: 0 0 0.6rem; }
+
+.timeline-note {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent-hist);
+  border-radius: 0 8px 8px 0;
+  background: var(--card);
+  padding: 0.7rem 1rem;
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+
+.timeline-seam-note {
+  font-size: 0.82rem;
+  color: var(--muted);
+  border-top: 1px dashed var(--line);
+  padding-top: 0.6rem;
+  margin: 0;
+}
+.timeline-card-note {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.timeline-community-label {
+  font-weight: 600;
+  line-height: 1.25;
+}
+.timeline-community-label.muted { color: var(--muted); font-weight: 400; font-style: italic; }
+.timeline-card-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.lane-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.timeline-legend-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  padding: 1rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.timeline-legend-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  margin: 0;
+}
+.lane-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.2rem;
+  font-size: 0.85rem;
+}
+.lane-legend-item {
+  display: inline-flex;
+  align-items: center;
 }
 .word-link:hover { text-decoration: underline; }

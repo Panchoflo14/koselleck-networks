@@ -4,6 +4,10 @@
 // diagram - a second interface over one dataset, not a second pipeline.
 // We don't yet know which of the two reads better for a historian's own
 // workflow, hence both existing side by side off the same portada.
+//
+// The actual fetch + render logic lives in word_detail.js (loaded before
+// this file - see buscador.html), shared with /timeline's per-period
+// drill-in so the two views can never quietly drift apart.
 
 const form = document.getElementById("search-form");
 const inputEl = document.getElementById("search-input");
@@ -132,9 +136,7 @@ async function runSearch(rawWord, periodLabel) {
   statusEl.textContent = `Searching "${word}" in ${periodLabel}...`;
   resultsEl.classList.add("hidden");
 
-  const regionParam = activeRegion ? `?region=${encodeURIComponent(activeRegion)}` : "";
-  let res = await fetch(`/api/search/${encodeURIComponent(periodLabel)}/${encodeURIComponent(word)}${regionParam}`);
-  let data = await res.json();
+  let data = await WordDetail.fetchDetail(periodLabel, word, activeRegion);
 
   if (!data.found) {
     // word-periods is combined-only (see webapp/app.py) - a fine fallback
@@ -150,8 +152,7 @@ async function runSearch(rawWord, periodLabel) {
       periodSelect.value = periodLabel;
       const regionNote = activeRegion ? ` (${activeRegion})` : "";
       statusEl.textContent = `"${word}" isn't in the period you had selected - jumped to ${periodLabel}${regionNote}, its earliest appearance.`;
-      res = await fetch(`/api/search/${encodeURIComponent(periodLabel)}/${encodeURIComponent(word)}${regionParam}`);
-      data = await res.json();
+      data = await WordDetail.fetchDetail(periodLabel, word, activeRegion);
       if (!data.found) {
         const regionSuffix = activeRegion ? ` for the ${activeRegion} source` : "";
         statusEl.textContent = `"${word}" could not be looked up in ${periodLabel}${regionSuffix}. Try another word.`;
@@ -164,55 +165,13 @@ async function runSearch(rawWord, periodLabel) {
   renderResults(data);
 }
 
-// Communities are numbered arbitrarily by Leiden - "#3" means nothing to a
-// historian. Where a Claude-assigned theme exists (see webapp/app.py's
-// get_labels - a reading aid over each community's top words, not a
-// validated taxonomy) show it with the number kept alongside for anyone
-// cross-referencing the underlying data.
-function formatCommunity(id, label) {
-  return label ? `${label} (#${id})` : `#${id}`;
-}
-
 function renderResults(data) {
   resultsEl.classList.remove("hidden");
-  wordHeadingEl.textContent = `"${data.word}" in ${data.period}`;
-
-  let changeHtml;
-  if (data.prev_period === null || data.prev_period === undefined) {
-    changeHtml = `<span class="muted">no earlier period with data to compare</span>`;
-  } else if (data.prev_community === null || data.prev_community === undefined) {
-    changeHtml = `<span class="muted">not present in ${data.prev_period}</span>`;
-  } else if (data.changed_community) {
-    changeHtml = `<strong class="flag-changed">changed community</strong> since ${data.prev_period} ` +
-      `(was ${formatCommunity(data.prev_community, data.prev_community_label)})`;
-  } else {
-    changeHtml = `<strong class="flag-stable">same community</strong> as ${data.prev_period}`;
-  }
-
-  wordMetaEl.innerHTML = `
-    <dt>Community</dt><dd>${formatCommunity(data.community, data.community_label)}</dd>
-    <dt>Degree</dt><dd>${data.degree} connections within its top-15 neighbours</dd>
-    <dt>Since previous period</dt><dd>${changeHtml}</dd>
-  `;
-
-  neighborsBody.innerHTML = "";
-  data.neighbors.forEach((n) => {
-    const tr = document.createElement("tr");
-    if (n.community === data.community) tr.classList.add("same-community");
-    const wordTd = document.createElement("td");
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "word-link";
-    btn.textContent = n.word;
-    btn.addEventListener("click", () => runSearch(n.word, periodSelect.value));
-    wordTd.appendChild(btn);
-    const simTd = document.createElement("td");
-    simTd.textContent = n.similarity.toFixed(3);
-    const commTd = document.createElement("td");
-    commTd.textContent = formatCommunity(n.community, n.community_label);
-    tr.append(wordTd, simTd, commTd);
-    neighborsBody.appendChild(tr);
-  });
+  WordDetail.render(
+    { heading: wordHeadingEl, meta: wordMetaEl, neighborsBody },
+    data,
+    (word) => runSearch(word, periodSelect.value),
+  );
 }
 
 periodSelect.addEventListener("change", () => {

@@ -1,0 +1,1562 @@
+{
+  "1500-1520": {
+    "7": {
+      "label": "English Place & Personal Names (mixed)",
+      "n_words": 309,
+      "lane": "Structural / Uncertain"
+    },
+    "5": {
+      "label": "Civic & Ecclesiastical Administration",
+      "n_words": 348,
+      "lane": "Government, Law & Administration"
+    },
+    "2": {
+      "label": "Middle English Infinitive Verbs (mixed)",
+      "n_words": 530,
+      "lane": "Structural / Uncertain"
+    },
+    "1": {
+      "label": "Virtue and Moral Qualities",
+      "n_words": 644,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "0": {
+      "label": "Narrative Action & Body Parts (Romance) (mixed)",
+      "n_words": 857,
+      "lane": "Structural / Uncertain"
+    },
+    "9": {
+      "label": "Grammar & Parts of Speech",
+      "n_words": 96,
+      "lane": "Books, Learning & Scholarship"
+    },
+    "6": {
+      "label": "Law French Legal Text (mixed)",
+      "n_words": 341,
+      "lane": "Structural / Uncertain"
+    },
+    "3": {
+      "label": "Sin, Belief & Penance",
+      "n_words": 525,
+      "lane": "Religion, Theology & the Church"
+    },
+    "8": {
+      "label": "Roman Numerals & Chronicle Dates (mixed)",
+      "n_words": 257,
+      "lane": "Structural / Uncertain"
+    },
+    "4": {
+      "label": "Latin Text (mixed)",
+      "n_words": 382,
+      "lane": "Structural / Uncertain"
+    },
+    "10": {
+      "label": "German/Dutch Text (mixed)",
+      "n_words": 81,
+      "lane": "Structural / Uncertain"
+    },
+    "11": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 25,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1520-1540": {
+    "0": {
+      "label": "Plural Nouns (Body, Household, Vice) (mixed)",
+      "n_words": 1886,
+      "lane": "Structural / Uncertain"
+    },
+    "5": {
+      "label": "Verbs of Persuasion & Reproof (mixed)",
+      "n_words": 947,
+      "lane": "Structural / Uncertain"
+    },
+    "7": {
+      "label": "Biblical Citation Numerals (mixed)",
+      "n_words": 720,
+      "lane": "Structural / Uncertain"
+    },
+    "11": {
+      "label": "Scots Religious Text (mixed)",
+      "n_words": 383,
+      "lane": "Structural / Uncertain"
+    },
+    "12": {
+      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
+      "n_words": 369,
+      "lane": "Structural / Uncertain"
+    },
+    "14": {
+      "label": "Miscellaneous Learned Vocabulary (mixed)",
+      "n_words": 98,
+      "lane": "Structural / Uncertain"
+    },
+    "3": {
+      "label": "Local Government & Land Administration",
+      "n_words": 1034,
+      "lane": "Government, Law & Administration"
+    },
+    "10": {
+      "label": "Law French Legal Text (mixed)",
+      "n_words": 516,
+      "lane": "Structural / Uncertain"
+    },
+    "2": {
+      "label": "Miscellaneous Household & Bodily Terms (mixed)",
+      "n_words": 1424,
+      "lane": "Structural / Uncertain"
+    },
+    "8": {
+      "label": "Past-Tense/Participle Verb Forms (mixed)",
+      "n_words": 700,
+      "lane": "Structural / Uncertain"
+    },
+    "9": {
+      "label": "Verbs of Physical Motion & Force (mixed)",
+      "n_words": 635,
+      "lane": "Structural / Uncertain"
+    },
+    "1": {
+      "label": "Latin Theological Text (mixed)",
+      "n_words": 1480,
+      "lane": "Structural / Uncertain"
+    },
+    "4": {
+      "label": "Historical Places & Personal Names (mixed)",
+      "n_words": 952,
+      "lane": "Structural / Uncertain"
+    },
+    "15": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 67,
+      "lane": "Structural / Uncertain"
+    },
+    "13": {
+      "label": "Truncated Word Fragments (mixed)",
+      "n_words": 136,
+      "lane": "Structural / Uncertain"
+    },
+    "6": {
+      "label": "Mixed Latin & Proper Names (mixed)",
+      "n_words": 798,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1540-1560": {
+    "8": {
+      "label": "Fiscal & Administrative Terms",
+      "n_words": 910,
+      "lane": "Government, Law & Administration"
+    },
+    "1": {
+      "label": "Virtues & Noble Qualities",
+      "n_words": 1890,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "4": {
+      "label": "Verbs of Persuasion & Coercion (mixed)",
+      "n_words": 1357,
+      "lane": "Structural / Uncertain"
+    },
+    "16": {
+      "label": "Manner Adverbs (Spelling Variants) (mixed)",
+      "n_words": 344,
+      "lane": "Structural / Uncertain"
+    },
+    "3": {
+      "label": "Historical & Biblical Proper Names (mixed)",
+      "n_words": 1374,
+      "lane": "Structural / Uncertain"
+    },
+    "9": {
+      "label": "Miscellaneous Landscape & Astronomy Terms (mixed)",
+      "n_words": 746,
+      "lane": "Structural / Uncertain"
+    },
+    "2": {
+      "label": "Religious Superstition & Vice",
+      "n_words": 1727,
+      "lane": "Religion, Theology & the Church"
+    },
+    "18": {
+      "label": "Truncated Word Fragments (mixed)",
+      "n_words": 289,
+      "lane": "Structural / Uncertain"
+    },
+    "5": {
+      "label": "Past-Tense Verbs of Conflict & Judgment (mixed)",
+      "n_words": 1235,
+      "lane": "Structural / Uncertain"
+    },
+    "13": {
+      "label": "Ancestors, Predecessors & Neighbours",
+      "n_words": 602,
+      "lane": "History, Genealogy, Nobility & Kinship"
+    },
+    "0": {
+      "label": "Herbs & Materia Medica",
+      "n_words": 2090,
+      "lane": "Medicine, Body & Health"
+    },
+    "21": {
+      "label": "Eucharistic Theology (Real Presence)",
+      "n_words": 210,
+      "lane": "Religion, Theology & the Church"
+    },
+    "14": {
+      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
+      "n_words": 556,
+      "lane": "Structural / Uncertain"
+    },
+    "15": {
+      "label": "Dates and Calendar Terms (mixed)",
+      "n_words": 504,
+      "lane": "Structural / Uncertain"
+    },
+    "10": {
+      "label": "Verbs of Physical Motion (mixed)",
+      "n_words": 741,
+      "lane": "Structural / Uncertain"
+    },
+    "19": {
+      "label": "Welsh Text (mixed)",
+      "n_words": 259,
+      "lane": "Structural / Uncertain"
+    },
+    "17": {
+      "label": "Law French Legal Text (mixed)",
+      "n_words": 332,
+      "lane": "Structural / Uncertain"
+    },
+    "12": {
+      "label": "Patristic Authors & Citations (mixed)",
+      "n_words": 617,
+      "lane": "Structural / Uncertain"
+    },
+    "6": {
+      "label": "Latin Text (mixed)",
+      "n_words": 1130,
+      "lane": "Structural / Uncertain"
+    },
+    "7": {
+      "label": "Scots Text (mixed)",
+      "n_words": 978,
+      "lane": "Structural / Uncertain"
+    },
+    "22": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 102,
+      "lane": "Structural / Uncertain"
+    },
+    "20": {
+      "label": "Truncated Word Fragments (mixed)",
+      "n_words": 217,
+      "lane": "Structural / Uncertain"
+    },
+    "11": {
+      "label": "Feudal Land Law Terms",
+      "n_words": 697,
+      "lane": "Government, Law & Administration"
+    }
+  },
+  "1560-1580": {
+    "10": {
+      "label": "Scholarly Treatises & Argument",
+      "n_words": 1372,
+      "lane": "Books, Learning & Scholarship"
+    },
+    "7": {
+      "label": "Verbs of Persuasion & Affliction (mixed)",
+      "n_words": 1552,
+      "lane": "Structural / Uncertain"
+    },
+    "6": {
+      "label": "Virtues & Moral Adverbs",
+      "n_words": 2404,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "4": {
+      "label": "Place Names & Territories (mixed)",
+      "n_words": 2785,
+      "lane": "Structural / Uncertain"
+    },
+    "14": {
+      "label": "Kinship & Household Relations",
+      "n_words": 897,
+      "lane": "History, Genealogy, Nobility & Kinship"
+    },
+    "2": {
+      "label": "Crime, Corruption & Vice",
+      "n_words": 3229,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "5": {
+      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
+      "n_words": 2586,
+      "lane": "Structural / Uncertain"
+    },
+    "11": {
+      "label": "Verbs of Physical Motion (mixed)",
+      "n_words": 1272,
+      "lane": "Structural / Uncertain"
+    },
+    "15": {
+      "label": "Dates and Calendar Terms (mixed)",
+      "n_words": 564,
+      "lane": "Structural / Uncertain"
+    },
+    "9": {
+      "label": "French Text (mixed)",
+      "n_words": 1460,
+      "lane": "Structural / Uncertain"
+    },
+    "19": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 201,
+      "lane": "Structural / Uncertain"
+    },
+    "8": {
+      "label": "Classical & Historical Names (mixed)",
+      "n_words": 1517,
+      "lane": "Structural / Uncertain"
+    },
+    "1": {
+      "label": "Latin Text (mixed)",
+      "n_words": 3534,
+      "lane": "Structural / Uncertain"
+    },
+    "12": {
+      "label": "Patristic Authors & Citations (mixed)",
+      "n_words": 988,
+      "lane": "Structural / Uncertain"
+    },
+    "0": {
+      "label": "Herbs & Materia Medica",
+      "n_words": 3823,
+      "lane": "Medicine, Body & Health"
+    },
+    "18": {
+      "label": "Truncated Word Fragments & Names (mixed)",
+      "n_words": 262,
+      "lane": "Structural / Uncertain"
+    },
+    "13": {
+      "label": "Scots Text (mixed)",
+      "n_words": 961,
+      "lane": "Structural / Uncertain"
+    },
+    "16": {
+      "label": "Truncated Word Fragments (mixed)",
+      "n_words": 292,
+      "lane": "Structural / Uncertain"
+    },
+    "17": {
+      "label": "Miscellaneous Vocabulary (mixed)",
+      "n_words": 289,
+      "lane": "Structural / Uncertain"
+    },
+    "20": {
+      "label": "Truncated Word Fragments (mixed)",
+      "n_words": 172,
+      "lane": "Structural / Uncertain"
+    },
+    "3": {
+      "label": "Latin Text (mixed)",
+      "n_words": 2849,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1580-1600": {
+    "10": {
+      "label": "Manner Adverbs (mixed)",
+      "n_words": 1611,
+      "lane": "Structural / Uncertain"
+    },
+    "6": {
+      "label": "Verbs of Persuasion & Coercion (mixed)",
+      "n_words": 1909,
+      "lane": "Structural / Uncertain"
+    },
+    "1": {
+      "label": "Ecclesiastical Administration & Scholarly Terms",
+      "n_words": 4350,
+      "lane": "Government, Law & Administration"
+    },
+    "15": {
+      "label": "Dates and Calendar Terms (mixed)",
+      "n_words": 799,
+      "lane": "Structural / Uncertain"
+    },
+    "11": {
+      "label": "Drama Character Names & Types (mixed)",
+      "n_words": 1592,
+      "lane": "Structural / Uncertain"
+    },
+    "3": {
+      "label": "Poetic Diction & Vice Imagery",
+      "n_words": 3697,
+      "lane": "Literature, Drama & Poetic Diction"
+    },
+    "16": {
+      "label": "Biblical Names (Kings of Israel) (mixed)",
+      "n_words": 696,
+      "lane": "Structural / Uncertain"
+    },
+    "8": {
+      "label": "Sky, Weather & Cosmography",
+      "n_words": 1847,
+      "lane": "Nature, Landscape & Weather"
+    },
+    "0": {
+      "label": "Mixed Verb Forms (mixed)",
+      "n_words": 4392,
+      "lane": "Structural / Uncertain"
+    },
+    "5": {
+      "label": "Nobility & Place Names (mixed)",
+      "n_words": 2482,
+      "lane": "Structural / Uncertain"
+    },
+    "2": {
+      "label": "Herbs & Materia Medica",
+      "n_words": 4260,
+      "lane": "Medicine, Body & Health"
+    },
+    "13": {
+      "label": "Patristic & Classical Authors (mixed)",
+      "n_words": 998,
+      "lane": "Structural / Uncertain"
+    },
+    "18": {
+      "label": "Truncated Word Fragments & Names (mixed)",
+      "n_words": 516,
+      "lane": "Structural / Uncertain"
+    },
+    "9": {
+      "label": "Welsh Text (mixed)",
+      "n_words": 1629,
+      "lane": "Structural / Uncertain"
+    },
+    "19": {
+      "label": "Truncated Word Fragments (mixed)",
+      "n_words": 423,
+      "lane": "Structural / Uncertain"
+    },
+    "14": {
+      "label": "Bodily Humors & Ailments",
+      "n_words": 916,
+      "lane": "Medicine, Body & Health"
+    },
+    "4": {
+      "label": "Latin Text (mixed)",
+      "n_words": 3307,
+      "lane": "Structural / Uncertain"
+    },
+    "22": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 158,
+      "lane": "Structural / Uncertain"
+    },
+    "12": {
+      "label": "French Text (mixed)",
+      "n_words": 1023,
+      "lane": "Structural / Uncertain"
+    },
+    "17": {
+      "label": "Italian Text (mixed)",
+      "n_words": 613,
+      "lane": "Structural / Uncertain"
+    },
+    "20": {
+      "label": "Scots Text (mixed)",
+      "n_words": 297,
+      "lane": "Structural / Uncertain"
+    },
+    "21": {
+      "label": "Apothecary Recipe Ingredients",
+      "n_words": 201,
+      "lane": "Medicine, Body & Health"
+    },
+    "7": {
+      "label": "Welsh Text (mixed)",
+      "n_words": 1864,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1600-1620": {
+    "5": {
+      "label": "Miscellaneous Scholarly & Astronomical Vocabulary (mixed)",
+      "n_words": 3077,
+      "lane": "Structural / Uncertain"
+    },
+    "6": {
+      "label": "Ecclesiastical & Fiscal Administration",
+      "n_words": 2665,
+      "lane": "Government, Law & Administration"
+    },
+    "3": {
+      "label": "Verbs of Argument, Citation & Refutation",
+      "n_words": 3903,
+      "lane": "Rhetoric & Persuasion"
+    },
+    "12": {
+      "label": "Scots Text & Manner Adverbs (mixed)",
+      "n_words": 1612,
+      "lane": "Structural / Uncertain"
+    },
+    "2": {
+      "label": "Vice, Treachery & Slander",
+      "n_words": 4693,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "9": {
+      "label": "Satirical & Pastoral Character Types",
+      "n_words": 2411,
+      "lane": "Literature, Drama & Poetic Diction"
+    },
+    "17": {
+      "label": "Dates and Calendar Terms (mixed)",
+      "n_words": 520,
+      "lane": "Structural / Uncertain"
+    },
+    "8": {
+      "label": "Past-Tense Verbs (Mixed)",
+      "n_words": 2416,
+      "lane": "Structural / Uncertain"
+    },
+    "4": {
+      "label": "Nobility & Place Names (mixed)",
+      "n_words": 3608,
+      "lane": "Structural / Uncertain"
+    },
+    "11": {
+      "label": "Verbs of Physical Motion (mixed)",
+      "n_words": 1809,
+      "lane": "Structural / Uncertain"
+    },
+    "1": {
+      "label": "Herbs, Plants & Materia Medica",
+      "n_words": 5306,
+      "lane": "Medicine, Body & Health"
+    },
+    "14": {
+      "label": "Biblical Names (mixed)",
+      "n_words": 982,
+      "lane": "Structural / Uncertain"
+    },
+    "7": {
+      "label": "Latin Theological Citations (mixed)",
+      "n_words": 2560,
+      "lane": "Structural / Uncertain"
+    },
+    "18": {
+      "label": "Saints' Names & Fragments (mixed)",
+      "n_words": 422,
+      "lane": "Structural / Uncertain"
+    },
+    "0": {
+      "label": "Latin Text (mixed)",
+      "n_words": 5416,
+      "lane": "Structural / Uncertain"
+    },
+    "20": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 218,
+      "lane": "Structural / Uncertain"
+    },
+    "15": {
+      "label": "Italian Text (mixed)",
+      "n_words": 919,
+      "lane": "Structural / Uncertain"
+    },
+    "13": {
+      "label": "Drama Interjections & Name Fragments (mixed)",
+      "n_words": 1059,
+      "lane": "Structural / Uncertain"
+    },
+    "16": {
+      "label": "Welsh Text (mixed)",
+      "n_words": 856,
+      "lane": "Structural / Uncertain"
+    },
+    "10": {
+      "label": "Mixed Latin & Welsh Fragments (mixed)",
+      "n_words": 2047,
+      "lane": "Structural / Uncertain"
+    },
+    "19": {
+      "label": "Truncated Word Fragments (mixed)",
+      "n_words": 293,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1620-1640": {
+    "2": {
+      "label": "Miscellaneous Learned Vocabulary (mixed)",
+      "n_words": 6616,
+      "lane": "Structural / Uncertain"
+    },
+    "1": {
+      "label": "Verbs of Argument, Denial & Flattery",
+      "n_words": 6685,
+      "lane": "Rhetoric & Persuasion"
+    },
+    "14": {
+      "label": "Biblical Names (mixed)",
+      "n_words": 865,
+      "lane": "Structural / Uncertain"
+    },
+    "4": {
+      "label": "Vice & Corruption",
+      "n_words": 3847,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "8": {
+      "label": "Drama Character Names & Interjections (mixed)",
+      "n_words": 2361,
+      "lane": "Structural / Uncertain"
+    },
+    "5": {
+      "label": "English Counties & Place Names (mixed)",
+      "n_words": 3605,
+      "lane": "Structural / Uncertain"
+    },
+    "12": {
+      "label": "Manner Adverbs (mixed)",
+      "n_words": 1148,
+      "lane": "Structural / Uncertain"
+    },
+    "11": {
+      "label": "Verbs of Physical Motion (mixed)",
+      "n_words": 1568,
+      "lane": "Structural / Uncertain"
+    },
+    "6": {
+      "label": "Latin Theological Citations (mixed)",
+      "n_words": 2860,
+      "lane": "Structural / Uncertain"
+    },
+    "9": {
+      "label": "Bodily Humors & Ailments",
+      "n_words": 1797,
+      "lane": "Medicine, Body & Health"
+    },
+    "3": {
+      "label": "Household Goods, Herbs & Dress",
+      "n_words": 5433,
+      "lane": "Domestic Life, Dress & Household"
+    },
+    "0": {
+      "label": "Latin Text (mixed)",
+      "n_words": 7364,
+      "lane": "Structural / Uncertain"
+    },
+    "10": {
+      "label": "Welsh Text (mixed)",
+      "n_words": 1609,
+      "lane": "Structural / Uncertain"
+    },
+    "16": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 224,
+      "lane": "Structural / Uncertain"
+    },
+    "15": {
+      "label": "Saints' Names & Fragments (mixed)",
+      "n_words": 330,
+      "lane": "Structural / Uncertain"
+    },
+    "18": {
+      "label": "Roman Numerals & Dates (mixed)",
+      "n_words": 149,
+      "lane": "Structural / Uncertain"
+    },
+    "13": {
+      "label": "French Text (mixed)",
+      "n_words": 865,
+      "lane": "Structural / Uncertain"
+    },
+    "17": {
+      "label": "Apothecary Recipe Ingredients",
+      "n_words": 214,
+      "lane": "Medicine, Body & Health"
+    },
+    "7": {
+      "label": "Welsh & Latin Fragments (mixed)",
+      "n_words": 2511,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1640-1660": {
+    "12": {
+      "label": "Manner Adverbs (mixed)",
+      "n_words": 1950,
+      "lane": "Structural / Uncertain"
+    },
+    "7": {
+      "label": "Bodily Humors & Ailments",
+      "n_words": 3430,
+      "lane": "Medicine, Body & Health"
+    },
+    "1": {
+      "label": "Miscellaneous Learned Vocabulary (mixed)",
+      "n_words": 8878,
+      "lane": "Structural / Uncertain"
+    },
+    "14": {
+      "label": "Biblical Names (mixed)",
+      "n_words": 1358,
+      "lane": "Structural / Uncertain"
+    },
+    "20": {
+      "label": "Comparative Adjectives (mixed)",
+      "n_words": 185,
+      "lane": "Structural / Uncertain"
+    },
+    "5": {
+      "label": "Land Tenure & Property Law",
+      "n_words": 4801,
+      "lane": "Government, Law & Administration"
+    },
+    "2": {
+      "label": "Dress, Household Goods & Birds",
+      "n_words": 5998,
+      "lane": "Domestic Life, Dress & Household"
+    },
+    "4": {
+      "label": "Verbs of Motion (Mixed)",
+      "n_words": 4998,
+      "lane": "Structural / Uncertain"
+    },
+    "13": {
+      "label": "Geometry & Astronomy Terms",
+      "n_words": 1394,
+      "lane": "Science, Mathematics & Natural Philosophy"
+    },
+    "3": {
+      "label": "Verbs of Interpretation & Argument",
+      "n_words": 5077,
+      "lane": "Rhetoric & Persuasion"
+    },
+    "6": {
+      "label": "Classical & Historical Names (mixed)",
+      "n_words": 3561,
+      "lane": "Structural / Uncertain"
+    },
+    "11": {
+      "label": "Multilingual Interjections & Fragments (mixed)",
+      "n_words": 2018,
+      "lane": "Structural / Uncertain"
+    },
+    "15": {
+      "label": "Welsh Text (mixed)",
+      "n_words": 1226,
+      "lane": "Structural / Uncertain"
+    },
+    "8": {
+      "label": "Latin Theological Citations (mixed)",
+      "n_words": 3033,
+      "lane": "Structural / Uncertain"
+    },
+    "16": {
+      "label": "Latin Legal Fragments & Names (mixed)",
+      "n_words": 1154,
+      "lane": "Structural / Uncertain"
+    },
+    "9": {
+      "label": "English Surnames & Places (mixed)",
+      "n_words": 2700,
+      "lane": "Structural / Uncertain"
+    },
+    "0": {
+      "label": "Latin Text (mixed)",
+      "n_words": 10314,
+      "lane": "Structural / Uncertain"
+    },
+    "19": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 306,
+      "lane": "Structural / Uncertain"
+    },
+    "21": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 113,
+      "lane": "Structural / Uncertain"
+    },
+    "18": {
+      "label": "Verbs of Doting & Reflecting (mixed)",
+      "n_words": 419,
+      "lane": "Structural / Uncertain"
+    },
+    "10": {
+      "label": "Herbs & Materia Medica",
+      "n_words": 2112,
+      "lane": "Medicine, Body & Health"
+    },
+    "17": {
+      "label": "Latin Legal Charter Formulas (mixed)",
+      "n_words": 466,
+      "lane": "Structural / Uncertain"
+    },
+    "22": {
+      "label": "Unclassifiable Fragments (mixed)",
+      "n_words": 22,
+      "lane": "Structural / Uncertain"
+    },
+    "23": {
+      "label": "Latin Pronoun Fragments (mixed)",
+      "n_words": 19,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1660-1680": {
+    "3": {
+      "label": "Food, Herbs & Household Goods",
+      "n_words": 5316,
+      "lane": "Domestic Life, Dress & Household"
+    },
+    "4": {
+      "label": "Diseases & Bodily Humors",
+      "n_words": 5101,
+      "lane": "Medicine, Body & Health"
+    },
+    "14": {
+      "label": "Drama Character Names (mixed)",
+      "n_words": 1632,
+      "lane": "Structural / Uncertain"
+    },
+    "1": {
+      "label": "Miscellaneous Learned Vocabulary (mixed)",
+      "n_words": 10086,
+      "lane": "Structural / Uncertain"
+    },
+    "13": {
+      "label": "Biblical & Classical Names (mixed)",
+      "n_words": 1661,
+      "lane": "Structural / Uncertain"
+    },
+    "7": {
+      "label": "Place Names & Territories (mixed)",
+      "n_words": 3303,
+      "lane": "Structural / Uncertain"
+    },
+    "2": {
+      "label": "Verbs of Argument & Persuasion",
+      "n_words": 7221,
+      "lane": "Rhetoric & Persuasion"
+    },
+    "15": {
+      "label": "Geometry & Astronomy Terms",
+      "n_words": 1527,
+      "lane": "Science, Mathematics & Natural Philosophy"
+    },
+    "11": {
+      "label": "Legal & Property Terms",
+      "n_words": 2284,
+      "lane": "Government, Law & Administration"
+    },
+    "0": {
+      "label": "Latin Text (mixed)",
+      "n_words": 11817,
+      "lane": "Structural / Uncertain"
+    },
+    "10": {
+      "label": "Verbs of Motion (Mixed)",
+      "n_words": 2384,
+      "lane": "Structural / Uncertain"
+    },
+    "12": {
+      "label": "French Text (mixed)",
+      "n_words": 1707,
+      "lane": "Structural / Uncertain"
+    },
+    "9": {
+      "label": "Welsh Text (mixed)",
+      "n_words": 2649,
+      "lane": "Structural / Uncertain"
+    },
+    "16": {
+      "label": "European Noble & Saint Names (mixed)",
+      "n_words": 951,
+      "lane": "Structural / Uncertain"
+    },
+    "8": {
+      "label": "English Surnames & Places (mixed)",
+      "n_words": 2724,
+      "lane": "Structural / Uncertain"
+    },
+    "6": {
+      "label": "Latin Theological Citations (mixed)",
+      "n_words": 3514,
+      "lane": "Structural / Uncertain"
+    },
+    "18": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 290,
+      "lane": "Structural / Uncertain"
+    },
+    "19": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 115,
+      "lane": "Structural / Uncertain"
+    },
+    "17": {
+      "label": "Apothecary Recipe Ingredients",
+      "n_words": 558,
+      "lane": "Medicine, Body & Health"
+    },
+    "5": {
+      "label": "Latin Ecclesiastical Fragments (mixed)",
+      "n_words": 3792,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1680-1700": {
+    "3": {
+      "label": "Legal & Property Terms",
+      "n_words": 4736,
+      "lane": "Government, Law & Administration"
+    },
+    "5": {
+      "label": "Diseases & Bodily Fluids",
+      "n_words": 3902,
+      "lane": "Medicine, Body & Health"
+    },
+    "11": {
+      "label": "Drama Character Names (mixed)",
+      "n_words": 2387,
+      "lane": "Structural / Uncertain"
+    },
+    "2": {
+      "label": "Miscellaneous Satirical Vocabulary (mixed)",
+      "n_words": 7368,
+      "lane": "Structural / Uncertain"
+    },
+    "4": {
+      "label": "Animals, Dress & Household Items",
+      "n_words": 4660,
+      "lane": "Domestic Life, Dress & Household"
+    },
+    "1": {
+      "label": "Verb Forms (Mixed)",
+      "n_words": 9943,
+      "lane": "Structural / Uncertain"
+    },
+    "18": {
+      "label": "Verbs of Mockery & Scorn",
+      "n_words": 633,
+      "lane": "Rhetoric & Persuasion"
+    },
+    "16": {
+      "label": "Manner Adverbs (mixed)",
+      "n_words": 1240,
+      "lane": "Structural / Uncertain"
+    },
+    "7": {
+      "label": "Classical Roman Names (mixed)",
+      "n_words": 3246,
+      "lane": "Structural / Uncertain"
+    },
+    "15": {
+      "label": "Human Anatomy",
+      "n_words": 1407,
+      "lane": "Medicine, Body & Health"
+    },
+    "19": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 322,
+      "lane": "Structural / Uncertain"
+    },
+    "13": {
+      "label": "Latin Bibliographic Citations (mixed)",
+      "n_words": 2064,
+      "lane": "Structural / Uncertain"
+    },
+    "6": {
+      "label": "English Surnames (mixed)",
+      "n_words": 3896,
+      "lane": "Structural / Uncertain"
+    },
+    "14": {
+      "label": "French Text (mixed)",
+      "n_words": 1903,
+      "lane": "Structural / Uncertain"
+    },
+    "9": {
+      "label": "Place Names & Territories (mixed)",
+      "n_words": 2628,
+      "lane": "Structural / Uncertain"
+    },
+    "20": {
+      "label": "Saints' Names (mixed)",
+      "n_words": 273,
+      "lane": "Structural / Uncertain"
+    },
+    "0": {
+      "label": "Latin Text (mixed)",
+      "n_words": 10039,
+      "lane": "Structural / Uncertain"
+    },
+    "10": {
+      "label": "Welsh Text (mixed)",
+      "n_words": 2444,
+      "lane": "Structural / Uncertain"
+    },
+    "17": {
+      "label": "Biblical Names (mixed)",
+      "n_words": 1163,
+      "lane": "Structural / Uncertain"
+    },
+    "12": {
+      "label": "Herbs & Materia Medica",
+      "n_words": 2159,
+      "lane": "Medicine, Body & Health"
+    },
+    "8": {
+      "label": "Multilingual Fragments & Names (mixed)",
+      "n_words": 2787,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1700-1720": {
+    "5": {
+      "label": "Character-Quality Adjectives",
+      "n_words": 1448,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "0": {
+      "label": "Heresy, Vice & Sedition",
+      "n_words": 3034,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "7": {
+      "label": "Materia Medica & Herbal Remedies",
+      "n_words": 1253,
+      "lane": "Medicine, Body & Health"
+    },
+    "17": {
+      "label": "Comparative Adjectives (mixed)",
+      "n_words": 68,
+      "lane": "Structural / Uncertain"
+    },
+    "10": {
+      "label": "Name Fragments (mixed)",
+      "n_words": 709,
+      "lane": "Structural / Uncertain"
+    },
+    "3": {
+      "label": "Past-Tense Verbs of Conflict & Argument (Mixed)",
+      "n_words": 1660,
+      "lane": "Structural / Uncertain"
+    },
+    "1": {
+      "label": "Poetic Nature Imagery",
+      "n_words": 2632,
+      "lane": "Nature, Landscape & Weather"
+    },
+    "16": {
+      "label": "Dates and Calendar Terms (mixed)",
+      "n_words": 177,
+      "lane": "Structural / Uncertain"
+    },
+    "8": {
+      "label": "Verbs of Persuasion (mixed)",
+      "n_words": 925,
+      "lane": "Structural / Uncertain"
+    },
+    "4": {
+      "label": "Personal & Place Names (mixed)",
+      "n_words": 1479,
+      "lane": "Structural / Uncertain"
+    },
+    "9": {
+      "label": "Verbs of Motion (Mixed)",
+      "n_words": 720,
+      "lane": "Structural / Uncertain"
+    },
+    "15": {
+      "label": "French Text (mixed)",
+      "n_words": 239,
+      "lane": "Structural / Uncertain"
+    },
+    "6": {
+      "label": "Trade, Officers & Commodities",
+      "n_words": 1311,
+      "lane": "Trade, Finance & Commerce"
+    },
+    "2": {
+      "label": "Latin Text (mixed)",
+      "n_words": 1990,
+      "lane": "Structural / Uncertain"
+    },
+    "11": {
+      "label": "Bibliographic & Patristic Citations (mixed)",
+      "n_words": 696,
+      "lane": "Structural / Uncertain"
+    },
+    "13": {
+      "label": "Verbs of Argument & Persuasion",
+      "n_words": 615,
+      "lane": "Rhetoric & Persuasion"
+    },
+    "18": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 44,
+      "lane": "Structural / Uncertain"
+    },
+    "14": {
+      "label": "Welsh Text (mixed)",
+      "n_words": 383,
+      "lane": "Structural / Uncertain"
+    },
+    "12": {
+      "label": "Latin Theological Text (mixed)",
+      "n_words": 646,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1720-1740": {
+    "15": {
+      "label": "Cardinal Numbers & Currency Terms (mixed)",
+      "n_words": 86,
+      "lane": "Structural / Uncertain"
+    },
+    "1": {
+      "label": "Scholarly Writings & Virtues",
+      "n_words": 1304,
+      "lane": "Books, Learning & Scholarship"
+    },
+    "5": {
+      "label": "Character-Quality Adjectives",
+      "n_words": 783,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "9": {
+      "label": "Calculus & Mathematical Demonstration",
+      "n_words": 650,
+      "lane": "Science, Mathematics & Natural Philosophy"
+    },
+    "16": {
+      "label": "Comparative Adjectives (mixed)",
+      "n_words": 51,
+      "lane": "Structural / Uncertain"
+    },
+    "11": {
+      "label": "Drama Character Names (mixed)",
+      "n_words": 428,
+      "lane": "Structural / Uncertain"
+    },
+    "7": {
+      "label": "Verbs of Persuasion (mixed)",
+      "n_words": 663,
+      "lane": "Structural / Uncertain"
+    },
+    "3": {
+      "label": "Personal & Place Names (mixed)",
+      "n_words": 810,
+      "lane": "Structural / Uncertain"
+    },
+    "0": {
+      "label": "Poetic Nature Imagery",
+      "n_words": 1463,
+      "lane": "Nature, Landscape & Weather"
+    },
+    "2": {
+      "label": "Verbs of Argument & Conflict (mixed)",
+      "n_words": 1026,
+      "lane": "Structural / Uncertain"
+    },
+    "10": {
+      "label": "Verbs of Motion (Mixed)",
+      "n_words": 520,
+      "lane": "Structural / Uncertain"
+    },
+    "6": {
+      "label": "Vice & Sin",
+      "n_words": 674,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "4": {
+      "label": "Colonial Trade & Administration",
+      "n_words": 795,
+      "lane": "Trade, Finance & Commerce"
+    },
+    "8": {
+      "label": "Bodily Fluids & Chemistry",
+      "n_words": 662,
+      "lane": "Medicine, Body & Health"
+    },
+    "13": {
+      "label": "Verbs of Argument & Persuasion",
+      "n_words": 298,
+      "lane": "Rhetoric & Persuasion"
+    },
+    "14": {
+      "label": "Biblical Citation Numerals (mixed)",
+      "n_words": 137,
+      "lane": "Structural / Uncertain"
+    },
+    "17": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 21,
+      "lane": "Structural / Uncertain"
+    },
+    "12": {
+      "label": "Latin Text (mixed)",
+      "n_words": 326,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1740-1760": {
+    "13": {
+      "label": "Dates and Calendar Terms (mixed)",
+      "n_words": 200,
+      "lane": "Structural / Uncertain"
+    },
+    "1": {
+      "label": "Bodily Fluids & Physiology",
+      "n_words": 2016,
+      "lane": "Medicine, Body & Health"
+    },
+    "7": {
+      "label": "Verbs of Persuasion (mixed)",
+      "n_words": 815,
+      "lane": "Structural / Uncertain"
+    },
+    "3": {
+      "label": "Vice & Character Adjectives",
+      "n_words": 1363,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "16": {
+      "label": "Comparative Adjectives (mixed)",
+      "n_words": 57,
+      "lane": "Structural / Uncertain"
+    },
+    "12": {
+      "label": "Drama Character Names (mixed)",
+      "n_words": 449,
+      "lane": "Structural / Uncertain"
+    },
+    "4": {
+      "label": "Verbs of Argument & Affliction (mixed)",
+      "n_words": 1255,
+      "lane": "Structural / Uncertain"
+    },
+    "14": {
+      "label": "Family & Kinship Terms",
+      "n_words": 176,
+      "lane": "History, Genealogy, Nobility & Kinship"
+    },
+    "6": {
+      "label": "Personal & Place Names (mixed)",
+      "n_words": 846,
+      "lane": "Structural / Uncertain"
+    },
+    "2": {
+      "label": "Colonial Trade & Administration",
+      "n_words": 1429,
+      "lane": "Trade, Finance & Commerce"
+    },
+    "0": {
+      "label": "Poetic Nature Imagery",
+      "n_words": 2157,
+      "lane": "Nature, Landscape & Weather"
+    },
+    "9": {
+      "label": "Verbs of Motion (Mixed)",
+      "n_words": 726,
+      "lane": "Structural / Uncertain"
+    },
+    "5": {
+      "label": "Food & Household Provisions",
+      "n_words": 866,
+      "lane": "Domestic Life, Dress & Household"
+    },
+    "8": {
+      "label": "Vice & Sin",
+      "n_words": 728,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "11": {
+      "label": "Verbs of Argument & Persuasion",
+      "n_words": 631,
+      "lane": "Rhetoric & Persuasion"
+    },
+    "10": {
+      "label": "Scholarly Subjects & Bibliography",
+      "n_words": 647,
+      "lane": "Books, Learning & Scholarship"
+    },
+    "15": {
+      "label": "Biblical Citation Numerals (mixed)",
+      "n_words": 171,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1760-1780": {
+    "14": {
+      "label": "Dates and Calendar Terms (mixed)",
+      "n_words": 227,
+      "lane": "Structural / Uncertain"
+    },
+    "0": {
+      "label": "Books, Manuscripts & Learned Vice (mixed)",
+      "n_words": 3450,
+      "lane": "Structural / Uncertain"
+    },
+    "4": {
+      "label": "Academic Disciplines & Character Adjectives (mixed)",
+      "n_words": 1684,
+      "lane": "Structural / Uncertain"
+    },
+    "15": {
+      "label": "Comparative Adjectives (mixed)",
+      "n_words": 85,
+      "lane": "Structural / Uncertain"
+    },
+    "7": {
+      "label": "Verbs of Argument & Affliction (mixed)",
+      "n_words": 1423,
+      "lane": "Structural / Uncertain"
+    },
+    "8": {
+      "label": "Drama Character Names (mixed)",
+      "n_words": 1056,
+      "lane": "Structural / Uncertain"
+    },
+    "1": {
+      "label": "Personal & Place Names (mixed)",
+      "n_words": 2335,
+      "lane": "Structural / Uncertain"
+    },
+    "3": {
+      "label": "Verbs of Persuasion & Coercion (mixed)",
+      "n_words": 1874,
+      "lane": "Structural / Uncertain"
+    },
+    "6": {
+      "label": "Tragic Drama Diction",
+      "n_words": 1441,
+      "lane": "Literature, Drama & Poetic Diction"
+    },
+    "10": {
+      "label": "Bodily Fluids & Physiology",
+      "n_words": 816,
+      "lane": "Medicine, Body & Health"
+    },
+    "11": {
+      "label": "Verbs of Motion (Mixed)",
+      "n_words": 734,
+      "lane": "Structural / Uncertain"
+    },
+    "12": {
+      "label": "Trade, Duties & Public Finance",
+      "n_words": 617,
+      "lane": "Trade, Finance & Commerce"
+    },
+    "5": {
+      "label": "Food, Dress & Household Goods",
+      "n_words": 1575,
+      "lane": "Domestic Life, Dress & Household"
+    },
+    "9": {
+      "label": "Latin Text (mixed)",
+      "n_words": 1031,
+      "lane": "Structural / Uncertain"
+    },
+    "2": {
+      "label": "Poetic Nature Imagery",
+      "n_words": 2302,
+      "lane": "Nature, Landscape & Weather"
+    },
+    "13": {
+      "label": "Biblical Citation Numerals (mixed)",
+      "n_words": 243,
+      "lane": "Structural / Uncertain"
+    },
+    "16": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 32,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1780-1800": {
+    "3": {
+      "label": "Character-Quality & Vice Adjectives",
+      "n_words": 2156,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "15": {
+      "label": "Geometry & Currency Terms",
+      "n_words": 484,
+      "lane": "Science, Mathematics & Natural Philosophy"
+    },
+    "18": {
+      "label": "Comparative Adjectives (mixed)",
+      "n_words": 109,
+      "lane": "Structural / Uncertain"
+    },
+    "5": {
+      "label": "Public Finance & Administration",
+      "n_words": 1909,
+      "lane": "Trade, Finance & Commerce"
+    },
+    "1": {
+      "label": "Classical Authors & Scholarship (mixed)",
+      "n_words": 2807,
+      "lane": "Structural / Uncertain"
+    },
+    "10": {
+      "label": "Drama Character Names (mixed)",
+      "n_words": 1393,
+      "lane": "Structural / Uncertain"
+    },
+    "6": {
+      "label": "Verbs of Argument & Affliction (mixed)",
+      "n_words": 1810,
+      "lane": "Structural / Uncertain"
+    },
+    "16": {
+      "label": "Military Units & Weapons",
+      "n_words": 402,
+      "lane": "Military & Warfare"
+    },
+    "9": {
+      "label": "English Surnames (mixed)",
+      "n_words": 1580,
+      "lane": "Structural / Uncertain"
+    },
+    "12": {
+      "label": "Verbs of Persuasion & Coercion (mixed)",
+      "n_words": 1097,
+      "lane": "Structural / Uncertain"
+    },
+    "4": {
+      "label": "Place Names & Territories (mixed)",
+      "n_words": 1972,
+      "lane": "Structural / Uncertain"
+    },
+    "7": {
+      "label": "Vice & Character Abstractions",
+      "n_words": 1722,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "0": {
+      "label": "Poetic Nature Imagery",
+      "n_words": 4198,
+      "lane": "Nature, Landscape & Weather"
+    },
+    "13": {
+      "label": "Verbs of Motion (Mixed)",
+      "n_words": 979,
+      "lane": "Structural / Uncertain"
+    },
+    "2": {
+      "label": "Food, Household & Dress Items",
+      "n_words": 2560,
+      "lane": "Domestic Life, Dress & Household"
+    },
+    "11": {
+      "label": "Diseases & Remedies",
+      "n_words": 1237,
+      "lane": "Medicine, Body & Health"
+    },
+    "8": {
+      "label": "Latin Legal Text (mixed)",
+      "n_words": 1614,
+      "lane": "Structural / Uncertain"
+    },
+    "19": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 53,
+      "lane": "Structural / Uncertain"
+    },
+    "17": {
+      "label": "Biblical Citations & Saints' Names (mixed)",
+      "n_words": 290,
+      "lane": "Structural / Uncertain"
+    },
+    "14": {
+      "label": "Birds & Game Animals",
+      "n_words": 690,
+      "lane": "Nature, Landscape & Weather"
+    }
+  },
+  "1800-1820": {
+    "5": {
+      "label": "Abstract Nouns (Mixed Registers) (mixed)",
+      "n_words": 550,
+      "lane": "Structural / Uncertain"
+    },
+    "3": {
+      "label": "Legislative & Judicial Government",
+      "n_words": 638,
+      "lane": "Government, Law & Administration"
+    },
+    "12": {
+      "label": "Comparative Adjectives (mixed)",
+      "n_words": 20,
+      "lane": "Structural / Uncertain"
+    },
+    "4": {
+      "label": "General Action Verbs (mixed)",
+      "n_words": 609,
+      "lane": "Structural / Uncertain"
+    },
+    "7": {
+      "label": "Novel Character Names (mixed)",
+      "n_words": 438,
+      "lane": "Structural / Uncertain"
+    },
+    "0": {
+      "label": "Virtues & Character Qualities",
+      "n_words": 1039,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "1": {
+      "label": "Verbs of Motion (Mixed)",
+      "n_words": 915,
+      "lane": "Structural / Uncertain"
+    },
+    "10": {
+      "label": "Territories, Settlements & Geography",
+      "n_words": 154,
+      "lane": "Geography & Territory"
+    },
+    "9": {
+      "label": "Heroes, Patriots & Biblical Figures",
+      "n_words": 283,
+      "lane": "History, Genealogy, Nobility & Kinship"
+    },
+    "8": {
+      "label": "Dates, Places & Personal Names (mixed)",
+      "n_words": 413,
+      "lane": "Structural / Uncertain"
+    },
+    "11": {
+      "label": "Family & Kinship Terms",
+      "n_words": 87,
+      "lane": "History, Genealogy, Nobility & Kinship"
+    },
+    "2": {
+      "label": "Poetic Nature Imagery",
+      "n_words": 820,
+      "lane": "Nature, Landscape & Weather"
+    },
+    "6": {
+      "label": "Mineralogy & Natural History Specimens",
+      "n_words": 535,
+      "lane": "Science, Mathematics & Natural Philosophy"
+    }
+  },
+  "_meta": {
+    "resolution": 1.0,
+    "region": "combined",
+    "n_communities": 304,
+    "n_human_edited": 0,
+    "method": "Generated by a single LLM read-through of each community's top words, not an empirically validated taxonomy - a reading aid, not a checked ground truth. Rerunning `generate` on an unchanged input is not guaranteed to reproduce the same label text or lane for every community, since LLM sampling is not bitwise-deterministic even against an unchanged prompt.",
+    "compiled_at": "2026-08-03T16:40:33+00:00"
+  }
+}

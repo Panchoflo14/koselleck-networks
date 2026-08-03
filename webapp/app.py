@@ -60,6 +60,7 @@ HEADLINE_RES = 1.0  # resolution shown by default in the UI
 DEFAULT_K = 12  # words kept per community in "full network" mode
 SEED_PERIOD = "1800-1820"  # lands on the transition that closes the Sattelzeit
 SEED_WORD = "reason"  # present in every period's vocabulary, on-theme
+TIMELINE_SEED_WORD = "system"  # see the vault's wiki/timeline-feature-plan.md for why this word
 
 _graph_cache = {}
 _community_df_cache = {}
@@ -257,6 +258,16 @@ def label_of(label, raw_cid, region=None):
     return entry["label"] if entry else None
 
 
+def label_entry_of(label, raw_cid, region=None):
+    """The full label entry ({label, n_words, lane} - lane only present once
+    src/label_communities.py has compiled this region's CSV; older
+    hand-written label files just lack the key) for one period's raw
+    community id, or None if no label exists yet. See label_of for the
+    label-only shortcut still used elsewhere."""
+    period_labels = get_labels(region).get(label, {})
+    return period_labels.get(str(raw_cid))
+
+
 _label_caveat_cache = None
 
 
@@ -297,6 +308,11 @@ def grafo():
 @app.route("/buscador")
 def buscador():
     return render_template("buscador.html", seed_period=SEED_PERIOD, seed_word=SEED_WORD, active="buscador")
+
+
+@app.route("/timeline")
+def timeline_page():
+    return render_template("timeline.html", seed_word=TIMELINE_SEED_WORD, active="timeline")
 
 
 @app.route("/api/periods")
@@ -616,6 +632,90 @@ def search(label, word):
         "prev_community_label": label_of(prev_label, prev_community, region) if prev_label and prev_community is not None else None,
         "changed_community": changed_community,
     })
+
+
+@app.route("/api/timeline/<word>")
+def timeline(word):
+    """One row per configured period for a single word - the primary data
+    source for /timeline (see the vault's wiki/timeline-feature-plan.md).
+    Unlike /api/search, which answers "what does this word look like in
+    one period", this answers "how does this word's community change
+    across the whole span" in a single request, so the frontend can render
+    a full timeline without one round-trip per period.
+
+    Each period's community-changed flag is computed the same way
+    /api/search's changed_community is (Hungarian alignment between this
+    period and the previous *populated* period, restricted to their shared
+    vocabulary) - not read off /api/changed's precomputed list, since that
+    endpoint caps itself to the top 60 highest-degree movers and this word
+    may not be in it even when it did move.
+
+    vocab_size (total node count in that period's network) is included
+    deliberately instead of hardcoding which period marks the ~1700 corpus
+    seam (EEBO-TCP ending, ECCO/Evans phasing in) - the frontend derives
+    the seam by comparing consecutive vocab sizes against the real data,
+    the same "read it off the data, don't hardcode a period name" pattern
+    already used for regions and resolutions elsewhere in this file."""
+    word = word.strip().lower()
+    res = resolve_resolution(request.args.get("res", HEADLINE_RES))
+    region = resolve_region(request.args.get("region"))
+
+    rows = []
+    prev_label = None
+    for label in PERIODS:
+        g = get_graph(label, region)
+        if g is None:
+            rows.append({
+                "period": label, "has_data": False, "found": False,
+                "vocab_size": 0, "community_raw": None, "community_label": None,
+                "lane": None, "n_words_in_community": None, "changed_from_prev": None,
+            })
+            continue
+
+        vocab_size = len(g.vs)
+        try:
+            g.vs.find(name=word)
+            found = True
+        except ValueError:
+            found = False
+
+        if not found:
+            rows.append({
+                "period": label, "has_data": True, "found": False,
+                "vocab_size": vocab_size, "community_raw": None, "community_label": None,
+                "lane": None, "n_words_in_community": None, "changed_from_prev": None,
+            })
+            prev_label = label
+            continue
+
+        comm_map = get_communities(label, res, region)
+        community = community_of(comm_map, word)
+        entry = label_entry_of(label, community, region)
+
+        changed = None
+        if prev_label is not None:
+            comm_prev = get_communities(prev_label, res, region)
+            if comm_prev is not None and comm_map is not None and word in comm_prev:
+                shared = sorted(set(comm_prev) & set(comm_map))
+                labels_prev = [comm_prev[w] for w in shared]
+                labels_curr = [comm_map[w] for w in shared]
+                _, moved = align_communities(labels_prev, labels_curr)
+                changed = moved[shared.index(word)]
+
+        rows.append({
+            "period": label,
+            "has_data": True,
+            "found": True,
+            "vocab_size": vocab_size,
+            "community_raw": community,
+            "community_label": entry["label"] if entry else None,
+            "lane": entry.get("lane") if entry else None,
+            "n_words_in_community": entry["n_words"] if entry else None,
+            "changed_from_prev": changed,
+        })
+        prev_label = label
+
+    return jsonify({"word": word, "region": region or "combined", "resolution": res, "periods": rows})
 
 
 if __name__ == "__main__":
