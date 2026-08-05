@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koselleck Machine &middot; graph explorer</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body data-seed-period="{{ seed_period }}" data-seed-word="{{ seed_word }}">
+  <div class="page">
+    {% include "_nav.html" %}
+    <header>
+      <h1>Explore the network directly.</h1>
+      <p class="subtitle">A word and its closest neighbours drawn as a force-directed diagram. Visually rich, but
+      testing with non-specialists found it harder to read at a glance than the timeline - kept for browsing the
+      raw network structure, not the primary way to see how a word's group changed.</p>
+    </header>
+
+    <div class="graph-toolbar">
+      <div class="control-row">
+        <label for="period-slider" class="control-label">Period</label>
+        <input type="range" id="period-slider" min="0" value="0" step="1">
+        <span id="period-label" class="period-readout">-</span>
+        <button type="button" id="reset-view" class="reset-view-btn">Reset view</button>
+      </div>
+      <div id="period-ticks" class="period-ticks"></div>
+      <div class="control-row" id="region-row" style="display:none;">
+        <span class="control-label">Sources</span>
+        <div id="region-toggle" class="region-toggle"></div>
+      </div>
+      <div class="control-row">
+        <form id="focus-form">
+          <input type="text" id="focus-input" class="text-input" placeholder="a word, e.g. system, virtue, nature..." autocomplete="off">
+          <button type="submit">Show</button>
+          <button type="button" id="focus-clear">Clear</button>
+        </form>
+        <label class="mode-toggle">
+          <input type="checkbox" id="full-toggle">
+          show the full sampled network instead
+        </label>
+      </div>
+      <div class="control-row" id="k-row" style="display:none;">
+        <label for="k-input" class="control-label">Words per cluster</label>
+        <input type="number" id="k-input" min="3" max="40" value="12">
+      </div>
+    </div>
+    <div class="graph-frame">
+      <svg id="graph-svg"></svg>
+      <div id="focus-prompt" class="focus-prompt hidden"></div>
+      <div id="tooltip" class="tooltip hidden"></div>
+      <div id="info-panel" class="info-panel hidden"></div>
+    </div>
+    <div id="status"></div>
+
+    <div class="sidebar">
+      <div class="sidebar-tabs">
+        <button type="button" class="sidebar-tab active" data-page="method">Method</button>
+        <button type="button" class="sidebar-tab" data-page="findings">Findings</button>
+      </div>
+
+      <div id="page-method" class="sidebar-page">
+        <div class="methods">
+          <dl>
+            <dt>Periods</dt>
+            <dd>The corpus is split into 20-year windows. Each window gets its own embedding, trained only on that window's texts. So a word's position in one period says nothing about its position in another - it's measured fresh, period by period, not carried over.</dd>
+            <dt>Edges</dt>
+            <dd>A line between two words means they were close in meaning that period, by cosine similarity. Each word is drawn linked to its 15 closest words, so the graph stays readable instead of connecting everything to everything.</dd>
+            <dt>Groups</dt>
+            <dd>An algorithm groups words together based on how tightly linked they are to each other - in practice, a shared semantic field. It can group at different levels of detail, from a few broad groups to many narrow ones; what you see here is one such level, and the Findings tab checks that the results hold up across several.</dd>
+            <dt>Word color</dt>
+            <dd>Color marks which group a word belongs to. The word you searched for is always shown in plain dark ink, with a colored ring instead, so it stays easy to read whichever group it's in. From one period to the next, each group is matched to its closest match in the period before - so a word keeping its color kept its neighbourhood, and a word changing color actually moved to a new one. This is easiest to see moving one period at a time rather than jumping far ahead.</dd>
+            <dt>The question</dt>
+            <dd>That individual words drift in meaning over time is already known. What this project tests is whether whole <strong>groups</strong> reorganize together around the Sattelzeit, not just word by word - something you can't see by looking at one word at a time.</dd>
+          </dl>
+          <p id="label-caveat-text" class="timeline-facts">Loading...</p>
+        </div>
+
+        <div class="legend">
+          <div class="legend-group">
+            <span class="legend-title">Group</span>
+            <div id="legend-communities" class="legend-swatches"></div>
+          </div>
+          <div class="legend-group">
+            <span class="legend-title">Degree</span>
+            <div class="legend-swatches">
+              <span class="legend-size-item"><i class="dot small"></i> low</span>
+              <span class="legend-size-item"><i class="dot large"></i> high</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="page-findings" class="sidebar-page inactive">
+        <div id="findings-banner" class="findings-banner hidden">
+          <p id="findings-headline" class="findings-headline"></p>
+          <details id="caveat" class="caveat">
+            <summary>why this number alone can be misleading</summary>
+            <p id="caveat-text"></p>
+          </details>
+        </div>
+
+        <aside id="changed-panel" class="changed-panel hidden">
+          <h3>The words behind that percentage</h3>
+          <p id="changed-summary" class="changed-summary"></p>
+          <ul id="changed-list" class="changed-list"></ul>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='vendor/d3.v7.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

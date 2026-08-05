@@ -5,10 +5,13 @@
 // still exposes the old top-k-per-Leiden-community sample for anyone who
 // wants to browse rather than start from a word. Node color persists and
 // re-aligns across periods (align_to, see backend) so the same color
-// across a transition means "same community lineage", not a coincidence -
-// except when the active Leiden resolution changes, which resets it (a
-// different resolution is a genuinely different partition, not a
-// relabeling of the same one).
+// across a transition means "same community lineage", not a coincidence.
+// Resolution is fixed at 1.0 app-wide, for traceability - only 1.0 has
+// labels/community assignments this app displays, and it's the only
+// setting shown or switchable anywhere in the UI. The 7-resolution sweep
+// behind the headline finding still exists (see resolution-sweep notes /
+// docs/method.tex) but is a paper-level robustness check, not something
+// this app renders.
 
 const svg = d3.select("#graph-svg");
 const tooltip = document.getElementById("tooltip");
@@ -28,8 +31,6 @@ const resetViewBtn = document.getElementById("reset-view");
 const legendCommunitiesEl = document.getElementById("legend-communities");
 const findingsBanner = document.getElementById("findings-banner");
 const findingsHeadlineEl = document.getElementById("findings-headline");
-const sparklineEl = document.getElementById("sparkline");
-const resolutionReadoutEl = document.getElementById("resolution-readout");
 const caveatDetails = document.getElementById("caveat");
 const caveatText = document.getElementById("caveat-text");
 const changedPanel = document.getElementById("changed-panel");
@@ -43,27 +44,44 @@ const sidebarPages = { method: document.getElementById("page-method"), findings:
 const SEED_PERIOD = document.body.dataset.seedPeriod;
 const SEED_WORD = document.body.dataset.seedWord;
 
-// Ink palette (8 slots) designed against the paper background (#F1EDE3),
-// as text color rather than filled shapes - see wiki/webapp-redesign-plan
-// in the project's Obsidian cell for the contrast/distinguishability math
-// behind these specific values. The array order maximizes perceptual
+// Ink palette (8 slots), as text color rather than filled shapes - see
+// wiki/webapp-redesign-plan in the project's Obsidian cell for the original
+// contrast/distinguishability math. The array order maximizes perceptual
 // distance between *adjacent* slots, so assignColors() below picks slots
 // deliberately rather than in first-seen order, to actually use that.
-// Two slots recalculated after real-use feedback: the original rose
-// (#b45680, 3.92:1) and old gold (#ab7d00, 3.17:1) leaned on the
-// bold-text AA exception (3:1) instead of clearing 4.5:1 outright, and in
-// practice that wasn't legible enough. Every slot now clears AA normal
-// contrast against #F1EDE3 on its own.
-const PALETTE = ["#00768a", "#a8372a", "#1b4ba9", "#993366", "#2d7917", "#7f51c1", "#8a6400", "#7d2278"];
+//
+// Re-validated 2026-08-04 against the page background then current at
+// design time (#F1EDE3 "paper", later replaced twice over by the "Reading
+// Room" and now "Specimen Reclassified" redesigns) - never re-checked
+// against either. Confirmed stale: run through the dataviz skill's
+// validate_palette.js against the current --bg (#E7E8E2), 4 of 8 slots had
+// drifted below the project's 4.5:1 AA-text bar (teal 4.30, green 4.42,
+// purple 4.43, gold 4.36 - all comfortably >=4.5 against the old
+// background, none against the new one), and teal additionally failed the
+// validator's chroma floor (0.092, reads as gray). Those 4 slots replaced
+// with same-hue-family, higher-chroma, lower-lightness variants that clear
+// both checks with margin (each now 5.25-7.18:1); the other 4
+// (#a8372a/#1b4ba9/#993366/#7d2278) already cleared both and are
+// unchanged. All 8 pass validate_palette.js's default (adjacent-pair) CVD
+// and normal-vision checks, matching what the original palette was
+// designed and validated against - same bar the original held itself to,
+// not a stricter one. Known, pre-existing, NOT newly introduced by this
+// pass: neither this palette nor the original passes the validator's
+// stricter --pairs all mode (e.g. purple/blue are hard to tell apart under
+// protan simulation) - the 8 slots were only ever designed for adjacent-
+// array-order separation, not for any two slots landing next to each other
+// on screen, which is possible once a period has more than 8 communities
+// and colors cycle. Worth a real redesign later, not fixed here.
+const PALETTE = ["#00608c", "#a8372a", "#1b4ba9", "#993366", "#236014", "#6a3aa8", "#7e4c00", "#7d2278"];
 
 let periods = [];
 let REGIONS = []; // e.g. ["american", "british"] - whatever this deployment actually has built, see /api/regions
 let activeRegion = null; // null = combined; otherwise one of REGIONS
 let currentIndex = 0;
 let focusWord = SEED_WORD || "";
-let activeResolution = 1.0; // which Leiden resolution's community column drives color/changed-words
+const activeResolution = 1.0; // the only Leiden resolution this app displays, fixed project-wide
 const positions = new Map(); // word -> {x, y}, persists layout across periods
-const communityColorMap = new Map(); // community id -> color; cleared on resolution change (see setResolution)
+const communityColorMap = new Map(); // community id -> color
 let currentNodesById = new Map();
 let similarityToFocus = new Map(); // neighbour word -> cosine similarity to focusWord, rebuilt on every renderGraph
 let communityLabels = new Map(); // raw community id (this period's actual Leiden id) -> plain-English label, refetched per period/resolution
@@ -82,7 +100,37 @@ function sizeSvg() {
   width = frame.clientWidth;
   height = frame.clientHeight;
 }
-window.addEventListener("resize", sizeSvg);
+
+// A window resize used to only call sizeSvg() - updating the width/height
+// variables, but nothing that actually used them: the simulation's x/y
+// centering forces and a pinned focus word's fixed position both kept
+// targeting the OLD center, and stayed wrong even after the next search,
+// since renderGraph's anchor is just width/2, height/2 read fresh each
+// time - correct in principle, but only as good as whether something
+// already re-measured and re-centered before it ran. This was the actual
+// "center is off after I resize, and searching doesn't fix it either"
+// bug - a stale-state problem, not a coordinate-system one. Debounced
+// lightly since a dragged window edge fires this dozens of times a second
+// and each call restarts the simulation or re-fits the view.
+let resizeTimer = null;
+function recenter() {
+  sizeSvg();
+  if (!simulation || !zoom) return;
+  simulation.force("x").x(width / 2);
+  simulation.force("y").y(height / 2);
+  if (pinnedFocusActive && focusWord) {
+    const node = currentNodesById.get(focusWord);
+    if (node) { node.fx = width / 2; node.fy = height / 2; }
+    svg.call(zoom.transform, d3.zoomIdentity);
+    simulation.alpha(0.3).restart();
+  } else {
+    fitToView([...currentNodesById.values()]);
+  }
+}
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(recenter, 120);
+});
 
 function fontSizeFor(degree) {
   return Math.max(11, Math.min(24, 11 + Math.sqrt(degree) * 1.6));
@@ -195,12 +243,12 @@ async function loadLabelCaveat() {
   const res = await fetch("/api/label-caveat");
   const data = await res.json();
   labelCaveatText.textContent =
-    `Each community name was written by reading its 25 most-connected words once - a reading aid, not a checked ` +
-    `taxonomy. ${data.n_mixed} of ${data.n_total} communities (${data.mixed_pct}%) got flagged "(mixed)" during that ` +
-    `read-through, meaning the words shared a grammatical pattern (verb forms, comparatives, name-like words, OCR ` +
-    `noise) rather than an obvious topic - this corpus mixes English with Latin, French, Welsh, and other languages, ` +
-    `and the clustering can pick up on shared form as easily as shared meaning. So "(mixed)" is a real warning; no ` +
-    `"(mixed)" tag is a better sign, but still not a guarantee the name is right.`;
+    `Each group's name was written by reading its 25 most-connected words once - a reading aid, not a checked ` +
+    `taxonomy. ${data.n_mixed} of ${data.n_total} groups (${data.mixed_pct}%) got flagged as having no clear ` +
+    `subject during that read-through: the words shared a grammatical pattern (verb forms, comparatives, ` +
+    `name-like words, OCR noise) rather than an obvious topic - this corpus mixes English with Latin, French, ` +
+    `Welsh, and other languages, and the underlying clustering can pick up on shared form as easily as shared ` +
+    `meaning. A named subject is a better sign than "no clear subject", but still not a guarantee the name is right.`;
 }
 
 async function loadPeriods() {
@@ -323,16 +371,6 @@ async function focusOn(word) {
   loadPeriod(currentIndex);
 }
 
-function setResolution(r) {
-  if (r === activeResolution) return;
-  activeResolution = r;
-  // A different resolution is a different partition, not a relabeling of
-  // the same one - carrying colors over would imply a correspondence that
-  // doesn't exist, so every community earns a fresh slot.
-  communityColorMap.clear();
-  loadPeriod(currentIndex);
-}
-
 function showFocusPrompt(html) {
   focusPromptEl.innerHTML = html;
   focusPromptEl.classList.remove("hidden");
@@ -394,7 +432,7 @@ async function loadPeriod(index) {
   if (data.needs_focus) {
     showFocusPrompt(
       `Type a word above to see its neighbourhood in <strong>${escapeHtml(period.label)}</strong> ` +
-      `- try "${escapeHtml(SEED_WORD || "reason")}", or switch on the full network.`
+      `- try "${escapeHtml(SEED_WORD || "system")}", or switch on the full network.`
     );
     statusEl.textContent = "";
     renderLegend();
@@ -489,6 +527,11 @@ function ensureGraphDom() {
 
 function renderGraph(data, full) {
   ensureGraphDom();
+  // Guards against the debounced resize handler (recenter(), above) not
+  // having caught up yet - e.g. a resize followed by an immediate search,
+  // within the debounce window. Cheap (one clientWidth/clientHeight read),
+  // safe to call unconditionally on every render.
+  sizeSvg();
 
   // Pin the focused word dead-center in the frame (see below) instead of
   // leaving it to the force layout and then waiting for the whole
@@ -631,23 +674,6 @@ function renderGraph(data, full) {
   }
 }
 
-function renderSparkline(rows) {
-  sparklineEl.innerHTML = "";
-  [...rows].sort((a, b) => a.resolution - b.resolution).forEach((r) => {
-    const bar = document.createElement("div");
-    bar.className = "sparkline-bar"
-      + (r.resolution === activeResolution ? " active" : "")
-      + (r.resolution === 1.0 ? " default" : "");
-    bar.style.height = Math.max(2, Math.round(r.migration_fraction * 30)) + "px";
-    bar.title = `clustering detail ${r.resolution}: ${Math.round(r.migration_fraction * 100)}% migration - click to view at this setting`;
-    bar.addEventListener("click", () => setResolution(r.resolution));
-    sparklineEl.appendChild(bar);
-  });
-  resolutionReadoutEl.textContent = activeResolution === 1.0
-    ? "detail: 1.0 (paper default)"
-    : `detail: ${activeResolution}`;
-}
-
 function updateFindingsBanner(period, prevLabel) {
   if (!prevLabel) {
     findingsBanner.classList.add("hidden");
@@ -667,9 +693,8 @@ function updateFindingsBanner(period, prevLabel) {
   lastHeadlinePct = pct;
   findingsHeadlineEl.innerHTML =
     `${escapeHtml(prevLabel)} &rarr; ${escapeHtml(period.label)}: <strong>${pct}%</strong> of the ` +
-    `${headline.n_shared_words.toLocaleString()} shared words changed community at clustering-detail ${activeResolution} ` +
-    `(historical median at this setting: ${medianPct}%).`;
-  renderSparkline(rows);
+    `${headline.n_shared_words.toLocaleString()} shared words moved to a different group ` +
+    `(historical median across every other transition: ${medianPct}%).`;
 
   const isSattelzeitClose = prevLabel === "1780-1800" && period.label === "1800-1820";
   caveatText.textContent = isSattelzeitClose
@@ -701,7 +726,7 @@ async function updateChangedPanel(period, prevLabel) {
   changedSummaryEl.textContent =
     `These are the actual words moving between ${data.period_from} and ${data.period_to} - ${pctText}` +
     `made concrete rather than left as a statistic. ${data.n_changed} of ${data.n_shared_words} words shared ` +
-    `with ${data.period_from} landed in a different community; the ${data.words.length} most-connected are shown ` +
+    `with ${data.period_from} landed in a different group; the ${data.words.length} most-connected are shown ` +
     `here. Click any word to recenter the graph on it.`;
   changedListEl.innerHTML = "";
   data.words.forEach((w) => {
@@ -721,14 +746,14 @@ async function updateChangedPanel(period, prevLabel) {
 // id, not the align_to color-continuity id).
 function communityLabelText(d) {
   const label = communityLabels.get(String(d.community_raw));
-  return label ? `${escapeHtml(label)} (community #${d.community_raw})` : `community #${d.community_raw}`;
+  return label ? `${escapeHtml(label)} (group ${d.community_raw})` : `group ${d.community_raw}`;
 }
 
 function showTooltip(event, d) {
   let body = `degree ${d.degree} &middot; ${communityLabelText(d)}`;
   const sim = similarityToFocus.get(d.id);
   if (focusWord && d.id !== focusWord && sim !== undefined) {
-    body += `<br>cosine similarity to "${escapeHtml(focusWord)}": <strong>${sim.toFixed(3)}</strong>`;
+    body += `<br>similarity to "${escapeHtml(focusWord)}": <strong>${sim.toFixed(3)}</strong>`;
   }
   tooltip.innerHTML = `<strong>${escapeHtml(d.id)}</strong><br>${body}`;
   tooltip.classList.remove("hidden");

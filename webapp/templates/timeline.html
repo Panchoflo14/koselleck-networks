@@ -10,19 +10,23 @@
   <div class="page timeline-page">
     {% include "_nav.html" %}
     <header>
-      <span class="eyebrow">Koselleck Machine</span>
-      <h1>Timeline</h1>
-      <p class="subtitle">Type a word to see which community it belonged to, period by period. The community name and
-      number are the primary signal - a plain-English theme read off that community's most-connected words. The
-      colored dot is a secondary cue: a broad lane (law, religion, medicine, and so on) the community was sorted
-      into, useful for scanning at a glance, not a claim on its own.</p>
+      <h1>Follow one word as it moves between groups, 1500&ndash;1820.</h1>
+      <p class="subtitle">Each card names its own group and subject area directly - the colored dot is a quick visual
+      cue, not something you need a separate legend to read.</p>
     </header>
 
     <div class="search-card">
       <form id="timeline-form" class="search-form">
         <div class="control-row">
           <label for="timeline-input" class="control-label">Word</label>
-          <input type="text" id="timeline-input" placeholder="e.g. system, reason, revolution..." autocomplete="off">
+          <input type="text" id="timeline-input" class="text-input" placeholder="e.g. system, reason, revolution..." autocomplete="off">
+        </div>
+        <div class="control-row">
+          <span class="control-label">Range</span>
+          <div class="region-toggle">
+            <button type="button" id="range-full" class="region-btn">Full range</button>
+            <button type="button" id="range-sattelzeit" class="region-btn active" title="1770&ndash;1830">Sattelzeit</button>
+          </div>
         </div>
         <div class="control-row" id="region-row" style="display:none;">
           <span class="control-label">Sources</span>
@@ -39,11 +43,11 @@
     <div id="timeline-results" class="timeline-results hidden">
       <div id="timeline-notes"></div>
 
-      <div id="timeline-track" class="timeline-track"></div>
+      <p id="timeline-verdict" class="timeline-verdict"></p>
 
-      <p id="corpus-seam-note" class="timeline-seam-note hidden"></p>
-
-      <p class="search-hint">Click a period with data to see that word's full neighbourhood there.</p>
+      <div class="timeline-track-wrap">
+        <div id="timeline-track" class="timeline-track"></div>
+      </div>
 
       <div id="drilldown" class="hidden">
         <div class="search-summary-card">
@@ -55,28 +59,35 @@
         </div>
         <div class="neighbors-card">
           <h3>Closest neighbours in this period, by similarity</h3>
-          <p class="search-hint">Rows in the same community as the searched word are marked. Click a word to see its own timeline instead.</p>
+          <p class="search-hint">Rows in the same group as the searched word are marked. Click a word to see its own timeline instead.</p>
           <table class="neighbors-table">
             <thead>
-              <tr><th>Word</th><th>Cosine similarity</th><th>Community</th></tr>
+              <tr><th>Word</th><th>Similarity</th><th>Group</th></tr>
             </thead>
             <tbody id="drilldown-neighbors-body"></tbody>
           </table>
         </div>
       </div>
 
-      <div class="timeline-legend-card">
-        <h3>Lanes</h3>
-        <p class="search-hint">One broad category per community, assigned alongside its plain-English label. Every
-        lane but one is a real topical grouping; "Structural / uncertain" (gray) marks a community that turned out
-        to be grouped by shared grammar, a foreign language, or proper names rather than a topic - an honest,
-        expected outcome in a multilingual early-modern corpus, not a mistake.</p>
-        <div id="lane-legend" class="lane-legend"></div>
-        <details id="label-caveat" class="caveat">
-          <summary>why a community name alone can be misleading</summary>
-          <p id="label-caveat-text">Loading...</p>
-        </details>
+      <div class="findings-banner">
+        <p id="findings-headline" class="findings-headline"></p>
+        <p id="findings-caveat-text" class="findings-caveat"></p>
       </div>
+
+      <p class="timeline-facts">About two of every three groups have no clear subject - grouped by shared grammar,
+      language, or names rather than a topic, which is expected in a corpus mixing English with Latin, French, and
+      Welsh. Group numbers are reassigned fresh each period, so the same number in two periods is not the same
+      group.</p>
+
+      <p id="corpus-seam-note" class="timeline-seam-note hidden"></p>
+
+      <p class="search-hint">Click a period with data to see that word's full neighbourhood there.</p>
+
+      <details id="label-caveat" class="caveat subject-footer">
+        <summary>Subject areas &middot; how groups are named</summary>
+        <div id="subject-legend" class="lane-legend"></div>
+        <p id="label-caveat-text">Loading...</p>
+      </details>
     </div>
   </div>
 

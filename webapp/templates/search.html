@@ -7,25 +7,23 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body data-seed-period="{{ seed_period }}" data-seed-word="{{ seed_word }}">
-  <div class="page buscador-page">
+  <div class="page">
     {% include "_nav.html" %}
     <header>
-      <span class="eyebrow">Koselleck Machine</span>
-      <h1>Word search</h1>
-      <p class="subtitle">Type a word and a period. You get back its closest neighbours by similarity - a plain
-      list, the same data as the graph explorer, no diagram to read - plus whether the word's community changed
-      since the period before.</p>
+      <h1>Look up one word in one period.</h1>
+      <p class="subtitle">A plain list of its closest neighbours by similarity, its group, and whether that group
+      changed since the period before - no diagram to read.</p>
     </header>
 
     <div class="search-card">
       <form id="search-form" class="search-form">
         <div class="control-row">
           <label for="search-input" class="control-label">Word</label>
-          <input type="text" id="search-input" placeholder="e.g. reason, virtue, nature..." autocomplete="off">
+          <input type="text" id="search-input" class="text-input" placeholder="e.g. reason, virtue, nature..." autocomplete="off">
         </div>
         <div class="control-row">
           <label for="search-period" class="control-label">Period</label>
-          <select id="search-period"></select>
+          <select id="search-period" class="select-input"></select>
         </div>
         <div class="control-row" id="region-row" style="display:none;">
           <span class="control-label">Sources</span>
@@ -43,18 +41,15 @@
       <div class="search-summary-card">
         <h2 id="search-word-heading"></h2>
         <dl id="search-word-meta" class="search-meta"></dl>
-        <details id="label-caveat" class="caveat">
-          <summary>why this community's name alone can be misleading</summary>
-          <p id="label-caveat-text">Loading...</p>
-        </details>
+        <p id="label-caveat-text" class="timeline-facts">Loading...</p>
       </div>
 
       <div class="neighbors-card">
         <h3>Closest neighbours in this period, by similarity</h3>
-        <p class="search-hint">Rows in the same community as the searched word are marked. Click a word to look it up in turn.</p>
+        <p class="search-hint">Rows in the same group as the searched word are marked. Click a word to look it up in turn.</p>
         <table class="neighbors-table">
           <thead>
-            <tr><th>Word</th><th>Cosine similarity</th><th>Community</th></tr>
+            <tr><th>Word</th><th>Similarity</th><th>Group</th></tr>
           </thead>
           <tbody id="neighbors-body"></tbody>
         </table>
@@ -63,6 +58,6 @@
   </div>
 
   <script src="{{ url_for('static', filename='word_detail.js') }}"></script>
-  <script src="{{ url_for('static', filename='buscador.js') }}"></script>
+  <script src="{{ url_for('static', filename='search.js') }}"></script>
 </body>
 </html>

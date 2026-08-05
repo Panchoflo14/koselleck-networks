@@ -59,8 +59,16 @@ REGIONS = discover_built_regions(config)
 HEADLINE_RES = 1.0  # resolution shown by default in the UI
 DEFAULT_K = 12  # words kept per community in "full network" mode
 SEED_PERIOD = "1800-1820"  # lands on the transition that closes the Sattelzeit
-SEED_WORD = "reason"  # present in every period's vocabulary, on-theme
-TIMELINE_SEED_WORD = "system"  # see the vault's wiki/timeline-feature-plan.md for why this word
+# One seed word everywhere (2026-08-04) - /graph and /search used to default
+# to "reason" while /timeline defaulted to "system"; Panch flagged that as
+# arbitrary and confusing across pages that are otherwise meant to feel like
+# one tool. "system" wins project-wide: it's /timeline's own established demo
+# word (see wiki/timeline-feature-plan.md for why - present throughout the
+# corpus, its Sattelzeit-era shift is the one already written into the
+# findings copy on this page and in docs/method.tex), not an arbitrary
+# separate choice for these two pages.
+SEED_WORD = "system"
+TIMELINE_SEED_WORD = "system"
 
 _graph_cache = {}
 _community_df_cache = {}
@@ -296,18 +304,18 @@ def get_label_caveat():
 
 
 @app.route("/")
-def portada():
-    return render_template("portada.html", active="portada")
+def home():
+    return render_template("home.html", active="home")
 
 
-@app.route("/grafo")
-def grafo():
-    return render_template("grafo.html", seed_period=SEED_PERIOD, seed_word=SEED_WORD, active="grafo")
+@app.route("/graph")
+def graph_page():
+    return render_template("graph.html", seed_period=SEED_PERIOD, seed_word=SEED_WORD, active="graph")
 
 
-@app.route("/buscador")
-def buscador():
-    return render_template("buscador.html", seed_period=SEED_PERIOD, seed_word=SEED_WORD, active="buscador")
+@app.route("/search")
+def search_page():
+    return render_template("search.html", seed_period=SEED_PERIOD, seed_word=SEED_WORD, active="search")
 
 
 @app.route("/timeline")
@@ -368,7 +376,7 @@ def community_labels(label):
 def label_caveat():
     """{n_total, n_mixed, mixed_pct} across all labeled communities - the
     real numbers behind the "why this label alone can be misleading" caveat
-    shown next to community labels in both /grafo and /buscador."""
+    shown next to community labels in both /graph and /search."""
     return jsonify(get_label_caveat())
 
 
@@ -598,11 +606,13 @@ def search(label, word):
         other_idx = edge.target if edge.source == v.index else edge.source
         other_name = g.vs[other_idx]["name"]
         other_community = community_of(comm_map, other_name)
+        other_entry = label_entry_of(label, other_community, region)
         neighbor_rows.append({
             "word": other_name,
             "similarity": round(edge["weight"], 3),
             "community": other_community,
             "community_label": label_of(label, other_community, region),
+            "lane": other_entry.get("lane") if other_entry else None,
         })
     neighbor_rows.sort(key=lambda r: -r["similarity"])
 
@@ -619,6 +629,8 @@ def search(label, word):
             prev_community = comm_prev[word]
             changed_community = moved[shared.index(word)]
 
+    own_entry = label_entry_of(label, community, region)
+    prev_entry = label_entry_of(prev_label, prev_community, region) if prev_label and prev_community is not None else None
     return jsonify({
         "found": True,
         "period": label,
@@ -626,10 +638,12 @@ def search(label, word):
         "degree": g.degree(v.index),
         "community": community,
         "community_label": label_of(label, community, region),
+        "lane": own_entry.get("lane") if own_entry else None,
         "neighbors": neighbor_rows,
         "prev_period": prev_label,
         "prev_community": prev_community,
         "prev_community_label": label_of(prev_label, prev_community, region) if prev_label and prev_community is not None else None,
+        "prev_lane": prev_entry.get("lane") if prev_entry else None,
         "changed_community": changed_community,
     })
 

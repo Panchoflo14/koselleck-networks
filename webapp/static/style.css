@@ -1,20 +1,176 @@
-:root {
-  --bg: #F1EDE3;
-  --ink: #23201B;
-  --muted: #6B6457;
-  --line: #D8D0BE;
-  --card: #E9E3D3;
-  --accent-hist: #A63A2E;
-  --accent-net: #2F6E68;
-  --gap-bg: #DDD6C4;
-  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --font-body: Optima, Candara, "Noto Sans", "Segoe UI", sans-serif;
-  --font-mono: "SF Mono", Consolas, "Liberation Mono", monospace;
+/* Self-hosted, not linked to a CDN. SIL Open Font License / OFL, latin
+   subset only, matching the project's existing constraint.
+
+   REDESIGN (2026-08-04): "The Specimen Reclassified" - a natural-history
+   collection's own visual grammar, chosen because a museum specimen
+   (collected, dated, filed under a genus, sometimes re-filed when
+   classification is revised) is a genuinely apt, non-costume parallel to
+   a word (collected per period, filed under a semantic domain, sometimes
+   reclassified) - not a second archive/manuscript pass. Assigned by
+   Impeccable's own concept-seed roll (candidate 6 of 7 grounded, mode
+   read), not hand-picked; kept after weighing it against that roll's
+   dealt challengers (data-art barcode field, hand-drawn zine, fashion
+   sleeve, orienteering map - none beat it on audience fit or mechanism
+   clarity). EB Garamond is retired here, not because it failed on its
+   own terms, but because keeping it would just be polishing the outgoing
+   "Reading Room" world instead of building the replacement one; the old
+   system stays fully recoverable via git history and this file's own
+   DESIGN.md/design.json snapshot, which the user explicitly wants kept
+   as a fallback, not deleted.
+
+   Zilla Slab replaces EB Garamond for the "historical claim" voice: a
+   slab serif reads as a specimen-label / field-guide hand rather than a
+   book-revival serif, and it is not on Impeccable's own flagged-default
+   list (Fraunces/Playfair/Cormorant/Lora/Crimson/Newsreader/Syne/Space
+   Grotesk/Space Mono/IBM Plex/Inter-as-display/DM Sans/DM Serif/Outfit/
+   Plus Jakarta Sans/Instrument Sans). JetBrains Mono is new: catalog
+   numbers, dates, and word counts get set as an actual specimen-label
+   monospace instead of borrowing the body sans for numerals - also not
+   on the flagged list. Public Sans stays for body/operational text -
+   already deliberately chosen over Inter last redesign pass, no reason
+   to re-litigate that one. */
+@font-face {
+  font-family: "Zilla Slab";
+  src: url("fonts/ZillaSlab-400-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Zilla Slab";
+  src: url("fonts/ZillaSlab-600-latin.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/JetBrainsMono-400-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/JetBrainsMono-600-latin.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Public Sans";
+  src: url("fonts/PublicSans-variable-latin.woff2") format("woff2-variations"), url("fonts/PublicSans-variable-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
 }
 
-/* No dark-mode override: the community palette below is calculated
-   specifically against --bg #F1EDE3 (contrast, hue spacing), so the paper
-   background is permanent rather than theme-dependent. */
+:root {
+  /* "The Specimen Reclassified" (2026-08-04, superseding "Reading Room"
+     below) - a natural-history collection cabinet, not a reading room:
+     cool bone/graphite neutrals with a faint sage cast, the tone of a
+     specimen box interior or museum storage drawer, never the warm
+     cream/sepia register already rejected twice on this project. The
+     interactive accent moves from navy ("network") to a deep bottle
+     green ("field guide, specimen ink") to actually carry the new world
+     instead of just recoloring the old one; the historical-claim accent
+     stays oxidized iron - it already meant "something happened here"
+     under the Two-Accent Rule, and a specimen's re-classification stamp
+     is a completely natural fit for that same job, so it did not need to
+     change. Old "Reading Room" values, kept here only as a comment for
+     recovery (the real fallback is git history plus this session's
+     DESIGN.md/design.json snapshot of that world): bg #ECEFF2, ink
+     #191D24, muted #4C5560, line #AEB9C6, card #F8FAFC, accent-net
+     #1B3A5C, gap-bg #DCE1E7. accent-hist #8C2F1C is unchanged - carried
+     forward on purpose, not an oversight. */
+  --bg: #E7E8E2;
+  --ink: #1B1F19;
+  --muted: #5C6157;
+  --line: #A9AE9F;
+  --card: #F4F5F0;
+  --accent-hist: #8C2F1C;
+  --accent-net: #2E4A34;
+  --gap-bg: #D7D9CF;
+  --font-display: "Zilla Slab", "Roboto Slab", Georgia, serif;
+  --font-body: "Public Sans", system-ui, "Segoe UI", sans-serif;
+  --font-label: "Public Sans", system-ui, "Segoe UI", sans-serif;
+  /* New role, not part of the old system: catalog numbers, dates, and
+     word counts get an actual specimen-label monospace instead of
+     borrowing the body sans for numerals. */
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+  /* Shape language moved with the rest of the world: tighter, more
+     rectangular "specimen label" corners instead of the old soft-app
+     radii and full pill shapes - a herbarium tag is not a chip. Named
+     here for reference; most rules below still spell out the literal
+     px value rather than referencing these, an acknowledged gap, not a
+     second convention. */
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+
+  /* Type scale - six roles, not the 18 arbitrary sizes (13 of them under
+     1rem, three below the 11px legibility floor) an Opus audit found here
+     before this scale existed. Ratios accelerate toward the top (1.17 /
+     1.14 / 1.25 / 1.30 / 1.38) so headings actually separate from body
+     instead of sitting one point size apart. --type--2 is a hard floor -
+     nothing on the page should render smaller than this, including
+     uppercase micro-labels. */
+  --type--2: 0.75rem;   /* 12px - micro-caps labels, table headers */
+  --type--1: 0.875rem;  /* 14px - meta, captions, secondary UI text */
+  --type-0:  1rem;       /* 16px - body / primary UI */
+  --type-1:  1.25rem;   /* 20px - h3, card titles */
+  --type-2:  1.625rem;  /* 26px - h2, timeline verdict */
+  --type-3:  2.25rem;   /* 36px - h1 */
+
+  /* 4px base scale - used with deliberate contrast (tight inside a card,
+     generous around the timeline strip) rather than one repeated value for
+     everything, which is what made the original card grid read as flat.
+     Applied so far to the timeline strip and its cards; the rest of the
+     stylesheet's older rem-value spacing is untouched. */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.5rem;   /* 24px */
+  --space-6: 2rem;     /* 32px */
+  --space-7: 3rem;     /* 48px */
+
+  /* Container roles - three values, no others. A width incoherence pass
+     (2026-08-03, after Panch flagged /timeline's strip and prose sitting at
+     five different right edges) found the previous per-component max-width
+     overrides never actually formed the "narrow prose, wide evidence"
+     composition they were meant to - they just drifted. Rule going
+     forward: prose sitting directly on the page background gets
+     --measure-prose; text inside a bordered card fills the card; every
+     page-level container uses --width-page. No new one-off max-width
+     values below this line - if the convention doesn't fit, the component
+     is wrong, not the scale. */
+  --width-page: 72rem;                /* 1152px - the document column, all pages */
+  --measure-prose: 68ch;              /* running text sitting on the page background */
+  --gutter: clamp(1rem, 4vw, 2rem);   /* fluid page padding */
+
+  /* Control heights - primary form controls (text inputs, selects, submit
+     buttons) share one height; pills/tertiary controls share a smaller
+     one. Found six different control heights (21-39px) across the app
+     before this token existed. */
+  --control-h: 2.5rem;     /* 40px */
+  --control-h-sm: 2rem;    /* 32px */
+}
+
+/* No dark-mode override: the community/subject data-viz palettes (8 slots
+   in app.js, 14 in word_detail.js) were contrast-tuned against a light
+   background, so a theme-dependent surface is out of scope regardless.
+
+   Real open item from this redesign, not silently assumed fine: those
+   palettes were tuned against --bg #ECEFF2 (a blue-gray), and this pass
+   moves --bg to #E7E8E2 (a bone/sage-gray) - a hue shift, not just a
+   lightness change, unlike the previous "Reading Room" pass which stayed
+   in the same blue-gray family and could honestly claim "at least as
+   light as before, so still passes." That reasoning does not automatically
+   carry over across a hue change. Contrast has not been re-measured against
+   the new ground as of this pass - worth an explicit /impeccable audit
+   contrast check on both palettes before relying on them further. */
 
 * { box-sizing: border-box; }
 
@@ -27,29 +183,47 @@ body {
 }
 
 .page {
-  max-width: 1100px;
+  max-width: var(--width-page);
   margin: 0 auto;
-  padding: 1.75rem 2rem 5rem;
+  padding: 1.75rem var(--gutter) 5rem;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
 }
 
-/* Shared tab bar (_nav.html) across portada/grafo/buscador - lets you
-   switch interface without going back through the landing page. */
+/* Shared nav bar (_nav.html) across all four pages: a wordmark (replacing
+   the old per-page "eyebrow" kicker, a pattern craft-floor.md names as a
+   generic AI-interface tell) plus the tab switcher. */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--type-0);
+  color: var(--ink);
+  text-decoration: none;
+}
+.wordmark:hover {
+  color: var(--accent-net);
+}
 .tabs {
   display: flex;
   gap: 0.4rem;
 }
 .tab {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-family: var(--font-label);
+  font-size: var(--type--2);
   letter-spacing: 0.04em;
   text-decoration: none;
   color: var(--muted);
   padding: 0.4rem 0.8rem;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 3px;
   background: var(--card);
 }
 .tab:hover {
@@ -70,31 +244,28 @@ header {
   padding-bottom: 1rem;
 }
 
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent-net);
-  font-weight: 600;
-}
 
 h1 {
   font-family: var(--font-display);
-  font-size: 1.9rem;
-  font-weight: 500;
+  font-size: var(--type-3);
+  font-weight: 600;
   margin: 0;
+  text-wrap: balance;
 }
 
 .subtitle {
   color: var(--muted);
   margin: 0;
-  max-width: 68ch;
 }
+
+/* Panch's own call (2026-08-03): no separate prose measure at all - every
+   block on a page, running text included, shares the one page width. The
+   --measure-prose token stays defined in case a future page genuinely
+   needs a narrower reading column, but nothing currently uses it. */
 
 .methods {
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 6px;
   padding: 1.1rem 1.4rem;
   background: var(--card);
 }
@@ -113,68 +284,30 @@ h1 {
 .methods dd {
   margin: 0 0 0.3rem;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: var(--type--1);
 }
 
-/* Full-viewport dashboard shell for the graph explorer specifically (not
-   the portada/buscador, which stay a simple centered document column - a
-   graph canvas needs the space, a landing page or a form doesn't). Body
-   itself never scrolls; the sidebar scrolls independently of the canvas. */
-html:has(body.grafo-body), body.grafo-body {
-  height: 100%;
-  overflow: hidden;
-}
-.app-shell {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-.app-header {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.7rem 1.5rem;
-  border-bottom: 1px solid var(--line);
-}
-.app-header-left {
-  display: flex;
-  align-items: baseline;
-  gap: 0.9rem;
-  min-width: 0;
-}
-.app-header .eyebrow {
-  white-space: nowrap;
-}
-.app-header h1 {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.app-body {
-  flex: 1;
-  min-height: 0;
-  display: flex;
-}
-
-.graph-pane {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-}
-
+/* /graph used to be a full-viewport dashboard shell (canvas + a 380px side
+   column, both locked to exactly 100vh) - tried three different ways to
+   patch that (2026-08-04: make the whole page scroll instead; revert and
+   merge the nested scrollboxes into one) and kept hitting the same root
+   problem from a different angle: a viewport-relative canvas needs its
+   simulation/zoom re-centered on every resize, and that re-centering logic
+   never actually existed (see app.js's recenter()) - so the graph drifted
+   off-center on any window resize, and stayed off-center after a search
+   too, since a new render just re-used the same stale width/height math.
+   Fixed at the root instead of patching the shell again: /graph is now a
+   normal single-column document exactly like /, /search, /timeline (same
+   .page wrapper, no special shell), and the canvas gets a fixed height
+   (see .graph-frame below) that doesn't depend on window height at all -
+   far less for the centering math to get wrong, and what's left is fixed
+   properly in app.js rather than worked around in CSS. */
 .graph-toolbar {
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 0.7rem 1.5rem;
+  padding: 0.7rem var(--gutter);
   border-bottom: 1px solid var(--line);
   background: var(--card);
 }
@@ -184,11 +317,18 @@ html:has(body.grafo-body), body.grafo-body {
   align-items: center;
   gap: 0.8rem;
   flex-wrap: wrap;
+  /* Without this, a flex item's default min-width:auto keeps it from
+     shrinking below its content's natural width - here that content
+     includes a .text-input asking for width:22rem, which silently defeats
+     that same input's own max-width:100% and pushes the row (and the
+     page) wider than the viewport. Same root cause as the .timeline-track
+     overflow fixed earlier. */
+  min-width: 0;
 }
 
 .control-label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-family: var(--font-label);
+  font-size: var(--type--2);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--muted);
@@ -202,7 +342,7 @@ html:has(body.grafo-body), body.grafo-body {
 }
 
 .period-readout {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-weight: 600;
   min-width: 6rem;
   text-align: right;
@@ -227,10 +367,11 @@ html:has(body.grafo-body), body.grafo-body {
 
 #k-input {
   width: 4.5rem;
+  height: var(--control-h-sm);
   font-family: var(--font-body);
-  padding: 0.4rem 0.5rem;
+  padding: 0 0.5rem;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 3px;
   background: var(--bg);
   color: var(--ink);
 }
@@ -238,19 +379,15 @@ html:has(body.grafo-body), body.grafo-body {
 #focus-form {
   display: flex;
   gap: 0.5rem;
-  flex: 1;
+  /* Capped, not flex:1 - an unbounded #focus-input used to stretch to
+     ~1673px on a wide screen, a single-word field spanning nearly the
+     whole toolbar. */
+  flex: 0 1 32rem;
   min-width: 16rem;
 }
 
 #focus-input {
   flex: 1;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  padding: 0.5rem 0.8rem;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--bg);
-  color: var(--ink);
 }
 #focus-input:focus {
   outline: 2px solid var(--accent-net);
@@ -260,13 +397,14 @@ html:has(body.grafo-body), body.grafo-body {
 #focus-form button,
 #focus-clear {
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: var(--type--1);
   font-weight: 600;
-  padding: 0.5rem 1rem;
+  height: var(--control-h);
+  padding: 0 1rem;
   border: none;
-  border-radius: 8px;
-  background: var(--accent-hist);
-  color: #fff;
+  border-radius: 4px;
+  background: var(--ink);
+  color: var(--bg);
   cursor: pointer;
 }
 #focus-clear {
@@ -280,15 +418,20 @@ html:has(body.grafo-body), body.grafo-body {
 #status {
   flex: 0 0 auto;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: var(--type--1);
   min-height: 1.2rem;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem var(--gutter);
 }
 
+/* Fixed height, fluid width (100% of .page's column) - deliberately NOT
+   viewport-relative (no vh, no flex-fill of a 100vh shell). Window height
+   changing no longer touches this element at all, which removes most of
+   the surface area for the "off-center after resize" bug (see app.js's
+   recenter(), the actual fix for what's left - width still legitimately
+   changes with a narrower window, same as any other element on the page). */
 .graph-frame {
   position: relative;
-  flex: 1;
-  min-height: 0;
+  height: 34rem;
   overflow: hidden;
 }
 
@@ -347,9 +490,9 @@ html:has(body.grafo-body), body.grafo-body {
   pointer-events: none;
   background: var(--bg);
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 3px;
   padding: 0.4rem 0.6rem;
-  font-size: 0.82rem;
+  font-size: var(--type--1);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   z-index: 5;
 }
@@ -361,16 +504,16 @@ html:has(body.grafo-body), body.grafo-body {
   max-width: 16rem;
   background: var(--bg);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 0.7rem 0.9rem;
-  font-size: 0.85rem;
+  font-size: var(--type--1);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   z-index: 6;
 }
 .info-panel #info-close {
   margin-top: 0.4rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-family: var(--font-label);
+  font-size: var(--type--2);
   background: none;
   border: 1px solid var(--line);
   border-radius: 4px;
@@ -385,7 +528,7 @@ html:has(body.grafo-body), body.grafo-body {
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
-  font-size: 0.8rem;
+  font-size: var(--type--2);
   color: var(--muted);
   border-top: 1px dashed var(--line);
   padding-top: 0.8rem;
@@ -399,8 +542,8 @@ html:has(body.grafo-body), body.grafo-body {
 }
 
 .legend-title {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-family: var(--font-label);
+  font-size: var(--type--2);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--muted);
@@ -440,21 +583,25 @@ html:has(body.grafo-body), body.grafo-body {
 }
 
 /* Findings banner: the migration_fraction number the tool used to compute
-   but never show, plus a compact sparkline across the resolution sweep so
-   the headline figure never appears without its own robustness context. */
+   but never show. The 7-resolution sweep behind this figure is real (see
+   docs/method.tex / wiki/resolution-sweep) but the app only ever displays
+   results at resolution 1.0 - showing the sweep as an in-app sparkline
+   implied a live choice that doesn't exist, so it isn't rendered here;
+   only the headline stat and its own caveats are. */
 .findings-banner {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 6px;
   background: var(--card);
   padding: 1rem 1.3rem;
 }
 
 .findings-headline {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-weight: 600;
+  font-size: var(--type-1);
   margin: 0;
 }
 .findings-headline strong {
@@ -462,74 +609,10 @@ html:has(body.grafo-body), body.grafo-body {
   font-size: 1.15em;
 }
 
-.findings-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.sparkline-block {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-.sparkline-label {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--muted);
-}
-.sparkline-explainer {
+.findings-caveat {
   margin: 0;
   color: var(--muted);
-  font-size: 0.85rem;
-}
-.sparkline-row {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-.sparkline {
-  display: flex;
-  align-items: flex-end;
-  gap: 4px;
-  height: 30px;
-}
-.sparkline-bar {
-  width: 9px;
-  min-height: 2px;
-  background: var(--accent-net);
-  opacity: 0.45;
-  border-radius: 2px 2px 0 0;
-  cursor: pointer;
-  transition: opacity 0.15s;
-  position: relative;
-}
-.sparkline-bar:hover {
-  opacity: 0.75;
-}
-.sparkline-bar.active {
-  background: var(--accent-hist);
-  opacity: 1;
-  outline: 1px solid var(--accent-hist);
-  outline-offset: 1px;
-}
-.sparkline-bar.default::after {
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: var(--muted);
-}
-.resolution-readout {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--muted);
+  font-size: var(--type--1);
 }
 
 .caveat {
@@ -538,8 +621,8 @@ html:has(body.grafo-body), body.grafo-body {
 }
 .caveat summary {
   cursor: pointer;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-family: var(--font-label);
+  font-size: var(--type--2);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--muted);
@@ -548,8 +631,7 @@ html:has(body.grafo-body), body.grafo-body {
 .caveat p {
   margin: 0.6rem 0 0;
   color: var(--muted);
-  font-size: 0.9rem;
-  max-width: 68ch;
+  font-size: var(--type--1);
 }
 
 .mode-toggle {
@@ -557,17 +639,17 @@ html:has(body.grafo-body), body.grafo-body {
   align-items: center;
   gap: 0.4rem;
   font-family: var(--font-body);
-  font-size: 0.88rem;
+  font-size: var(--type--1);
   color: var(--muted);
   cursor: pointer;
 }
 
 .reset-view-btn {
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: var(--type--1);
   padding: 0.4rem 0.8rem;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 4px;
   background: transparent;
   color: var(--muted);
   cursor: pointer;
@@ -583,10 +665,11 @@ html:has(body.grafo-body), body.grafo-body {
 }
 .region-btn {
   font-family: var(--font-body);
-  font-size: 0.82rem;
-  padding: 0.3rem 0.75rem;
+  font-size: var(--type--1);
+  height: var(--control-h-sm);
+  padding: 0 0.75rem;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 3px;
   background: transparent;
   color: var(--muted);
   cursor: pointer;
@@ -601,32 +684,25 @@ html:has(body.grafo-body), body.grafo-body {
   color: var(--card);
 }
 
+/* Sits below the canvas in normal document flow now (no more side-by-side
+   dashboard column) - no fixed width, no independent scroll; it's just
+   part of the page, and the page itself scrolls, same as every other
+   surface. Nothing inside here (.changed-panel included) gets its own
+   max-height/overflow, so there is never a scrollbar nested inside
+   another one, and never a competing scroll region fighting the page's
+   own for input. */
 .sidebar {
-  flex: 0 0 380px;
-  width: 380px;
-  border-left: 1px solid var(--line);
-  padding: 1.2rem;
-  overflow-y: auto;
+  border-top: 1px solid var(--line);
+  padding-top: 1.2rem;
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
 }
-@media (max-width: 1100px) {
-  .app-body { flex-direction: column; }
-  .sidebar {
-    flex: 0 0 auto;
-    width: auto;
-    border-left: none;
-    border-top: 1px solid var(--line);
-    max-height: 45vh;
-  }
-}
 
-/* Method / Findings toggle: everything used to stack in one scroll column
-   (about this method, legend, the findings banner, the changed-words list)
-   and on anything less than a very tall sidebar it all got cramped and
-   hard to read at once. Now only one page is in the DOM's visible flow at
-   a time, each free to use the sidebar's full height. */
+/* Method / Findings toggle: still worth keeping as two separate tab pages
+   rather than one long stack - About this method, the legend, the
+   findings banner, and the changed-words list together were cramped and
+   hard to read all at once even in a normal-flowing page. */
 .sidebar-tabs {
   flex: 0 0 auto;
   display: flex;
@@ -636,13 +712,13 @@ html:has(body.grafo-body), body.grafo-body {
 }
 .sidebar-tab {
   flex: 1;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-family: var(--font-label);
+  font-size: var(--type--2);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 0.5rem 0.6rem;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 4px;
   background: var(--card);
   color: var(--muted);
   cursor: pointer;
@@ -665,23 +741,23 @@ html:has(body.grafo-body), body.grafo-body {
   display: none;
 }
 
+/* No max-height/nested scrollbar - the sidebar (and the page it sits in)
+   flows to whatever height this needs, same as the Method tab's content. */
 .changed-panel {
-  max-height: 420px;
   border: 1px solid var(--line);
-  border-top: 3px solid var(--accent-hist);
-  border-radius: 10px;
+  border-radius: 6px;
   background: var(--card);
   padding: 1rem 1.1rem;
-  overflow-y: auto;
 }
 .changed-panel h3 {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: var(--type-1);
   margin: 0 0 0.3rem;
 }
 .changed-summary {
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: var(--type--1);
   margin: 0 0 0.7rem;
 }
 .changed-list {
@@ -694,11 +770,11 @@ html:has(body.grafo-body), body.grafo-body {
 }
 .changed-list button {
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: var(--type--1);
   font-weight: 600;
   border: 1px solid var(--line);
   background: var(--bg);
-  border-radius: 999px;
+  border-radius: 3px;
   padding: 0.25rem 0.7rem;
   cursor: pointer;
 }
@@ -707,33 +783,28 @@ html:has(body.grafo-body), body.grafo-body {
 }
 @media (max-width: 800px) {
   .explorer-row { flex-direction: column; }
-  .changed-panel { max-width: none; }
 }
 
-/* Portada: two entry cards, no graph, no search - just the choice between
+/* Home: two entry cards, no graph, no search - just the choice between
    the two interfaces over the same data. */
 /* A short, fixed amount of content (hero text + two cards) sitting at the
    top of a tall viewport read as "stuck in the corner" on a full-size
    screen - centering it in the viewport instead makes the proportion work
-   at any window size without the content itself needing to grow. buscador
+   at any window size without the content itself needing to grow. search
    isn't centered the same way: its content height varies a lot once
    results appear, so a fixed top-aligned page (just a bit wider, so the
    results table isn't cramped) is the better fit there. */
-.portada-page {
+.home-page {
   min-height: 100vh;
   justify-content: center;
 }
-.portada-page header { max-width: 68ch; }
 
-.buscador-page {
-  max-width: 1300px;
-}
-.portada-cards {
+.home-cards {
   display: flex;
   gap: 1.2rem;
   flex-wrap: wrap;
 }
-.portada-card {
+.home-card {
   flex: 1 1 20rem;
   display: flex;
   flex-direction: column;
@@ -741,48 +812,37 @@ html:has(body.grafo-body), body.grafo-body {
   text-decoration: none;
   color: var(--ink);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 6px;
   background: var(--card);
   padding: 1.4rem 1.5rem;
 }
-.portada-card:hover {
+.home-card:hover {
   border-color: var(--accent-net);
 }
-.portada-card.primary {
+.home-card.primary {
   border-color: var(--accent-hist);
   border-width: 2px;
   flex-basis: 100%;
 }
-.portada-card.primary .portada-card-eyebrow {
-  color: var(--accent-hist);
-}
-.portada-card.secondary {
+.home-card.secondary {
   opacity: 0.85;
 }
-.portada-card-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent-net);
-  font-weight: 600;
-}
-.portada-card h2 {
+.home-card h2 {
   font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 500;
+  font-size: var(--type-1);
+  font-weight: 600;
   margin: 0;
 }
-.portada-card p {
+.home-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: var(--type--1);
 }
 
 /* Word search tab */
 .search-card {
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 6px;
   background: var(--card);
   padding: 1rem 1.2rem;
   display: flex;
@@ -801,27 +861,43 @@ html:has(body.grafo-body), body.grafo-body {
   align-items: flex-start;
   gap: 0.35rem;
 }
-#search-input {
-  min-width: 22rem;
-}
-#search-input, #search-period {
+/* Shared by every text/select control across the app - #timeline-input
+   used to match none of this (no selector named it), so it rendered as a
+   bare unstyled browser widget next to search's matched, resolved pair.
+   One class, applied wherever a control needs it, closes that gap and
+   gives every text input / select the same height as every button
+   (--control-h) instead of the six different control heights (21-39px)
+   an earlier audit found across the app. */
+.text-input,
+.select-input {
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  padding: 0.5rem 0.8rem;
+  font-size: var(--type-0);
+  height: var(--control-h);
+  padding: 0 0.8rem;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 4px;
   background: var(--bg);
   color: var(--ink);
 }
+.text-input:focus,
+.select-input:focus {
+  outline: 2px solid var(--accent-net);
+  outline-offset: 1px;
+}
+.search-form .text-input {
+  width: 22rem;
+  max-width: 100%;
+}
 .search-form button {
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: var(--type--1);
   font-weight: 600;
-  padding: 0.5rem 1.2rem;
+  height: var(--control-h);
+  padding: 0 1.2rem;
   border: none;
-  border-radius: 8px;
-  background: var(--accent-hist);
-  color: #fff;
+  border-radius: 4px;
+  background: var(--ink);
+  color: var(--bg);
   cursor: pointer;
 }
 .search-form button:hover { opacity: 0.85; }
@@ -830,9 +906,10 @@ html:has(body.grafo-body), body.grafo-body {
    red-fill rule above when the toggle sits inside a search form. */
 .search-form .region-btn {
   font-weight: 400;
-  padding: 0.3rem 0.75rem;
+  height: var(--control-h-sm);
+  padding: 0 0.75rem;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 3px;
   background: transparent;
   color: var(--muted);
 }
@@ -841,21 +918,21 @@ html:has(body.grafo-body), body.grafo-body {
 
 .search-status {
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: var(--type--1);
   min-height: 1.2rem;
 }
 
 .search-summary-card {
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 6px;
   background: var(--card);
   padding: 1rem 1.3rem;
   margin-bottom: 1rem;
 }
 .search-summary-card h2 {
   font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 500;
+  font-size: var(--type-1);
+  font-weight: 600;
   margin: 0 0 0.6rem;
 }
 .search-meta {
@@ -866,8 +943,8 @@ html:has(body.grafo-body), body.grafo-body {
   column-gap: 1rem;
 }
 .search-meta dt {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-family: var(--font-label);
+  font-size: var(--type--2);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--muted);
@@ -880,29 +957,30 @@ html:has(body.grafo-body), body.grafo-body {
 
 .neighbors-card {
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 6px;
   background: var(--card);
   padding: 1rem 1.3rem;
 }
 .neighbors-card h3 {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-weight: 600;
+  font-size: var(--type-1);
   margin: 0 0 0.3rem;
 }
 .search-hint {
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: var(--type--1);
   margin: 0 0 0.8rem;
 }
 .neighbors-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.9rem;
+  font-size: var(--type--1);
 }
 .neighbors-table th {
   text-align: left;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-family: var(--font-label);
+  font-size: var(--type--2);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--muted);
@@ -921,28 +999,55 @@ html:has(body.grafo-body), body.grafo-body {
   font-weight: 600;
   background: none;
   border: none;
-  color: var(--accent-hist);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
   cursor: pointer;
   padding: 0;
   font-size: inherit;
+}
+.word-link:hover {
+  border-color: var(--accent-net);
 }
 
 /* Timeline tab */
 .timeline-results {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: var(--space-4);
+}
+
+.timeline-track-wrap {
+  /* No longer full-bleed - a 2026-08-03 width-coherence pass killed that:
+     it bought at most ~1.3 extra period cards (11rem columns) at the cost
+     of being the one element on the page not aligned to --width-page, and
+     it was leaking ~8px of real horizontal overflow onto <html> besides
+     (the calc(50% - 50vw) trick doesn't account for the vertical
+     scrollbar's own width). Vertical margin stays more generous than the
+     page's other gaps (--space-6/-7 on top of .timeline-results' own
+     --space-4 gap) so the strip still reads as this page's peak. */
+  margin: var(--space-6) 0 var(--space-4);
 }
 
 .timeline-track {
   display: flex;
-  align-items: flex-end;
+  align-items: stretch;
   gap: 0;
   overflow-x: auto;
-  padding: 0.5rem 0.2rem 1rem;
+  overflow-y: hidden;
+  /* Bottom padding needs to clear the Sattelzeit band's label, which is
+     positioned absolutely and so anchors to this element's padding-box
+     edge, not its content-box edge - the label doesn't reserve its own
+     space in flow like the columns do. The old --space-5 (24px) was only
+     just wide enough for the 15px group-name cards; the type-scale pass
+     that bumped group names to 20px/weight 600 made cards tall enough
+     that their bottom edge crept above the label's fixed offset, so the
+     two visibly overlapped. --space-7 leaves real clearance instead of
+     the minimum that happened to work before. */
+  padding: var(--space-4) var(--space-1) var(--space-7);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 6px;
   background: var(--card);
+  position: relative;
   /* .page is a column flexbox; without this, a flex child's default
      min-width:auto lets its own oversized content (20 fixed-width period
      columns) push .timeline-track - and with it .page/body - wider instead
@@ -950,78 +1055,144 @@ html:has(body.grafo-body), body.grafo-body {
      just the track. */
   min-width: 0;
 }
+.timeline-track:focus-visible {
+  outline: 2px solid var(--accent-net);
+  outline-offset: -2px;
+}
+
+/* Painted behind the columns (see renderSattelzeitBand in timeline.js) -
+   scrolls with the track's own content since it shares the track's
+   coordinate space, not the viewport's. */
+.sattelzeit-band {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: rgba(166, 36, 62, 0.07);
+  border-left: 1px dashed rgba(166, 36, 62, 0.35);
+  border-right: 1px dashed rgba(166, 36, 62, 0.35);
+  pointer-events: none;
+}
+.sattelzeit-band-label {
+  position: absolute;
+  left: 0.4rem;
+  bottom: 0.4rem;
+  display: inline-block;
+  font-family: var(--font-label);
+  font-size: var(--type--2);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--accent-hist);
+  background: var(--card);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
 
 .timeline-col {
   flex: 0 0 auto;
-  width: 9.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
+  width: 11rem;
+  display: grid;
+  grid-template-rows: 1.4rem 1.1rem 1fr;
+  align-items: stretch;
+  justify-items: stretch;
+  gap: 0.3rem;
   padding: 0 0.4rem;
   position: relative;
 }
 
-.timeline-period-label {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--muted);
-  white-space: nowrap;
+.timeline-arrow-slot {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Sits in normal flow just before the period label of the period it points
-   INTO, so it visually reads as "the step between the previous card and
-   this one" without needing absolute positioning math per pair. */
+.timeline-period-label {
+  /* Mono, not the label sans: this is a date stamp on a specimen case,
+     read as data rather than as UI chrome - the same reasoning behind
+     .timeline-card-meta and the reclassified stamp below. */
+  font-family: var(--font-mono);
+  font-size: var(--type--2);
+  color: var(--muted);
+  white-space: nowrap;
+  text-align: center;
+}
+
 .timeline-arrow {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+.timeline-arrow::before {
+  content: "";
   width: 100%;
   height: 2px;
   background: var(--line);
-  position: relative;
-  margin-top: -0.2rem;
 }
-.timeline-arrow::after {
-  content: "";
-  position: absolute;
-  right: -1px;
-  top: -3px;
-  border: 4px solid transparent;
-  border-left-color: var(--line);
+.timeline-arrow {
+  font-family: var(--font-mono);
+  font-size: var(--type--2);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
-.timeline-arrow.stable { background: var(--accent-net); }
-.timeline-arrow.stable::after { border-left-color: var(--accent-net); }
-.timeline-arrow.changed { background: var(--accent-hist); }
-.timeline-arrow.changed::after { border-left-color: var(--accent-hist); }
+.timeline-arrow.stable::before { background: var(--accent-net); }
+.timeline-arrow.stable { color: var(--accent-net); }
+.timeline-arrow.changed::before { background: var(--accent-hist); }
+.timeline-arrow.changed { color: var(--accent-hist); font-weight: 600; }
 
+.timeline-slot-empty,
 .timeline-card {
   width: 100%;
-  min-height: 5.5rem;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--bg);
-  padding: 0.6rem 0.7rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  font-size: 0.85rem;
+  min-height: 6rem;
+  align-self: stretch;
 }
-.timeline-card.timeline-gap,
-.timeline-card.timeline-absent {
+
+.timeline-slot-empty {
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: var(--muted);
-  border-style: dashed;
+  opacity: 0.5;
 }
-.timeline-card.timeline-gap { opacity: 0.55; }
-.timeline-card.timeline-uncertain {
-  border-style: dashed;
-  background: var(--gap-bg);
+
+.timeline-card.timeline-thin {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--muted);
 }
+
 .timeline-card.timeline-found {
+  /* Specimen-card shape: a solid top edge stands in for the mounting
+     strip a real specimen sheet is pinned to. Muted (var(--line)) at
+     rest; the reclassified state below is the only thing allowed to
+     turn it var(--accent-hist), so the mounting-strip color itself
+     carries meaning instead of being pure decoration. */
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  padding: var(--space-2) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
   cursor: pointer;
+  text-align: left;
+  position: relative;
 }
 .timeline-card.timeline-found:hover {
   border-color: var(--accent-net);
+  border-top-color: var(--accent-net);
 }
 .timeline-card.timeline-found:focus-visible {
   outline: 2px solid var(--accent-net);
@@ -1030,6 +1201,90 @@ html:has(body.grafo-body), body.grafo-body {
 .timeline-card.timeline-found.selected {
   border-color: var(--accent-hist);
   border-width: 2px;
+}
+
+/* Reclassified stamp: the same fact the "moved" arrow between columns
+   already states, restated on the card itself so it reads even at a
+   glance across the whole strip, not only when comparing two columns
+   side by side. Text-labelled, not color-only (Sam/accessibility
+   persona: meaning by color alone fails a screen-reader user and a
+   deuteranope both), and the mounting strip above also turns iron-red
+   in lockstep, so a color-vision-deficient reader still gets a second,
+   non-hue cue (shape/position) rather than depending on the label text
+   alone. */
+.timeline-card.timeline-found.timeline-reclassified {
+  border-top-color: var(--accent-hist);
+}
+/* In normal flow, not absolutely positioned over the subject line - an
+   11rem card has no spare room for a floating badge, and an early pass
+   that overlapped it on the subject text (caught in a real browser
+   screenshot, not guessed) proved that out. */
+.timeline-reclassified-stamp {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: var(--type--2);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--accent-hist);
+  border: 1px solid var(--accent-hist);
+  border-radius: var(--radius-sm);
+  padding: 0.05rem 0.3rem;
+}
+
+.timeline-subject-line {
+  font-family: var(--font-label);
+  font-size: var(--type--2);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+}
+.timeline-group-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--type-1);
+  line-height: 1.25;
+  color: var(--ink);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.timeline-card-meta {
+  /* Catalog-number register: a specimen's filing number and count are
+     data, not UI chrome, so they get the mono face like the period
+     stamp and the reclassified mark. */
+  font-family: var(--font-mono);
+  font-size: var(--type--2);
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  margin-top: auto;
+}
+.timeline-card-note {
+  font-family: var(--font-label);
+  font-size: var(--type--2);
+  color: var(--muted);
+}
+
+/* The verdict sentence (band 4 of the 2026-08-03 IA schema - "what a good
+   page looks like for this tool"): the answer, in words, before any chart.
+   Deliberately the largest non-heading type on the page - a reader who
+   never looks at the strip below should still leave knowing the result. */
+.timeline-verdict {
+  font-family: var(--font-display);
+  font-size: var(--type-2);
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--ink);
+}
+
+.timeline-facts {
+  font-size: var(--type--1);
+  color: var(--muted);
+  margin: 0;
 }
 
 .drilldown-header {
@@ -1042,35 +1297,29 @@ html:has(body.grafo-body), body.grafo-body {
 
 .timeline-note {
   border: 1px solid var(--line);
-  border-left: 3px solid var(--accent-hist);
-  border-radius: 0 8px 8px 0;
+  border-radius: 4px;
   background: var(--card);
   padding: 0.7rem 1rem;
-  font-size: 0.88rem;
+  font-size: var(--type--1);
   color: var(--ink);
+}
+.timeline-note::before {
+  content: "Known finding";
+  display: block;
+  font-family: var(--font-label);
+  font-size: var(--type--2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-hist);
+  margin-bottom: 0.3rem;
 }
 
 .timeline-seam-note {
-  font-size: 0.82rem;
+  font-size: var(--type--1);
   color: var(--muted);
   border-top: 1px dashed var(--line);
   padding-top: 0.6rem;
   margin: 0;
-}
-.timeline-card-note {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--muted);
-}
-.timeline-community-label {
-  font-weight: 600;
-  line-height: 1.25;
-}
-.timeline-community-label.muted { color: var(--muted); font-weight: 400; font-style: italic; }
-.timeline-card-meta {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--muted);
 }
 
 .lane-dot {
@@ -1083,28 +1332,16 @@ html:has(body.grafo-body), body.grafo-body {
   flex-shrink: 0;
 }
 
-.timeline-legend-card {
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: var(--card);
-  padding: 1rem 1.3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-.timeline-legend-card h3 {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  margin: 0;
+.subject-footer .lane-legend {
+  margin-top: 0.6rem;
 }
 .lane-legend {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.2rem;
-  font-size: 0.85rem;
+  font-size: var(--type--1);
 }
 .lane-legend-item {
   display: inline-flex;
   align-items: center;
 }
-.word-link:hover { text-decoration: underline; }

@@ -3,10 +3,10 @@
 // community files) but rendered as a plain list instead of a node-link
 // diagram - a second interface over one dataset, not a second pipeline.
 // We don't yet know which of the two reads better for a historian's own
-// workflow, hence both existing side by side off the same portada.
+// workflow, hence both existing side by side off the same home page.
 //
 // The actual fetch + render logic lives in word_detail.js (loaded before
-// this file - see buscador.html), shared with /timeline's per-period
+// this file - see search.html), shared with /timeline's per-period
 // drill-in so the two views can never quietly drift apart.
 
 const form = document.getElementById("search-form");
@@ -80,20 +80,22 @@ function renderPeriodOptions() {
   periodSelect.value = stillValid ? current : (periods.find((p) => periodHasData(p)) || {}).label || "";
 }
 
-// Runs once at load - the mixed-fraction is a property of the whole
-// labeling pass (all 308 communities), not of whatever word is on screen.
+// Runs once at load - the "no clear subject" fraction is a property of the
+// whole labeling pass, not of whatever word is on screen. Always visible
+// (not a collapsed disclosure) - it governs how skeptically every group
+// name below should be read, per the vault's wiki/labeling-pipeline.md.
 async function loadLabelCaveat() {
   const labelCaveatText = document.getElementById("label-caveat-text");
   if (!labelCaveatText) return;
   const res = await fetch("/api/label-caveat");
   const data = await res.json();
   labelCaveatText.textContent =
-    `Each community name was written by reading its 25 most-connected words once - a reading aid, not a checked ` +
-    `taxonomy. ${data.n_mixed} of ${data.n_total} communities (${data.mixed_pct}%) got flagged "(mixed)" during that ` +
-    `read-through, meaning the words shared a grammatical pattern (verb forms, comparatives, name-like words, OCR ` +
-    `noise) rather than an obvious topic - this corpus mixes English with Latin, French, Welsh, and other languages, ` +
-    `and the clustering can pick up on shared form as easily as shared meaning. So "(mixed)" is a real warning; no ` +
-    `"(mixed)" tag is a better sign, but still not a guarantee the name is right.`;
+    `Each group's name was written by reading its 25 most-connected words once - a reading aid, not a checked ` +
+    `taxonomy. ${data.n_mixed} of ${data.n_total} groups (${data.mixed_pct}%) got flagged as having no clear ` +
+    `subject during that read-through: the words shared a grammatical pattern (verb forms, comparatives, ` +
+    `name-like words, OCR noise) rather than an obvious topic - this corpus mixes English with Latin, French, ` +
+    `Welsh, and other languages, and the underlying clustering can pick up on shared form as easily as shared ` +
+    `meaning. A named subject is a better sign than "no clear subject", but still not a guarantee the name is right.`;
 }
 loadLabelCaveat();
 

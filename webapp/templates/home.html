@@ -7,10 +7,9 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <div class="page portada-page">
+  <div class="page home-page">
     {% include "_nav.html" %}
     <header>
-      <span class="eyebrow">Koselleck Machine</span>
       <h1>Did the Sattelzeit reorganize the vocabulary as a system?</h1>
       <p class="subtitle">Reinhart Koselleck argued that 1770-1830 was not just an era when many words changed
       meaning independently, but a moment when the conceptual vocabulary of the language reorganized together,
@@ -18,27 +17,24 @@
       with each other, period by period.</p>
     </header>
 
-    <div class="portada-cards">
-      <a class="portada-card primary" href="{{ url_for('timeline_page') }}">
-        <span class="portada-card-eyebrow">Timeline</span>
+    <div class="home-cards">
+      <a class="home-card primary" href="{{ url_for('timeline_page') }}">
         <h2>Track a word across periods</h2>
-        <p>Type a word and see which community it belonged to, period by period, in one continuous strip -
-        which community it moved into, when, and whether that move is a genuine change or a data gap. Click any
+        <p>Type a word and see which group it belonged to, period by period, in one continuous strip -
+        which group it moved into, when, and whether that move is a genuine change or a data gap. Click any
         period for that word's full neighbourhood. Start here - this is the primary view.</p>
       </a>
-      <a class="portada-card" href="{{ url_for('buscador') }}">
-        <span class="portada-card-eyebrow">Word search</span>
+      <a class="home-card" href="{{ url_for('search_page') }}">
         <h2>Look up a word</h2>
         <p>Type a word and a single period, get back a plain list: its closest neighbours by similarity, its
-        community, and whether that community changed since the period before. Closer to looking a word up in a
+        group, and whether that group changed since the period before. Closer to looking a word up in a
         period dictionary or thesaurus than reading a timeline.</p>
       </a>
-      <a class="portada-card secondary" href="{{ url_for('grafo') }}">
-        <span class="portada-card-eyebrow">Graph explorer</span>
+      <a class="home-card secondary" href="{{ url_for('graph_page') }}">
         <h2>See the network</h2>
         <p>A word and its closest neighbours drawn as a force-directed network diagram. Visually rich, but
         testing with non-specialists found it harder to read at a glance than the timeline above - kept for
-        browsing the raw network structure, not the primary way to see how a word's community changed.</p>
+        browsing the raw network structure, not the primary way to see how a word's group changed.</p>
       </a>
     </div>
   </div>
