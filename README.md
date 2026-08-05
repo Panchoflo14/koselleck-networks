@@ -32,9 +32,10 @@ Primary: the Text Creation Partnership (TCP) - EEBO-TCP (1500-1700, both release
 
 ## Repo layout
 
-- `src/` - the pipeline: `parse_tcp.py` -> `bucket_periods.py` -> `embeddings.py` -> `network.py` -> `community.py` -> `metrics.py`, plus `pipeline_config.py` (shared config loader) and one-off analysis scripts (`extract_community_words.py`, `subsample_control.py`).
-- `webapp/` - the Koselleck Machine, a Flask app for exploring the results interactively: a graph explorer (`/grafo`) and a plain word-search tool (`/buscador`), both reading the same pre-built per-period networks.
+- `src/` - the pipeline: `parse_tcp.py` -> `bucket_periods.py` -> `embeddings.py` -> `network.py` -> `community.py` -> `metrics.py`, plus `pipeline_config.py` (shared config loader), `label_communities.py`/`extract_community_words.py` (see [Labeling communities](#labeling-communities)), and a one-off analysis script (`subsample_control.py`).
+- `webapp/` - the Koselleck Machine, a Flask app for exploring the results interactively: a timeline view (`/timeline`), a graph explorer (`/graph`), and a plain word-search tool (`/search`), all reading the same pre-built per-period networks.
 - `docs/` - `method.tex`/`method.pdf`, a plain-language method write-up for a mixed technical/non-technical audience.
+- `labels/` - a small, citable snapshot of the current community labels (CSV + compiled JSON, per region) - copied here by `label_communities.py publish` so they travel with the repo instead of living only in the (gitignored) data directory.
 - `config.yml` - shared, versioned settings (period slices, word2vec/Leiden hyperparameters).
 
 ## Setup
@@ -137,19 +138,34 @@ python src/community.py
 python src/metrics.py
 ```
 
+### Labeling communities
+
+The webapp shows a plain-English name next to each community (e.g. "Government & Law") instead of a bare Leiden id. That's a separate, optional step - `metrics.py` above is enough to reproduce every quantitative result, labels are a reading aid layered on top:
+
+```
+python src/extract_community_words.py          # top-25 words per community -> communities/community_words_res1.0[_region].json
+python src/label_communities.py generate --region combined   # -> a CSV, blank rows for communities with no inheritable predecessor
+# fill in the blank rows by hand (or via an LLM/agent reading the same CSV) - see the CSV's "label"/"lane" columns
+python src/label_communities.py generate --region combined   # rerun once genesis rows are filled - resolves everything else for free
+python src/label_communities.py compile --region combined    # CSV -> communities/community_labels_res1.0[_region].json, what the webapp reads
+python src/label_communities.py publish --region combined    # copies CSV + JSON into this repo's labels/ - review before committing
+```
+
+A community's label is inherited from its predecessor whenever the same Hungarian alignment `metrics.py` uses for `migration_fraction` says one exists (free, deterministic - most communities in most periods) and only needs a fresh read when a community is genuinely new (a region's first period, or the moved-into side of a real reorganization). `--region` also accepts `american`/`british`/`all` for the region-split variants, if built. See `src/label_communities.py`'s own module docstring for the full design.
+
 ## Running the webapp locally
 
 ```
 python webapp/app.py
 ```
 
-Then open http://127.0.0.1:5000. Three pages: a landing page, `/grafo` (D3 graph explorer - pick a period and a word, see its neighbourhood; toggle a full-network sampled view), and `/buscador` (plain word-lookup table: nearest neighbours, community, whether the word's community changed since the previous period).
+Then open http://127.0.0.1:5000. Four pages: a landing page, `/timeline` (the primary view - track one word's group across every period in a single strip), `/graph` (D3 graph explorer - pick a period and a word, see its neighbourhood; toggle a full-network sampled view), and `/search` (plain word-lookup table: nearest neighbours, community, whether the word's community changed since the previous period).
 
 If the pipeline was run for region-split data too (see Data above), both pages also expose a region toggle (combined / one option per region built) - it only appears for regions this deployment actually has built network files for, read off the data itself, never hardcoded.
 
 ## Deployment
 
-**Status: not yet live.** Right now the Koselleck Machine only runs locally (see [Running the webapp locally](#running-the-webapp-locally) above) - a hosted deployment is in progress, not finished. The instructions below are the intended setup, not a working URL yet.
+**Status: not yet live.** Right now the Koselleck Machine only runs locally (see [Running the webapp locally](#running-the-webapp-locally) above) - a public hosted deployment is planned but not yet started, deliberately out of scope until the local app itself is solid. The instructions below are the intended setup, not a working URL yet.
 
 The Flask app in `webapp/` runs as-is on any host that can run Python (it is **not** a static site - GitHub Pages alone cannot serve it, since Pages only serves static files and this app computes responses server-side from the network data on every request).
 
