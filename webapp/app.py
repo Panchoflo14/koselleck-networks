@@ -58,7 +58,7 @@ RESOLUTIONS = config["leiden"]["resolution_sweep"]  # the 7 swept values, e.g. 0
 REGIONS = discover_built_regions(config)
 HEADLINE_RES = 1.0  # resolution shown by default in the UI
 DEFAULT_K = 12  # words kept per community in "full network" mode
-SEED_PERIOD = "1800-1820"  # lands on the transition that closes the Sattelzeit
+SEED_PERIOD = "1790-1810"  # last real, populated period - 1810-1830 (the literal Sattelzeit-closing edge, after the 2026-08-04 boundary shift) has no data yet, would land /graph and /search on an empty coverage-gap by default
 # One seed word everywhere (2026-08-04) - /graph and /search used to default
 # to "reason" while /timeline defaulted to "system"; Panch flagged that as
 # arbitrary and confusing across pages that are otherwise meant to feel like

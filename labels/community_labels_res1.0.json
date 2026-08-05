@@ -1,1840 +1,1730 @@
 {
-  "1500-1520": {
-    "7": {
-      "label": "English Place & Personal Names (mixed)",
-      "n_words": 309,
-      "lane": "Structural / Uncertain"
-    },
-    "5": {
-      "label": "Civic & Ecclesiastical Administration",
-      "n_words": 348,
-      "lane": "Government, Law & Administration"
-    },
-    "2": {
-      "label": "Middle English Infinitive Verbs (mixed)",
-      "n_words": 530,
-      "lane": "Structural / Uncertain"
-    },
+  "1510-1530": {
     "1": {
-      "label": "Virtue and Moral Qualities",
-      "n_words": 644,
+      "label": "Virtues and Moral Qualities",
+      "n_words": 937,
       "lane": "Morality: Virtue & Vice"
     },
-    "0": {
-      "label": "Narrative Action & Body Parts (Romance) (mixed)",
-      "n_words": 857,
-      "lane": "Structural / Uncertain"
-    },
-    "9": {
-      "label": "Grammar & Parts of Speech",
-      "n_words": 96,
-      "lane": "Books, Learning & Scholarship"
-    },
-    "6": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 341,
-      "lane": "Structural / Uncertain"
-    },
     "3": {
-      "label": "Sin, Belief & Penance",
-      "n_words": 525,
-      "lane": "Religion, Theology & the Church"
-    },
-    "8": {
-      "label": "Roman Numerals & Chronicle Dates (mixed)",
-      "n_words": 257,
-      "lane": "Structural / Uncertain"
-    },
-    "4": {
-      "label": "Latin Text (mixed)",
-      "n_words": 382,
-      "lane": "Structural / Uncertain"
-    },
-    "10": {
-      "label": "German/Dutch Text (mixed)",
-      "n_words": 81,
-      "lane": "Structural / Uncertain"
-    },
-    "11": {
-      "label": "Second-Person Verb Forms (mixed)",
-      "n_words": 25,
-      "lane": "Structural / Uncertain"
-    }
-  },
-  "1520-1540": {
-    "0": {
-      "label": "Virtue and Moral Qualities",
-      "n_words": 1886,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1500-1520#1"
-    },
-    "5": {
-      "label": "Middle English Infinitive Verbs (mixed)",
-      "n_words": 947,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1500-1520#2"
-    },
-    "7": {
-      "label": "Roman Numerals & Chronicle Dates (mixed)",
-      "n_words": 720,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1500-1520#8"
-    },
-    "11": {
-      "label": "German/Dutch Text (mixed)",
-      "n_words": 383,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1500-1520#10"
-    },
-    "12": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 369,
-      "lane": "Structural / Uncertain"
-    },
-    "14": {
-      "label": "Grammar & Parts of Speech",
-      "n_words": 98,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1500-1520#9"
-    },
-    "3": {
-      "label": "Civic & Ecclesiastical Administration",
-      "n_words": 1034,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1500-1520#5"
-    },
-    "10": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 516,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1500-1520#6"
-    },
-    "2": {
-      "label": "Narrative Action & Body Parts (Romance) (mixed)",
-      "n_words": 1424,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1500-1520#0"
-    },
-    "8": {
-      "label": "Sin, Belief & Penance",
-      "n_words": 700,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1500-1520#3"
-    },
-    "9": {
-      "label": "Verbs of Physical Motion & Force (mixed)",
-      "n_words": 635,
-      "lane": "Structural / Uncertain"
-    },
-    "1": {
-      "label": "Latin Text (mixed)",
-      "n_words": 1480,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1500-1520#4"
-    },
-    "4": {
-      "label": "English Place & Personal Names (mixed)",
-      "n_words": 952,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1500-1520#7"
-    },
-    "15": {
-      "label": "Second-Person Verb Forms (mixed)",
-      "n_words": 67,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1500-1520#11"
-    },
-    "13": {
-      "label": "Truncated Word Fragments (mixed)",
-      "n_words": 136,
-      "lane": "Structural / Uncertain"
-    },
-    "6": {
-      "label": "Mixed Latin & Proper Names (mixed)",
-      "n_words": 798,
-      "lane": "Structural / Uncertain"
-    }
-  },
-  "1540-1560": {
-    "8": {
-      "label": "Civic & Ecclesiastical Administration",
-      "n_words": 910,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1520-1540#3"
-    },
-    "1": {
-      "label": "Virtue and Moral Qualities",
-      "n_words": 1890,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1520-1540#0"
-    },
-    "4": {
-      "label": "Middle English Infinitive Verbs (mixed)",
-      "n_words": 1357,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1520-1540#5"
-    },
-    "16": {
-      "label": "Manner Adverbs (Spelling Variants) (mixed)",
-      "n_words": 344,
-      "lane": "Structural / Uncertain"
-    },
-    "3": {
-      "label": "English Place & Personal Names (mixed)",
-      "n_words": 1374,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1520-1540#4"
-    },
-    "9": {
-      "label": "Miscellaneous Landscape & Astronomy Terms (mixed)",
-      "n_words": 746,
-      "lane": "Structural / Uncertain"
-    },
-    "2": {
-      "label": "Mixed Latin & Proper Names (mixed)",
-      "n_words": 1727,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1520-1540#6"
-    },
-    "18": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 289,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1520-1540#10"
-    },
-    "5": {
-      "label": "Sin, Belief & Penance",
-      "n_words": 1235,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1520-1540#8"
-    },
-    "13": {
-      "label": "Grammar & Parts of Speech",
-      "n_words": 602,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1520-1540#14"
-    },
-    "0": {
-      "label": "Narrative Action & Body Parts (Romance) (mixed)",
-      "n_words": 2090,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1520-1540#2"
-    },
-    "21": {
-      "label": "Eucharistic Theology (Real Presence)",
-      "n_words": 210,
-      "lane": "Religion, Theology & the Church"
-    },
-    "14": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 556,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1520-1540#12"
-    },
-    "15": {
-      "label": "Dates and Calendar Terms (mixed)",
-      "n_words": 504,
-      "lane": "Structural / Uncertain"
-    },
-    "10": {
-      "label": "Verbs of Physical Motion & Force (mixed)",
+      "label": "Chivalric Chronicle: Combat & Travel",
       "n_words": 741,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1520-1540#9"
-    },
-    "19": {
-      "label": "Welsh Text (mixed)",
-      "n_words": 259,
-      "lane": "Structural / Uncertain"
-    },
-    "17": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 332,
-      "lane": "Structural / Uncertain"
-    },
-    "12": {
-      "label": "Roman Numerals & Chronicle Dates (mixed)",
-      "n_words": 617,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1520-1540#7"
-    },
-    "6": {
-      "label": "Latin Text (mixed)",
-      "n_words": 1130,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1520-1540#1"
-    },
-    "7": {
-      "label": "German/Dutch Text (mixed)",
-      "n_words": 978,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1520-1540#11"
-    },
-    "22": {
-      "label": "Second-Person Verb Forms (mixed)",
-      "n_words": 102,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1520-1540#15"
-    },
-    "20": {
-      "label": "Truncated Word Fragments (mixed)",
-      "n_words": 217,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1520-1540#13"
-    },
-    "11": {
-      "label": "Feudal Land Law Terms",
-      "n_words": 697,
-      "lane": "Government, Law & Administration"
-    }
-  },
-  "1560-1580": {
-    "10": {
-      "label": "Miscellaneous Landscape & Astronomy Terms (mixed)",
-      "n_words": 1372,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1540-1560#9"
-    },
-    "7": {
-      "label": "Middle English Infinitive Verbs (mixed)",
-      "n_words": 1552,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1540-1560#4"
-    },
-    "6": {
-      "label": "Virtue and Moral Qualities",
-      "n_words": 2404,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1540-1560#1"
-    },
-    "4": {
-      "label": "Civic & Ecclesiastical Administration",
-      "n_words": 2785,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1540-1560#8"
-    },
-    "14": {
-      "label": "Grammar & Parts of Speech",
-      "n_words": 897,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1540-1560#13"
-    },
-    "2": {
-      "label": "Mixed Latin & Proper Names (mixed)",
-      "n_words": 3229,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1540-1560#2"
-    },
-    "5": {
-      "label": "Sin, Belief & Penance",
-      "n_words": 2586,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1540-1560#5"
-    },
-    "11": {
-      "label": "Verbs of Physical Motion & Force (mixed)",
-      "n_words": 1272,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1540-1560#10"
-    },
-    "15": {
-      "label": "Dates and Calendar Terms (mixed)",
-      "n_words": 564,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1540-1560#15"
-    },
-    "9": {
-      "label": "Welsh Text (mixed)",
-      "n_words": 1460,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1540-1560#19"
-    },
-    "19": {
-      "label": "Second-Person Verb Forms (mixed)",
-      "n_words": 201,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1540-1560#22"
-    },
-    "8": {
-      "label": "English Place & Personal Names (mixed)",
-      "n_words": 1517,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1540-1560#3"
-    },
-    "1": {
-      "label": "Latin Text (mixed)",
-      "n_words": 3534,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1540-1560#6"
-    },
-    "12": {
-      "label": "Roman Numerals & Chronicle Dates (mixed)",
-      "n_words": 988,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1540-1560#12"
-    },
-    "0": {
-      "label": "Narrative Action & Body Parts (Romance) (mixed)",
-      "n_words": 3823,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1540-1560#0"
-    },
-    "18": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 262,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1540-1560#14"
-    },
-    "13": {
-      "label": "German/Dutch Text (mixed)",
-      "n_words": 961,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1540-1560#7"
-    },
-    "16": {
-      "label": "Truncated Word Fragments (mixed)",
-      "n_words": 292,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1540-1560#20"
-    },
-    "17": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 289,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1540-1560#17"
-    },
-    "20": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 172,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1540-1560#18"
-    },
-    "3": {
-      "label": "Feudal Land Law Terms",
-      "n_words": 2849,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1540-1560#11"
-    }
-  },
-  "1580-1600": {
-    "10": {
-      "label": "Virtue and Moral Qualities",
-      "n_words": 1611,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1560-1580#6"
-    },
-    "6": {
-      "label": "Middle English Infinitive Verbs (mixed)",
-      "n_words": 1909,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1560-1580#7"
-    },
-    "1": {
-      "label": "Miscellaneous Landscape & Astronomy Terms (mixed)",
-      "n_words": 4350,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1560-1580#10"
-    },
-    "15": {
-      "label": "Dates and Calendar Terms (mixed)",
-      "n_words": 799,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1560-1580#15"
-    },
-    "11": {
-      "label": "Grammar & Parts of Speech",
-      "n_words": 1592,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1560-1580#14"
-    },
-    "3": {
-      "label": "Mixed Latin & Proper Names (mixed)",
-      "n_words": 3697,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1560-1580#2"
-    },
-    "16": {
-      "label": "Biblical Names (Kings of Israel) (mixed)",
-      "n_words": 696,
-      "lane": "Structural / Uncertain"
-    },
-    "8": {
-      "label": "Civic & Ecclesiastical Administration",
-      "n_words": 1847,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1560-1580#4"
-    },
-    "0": {
-      "label": "Sin, Belief & Penance",
-      "n_words": 4392,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1560-1580#5"
-    },
-    "5": {
-      "label": "English Place & Personal Names (mixed)",
-      "n_words": 2482,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1560-1580#8"
-    },
-    "2": {
-      "label": "Narrative Action & Body Parts (Romance) (mixed)",
-      "n_words": 4260,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1560-1580#0"
-    },
-    "13": {
-      "label": "Roman Numerals & Chronicle Dates (mixed)",
-      "n_words": 998,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1560-1580#12"
-    },
-    "18": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 516,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1560-1580#18"
-    },
-    "9": {
-      "label": "Verbs of Physical Motion & Force (mixed)",
-      "n_words": 1629,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1560-1580#11"
-    },
-    "19": {
-      "label": "Truncated Word Fragments (mixed)",
-      "n_words": 423,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1560-1580#16"
-    },
-    "14": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 916,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1560-1580#17"
-    },
-    "4": {
-      "label": "Latin Text (mixed)",
-      "n_words": 3307,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1560-1580#1"
-    },
-    "22": {
-      "label": "Second-Person Verb Forms (mixed)",
-      "n_words": 158,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1560-1580#19"
-    },
-    "12": {
-      "label": "Welsh Text (mixed)",
-      "n_words": 1023,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1560-1580#9"
-    },
-    "17": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 613,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1560-1580#20"
-    },
-    "20": {
-      "label": "German/Dutch Text (mixed)",
-      "n_words": 297,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1560-1580#13"
-    },
-    "21": {
-      "label": "Apothecary Recipe Ingredients",
-      "n_words": 201,
-      "lane": "Medicine, Body & Health"
-    },
-    "7": {
-      "label": "Feudal Land Law Terms",
-      "n_words": 1864,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1560-1580#3"
-    }
-  },
-  "1600-1620": {
-    "5": {
-      "label": "Civic & Ecclesiastical Administration",
-      "n_words": 3077,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1580-1600#8"
-    },
-    "6": {
-      "label": "Miscellaneous Landscape & Astronomy Terms (mixed)",
-      "n_words": 2665,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1580-1600#1"
-    },
-    "3": {
-      "label": "Middle English Infinitive Verbs (mixed)",
-      "n_words": 3903,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1580-1600#6"
-    },
-    "12": {
-      "label": "Virtue and Moral Qualities",
-      "n_words": 1612,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1580-1600#10"
-    },
-    "2": {
-      "label": "Mixed Latin & Proper Names (mixed)",
-      "n_words": 4693,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1580-1600#3"
-    },
-    "9": {
-      "label": "Grammar & Parts of Speech",
-      "n_words": 2411,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1580-1600#11"
-    },
-    "17": {
-      "label": "Dates and Calendar Terms (mixed)",
-      "n_words": 520,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1580-1600#15"
-    },
-    "8": {
-      "label": "Sin, Belief & Penance",
-      "n_words": 2416,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1580-1600#0"
-    },
-    "4": {
-      "label": "English Place & Personal Names (mixed)",
-      "n_words": 3608,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1580-1600#5"
-    },
-    "11": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 1809,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1580-1600#14"
-    },
-    "1": {
-      "label": "Narrative Action & Body Parts (Romance) (mixed)",
-      "n_words": 5306,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1580-1600#2"
-    },
-    "14": {
-      "label": "Biblical Names (Kings of Israel) (mixed)",
-      "n_words": 982,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1580-1600#16"
-    },
-    "7": {
-      "label": "Roman Numerals & Chronicle Dates (mixed)",
-      "n_words": 2560,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1580-1600#13"
-    },
-    "18": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 422,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1580-1600#18"
-    },
-    "0": {
-      "label": "Latin Text (mixed)",
-      "n_words": 5416,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1580-1600#4"
-    },
-    "20": {
-      "label": "Second-Person Verb Forms (mixed)",
-      "n_words": 218,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1580-1600#22"
-    },
-    "15": {
-      "label": "Welsh Text (mixed)",
-      "n_words": 919,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1580-1600#12"
-    },
-    "13": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 1059,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1580-1600#17"
-    },
-    "16": {
-      "label": "Verbs of Physical Motion & Force (mixed)",
-      "n_words": 856,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1580-1600#9"
-    },
-    "10": {
-      "label": "Feudal Land Law Terms",
-      "n_words": 2047,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1580-1600#7"
-    },
-    "19": {
-      "label": "Truncated Word Fragments (mixed)",
-      "n_words": 293,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1580-1600#19"
-    }
-  },
-  "1620-1640": {
-    "2": {
-      "label": "Miscellaneous Landscape & Astronomy Terms (mixed)",
-      "n_words": 6616,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1600-1620#6"
-    },
-    "1": {
-      "label": "Middle English Infinitive Verbs (mixed)",
-      "n_words": 6685,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1600-1620#3"
-    },
-    "14": {
-      "label": "Biblical Names (Kings of Israel) (mixed)",
-      "n_words": 865,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1600-1620#14"
-    },
-    "4": {
-      "label": "Mixed Latin & Proper Names (mixed)",
-      "n_words": 3847,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1600-1620#2"
-    },
-    "8": {
-      "label": "Grammar & Parts of Speech",
-      "n_words": 2361,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1600-1620#9"
-    },
-    "5": {
-      "label": "English Place & Personal Names (mixed)",
-      "n_words": 3605,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1600-1620#4"
-    },
-    "12": {
-      "label": "Virtue and Moral Qualities",
-      "n_words": 1148,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1600-1620#12"
-    },
-    "11": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 1568,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1600-1620#11"
-    },
-    "6": {
-      "label": "Roman Numerals & Chronicle Dates (mixed)",
-      "n_words": 2860,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1600-1620#7"
-    },
-    "9": {
-      "label": "Civic & Ecclesiastical Administration",
-      "n_words": 1797,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1600-1620#5"
-    },
-    "3": {
-      "label": "Narrative Action & Body Parts (Romance) (mixed)",
-      "n_words": 5433,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1600-1620#1"
-    },
-    "0": {
-      "label": "Latin Text (mixed)",
-      "n_words": 7364,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1600-1620#0"
-    },
-    "10": {
-      "label": "Verbs of Physical Motion & Force (mixed)",
-      "n_words": 1609,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1600-1620#16"
-    },
-    "16": {
-      "label": "Second-Person Verb Forms (mixed)",
-      "n_words": 224,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1600-1620#20"
-    },
-    "15": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 330,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1600-1620#18"
-    },
-    "18": {
-      "label": "Dates and Calendar Terms (mixed)",
-      "n_words": 149,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1600-1620#17"
-    },
-    "13": {
-      "label": "Welsh Text (mixed)",
-      "n_words": 865,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1600-1620#15"
-    },
-    "17": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 214,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1600-1620#13"
-    },
-    "7": {
-      "label": "Feudal Land Law Terms",
-      "n_words": 2511,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1600-1620#10"
-    }
-  },
-  "1640-1660": {
-    "12": {
-      "label": "Virtue and Moral Qualities",
-      "n_words": 1950,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1620-1640#12"
-    },
-    "7": {
-      "label": "Civic & Ecclesiastical Administration",
-      "n_words": 3430,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1620-1640#9"
-    },
-    "1": {
-      "label": "Mixed Latin & Proper Names (mixed)",
-      "n_words": 8878,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1620-1640#4"
-    },
-    "14": {
-      "label": "Biblical Names (Kings of Israel) (mixed)",
-      "n_words": 1358,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1620-1640#14"
-    },
-    "20": {
-      "label": "Comparative Adjectives (mixed)",
-      "n_words": 185,
-      "lane": "Structural / Uncertain"
-    },
-    "5": {
-      "label": "Miscellaneous Landscape & Astronomy Terms (mixed)",
-      "n_words": 4801,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1620-1640#2"
-    },
-    "2": {
-      "label": "Narrative Action & Body Parts (Romance) (mixed)",
-      "n_words": 5998,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1620-1640#3"
-    },
-    "4": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 4998,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1620-1640#11"
-    },
-    "13": {
-      "label": "Welsh Text (mixed)",
-      "n_words": 1394,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1620-1640#13"
-    },
-    "3": {
-      "label": "Middle English Infinitive Verbs (mixed)",
-      "n_words": 5077,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1620-1640#1"
-    },
-    "6": {
-      "label": "English Place & Personal Names (mixed)",
-      "n_words": 3561,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1620-1640#5"
-    },
-    "11": {
-      "label": "Grammar & Parts of Speech",
-      "n_words": 2018,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1620-1640#8"
-    },
-    "15": {
-      "label": "Verbs of Physical Motion & Force (mixed)",
-      "n_words": 1226,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1620-1640#10"
-    },
-    "8": {
-      "label": "Roman Numerals & Chronicle Dates (mixed)",
-      "n_words": 3033,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1620-1640#6"
-    },
-    "16": {
-      "label": "Feudal Land Law Terms",
-      "n_words": 1154,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1620-1640#7"
-    },
-    "9": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 2700,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1620-1640#15"
-    },
-    "0": {
-      "label": "Latin Text (mixed)",
-      "n_words": 10314,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1620-1640#0"
-    },
-    "19": {
-      "label": "Second-Person Verb Forms (mixed)",
-      "n_words": 306,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1620-1640#16"
-    },
-    "21": {
-      "label": "Dates and Calendar Terms (mixed)",
-      "n_words": 113,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1620-1640#18"
-    },
-    "18": {
-      "label": "Verbs of Doting & Reflecting (mixed)",
-      "n_words": 419,
-      "lane": "Structural / Uncertain"
-    },
-    "10": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 2112,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1620-1640#17"
-    },
-    "17": {
-      "label": "Latin Legal Charter Formulas (mixed)",
-      "n_words": 466,
-      "lane": "Structural / Uncertain"
-    },
-    "22": {
-      "label": "Unclassifiable Fragments (mixed)",
-      "n_words": 22,
-      "lane": "Structural / Uncertain"
-    },
-    "23": {
-      "label": "Latin Pronoun Fragments (mixed)",
-      "n_words": 19,
-      "lane": "Structural / Uncertain"
-    }
-  },
-  "1660-1680": {
-    "3": {
-      "label": "Narrative Action & Body Parts (Romance) (mixed)",
-      "n_words": 5316,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1640-1660#2"
-    },
-    "4": {
-      "label": "Civic & Ecclesiastical Administration",
-      "n_words": 5101,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1640-1660#7"
-    },
-    "14": {
-      "label": "Grammar & Parts of Speech",
-      "n_words": 1632,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1640-1660#11"
-    },
-    "1": {
-      "label": "Mixed Latin & Proper Names (mixed)",
-      "n_words": 10086,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1640-1660#1"
-    },
-    "13": {
-      "label": "Biblical Names (Kings of Israel) (mixed)",
-      "n_words": 1661,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1640-1660#14"
-    },
-    "7": {
-      "label": "English Place & Personal Names (mixed)",
-      "n_words": 3303,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1640-1660#6"
-    },
-    "2": {
-      "label": "Middle English Infinitive Verbs (mixed)",
-      "n_words": 7221,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1640-1660#3"
-    },
-    "15": {
-      "label": "Welsh Text (mixed)",
-      "n_words": 1527,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1640-1660#13"
-    },
-    "11": {
-      "label": "Miscellaneous Landscape & Astronomy Terms (mixed)",
-      "n_words": 2284,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1640-1660#5"
-    },
-    "0": {
-      "label": "Latin Text (mixed)",
-      "n_words": 11817,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1640-1660#0"
-    },
-    "10": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 2384,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1640-1660#4"
-    },
-    "12": {
-      "label": "Virtue and Moral Qualities",
-      "n_words": 1707,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1640-1660#12"
-    },
-    "9": {
-      "label": "Verbs of Physical Motion & Force (mixed)",
-      "n_words": 2649,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1640-1660#15"
-    },
-    "16": {
-      "label": "Latin Legal Charter Formulas (mixed)",
-      "n_words": 951,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1640-1660#17"
-    },
-    "8": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 2724,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1640-1660#9"
-    },
-    "6": {
-      "label": "Roman Numerals & Chronicle Dates (mixed)",
-      "n_words": 3514,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1640-1660#8"
-    },
-    "18": {
-      "label": "Second-Person Verb Forms (mixed)",
-      "n_words": 290,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1640-1660#19"
-    },
-    "19": {
-      "label": "Dates and Calendar Terms (mixed)",
-      "n_words": 115,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1640-1660#21"
-    },
-    "17": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 558,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1640-1660#10"
-    },
-    "5": {
-      "label": "Feudal Land Law Terms",
-      "n_words": 3792,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1640-1660#16"
-    }
-  },
-  "1680-1700": {
-    "3": {
-      "label": "Miscellaneous Landscape & Astronomy Terms (mixed)",
-      "n_words": 4736,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1660-1680#11"
-    },
-    "5": {
-      "label": "Civic & Ecclesiastical Administration",
-      "n_words": 3902,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1660-1680#4"
-    },
-    "11": {
-      "label": "Grammar & Parts of Speech",
-      "n_words": 2387,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1660-1680#14"
-    },
-    "2": {
-      "label": "Mixed Latin & Proper Names (mixed)",
-      "n_words": 7368,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1660-1680#1"
-    },
-    "4": {
-      "label": "Narrative Action & Body Parts (Romance) (mixed)",
-      "n_words": 4660,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1660-1680#3"
-    },
-    "1": {
-      "label": "Middle English Infinitive Verbs (mixed)",
-      "n_words": 9943,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1660-1680#2"
-    },
-    "18": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 633,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1660-1680#10"
-    },
-    "16": {
-      "label": "Dates and Calendar Terms (mixed)",
-      "n_words": 1240,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1660-1680#19"
-    },
-    "7": {
-      "label": "Roman Numerals & Chronicle Dates (mixed)",
-      "n_words": 3246,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1660-1680#6"
-    },
-    "15": {
-      "label": "Welsh Text (mixed)",
-      "n_words": 1407,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1660-1680#15"
-    },
-    "19": {
-      "label": "Second-Person Verb Forms (mixed)",
-      "n_words": 322,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1660-1680#18"
-    },
-    "13": {
-      "label": "Latin Bibliographic Citations (mixed)",
-      "n_words": 2064,
-      "lane": "Structural / Uncertain"
-    },
-    "6": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 3896,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1660-1680#8"
-    },
-    "14": {
-      "label": "Virtue and Moral Qualities",
-      "n_words": 1903,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1660-1680#12"
-    },
-    "9": {
-      "label": "English Place & Personal Names (mixed)",
-      "n_words": 2628,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1660-1680#7"
-    },
-    "20": {
-      "label": "Latin Legal Charter Formulas (mixed)",
-      "n_words": 273,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1660-1680#16"
-    },
-    "0": {
-      "label": "Latin Text (mixed)",
-      "n_words": 10039,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1660-1680#0"
-    },
-    "10": {
-      "label": "Verbs of Physical Motion & Force (mixed)",
-      "n_words": 2444,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1660-1680#9"
-    },
-    "17": {
-      "label": "Biblical Names (Kings of Israel) (mixed)",
-      "n_words": 1163,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1660-1680#13"
-    },
-    "12": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 2159,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1660-1680#17"
-    },
-    "8": {
-      "label": "Feudal Land Law Terms",
-      "n_words": 2787,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1660-1680#5"
-    }
-  },
-  "1700-1720": {
-    "5": {
-      "label": "Mixed Latin & Proper Names (mixed)",
-      "n_words": 1448,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1680-1700#2"
-    },
-    "0": {
-      "label": "Civic & Ecclesiastical Administration",
-      "n_words": 3034,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1680-1700#5"
-    },
-    "7": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 1253,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1680-1700#12"
-    },
-    "17": {
-      "label": "Latin Bibliographic Citations (mixed)",
-      "n_words": 68,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1680-1700#13"
-    },
-    "10": {
-      "label": "Grammar & Parts of Speech",
-      "n_words": 709,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1680-1700#11"
-    },
-    "3": {
-      "label": "Middle English Infinitive Verbs (mixed)",
-      "n_words": 1660,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1680-1700#1"
-    },
-    "1": {
-      "label": "Narrative Action & Body Parts (Romance) (mixed)",
-      "n_words": 2632,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1680-1700#4"
-    },
-    "16": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 177,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1680-1700#18"
-    },
-    "8": {
-      "label": "Dates and Calendar Terms (mixed)",
-      "n_words": 925,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1680-1700#16"
-    },
-    "4": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 1479,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1680-1700#6"
-    },
-    "9": {
-      "label": "English Place & Personal Names (mixed)",
-      "n_words": 720,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1680-1700#9"
-    },
-    "15": {
-      "label": "Virtue and Moral Qualities",
-      "n_words": 239,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1680-1700#14"
-    },
-    "6": {
-      "label": "Miscellaneous Landscape & Astronomy Terms (mixed)",
-      "n_words": 1311,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1680-1700#3"
-    },
-    "2": {
-      "label": "Latin Text (mixed)",
-      "n_words": 1990,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1680-1700#0"
-    },
-    "11": {
-      "label": "Biblical Names (Kings of Israel) (mixed)",
-      "n_words": 696,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1680-1700#17"
-    },
-    "13": {
-      "label": "Feudal Land Law Terms",
-      "n_words": 615,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1680-1700#8"
-    },
-    "18": {
-      "label": "Second-Person Verb Forms (mixed)",
-      "n_words": 44,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1680-1700#19"
-    },
-    "14": {
-      "label": "Verbs of Physical Motion & Force (mixed)",
-      "n_words": 383,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1680-1700#10"
-    },
-    "12": {
-      "label": "Roman Numerals & Chronicle Dates (mixed)",
-      "n_words": 646,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1680-1700#7"
-    }
-  },
-  "1720-1740": {
-    "15": {
-      "label": "Roman Numerals & Chronicle Dates (mixed)",
-      "n_words": 86,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1700-1720#12"
-    },
-    "1": {
-      "label": "Civic & Ecclesiastical Administration",
-      "n_words": 1304,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1700-1720#0"
-    },
-    "5": {
-      "label": "Mixed Latin & Proper Names (mixed)",
-      "n_words": 783,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1700-1720#5"
-    },
-    "9": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 650,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1700-1720#16"
-    },
-    "16": {
-      "label": "Latin Bibliographic Citations (mixed)",
-      "n_words": 51,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1700-1720#17"
-    },
-    "11": {
-      "label": "Grammar & Parts of Speech",
-      "n_words": 428,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1700-1720#10"
-    },
-    "7": {
-      "label": "Dates and Calendar Terms (mixed)",
-      "n_words": 663,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1700-1720#8"
-    },
-    "3": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 810,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1700-1720#4"
-    },
-    "0": {
-      "label": "Narrative Action & Body Parts (Romance) (mixed)",
-      "n_words": 1463,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1700-1720#1"
-    },
-    "2": {
-      "label": "Middle English Infinitive Verbs (mixed)",
-      "n_words": 1026,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1700-1720#3"
-    },
-    "10": {
-      "label": "English Place & Personal Names (mixed)",
-      "n_words": 520,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1700-1720#9"
-    },
-    "6": {
-      "label": "Verbs of Physical Motion & Force (mixed)",
-      "n_words": 674,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1700-1720#14"
-    },
-    "4": {
-      "label": "Miscellaneous Landscape & Astronomy Terms (mixed)",
-      "n_words": 795,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1700-1720#6"
-    },
-    "8": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 662,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1700-1720#7"
-    },
-    "13": {
-      "label": "Feudal Land Law Terms",
-      "n_words": 298,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1700-1720#13"
-    },
-    "14": {
-      "label": "Biblical Names (Kings of Israel) (mixed)",
-      "n_words": 137,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1700-1720#11"
-    },
-    "17": {
-      "label": "Second-Person Verb Forms (mixed)",
-      "n_words": 21,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1700-1720#18"
-    },
-    "12": {
-      "label": "Latin Text (mixed)",
-      "n_words": 326,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1700-1720#2"
-    }
-  },
-  "1740-1760": {
-    "13": {
-      "label": "Roman Numerals & Chronicle Dates (mixed)",
-      "n_words": 200,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1720-1740#15"
-    },
-    "1": {
-      "label": "Civic & Ecclesiastical Administration",
-      "n_words": 2016,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1720-1740#1"
-    },
-    "7": {
-      "label": "Dates and Calendar Terms (mixed)",
-      "n_words": 815,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1720-1740#7"
-    },
-    "3": {
-      "label": "Mixed Latin & Proper Names (mixed)",
-      "n_words": 1363,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1720-1740#5"
-    },
-    "16": {
-      "label": "Latin Bibliographic Citations (mixed)",
-      "n_words": 57,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1720-1740#16"
-    },
-    "12": {
-      "label": "Grammar & Parts of Speech",
-      "n_words": 449,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1720-1740#11"
-    },
-    "4": {
-      "label": "Middle English Infinitive Verbs (mixed)",
-      "n_words": 1255,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1720-1740#2"
-    },
-    "14": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 176,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1720-1740#9"
-    },
-    "6": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 846,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1720-1740#3"
-    },
-    "2": {
-      "label": "Miscellaneous Landscape & Astronomy Terms (mixed)",
-      "n_words": 1429,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1720-1740#4"
-    },
-    "0": {
-      "label": "Narrative Action & Body Parts (Romance) (mixed)",
-      "n_words": 2157,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1720-1740#0"
-    },
-    "9": {
-      "label": "English Place & Personal Names (mixed)",
-      "n_words": 726,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1720-1740#10"
-    },
-    "5": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 866,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1720-1740#8"
-    },
-    "8": {
-      "label": "Verbs of Physical Motion & Force (mixed)",
-      "n_words": 728,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1720-1740#6"
-    },
-    "11": {
-      "label": "Feudal Land Law Terms",
-      "n_words": 631,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1720-1740#13"
-    },
-    "10": {
-      "label": "Latin Text (mixed)",
-      "n_words": 647,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1720-1740#12"
-    },
-    "15": {
-      "label": "Biblical Names (Kings of Israel) (mixed)",
-      "n_words": 171,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1720-1740#14"
-    }
-  },
-  "1760-1780": {
-    "14": {
-      "label": "Roman Numerals & Chronicle Dates (mixed)",
-      "n_words": 227,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1740-1760#13"
-    },
-    "0": {
-      "label": "Civic & Ecclesiastical Administration",
-      "n_words": 3450,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1740-1760#1"
-    },
-    "4": {
-      "label": "Mixed Latin & Proper Names (mixed)",
-      "n_words": 1684,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1740-1760#3"
-    },
-    "15": {
-      "label": "Latin Bibliographic Citations (mixed)",
-      "n_words": 85,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1740-1760#16"
-    },
-    "7": {
-      "label": "Middle English Infinitive Verbs (mixed)",
-      "n_words": 1423,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1740-1760#4"
-    },
-    "8": {
-      "label": "Grammar & Parts of Speech",
-      "n_words": 1056,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1740-1760#12"
-    },
-    "1": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 2335,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1740-1760#6"
-    },
-    "3": {
-      "label": "Dates and Calendar Terms (mixed)",
-      "n_words": 1874,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1740-1760#7"
-    },
-    "6": {
-      "label": "Verbs of Physical Motion & Force (mixed)",
-      "n_words": 1441,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1740-1760#8"
-    },
-    "10": {
-      "label": "Feudal Land Law Terms",
-      "n_words": 816,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1740-1760#11"
-    },
-    "11": {
-      "label": "English Place & Personal Names (mixed)",
-      "n_words": 734,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1740-1760#9"
-    },
-    "12": {
-      "label": "Miscellaneous Landscape & Astronomy Terms (mixed)",
-      "n_words": 617,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1740-1760#2"
-    },
-    "5": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 1575,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1740-1760#5"
-    },
-    "9": {
-      "label": "Latin Text (mixed)",
-      "n_words": 1031,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1740-1760#10"
-    },
-    "2": {
-      "label": "Narrative Action & Body Parts (Romance) (mixed)",
-      "n_words": 2302,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1740-1760#0"
-    },
-    "13": {
-      "label": "Biblical Names (Kings of Israel) (mixed)",
-      "n_words": 243,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1740-1760#15"
-    },
-    "16": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 32,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1740-1760#14"
-    }
-  },
-  "1780-1800": {
-    "3": {
-      "label": "Mixed Latin & Proper Names (mixed)",
-      "n_words": 2156,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1760-1780#4"
-    },
-    "15": {
-      "label": "Roman Numerals & Chronicle Dates (mixed)",
-      "n_words": 484,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1760-1780#14"
-    },
-    "18": {
-      "label": "Latin Bibliographic Citations (mixed)",
-      "n_words": 109,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1760-1780#15"
-    },
-    "5": {
-      "label": "Miscellaneous Landscape & Astronomy Terms (mixed)",
-      "n_words": 1909,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1760-1780#12"
-    },
-    "1": {
-      "label": "Civic & Ecclesiastical Administration",
-      "n_words": 2807,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1760-1780#0"
-    },
-    "10": {
-      "label": "Grammar & Parts of Speech",
-      "n_words": 1393,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1760-1780#8"
-    },
-    "6": {
-      "label": "Middle English Infinitive Verbs (mixed)",
-      "n_words": 1810,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1760-1780#7"
-    },
-    "16": {
-      "label": "Military Units & Weapons",
-      "n_words": 402,
       "lane": "Military & Warfare"
     },
+    "4": {
+      "label": "Common Verbs (Base Forms) (mixed)",
+      "n_words": 721,
+      "lane": "Structural / Uncertain"
+    },
     "9": {
-      "label": "English Surnames (mixed)",
-      "n_words": 1580,
+      "label": "Latin Grammar Instruction",
+      "n_words": 125,
+      "lane": "Books, Learning & Scholarship"
+    },
+    "7": {
+      "label": "Law French Legal Terminology",
+      "n_words": 387,
+      "lane": "Government, Law & Administration"
+    },
+    "6": {
+      "label": "Sermon Vocabulary: Sin and Grace",
+      "n_words": 423,
+      "lane": "Religion, Theology & the Church"
+    },
+    "2": {
+      "label": "Latin Text Fragments (mixed)",
+      "n_words": 764,
+      "lane": "Structural / Uncertain"
+    },
+    "8": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 244,
+      "lane": "Structural / Uncertain"
+    },
+    "10": {
+      "label": "Saints and Apostles' Names",
+      "n_words": 116,
+      "lane": "Religion, Theology & the Church"
+    },
+    "5": {
+      "label": "Remedies and Bodily Ailments",
+      "n_words": 624,
+      "lane": "Medicine, Body & Health"
+    },
+    "0": {
+      "label": "Mixed Names, Places & Latin Fragments (mixed)",
+      "n_words": 1015,
       "lane": "Structural / Uncertain"
     },
     "12": {
-      "label": "Dates and Calendar Terms (mixed)",
-      "n_words": 1097,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1760-1780#3"
-    },
-    "4": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 1972,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1760-1780#1"
-    },
-    "7": {
-      "label": "Verbs of Physical Motion & Force (mixed)",
-      "n_words": 1722,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1760-1780#6"
-    },
-    "0": {
-      "label": "Narrative Action & Body Parts (Romance) (mixed)",
-      "n_words": 4198,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1760-1780#2"
+      "label": "Dutch and German Text (mixed)",
+      "n_words": 41,
+      "lane": "Structural / Uncertain"
     },
     "13": {
-      "label": "English Place & Personal Names (mixed)",
-      "n_words": 979,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1760-1780#11"
-    },
-    "2": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 2560,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1760-1780#5"
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 30,
+      "lane": "Structural / Uncertain"
     },
     "11": {
-      "label": "Feudal Land Law Terms",
-      "n_words": 1237,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1760-1780#10"
-    },
-    "8": {
-      "label": "Latin Text (mixed)",
-      "n_words": 1614,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1760-1780#9"
-    },
-    "19": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 53,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1760-1780#16"
-    },
-    "17": {
-      "label": "Biblical Names (Kings of Israel) (mixed)",
-      "n_words": 290,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1760-1780#13"
-    },
-    "14": {
-      "label": "Birds & Game Animals",
-      "n_words": 690,
-      "lane": "Nature, Landscape & Weather"
+      "label": "Truncated Word Fragments (mixed)",
+      "n_words": 50,
+      "lane": "Structural / Uncertain"
     }
   },
-  "1800-1820": {
+  "1530-1550": {
+    "6": {
+      "label": "Latin Grammar Instruction",
+      "n_words": 1238,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1510-1530#9"
+    },
     "5": {
-      "label": "Verbs of Physical Motion & Force (mixed)",
-      "n_words": 550,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1780-1800#7"
-    },
-    "3": {
-      "label": "Miscellaneous Landscape & Astronomy Terms (mixed)",
-      "n_words": 638,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1780-1800#5"
-    },
-    "12": {
-      "label": "Latin Bibliographic Citations (mixed)",
-      "n_words": 20,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1780-1800#18"
+      "label": "Sermon Vocabulary: Sin and Grace",
+      "n_words": 1340,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1510-1530#6"
     },
     "4": {
-      "label": "Dates and Calendar Terms (mixed)",
-      "n_words": 609,
+      "label": "Common Verbs (Base Forms) (mixed)",
+      "n_words": 1422,
       "lane": "Structural / Uncertain",
-      "inherited_from": "1780-1800#12"
+      "inherited_from": "1510-1530#4"
     },
-    "7": {
-      "label": "Grammar & Parts of Speech",
-      "n_words": 438,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1780-1800#10"
-    },
-    "0": {
-      "label": "Mixed Latin & Proper Names (mixed)",
-      "n_words": 1039,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1780-1800#3"
+    "15": {
+      "label": "Adverbs of Manner and Degree (mixed)",
+      "n_words": 435,
+      "lane": "Structural / Uncertain"
     },
     "1": {
-      "label": "Middle English Infinitive Verbs (mixed)",
-      "n_words": 915,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1780-1800#6"
-    },
-    "10": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 154,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1780-1800#4"
+      "label": "Virtues and Moral Qualities",
+      "n_words": 1846,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1510-1530#1"
     },
     "9": {
-      "label": "Civic & Ecclesiastical Administration",
-      "n_words": 283,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1780-1800#1"
-    },
-    "8": {
-      "label": "Roman Numerals & Chronicle Dates (mixed)",
-      "n_words": 413,
+      "label": "Dutch and German Text (mixed)",
+      "n_words": 634,
       "lane": "Structural / Uncertain",
-      "inherited_from": "1780-1800#15"
+      "inherited_from": "1510-1530#12"
     },
-    "11": {
-      "label": "Feudal Land Law Terms",
-      "n_words": 87,
+    "14": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 448,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1510-1530#8"
+    },
+    "10": {
+      "label": "Law French Legal Terminology",
+      "n_words": 519,
       "lane": "Government, Law & Administration",
-      "inherited_from": "1780-1800#11"
+      "inherited_from": "1510-1530#7"
+    },
+    "13": {
+      "label": "Scots-Language Chronicle Text (mixed)",
+      "n_words": 468,
+      "lane": "Structural / Uncertain"
+    },
+    "3": {
+      "label": "Chivalric Chronicle: Combat & Travel",
+      "n_words": 1652,
+      "lane": "Military & Warfare",
+      "inherited_from": "1510-1530#3"
+    },
+    "12": {
+      "label": "Third-Person Verb Forms (-eth) (mixed)",
+      "n_words": 510,
+      "lane": "Structural / Uncertain"
+    },
+    "7": {
+      "label": "Mixed Names, Places & Latin Fragments (mixed)",
+      "n_words": 1051,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1510-1530#0"
+    },
+    "0": {
+      "label": "Remedies and Bodily Ailments",
+      "n_words": 2374,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1510-1530#5"
     },
     "2": {
-      "label": "Narrative Action & Body Parts (Romance) (mixed)",
-      "n_words": 820,
+      "label": "Latin Text Fragments (mixed)",
+      "n_words": 1691,
       "lane": "Structural / Uncertain",
-      "inherited_from": "1780-1800#0"
+      "inherited_from": "1510-1530#2"
+    },
+    "17": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 127,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1510-1530#13"
+    },
+    "11": {
+      "label": "Saints and Apostles' Names",
+      "n_words": 511,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1510-1530#10"
+    },
+    "16": {
+      "label": "Truncated Word Fragments (mixed)",
+      "n_words": 254,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1510-1530#11"
+    },
+    "18": {
+      "label": "Miscellaneous Nouns, Mixed Topics (mixed)",
+      "n_words": 102,
+      "lane": "Structural / Uncertain"
+    },
+    "8": {
+      "label": "Mixed Fragments and Biblical Names (mixed)",
+      "n_words": 759,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1550-1570": {
+    "3": {
+      "label": "Common Verbs (Base Forms) (mixed)",
+      "n_words": 1827,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1530-1550#4"
+    },
+    "0": {
+      "label": "Latin Grammar Instruction",
+      "n_words": 3592,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1530-1550#6"
+    },
+    "10": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 971,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1530-1550#14"
+    },
+    "16": {
+      "label": "Adverbs of Manner and Degree (mixed)",
+      "n_words": 422,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1530-1550#15"
+    },
+    "5": {
+      "label": "Virtues and Moral Qualities",
+      "n_words": 1610,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1530-1550#1"
+    },
+    "2": {
+      "label": "Chivalric Chronicle: Combat & Travel",
+      "n_words": 2084,
+      "lane": "Military & Warfare",
+      "inherited_from": "1530-1550#3"
+    },
+    "7": {
+      "label": "Dutch and German Text (mixed)",
+      "n_words": 1429,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1530-1550#9"
+    },
+    "15": {
+      "label": "Law French Legal Terminology",
+      "n_words": 548,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1530-1550#10"
+    },
+    "12": {
+      "label": "Third-Person Verb Forms (-eth) (mixed)",
+      "n_words": 613,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1530-1550#12"
     },
     "6": {
-      "label": "Law French Legal Text (mixed)",
-      "n_words": 535,
+      "label": "Mixed Names, Places & Latin Fragments (mixed)",
+      "n_words": 1607,
       "lane": "Structural / Uncertain",
-      "inherited_from": "1780-1800#2"
+      "inherited_from": "1530-1550#7"
+    },
+    "14": {
+      "label": "Saints and Apostles' Names",
+      "n_words": 549,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1530-1550#11"
+    },
+    "11": {
+      "label": "Sermon Vocabulary: Sin and Grace",
+      "n_words": 768,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1530-1550#5"
+    },
+    "1": {
+      "label": "Remedies and Bodily Ailments",
+      "n_words": 2385,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1530-1550#0"
+    },
+    "4": {
+      "label": "Latin Text Fragments (mixed)",
+      "n_words": 1669,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1530-1550#2"
+    },
+    "13": {
+      "label": "Miscellaneous Nouns, Mixed Topics (mixed)",
+      "n_words": 567,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1530-1550#18"
+    },
+    "18": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 223,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1530-1550#17"
+    },
+    "9": {
+      "label": "Scots-Language Chronicle Text (mixed)",
+      "n_words": 1014,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1530-1550#13"
+    },
+    "19": {
+      "label": "Truncated Words Ending in '-nd' (mixed)",
+      "n_words": 176,
+      "lane": "Structural / Uncertain"
+    },
+    "17": {
+      "label": "Truncated Word Fragments (mixed)",
+      "n_words": 235,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1530-1550#16"
+    },
+    "20": {
+      "label": "Truncated Words Ending in '-nt' (mixed)",
+      "n_words": 173,
+      "lane": "Structural / Uncertain"
+    },
+    "8": {
+      "label": "Mixed Fragments and Biblical Names (mixed)",
+      "n_words": 1281,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1530-1550#8"
+    }
+  },
+  "1570-1590": {
+    "0": {
+      "label": "Latin Grammar Instruction",
+      "n_words": 4661,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1550-1570#0"
+    },
+    "8": {
+      "label": "Common Verbs (Base Forms) (mixed)",
+      "n_words": 2657,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1550-1570#3"
+    },
+    "10": {
+      "label": "Adverbs of Manner and Degree (mixed)",
+      "n_words": 1345,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1550-1570#16"
+    },
+    "13": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 1113,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1550-1570#10"
+    },
+    "2": {
+      "label": "Dutch and German Text (mixed)",
+      "n_words": 3611,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1550-1570#7"
+    },
+    "14": {
+      "label": "Saints and Apostles' Names",
+      "n_words": 716,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1550-1570#14"
+    },
+    "4": {
+      "label": "Chivalric Chronicle: Combat & Travel",
+      "n_words": 3161,
+      "lane": "Military & Warfare",
+      "inherited_from": "1550-1570#2"
+    },
+    "3": {
+      "label": "Mixed Names, Places & Latin Fragments (mixed)",
+      "n_words": 3335,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1550-1570#6"
+    },
+    "11": {
+      "label": "Sermon Vocabulary: Sin and Grace",
+      "n_words": 1133,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1550-1570#11"
+    },
+    "5": {
+      "label": "Virtues and Moral Qualities",
+      "n_words": 3086,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1550-1570#5"
+    },
+    "12": {
+      "label": "Law French Legal Terminology",
+      "n_words": 1122,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1550-1570#15"
+    },
+    "9": {
+      "label": "Miscellaneous Nouns, Mixed Topics (mixed)",
+      "n_words": 1351,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1550-1570#13"
+    },
+    "1": {
+      "label": "Latin Text Fragments (mixed)",
+      "n_words": 4487,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1550-1570#4"
+    },
+    "16": {
+      "label": "Truncated Words Ending in '-nd' (mixed)",
+      "n_words": 570,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1550-1570#19"
+    },
+    "6": {
+      "label": "Remedies and Bodily Ailments",
+      "n_words": 2842,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1550-1570#1"
+    },
+    "19": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 167,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1550-1570#18"
+    },
+    "17": {
+      "label": "Third-Person Verb Forms (-eth) (mixed)",
+      "n_words": 413,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1550-1570#12"
+    },
+    "15": {
+      "label": "Scots-Language Chronicle Text (mixed)",
+      "n_words": 712,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1550-1570#9"
+    },
+    "18": {
+      "label": "Truncated Word Fragments (mixed)",
+      "n_words": 226,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1550-1570#17"
+    },
+    "7": {
+      "label": "Mixed Fragments and Biblical Names (mixed)",
+      "n_words": 2697,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1550-1570#8"
+    },
+    "20": {
+      "label": "Truncated Words Ending in '-nt' (mixed)",
+      "n_words": 159,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1550-1570#20"
+    }
+  },
+  "1590-1610": {
+    "11": {
+      "label": "Adverbs of Manner and Degree (mixed)",
+      "n_words": 1556,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1570-1590#10"
+    },
+    "9": {
+      "label": "Common Verbs (Base Forms) (mixed)",
+      "n_words": 1849,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1570-1590#8"
+    },
+    "0": {
+      "label": "Latin Grammar Instruction",
+      "n_words": 5747,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1570-1590#0"
+    },
+    "20": {
+      "label": "Truncated Words Ending in '-nt' (mixed)",
+      "n_words": 148,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1570-1590#20"
+    },
+    "4": {
+      "label": "Virtues and Moral Qualities",
+      "n_words": 3550,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1570-1590#5"
+    },
+    "16": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 812,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1570-1590#13"
+    },
+    "3": {
+      "label": "Chivalric Chronicle: Combat & Travel",
+      "n_words": 3923,
+      "lane": "Military & Warfare",
+      "inherited_from": "1570-1590#4"
+    },
+    "1": {
+      "label": "Remedies and Bodily Ailments",
+      "n_words": 4639,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1570-1590#6"
+    },
+    "6": {
+      "label": "Mixed Names, Places & Latin Fragments (mixed)",
+      "n_words": 2484,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1570-1590#3"
+    },
+    "12": {
+      "label": "Third-Person Verb Forms (-eth) (mixed)",
+      "n_words": 1433,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1570-1590#17"
+    },
+    "7": {
+      "label": "Sermon Vocabulary: Sin and Grace",
+      "n_words": 2068,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1570-1590#11"
+    },
+    "17": {
+      "label": "Scots-Language Chronicle Text (mixed)",
+      "n_words": 358,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1570-1590#15"
+    },
+    "5": {
+      "label": "Dutch and German Text (mixed)",
+      "n_words": 2839,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1570-1590#2"
+    },
+    "13": {
+      "label": "Law French Legal Terminology",
+      "n_words": 1135,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1570-1590#12"
+    },
+    "2": {
+      "label": "Latin Text Fragments (mixed)",
+      "n_words": 4274,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1570-1590#1"
+    },
+    "8": {
+      "label": "Truncated Words Ending in '-nd' (mixed)",
+      "n_words": 1925,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1570-1590#16"
+    },
+    "19": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 159,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1570-1590#19"
+    },
+    "14": {
+      "label": "Miscellaneous Nouns, Mixed Topics (mixed)",
+      "n_words": 1069,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1570-1590#9"
+    },
+    "15": {
+      "label": "Saints and Apostles' Names",
+      "n_words": 921,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1570-1590#14"
+    },
+    "18": {
+      "label": "Truncated Word Fragments (mixed)",
+      "n_words": 356,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1570-1590#18"
+    },
+    "10": {
+      "label": "Mixed Fragments and Biblical Names (mixed)",
+      "n_words": 1609,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1570-1590#7"
+    }
+  },
+  "1610-1630": {
+    "5": {
+      "label": "Latin Grammar Instruction",
+      "n_words": 3381,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1590-1610#0"
+    },
+    "4": {
+      "label": "Common Verbs (Base Forms) (mixed)",
+      "n_words": 3878,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1590-1610#9"
+    },
+    "9": {
+      "label": "Truncated Words Ending in '-nd' (mixed)",
+      "n_words": 2123,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1590-1610#8"
+    },
+    "12": {
+      "label": "Adverbs of Manner and Degree (mixed)",
+      "n_words": 1018,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1590-1610#11"
+    },
+    "2": {
+      "label": "Virtues and Moral Qualities",
+      "n_words": 6380,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1590-1610#4"
+    },
+    "13": {
+      "label": "Saints and Apostles' Names",
+      "n_words": 889,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1590-1610#15"
+    },
+    "7": {
+      "label": "Mixed Names, Places & Latin Fragments (mixed)",
+      "n_words": 3133,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1590-1610#6"
+    },
+    "14": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 874,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1590-1610#16"
+    },
+    "3": {
+      "label": "Chivalric Chronicle: Combat & Travel",
+      "n_words": 3879,
+      "lane": "Military & Warfare",
+      "inherited_from": "1590-1610#3"
+    },
+    "0": {
+      "label": "Remedies and Bodily Ailments",
+      "n_words": 6579,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1590-1610#1"
+    },
+    "6": {
+      "label": "Sermon Vocabulary: Sin and Grace",
+      "n_words": 3379,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1590-1610#7"
+    },
+    "1": {
+      "label": "Latin Text Fragments (mixed)",
+      "n_words": 6511,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1590-1610#2"
+    },
+    "11": {
+      "label": "Miscellaneous Nouns, Mixed Topics (mixed)",
+      "n_words": 1311,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1590-1610#14"
+    },
+    "16": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 226,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1590-1610#19"
+    },
+    "15": {
+      "label": "Dutch and German Text (mixed)",
+      "n_words": 250,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1590-1610#5"
+    },
+    "8": {
+      "label": "Mixed Fragments and Biblical Names (mixed)",
+      "n_words": 2215,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1590-1610#10"
+    },
+    "10": {
+      "label": "Law French Legal Terminology",
+      "n_words": 1454,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1590-1610#13"
+    },
+    "17": {
+      "label": "Truncated Word Fragments (mixed)",
+      "n_words": 98,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1590-1610#18"
+    }
+  },
+  "1630-1650": {
+    "0": {
+      "label": "Virtues and Moral Qualities",
+      "n_words": 9423,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1610-1630#2"
+    },
+    "5": {
+      "label": "Truncated Words Ending in '-nd' (mixed)",
+      "n_words": 3048,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1610-1630#9"
+    },
+    "18": {
+      "label": "Latin Fragments and Church Fathers' Names (mixed)",
+      "n_words": 268,
+      "lane": "Structural / Uncertain"
+    },
+    "7": {
+      "label": "Latin Grammar Instruction",
+      "n_words": 2424,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1610-1630#5"
+    },
+    "3": {
+      "label": "Remedies and Bodily Ailments",
+      "n_words": 3934,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1610-1630#0"
+    },
+    "4": {
+      "label": "Chivalric Chronicle: Combat & Travel",
+      "n_words": 3412,
+      "lane": "Military & Warfare",
+      "inherited_from": "1610-1630#3"
+    },
+    "2": {
+      "label": "Common Verbs (Base Forms) (mixed)",
+      "n_words": 4193,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1610-1630#4"
+    },
+    "15": {
+      "label": "Saints and Apostles' Names",
+      "n_words": 1164,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1610-1630#13"
+    },
+    "10": {
+      "label": "Mixed Names, Places & Latin Fragments (mixed)",
+      "n_words": 1912,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1610-1630#7"
+    },
+    "11": {
+      "label": "Dutch and German Text (mixed)",
+      "n_words": 1871,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1610-1630#15"
+    },
+    "12": {
+      "label": "Law French Legal Terminology",
+      "n_words": 1865,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1610-1630#10"
+    },
+    "8": {
+      "label": "Sermon Vocabulary: Sin and Grace",
+      "n_words": 2176,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1610-1630#6"
+    },
+    "1": {
+      "label": "Latin Text Fragments (mixed)",
+      "n_words": 7771,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1610-1630#1"
+    },
+    "6": {
+      "label": "English Surnames, Political and Gentry (mixed)",
+      "n_words": 2663,
+      "lane": "Structural / Uncertain"
+    },
+    "19": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 236,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1610-1630#16"
+    },
+    "14": {
+      "label": "Adverbs of Manner and Degree (mixed)",
+      "n_words": 1384,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1610-1630#12"
+    },
+    "20": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 87,
+      "lane": "Structural / Uncertain"
+    },
+    "9": {
+      "label": "Medicinal Herbs and Spices",
+      "n_words": 1958,
+      "lane": "Medicine, Body & Health"
+    },
+    "17": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 520,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1610-1630#14"
+    },
+    "16": {
+      "label": "Miscellaneous Nouns, Mixed Topics (mixed)",
+      "n_words": 834,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1610-1630#11"
+    },
+    "21": {
+      "label": "Truncated Word Fragments (mixed)",
+      "n_words": 40,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1610-1630#17"
+    },
+    "13": {
+      "label": "Mixed Fragments and Biblical Names (mixed)",
+      "n_words": 1452,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1610-1630#8"
+    },
+    "22": {
+      "label": "OCR Noise, Garbled Fragments (mixed)",
+      "n_words": 21,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1650-1670": {
+    "14": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 1561,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1630-1650#17"
+    },
+    "1": {
+      "label": "Virtues and Moral Qualities",
+      "n_words": 10703,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1630-1650#0"
+    },
+    "13": {
+      "label": "Chivalric Chronicle: Combat & Travel",
+      "n_words": 1623,
+      "lane": "Military & Warfare",
+      "inherited_from": "1630-1650#4"
+    },
+    "9": {
+      "label": "Mixed Names, Places & Latin Fragments (mixed)",
+      "n_words": 3074,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1630-1650#10"
+    },
+    "16": {
+      "label": "Saints and Apostles' Names",
+      "n_words": 1346,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1630-1650#15"
+    },
+    "2": {
+      "label": "Common Verbs (Base Forms) (mixed)",
+      "n_words": 7584,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1630-1650#2"
+    },
+    "6": {
+      "label": "Latin Grammar Instruction",
+      "n_words": 3480,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1630-1650#7"
+    },
+    "12": {
+      "label": "Truncated Words Ending in '-nd' (mixed)",
+      "n_words": 2270,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1630-1650#5"
+    },
+    "11": {
+      "label": "Dutch and German Text (mixed)",
+      "n_words": 2847,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1630-1650#11"
+    },
+    "3": {
+      "label": "Remedies and Bodily Ailments",
+      "n_words": 5001,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1630-1650#3"
+    },
+    "18": {
+      "label": "Latin Fragments and Church Fathers' Names (mixed)",
+      "n_words": 841,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1630-1650#18"
+    },
+    "7": {
+      "label": "Adverbs of Manner and Degree (mixed)",
+      "n_words": 3198,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1630-1650#14"
+    },
+    "0": {
+      "label": "Latin Text Fragments (mixed)",
+      "n_words": 11268,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1630-1650#1"
+    },
+    "5": {
+      "label": "English Surnames, Political and Gentry (mixed)",
+      "n_words": 3763,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1630-1650#6"
+    },
+    "10": {
+      "label": "Medicinal Herbs and Spices",
+      "n_words": 2958,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1630-1650#9"
+    },
+    "19": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 337,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1630-1650#19"
+    },
+    "20": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 102,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1630-1650#20"
+    },
+    "8": {
+      "label": "Sermon Vocabulary: Sin and Grace",
+      "n_words": 3088,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1630-1650#8"
+    },
+    "17": {
+      "label": "Miscellaneous Nouns, Mixed Topics (mixed)",
+      "n_words": 1346,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1630-1650#16"
+    },
+    "15": {
+      "label": "Law French Legal Terminology",
+      "n_words": 1350,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1630-1650#12"
+    },
+    "4": {
+      "label": "Mixed Fragments and Biblical Names (mixed)",
+      "n_words": 4116,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1630-1650#13"
+    }
+  },
+  "1670-1690": {
+    "17": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 627,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1650-1670#14"
+    },
+    "7": {
+      "label": "Saints and Apostles' Names",
+      "n_words": 3554,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1650-1670#16"
+    },
+    "16": {
+      "label": "Chivalric Chronicle: Combat & Travel",
+      "n_words": 1107,
+      "lane": "Military & Warfare",
+      "inherited_from": "1650-1670#13"
+    },
+    "4": {
+      "label": "Adverbs of Manner and Degree (mixed)",
+      "n_words": 4200,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1650-1670#7"
+    },
+    "2": {
+      "label": "Virtues and Moral Qualities",
+      "n_words": 8279,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1650-1670#1"
+    },
+    "20": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 188,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1650-1670#20"
+    },
+    "3": {
+      "label": "Remedies and Bodily Ailments",
+      "n_words": 5372,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1650-1670#3"
+    },
+    "1": {
+      "label": "Common Verbs (Base Forms) (mixed)",
+      "n_words": 10612,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1650-1670#2"
+    },
+    "5": {
+      "label": "Latin Grammar Instruction",
+      "n_words": 3701,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1650-1670#6"
+    },
+    "13": {
+      "label": "Sermon Vocabulary: Sin and Grace",
+      "n_words": 2032,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1650-1670#8"
+    },
+    "10": {
+      "label": "Truncated Words Ending in '-nd' (mixed)",
+      "n_words": 2724,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1650-1670#12"
+    },
+    "6": {
+      "label": "English Surnames, Political and Gentry (mixed)",
+      "n_words": 3637,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1650-1670#5"
+    },
+    "14": {
+      "label": "Law French Legal Terminology",
+      "n_words": 1878,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1650-1670#15"
+    },
+    "8": {
+      "label": "Miscellaneous Nouns, Mixed Topics (mixed)",
+      "n_words": 3532,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1650-1670#17"
+    },
+    "0": {
+      "label": "Latin Text Fragments (mixed)",
+      "n_words": 10907,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1650-1670#0"
+    },
+    "11": {
+      "label": "Medicinal Herbs and Spices",
+      "n_words": 2539,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1650-1670#10"
+    },
+    "9": {
+      "label": "Mixed Names, Places & Latin Fragments (mixed)",
+      "n_words": 3197,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1650-1670#9"
+    },
+    "18": {
+      "label": "Dutch and German Text (mixed)",
+      "n_words": 300,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1650-1670#11"
+    },
+    "19": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 277,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1650-1670#19"
+    },
+    "15": {
+      "label": "Latin Fragments and Church Fathers' Names (mixed)",
+      "n_words": 1201,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1650-1670#18"
+    },
+    "12": {
+      "label": "Mixed Fragments and Biblical Names (mixed)",
+      "n_words": 2283,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1650-1670#4"
+    }
+  },
+  "1690-1710": {
+    "12": {
+      "label": "Medicinal Herbs and Spices",
+      "n_words": 1714,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1670-1690#11"
+    },
+    "0": {
+      "label": "Virtues and Moral Qualities",
+      "n_words": 6696,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1670-1690#2"
+    },
+    "6": {
+      "label": "Truncated Words Ending in '-nd' (mixed)",
+      "n_words": 2936,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1670-1690#10"
+    },
+    "18": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 154,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1670-1690#20"
+    },
+    "1": {
+      "label": "Common Verbs (Base Forms) (mixed)",
+      "n_words": 6507,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1670-1690#1"
+    },
+    "3": {
+      "label": "Remedies and Bodily Ailments",
+      "n_words": 3665,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1670-1690#3"
+    },
+    "16": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 368,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1670-1690#17"
+    },
+    "5": {
+      "label": "Latin Grammar Instruction",
+      "n_words": 2959,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1670-1690#5"
+    },
+    "4": {
+      "label": "Mixed Names, Places & Latin Fragments (mixed)",
+      "n_words": 3119,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1670-1690#9"
+    },
+    "7": {
+      "label": "Adverbs of Manner and Degree (mixed)",
+      "n_words": 2882,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1670-1690#4"
+    },
+    "11": {
+      "label": "Chivalric Chronicle: Combat & Travel",
+      "n_words": 1718,
+      "lane": "Military & Warfare",
+      "inherited_from": "1670-1690#16"
+    },
+    "13": {
+      "label": "Sermon Vocabulary: Sin and Grace",
+      "n_words": 1552,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1670-1690#13"
+    },
+    "8": {
+      "label": "English Surnames, Political and Gentry (mixed)",
+      "n_words": 2546,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1670-1690#6"
+    },
+    "14": {
+      "label": "Miscellaneous Nouns, Mixed Topics (mixed)",
+      "n_words": 1428,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1670-1690#8"
+    },
+    "10": {
+      "label": "Saints and Apostles' Names",
+      "n_words": 1926,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1670-1690#7"
+    },
+    "2": {
+      "label": "Latin Text Fragments (mixed)",
+      "n_words": 5421,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1670-1690#0"
+    },
+    "17": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 174,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1670-1690#19"
+    },
+    "9": {
+      "label": "Mixed Fragments and Biblical Names (mixed)",
+      "n_words": 2037,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1670-1690#12"
+    },
+    "15": {
+      "label": "Law French Legal Terminology",
+      "n_words": 1204,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1670-1690#14"
+    }
+  },
+  "1710-1730": {
+    "8": {
+      "label": "Medicinal Herbs and Spices",
+      "n_words": 498,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1690-1710#12"
+    },
+    "0": {
+      "label": "Latin Grammar Instruction",
+      "n_words": 1859,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1690-1710#5"
+    },
+    "9": {
+      "label": "Truncated Words Ending in '-nd' (mixed)",
+      "n_words": 431,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#6"
+    },
+    "5": {
+      "label": "Saints and Apostles' Names",
+      "n_words": 775,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1690-1710#10"
+    },
+    "3": {
+      "label": "Virtues and Moral Qualities",
+      "n_words": 1004,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1690-1710#0"
+    },
+    "15": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 47,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#18"
+    },
+    "2": {
+      "label": "Common Verbs (Base Forms) (mixed)",
+      "n_words": 1103,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#1"
+    },
+    "13": {
+      "label": "Mixed Names, Places & Latin Fragments (mixed)",
+      "n_words": 183,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#4"
+    },
+    "4": {
+      "label": "English Surnames, Political and Gentry (mixed)",
+      "n_words": 911,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#8"
+    },
+    "14": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 117,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#16"
+    },
+    "6": {
+      "label": "Sermon Vocabulary: Sin and Grace",
+      "n_words": 643,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1690-1710#13"
+    },
+    "10": {
+      "label": "Chivalric Chronicle: Combat & Travel",
+      "n_words": 430,
+      "lane": "Military & Warfare",
+      "inherited_from": "1690-1710#11"
+    },
+    "7": {
+      "label": "Adverbs of Manner and Degree (mixed)",
+      "n_words": 550,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#7"
+    },
+    "1": {
+      "label": "Remedies and Bodily Ailments",
+      "n_words": 1840,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1690-1710#3"
+    },
+    "12": {
+      "label": "Mixed Fragments and Biblical Names (mixed)",
+      "n_words": 302,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#9"
+    },
+    "16": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 24,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#17"
+    },
+    "11": {
+      "label": "Latin Text Fragments (mixed)",
+      "n_words": 314,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#2"
+    }
+  },
+  "1730-1750": {
+    "16": {
+      "label": "Cardinal Numbers Spelled Out (mixed)",
+      "n_words": 58,
+      "lane": "Structural / Uncertain"
+    },
+    "1": {
+      "label": "Latin Grammar Instruction",
+      "n_words": 1503,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1710-1730#0"
+    },
+    "2": {
+      "label": "Virtues and Moral Qualities",
+      "n_words": 1175,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1710-1730#3"
+    },
+    "5": {
+      "label": "Truncated Words Ending in '-nd' (mixed)",
+      "n_words": 853,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#9"
+    },
+    "6": {
+      "label": "Saints and Apostles' Names",
+      "n_words": 823,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1710-1730#5"
+    },
+    "8": {
+      "label": "English Surnames, Political and Gentry (mixed)",
+      "n_words": 777,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#4"
+    },
+    "4": {
+      "label": "Medicinal Herbs and Spices",
+      "n_words": 933,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1710-1730#8"
+    },
+    "3": {
+      "label": "Common Verbs (Base Forms) (mixed)",
+      "n_words": 1152,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#2"
+    },
+    "9": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 656,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#14"
+    },
+    "10": {
+      "label": "Adverbs of Manner and Degree (mixed)",
+      "n_words": 545,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#7"
+    },
+    "7": {
+      "label": "Sermon Vocabulary: Sin and Grace",
+      "n_words": 791,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1710-1730#6"
+    },
+    "0": {
+      "label": "Remedies and Bodily Ailments",
+      "n_words": 1671,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1710-1730#1"
+    },
+    "11": {
+      "label": "Chivalric Chronicle: Combat & Travel",
+      "n_words": 499,
+      "lane": "Military & Warfare",
+      "inherited_from": "1710-1730#10"
+    },
+    "12": {
+      "label": "Mixed Fragments and Biblical Names (mixed)",
+      "n_words": 308,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#12"
+    },
+    "17": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 29,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#16"
+    },
+    "14": {
+      "label": "Mixed Names, Places & Latin Fragments (mixed)",
+      "n_words": 192,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#13"
+    },
+    "13": {
+      "label": "Latin Text Fragments (mixed)",
+      "n_words": 271,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#11"
+    },
+    "15": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 167,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#15"
+    }
+  },
+  "1750-1770": {
+    "4": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 1392,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#9"
+    },
+    "5": {
+      "label": "Virtues and Moral Qualities",
+      "n_words": 1296,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1730-1750#2"
+    },
+    "1": {
+      "label": "Sermon Vocabulary: Sin and Grace",
+      "n_words": 2364,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1730-1750#7"
+    },
+    "15": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 62,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#15"
+    },
+    "3": {
+      "label": "Medicinal Herbs and Spices",
+      "n_words": 1708,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1730-1750#4"
+    },
+    "2": {
+      "label": "Common Verbs (Base Forms) (mixed)",
+      "n_words": 2177,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#3"
+    },
+    "8": {
+      "label": "Adverbs of Manner and Degree (mixed)",
+      "n_words": 781,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#10"
+    },
+    "11": {
+      "label": "English Surnames, Political and Gentry (mixed)",
+      "n_words": 616,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#8"
+    },
+    "7": {
+      "label": "Truncated Words Ending in '-nd' (mixed)",
+      "n_words": 863,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#5"
+    },
+    "0": {
+      "label": "Remedies and Bodily Ailments",
+      "n_words": 2614,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1730-1750#0"
+    },
+    "6": {
+      "label": "Saints and Apostles' Names",
+      "n_words": 934,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1730-1750#6"
+    },
+    "10": {
+      "label": "Chivalric Chronicle: Combat & Travel",
+      "n_words": 643,
+      "lane": "Military & Warfare",
+      "inherited_from": "1730-1750#11"
+    },
+    "9": {
+      "label": "Latin Grammar Instruction",
+      "n_words": 684,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1730-1750#1"
+    },
+    "12": {
+      "label": "Latin Text Fragments (mixed)",
+      "n_words": 450,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#13"
+    },
+    "14": {
+      "label": "Mixed Names, Places & Latin Fragments (mixed)",
+      "n_words": 210,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#14"
+    },
+    "16": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 29,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#17"
+    },
+    "13": {
+      "label": "Mixed Fragments and Biblical Names (mixed)",
+      "n_words": 333,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#12"
+    }
+  },
+  "1770-1790": {
+    "10": {
+      "label": "Medicinal Herbs and Spices",
+      "n_words": 1048,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1750-1770#3"
+    },
+    "17": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 95,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#15"
+    },
+    "4": {
+      "label": "Virtues and Moral Qualities",
+      "n_words": 1766,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1750-1770#5"
+    },
+    "1": {
+      "label": "Sermon Vocabulary: Sin and Grace",
+      "n_words": 2920,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1750-1770#1"
+    },
+    "8": {
+      "label": "Adverbs of Manner and Degree (mixed)",
+      "n_words": 1202,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#8"
+    },
+    "2": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 2392,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#4"
+    },
+    "6": {
+      "label": "Common Verbs (Base Forms) (mixed)",
+      "n_words": 1521,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#2"
+    },
+    "14": {
+      "label": "Mixed Names, Places & Latin Fragments (mixed)",
+      "n_words": 654,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#14"
+    },
+    "9": {
+      "label": "Truncated Words Ending in '-nd' (mixed)",
+      "n_words": 1123,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#7"
+    },
+    "3": {
+      "label": "Saints and Apostles' Names",
+      "n_words": 2134,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1750-1770#6"
+    },
+    "11": {
+      "label": "Latin Grammar Instruction",
+      "n_words": 916,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1750-1770#9"
+    },
+    "5": {
+      "label": "English Surnames, Political and Gentry (mixed)",
+      "n_words": 1652,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#11"
+    },
+    "13": {
+      "label": "Chivalric Chronicle: Combat & Travel",
+      "n_words": 721,
+      "lane": "Military & Warfare",
+      "inherited_from": "1750-1770#10"
+    },
+    "0": {
+      "label": "Remedies and Bodily Ailments",
+      "n_words": 3225,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1750-1770#0"
+    },
+    "12": {
+      "label": "Mixed Fragments and Biblical Names (mixed)",
+      "n_words": 828,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#13"
+    },
+    "7": {
+      "label": "Latin Text Fragments (mixed)",
+      "n_words": 1337,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#12"
+    },
+    "16": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 131,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#16"
+    },
+    "15": {
+      "label": "Geometry and Mathematical Diagrams",
+      "n_words": 229,
+      "lane": "Science, Mathematics & Natural Philosophy"
+    }
+  },
+  "1790-1810": {
+    "14": {
+      "label": "Geometry and Mathematical Diagrams",
+      "n_words": 337,
+      "lane": "Science, Mathematics & Natural Philosophy",
+      "inherited_from": "1770-1790#15"
+    },
+    "15": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 96,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#17"
+    },
+    "5": {
+      "label": "Virtues and Moral Qualities",
+      "n_words": 1777,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1770-1790#4"
+    },
+    "10": {
+      "label": "Medicinal Herbs and Spices",
+      "n_words": 1067,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1770-1790#10"
+    },
+    "8": {
+      "label": "Adverbs of Manner and Degree (mixed)",
+      "n_words": 1307,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#8"
+    },
+    "0": {
+      "label": "Sermon Vocabulary: Sin and Grace",
+      "n_words": 4126,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1770-1790#1"
+    },
+    "4": {
+      "label": "English Surnames, Political and Gentry (mixed)",
+      "n_words": 2006,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#5"
+    },
+    "6": {
+      "label": "Common Verbs (Base Forms) (mixed)",
+      "n_words": 1625,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#6"
+    },
+    "7": {
+      "label": "Truncated Words Ending in '-nd' (mixed)",
+      "n_words": 1316,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#9"
+    },
+    "3": {
+      "label": "Saints and Apostles' Names",
+      "n_words": 2169,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1770-1790#3"
+    },
+    "1": {
+      "label": "Remedies and Bodily Ailments",
+      "n_words": 2664,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1770-1790#0"
+    },
+    "12": {
+      "label": "Chivalric Chronicle: Combat & Travel",
+      "n_words": 1007,
+      "lane": "Military & Warfare",
+      "inherited_from": "1770-1790#13"
+    },
+    "2": {
+      "label": "Roman Numerals (mixed)",
+      "n_words": 2427,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#2"
+    },
+    "9": {
+      "label": "Latin Grammar Instruction",
+      "n_words": 1105,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1770-1790#11"
+    },
+    "13": {
+      "label": "Mixed Names, Places & Latin Fragments (mixed)",
+      "n_words": 356,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#14"
+    },
+    "11": {
+      "label": "Latin Text Fragments (mixed)",
+      "n_words": 1065,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#7"
+    },
+    "16": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 42,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#16"
     }
   },
   "_meta": {
     "resolution": 1.0,
     "region": "combined",
-    "n_communities": 304,
+    "n_communities": 285,
     "n_human_edited": 0,
-    "n_inherited": 270,
+    "n_inherited": 257,
     "method": "Generated by a single LLM read-through of each community's top words, not an empirically validated taxonomy - a reading aid, not a checked ground truth. Rerunning `generate` on an unchanged input is not guaranteed to reproduce the same label text or lane for every community, since LLM sampling is not bitwise-deterministic even against an unchanged prompt.",
-    "compiled_at": "2026-08-04T22:12:18+00:00",
+    "compiled_at": "2026-08-05T03:02:23+00:00",
     "model": "claude-haiku-4-5-20251001",
     "prompt_file": "src/prompts/community_labeling_v1.md",
     "prompt_version": "v1",
     "prompt_sha256_16": "94616a163691487b",
     "source_words_file": "community_words_res1.0.json",
-    "source_words_sha256_16": "f2b25da37c5ed137",
-    "generated_at": "2026-08-04T22:11:31+00:00"
+    "source_words_sha256_16": "76cdcfe35808ec20",
+    "generated_at": "2026-08-05T03:02:10+00:00"
   }
 }

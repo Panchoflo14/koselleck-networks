@@ -696,7 +696,7 @@ function updateFindingsBanner(period, prevLabel) {
     `${headline.n_shared_words.toLocaleString()} shared words moved to a different group ` +
     `(historical median across every other transition: ${medianPct}%).`;
 
-  const isSattelzeitClose = prevLabel === "1780-1800" && period.label === "1800-1820";
+  const isSattelzeitClose = prevLabel === "1790-1810" && period.label === "1810-1830";
   caveatText.textContent = isSattelzeitClose
     ? `This transition shares only ${headline.n_shared_words.toLocaleString()} words with the period before it - the ` +
       `smallest shared vocabulary in the whole timeline. A subsampling control (shrinking a known-stable pair, ` +

@@ -7,15 +7,22 @@
 data_root: "../koselleck-data"
 
 paths:
-  # corpus_tcp must contain ONLY region folders, one level deep:
-  # <corpus_tcp>/<region>/<source>/*.zip - e.g. regions/british/eebo_phase1/.
-  # The region folder name becomes the region tag used to build region-split
-  # networks (see bucket_periods.py); adding a new corpus already in TCP's P4
-  # XML format is just dropping its zips under <region>/<a-source-name>/, no
-  # code change needed. Anything outside this "regions" folder (old format
+  # corpus_tcp is the one corpus tree, for every source - not just TCP's own
+  # releases despite the name (kept as-is to avoid renaming an already-
+  # populated multi-GB local folder for a cosmetic win). discover_sources()
+  # scans <corpus_tcp>/<region>/<source>/*.zip so a new TCP-format source
+  # needs zero config changes - just drop zips under a region folder and
+  # rerun. That folder layout is only a convenience for auto-discovery,
+  # though, not what actually keeps sources or periods apart: parse_tcp.py
+  # tags every record with its region/source/year regardless of where the
+  # raw file physically sat, and bucket_periods.py buckets purely on that
+  # year - so a corpus in a different raw format (e.g. the planned
+  # Gutenberg 1800-1900 supplement) just needs its own reader in
+  # parse_tcp.py; where its raw files happen to live on disk doesn't matter
+  # once that reader produces the same tagged record everything downstream
+  # already expects. Anything outside this "regions" folder (old format
   # variants, reference files) is ignored by the pipeline.
   corpus_tcp:      corpus/tcp/regions
-  corpus_gutenberg: corpus/gutenberg
   extracted:       processed             # flat per-document extraction (parse_tcp.py)
   processed:       processed/periods     # per-period bucketed text (bucket_periods.py)
   vocab:           processed/vocab
@@ -30,30 +37,46 @@ paths:
 # own chapter found a second, unrelated acceleration window around 1905-25,
 # which a Sattelzeit-only fine resolution could never have detected. Uniform
 # windows also give a consistent time step for the interactive search tool.
-# 1810-1900 stays defined here even though TCP alone barely covers it - it
+#
+# Start shifted from 1500 to 1510 (2026-08-04, Panch's call): with a 1500
+# start, sattelzeit_window's edges (1770/1830) fell in the *middle* of a
+# window each, so "the transition that closes the Sattelzeit" was always an
+# approximation (1780-1800 -> 1800-1820) rather than a literal edge. +10
+# years makes both 1770 and 1830 land exactly on a period boundary -
+# 1750-1770 -> 1770-1790 is now literally where the Sattelzeit begins, and
+# 1810-1830 -> 1830-1850 is literally where it closes - without changing
+# window width, period count, or per-window corpus size at all. A parallel
+# option (10-year windows instead of a shift) was considered and rejected:
+# it also happens to align, but halves the shared vocabulary in every
+# window, which directly worsens the exact small-sample-artifact ambiguity
+# subsample_control.py already found at the current Sattelzeit-closing
+# transition - the wrong direction to move right before the paper needs
+# that resolved, not amplified.
+#
+# 1890-1910 stays defined here even though TCP alone barely covers it - it
 # fills in once the Gutenberg supplement is sourced; embeddings.py already
 # skips any period below MIN_DOCS instead of failing on it.
 periods:
-  - [1500, 1520, "1500-1520"]
-  - [1520, 1540, "1520-1540"]
-  - [1540, 1560, "1540-1560"]
-  - [1560, 1580, "1560-1580"]
-  - [1580, 1600, "1580-1600"]
-  - [1600, 1620, "1600-1620"]
-  - [1620, 1640, "1620-1640"]
-  - [1640, 1660, "1640-1660"]
-  - [1660, 1680, "1660-1680"]
-  - [1680, 1700, "1680-1700"]
-  - [1700, 1720, "1700-1720"]
-  - [1720, 1740, "1720-1740"]
-  - [1740, 1760, "1740-1760"]
-  - [1760, 1780, "1760-1780"]
-  - [1780, 1800, "1780-1800"]
-  - [1800, 1820, "1800-1820"]   # Sattelzeit closes here
-  - [1820, 1840, "1820-1840"]
-  - [1840, 1860, "1840-1860"]
-  - [1860, 1880, "1860-1880"]
-  - [1880, 1900, "1880-1900"]
+  - [1510, 1530, "1510-1530"]
+  - [1530, 1550, "1530-1550"]
+  - [1550, 1570, "1550-1570"]
+  - [1570, 1590, "1570-1590"]
+  - [1590, 1610, "1590-1610"]
+  - [1610, 1630, "1610-1630"]
+  - [1630, 1650, "1630-1650"]
+  - [1650, 1670, "1650-1670"]
+  - [1670, 1690, "1670-1690"]
+  - [1690, 1710, "1690-1710"]
+  - [1710, 1730, "1710-1730"]
+  - [1730, 1750, "1730-1750"]
+  - [1750, 1770, "1750-1770"]   # Sattelzeit begins here
+  - [1770, 1790, "1770-1790"]
+  - [1790, 1810, "1790-1810"]
+  - [1810, 1830, "1810-1830"]   # Sattelzeit closes here
+  - [1830, 1850, "1830-1850"]
+  - [1850, 1870, "1850-1870"]
+  - [1870, 1890, "1870-1890"]
+  - [1890, 1910, "1890-1910"]
 
 sattelzeit_window: [1770, 1830]
 

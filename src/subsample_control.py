@@ -1,11 +1,11 @@
 # Control test: does migration_fraction rise just because a period has a
 # smaller, sparser corpus - independent of any real semantic reorganization?
 #
-# The 1780-1800 -> 1800-1820 transition (closing the Sattelzeit window) shows
+# The 1790-1810 -> 1810-1830 transition (closing the Sattelzeit window) shows
 # the highest migration_fraction in the whole timeline, but it also has by
 # far the fewest shared words of any transition - corpus size and proximity
 # to the Sattelzeit are confounded. This script takes a known-stable,
-# well-populated pair (1660-1680 -> 1680-1700, low migration at full size),
+# well-populated pair (1670-1690 -> 1690-1710, low migration at full size),
 # randomly subsamples both periods' documents down to roughly the same token
 # count as the real Sattelzeit-era periods, and reruns the exact same
 # downstream steps (train, build network, Leiden, migration) on the shrunk
@@ -35,9 +35,14 @@ from network import build_graph
 from community import run_sweep
 from metrics import migration_fraction
 
-PAIR = ("1660-1680", "1680-1700")
-SEATTELZEIT_PAIR = ("1780-1800", "1800-1820")
-TARGET_TOKENS = 4_600_000  # ~matches 1800-1820's real token count (4,577,036)
+PAIR = ("1670-1690", "1690-1710")
+SEATTELZEIT_PAIR = ("1790-1810", "1810-1830")
+# TODO after the 2026-08-04 period-boundary shift (1500-start -> 1510-start):
+# this was tuned to match old "1800-1820"'s real token count (4,577,036).
+# The new "1810-1830" window covers different real years/documents - rerun
+# metrics.py first, read its actual token count, and update this to match
+# before trusting this control's result again.
+TARGET_TOKENS = 4_600_000  # stale - see TODO above, needs the new "1810-1830" window's real count
 SEED = 42
 
 

@@ -20,7 +20,7 @@ What this repository ships is the method, not a dataset: the pipeline that turns
 6. Test whether that reorganization peaks in 1770-1830, and whether it survives the resolution sweep - not just one cherry-picked setting.
 7. Cross-check words that changed cluster at the pivot against dated dictionary senses (OED etc.) as a second, independent line of evidence.
 
-A fuller write-up of the method, aimed at both technical and non-technical readers, is in [`docs/method.pdf`](docs/method.pdf) (source in `docs/method.tex`). Current findings and day-to-day project notes live in the project's Obsidian cell, not in this repo.
+A fuller write-up of the method, aimed at both technical and non-technical readers, is in [`docs/method.pdf`](docs/method.pdf) (source in `docs/method.tex`).
 
 ## Corpus
 
@@ -58,8 +58,9 @@ Once the pipeline has run, a populated `data_root` looks like this:
 ```
 <data_root>/
   corpus/
-    tcp/regions/<region>/<source>/*.zip   raw TCP P4 XML shards (layout below)
-    gutenberg/                            placeholder for the planned 1800-1900 supplement, unused
+    tcp/regions/<region>/<source>/*.zip   one tree for every source, TCP and otherwise (layout below) -
+                                           where a source's raw files sit doesn't matter beyond this;
+                                           parsing tags every record by region/source/year regardless
   processed/
     all_docs.jsonl                        one JSON record per parsed document (region, source, doc_id, year, text)
     manifest.csv                          region,source,doc_id,year,chars - one row per document

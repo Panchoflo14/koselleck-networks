@@ -261,10 +261,12 @@ async function openDrilldown(period, word, cardEl) {
   );
 }
 
-// A period label is "<start>-<end>" (20-year bins). The Sattelzeit band
-// covers every bin that overlaps 1770-1830 at all, even partially - with
-// 20-year bins that is 1760-1780 through 1820-1840, not a false-precision
-// 1770/1830 cut a bin boundary can't actually represent.
+// A period label is "<start>-<end>" (20-year bins). Bin edges were shifted
+// to 1510/1530/... specifically so 1770 and 1830 land exactly on a bin
+// boundary (2026-08-04) - the Sattelzeit band is now the literal 1770-1790
+// through 1810-1830 bins, not an approximate overlap. Computed from
+// SATTELZEIT_START/END below rather than hardcoded bin labels, so this
+// still works unchanged if the bin edges ever shift again.
 const SATTELZEIT_START = 1770;
 const SATTELZEIT_END = 1830;
 
@@ -480,35 +482,56 @@ function median(values) {
 // wording /graph's Findings tab already computed - see app.js's
 // updateFindingsBanner, this is that same content relocated to the
 // primary page instead of duplicating the science.
-const SATTELZEIT_CLOSE_FROM = "1780-1800";
-const SATTELZEIT_CLOSE_TO = "1800-1820";
+const SATTELZEIT_CLOSE_FROM = "1790-1810";
+const SATTELZEIT_CLOSE_TO = "1810-1830";
 const HEADLINE_RESOLUTION = 1.0;
 
 async function loadHeadlineFindings() {
   const res = await fetch("/api/transitions");
   const allTransitions = await res.json();
+  const atHeadlineRes = allTransitions.filter((t) => t.resolution === HEADLINE_RESOLUTION);
+  const medianAtHeadlineRes = median(atHeadlineRes.map((t) => t.migration_fraction));
+  const medianPct = Math.round(medianAtHeadlineRes * 100);
 
   const closeRows = allTransitions.filter((t) => t.period_from === SATTELZEIT_CLOSE_FROM && t.period_to === SATTELZEIT_CLOSE_TO);
   const headline = closeRows.find((t) => t.resolution === HEADLINE_RESOLUTION);
-  if (!headline) return; // combined transitions not built yet - degrade to no findings block, not an error
 
-  const medianAtHeadlineRes = median(
-    allTransitions.filter((t) => t.resolution === HEADLINE_RESOLUTION).map((t) => t.migration_fraction),
-  );
-  const pct = Math.round(headline.migration_fraction * 100);
-  const medianPct = Math.round(medianAtHeadlineRes * 100);
+  if (headline) {
+    const pct = Math.round(headline.migration_fraction * 100);
+    findingsHeadlineEl.innerHTML =
+      `The project's own result, combined corpus: ${escapeHtml(SATTELZEIT_CLOSE_FROM)} &rarr; ${escapeHtml(SATTELZEIT_CLOSE_TO)}, the transition that closes the Sattelzeit window - ` +
+      `<strong>${pct}%</strong> of the ${headline.n_shared_words.toLocaleString()} shared words moved to a different group ` +
+      `(historical median across every other transition: ${medianPct}%).`;
+    findingsCaveatTextEl.textContent =
+      `This transition shares only ${headline.n_shared_words.toLocaleString()} words with the period before it - the smallest ` +
+      `shared vocabulary in the whole timeline. A subsampling control (shrinking a known-stable pair, 1660-1680 to ` +
+      `1680-1700, down to the same token count) reproduced a very similar migration jump on periods with no real ` +
+      `reorganization - so on the current corpus this spike cannot yet be told apart from a small-sample artifact, at ` +
+      `any resolution. More corpus for 1800-1900 (Gutenberg) is the prerequisite for testing this honestly.`;
+    return;
+  }
 
+  // The Sattelzeit-closing transition (SATTELZEIT_CLOSE_FROM -> _TO) has no
+  // data yet - period boundaries were shifted 2026-08-04 so 1770/1830 land
+  // exactly on a period edge, but that pushed the closing window to
+  // 1810-1830, past TCP's real coverage ceiling (~1800). Degrading to a
+  // blank block here would silently hide a real finding: the highest
+  // migration in the timeline right now happens *before* the Sattelzeit,
+  // not at its close - report that honestly instead of just disappearing.
+  const best = atHeadlineRes.reduce((a, b) => (b.migration_fraction > (a ? a.migration_fraction : -1) ? b : a), null);
+  if (!best) return; // no transitions at all yet - genuinely nothing to show
+
+  const pct = Math.round(best.migration_fraction * 100);
   findingsHeadlineEl.innerHTML =
-    `The project's own result, combined corpus: ${escapeHtml(SATTELZEIT_CLOSE_FROM)} &rarr; ${escapeHtml(SATTELZEIT_CLOSE_TO)}, the transition that closes the Sattelzeit window - ` +
-    `<strong>${pct}%</strong> of the ${headline.n_shared_words.toLocaleString()} shared words moved to a different group ` +
-    `(historical median across every other transition: ${medianPct}%).`;
-
+    `The project's own result so far, combined corpus: ${escapeHtml(SATTELZEIT_CLOSE_FROM)} &rarr; ${escapeHtml(SATTELZEIT_CLOSE_TO)} ` +
+    `(the transition that would close the Sattelzeit window) has no data yet - TCP's coverage ends around 1800. The largest shift ` +
+    `currently measurable anywhere in the timeline is <strong>${escapeHtml(best.period_from)} &rarr; ${escapeHtml(best.period_to)}: ${pct}%</strong> ` +
+    `of ${best.n_shared_words.toLocaleString()} shared words, <em>before</em> the Sattelzeit begins, not during or closing it ` +
+    `(historical median across every transition: ${medianPct}%).`;
   findingsCaveatTextEl.textContent =
-    `This transition shares only ${headline.n_shared_words.toLocaleString()} words with the period before it - the smallest ` +
-    `shared vocabulary in the whole timeline. A subsampling control (shrinking a known-stable pair, 1660-1680 to ` +
-    `1680-1700, down to the same token count) reproduced a very similar migration jump on periods with no real ` +
-    `reorganization - so on the current corpus this spike cannot yet be told apart from a small-sample artifact, at ` +
-    `any resolution. More corpus for 1800-1900 (Gutenberg) is the prerequisite for testing this honestly.`;
+    `This is not the finding this project set out to test for, and it is shown here rather than hidden. More corpus for ` +
+    `1800-1900 (Gutenberg) is the prerequisite for measuring the actual Sattelzeit-closing transition at all - until then, ` +
+    `whether reorganization really concentrates in 1770-1830 specifically, versus just being high in this general era, is open.`;
 }
 
 function escapeHtml(s) {
