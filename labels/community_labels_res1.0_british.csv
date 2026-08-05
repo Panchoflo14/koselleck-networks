@@ -1,0 +1,288 @@
+region,period,community_id,n_words,top_words_preview,label,lane,origin,inherited_from
+british,1500-1520,10,153,seneshall; hermyte; tarcye; damoysell; ponthus; vncle; squyre; benygne; amyable; syster,Medieval Romance Narrative,"Literature, Drama & Poetic Diction",llm,
+british,1500-1520,4,439,ghoostly; dystresse; flesshely; withstande; goodnesse; trauayle; enemye; goodnes; godly; dysease,Spiritual Devotion & Repentance,"Religion, Theology & the Church",llm,
+british,1500-1520,2,498,auayle; renne; obeye; accuse; tourne; susteyne; neygh; repreue; dyspyse; shewe,Common Verb Forms,Structural / Uncertain,llm,
+british,1500-1520,3,487,gloucestre; ranne; alured; white; drewe; salysbury; swythe; apperceyued; wynchestre; seased,Chronicle Narrative of English History,"History, Genealogy, Nobility & Kinship",llm,
+british,1500-1520,8,290,auer; sont; sil; puis; enuers; tient; fait; deuers; mort; seignour,Law French Text,Structural / Uncertain,llm,
+british,1500-1520,7,342,aldermen; deputed; neutre; marchaundyse; actyf; particyple; aforsayd; passyf; gendre; furst,Grammar Cases & Civic Officials,Structural / Uncertain,llm,
+british,1500-1520,9,205,ageyns; iustys; eynd; redemptur; deydly; dreyd; synnys; ower; mayk; weyl,Scots Dialect Spelling Variants,Structural / Uncertain,llm,
+british,1500-1520,0,581,helme; lepte; bely; necke; harneys; knyfe; strete; coloure; sayle; lond,"Armor, Weapons & Body Parts",Military & Warfare,llm,
+british,1500-1520,1,540,xlix; dm; pewpyl; syndry; assise; title; dec; eyes; prouydence; myghtes,"Numerals, Abbreviations & Miscellany",Structural / Uncertain,llm,
+british,1500-1520,6,363,xvij; viij; roger; kalendas; xxvi; wales; lxxx; iune; plura; annu,Roman Numerals & Calendar Dates,Structural / Uncertain,llm,
+british,1500-1520,5,425,enim; fecit; apud; quos; illa; patre; vbi; erit; christo; autem,Latin Text,Structural / Uncertain,llm,
+british,1500-1520,12,24,oughtest; louest; doest; woldest; doost; wylte; thyselfe; sholdest; mayste; art,Second-Person Verb Forms,Structural / Uncertain,llm,
+british,1500-1520,11,48,christus; om; gott; nicht; mit; als; tot; maer; gods; die,German/Dutch Text,Structural / Uncertain,llm,
+british,1520-1540,0,1783,housholdes; enymes; neybours; iewels; counsaylours; welfare; loynes; deceytfull; sleyght; mindes,Spiritual Devotion & Repentance,"Religion, Theology & the Church",inherited,1500-1520#4
+british,1520-1540,3,1120,compell; perswade; prouoke; correcte; greue; commytte; plucke; accuse; dryue; disclose,Common Verb Forms,Structural / Uncertain,inherited,1500-1520#2
+british,1520-1540,5,1066,squier; richarde; consull; gallia; william; bretayne; arryued; lancastre; denmarke; lucius,Medieval Romance Narrative,"Literature, Drama & Poetic Diction",inherited,1500-1520#10
+british,1520-1540,6,1027,lybertes; cyties; offices; testimonies; monasteries; woodes; dukes; doctoures; opinions; ecclesiasticall,Grammar Cases & Civic Officials,Structural / Uncertain,inherited,1500-1520#7
+british,1520-1540,10,402,rekeneth; receyueth; fylleth; forgaue; loveth; stoppeth; gyueth; hydeth; speaketh; clenseth,"Numerals, Abbreviations & Miscellany",Structural / Uncertain,inherited,1500-1520#1
+british,1520-1540,11,209,handfull; ounce; oratour; ape; sygnyfycacyon; pistle; vnce; epystle; aduerbe; epistle,"Rhetoric, Epistles & Texts","Books, Learning & Scholarship",llm,
+british,1520-1540,4,1089,lepte; beaten; pulled; plucked; handeled; drewe; throwen; dryuen; swalowed; threwe,Chronicle Narrative of English History,"History, Genealogy, Nobility & Kinship",inherited,1500-1520#3
+british,1520-1540,8,646,apres; coroner; baylyffes; staple; issues; reuenues; constables; liberties; manours; auer,Law French Text,Structural / Uncertain,inherited,1500-1520#8
+british,1520-1540,1,1560,yelowe; grauell; scarlet; bladder; guttes; scere; scabbes; barly; mountayns; drie,"Armor, Weapons & Body Parts",Military & Warfare,inherited,1500-1520#0
+british,1520-1540,9,488,xvij; xxix; xxij; xlvi; xxviij; lxxvi; xxxi; xxvii; lxxx; benedictus,Roman Numerals & Calendar Dates,Structural / Uncertain,inherited,1500-1520#6
+british,1520-1540,2,1438,figura; dicens; tantum; apostoli; similiter; verum; angelorum; dicit; uero; adhuc,Latin Text,Structural / Uncertain,inherited,1500-1520#5
+british,1520-1540,14,126,yat; alsua; keip; haiff; efter; maid; halie; ewil; liff; guid,Scots Dialect Text,Structural / Uncertain,llm,
+british,1520-1540,15,73,seyst; desyrest; speakest; dyddest; canste; dydest; hearest; spekest; thinkest; takest,Second-Person Verb Forms,Structural / Uncertain,inherited,1500-1520#12
+british,1520-1540,12,181,scotla; veheme; suffycye; parlyame; pacye; tyrau; viole; servau; ignora; couenau,German/Dutch Text,Structural / Uncertain,inherited,1500-1520#11
+british,1520-1540,13,135,gregacio; clusyon; fessyon; ueyed; fessio; munycacyon; tinually; clusion; dicion; gregacion,Scots Dialect Spelling Variants,Structural / Uncertain,inherited,1500-1520#9
+british,1520-1540,7,802,ueritatem; tremoyle; ancte; lucri; veluti; sexaginta; iustitiam; caleys; wolf; presta,Latin Fragments & Proper Names,Structural / Uncertain,llm,
+british,1540-1560,2,1793,annuities; cappes; commissions; pencions; hundredes; speares; coates; priuileges; rentes; boroughes,Grammar Cases & Civic Officials,Structural / Uncertain,inherited,1520-1540#6
+british,1540-1560,8,1003,seand; thairof; quhill; syndry; pepill; richt; arrayit; attanis; eftir; battal,Scots Dialect Text,Structural / Uncertain,inherited,1520-1540#14
+british,1540-1560,3,1360,impute; assaile; compel; applye; exhort; alowe; compell; alledge; condempne; applie,Common Verb Forms,Structural / Uncertain,inherited,1520-1540#3
+british,1540-1560,14,389,playnlye; euidently; whereby; manifestly; euidentlye; aptly; stronger; euydently; ernestly; earnestly,Comparative & Manner Adverbs,Structural / Uncertain,llm,
+british,1540-1560,13,440,redempcion; deseruinges; trespaces; saluiour; saluacyon; sanctification; redempcyon; reall; mysdedes; iustificacion,Redemption & Eucharistic Theology,"Religion, Theology & the Church",llm,
+british,1540-1560,6,1182,toppe; top; courser; thirtie; toppes; hill; forest; equinoctiall; zodiake; weste,Cosmography: Zodiac & Geography,"Science, Mathematics & Natural Philosophy",llm,
+british,1540-1560,0,2968,supersticions; religions; byinge; perswasions; chanons; wyles; fierce; deuises; imaginations; deceitfull,Spiritual Devotion & Repentance,"Religion, Theology & the Church",inherited,1520-1540#0
+british,1540-1560,17,314,patie; plesau; iudgme; deua; impedime; exte; vndersto; thente; ingla; thinte,German/Dutch Text,Structural / Uncertain,inherited,1520-1540#12
+british,1540-1560,5,1197,lien; combred; nouryshed; destroyd; distroyed; beene; forgotte; ouerwhelmed; condempned; assailed,Chronicle Narrative of English History,"History, Genealogy, Nobility & Kinship",inherited,1520-1540#4
+british,1540-1560,12,568,despiseth; nameth; hurteth; loueth; speketh; despyseth; remembreth; calleth; receyueth; affirmeth,"Numerals, Abbreviations & Miscellany",Structural / Uncertain,inherited,1520-1540#10
+british,1540-1560,10,700,threwe; sat; pull; driue; plucke; pulled; pul; ran; throwen; blowen,Common Action Verbs,Structural / Uncertain,llm,
+british,1540-1560,11,643,heretique; ciprian; hierom; chrysostome; hierome; adulterer; declaracion; clemens; austine; augustin,"Rhetoric, Epistles & Texts","Books, Learning & Scholarship",inherited,1520-1540#11
+british,1540-1560,18,262,wrth; pawp; mewn; nep; eithyr; wedy; nid; drwc; drwy; chwi,Welsh Text,Structural / Uncertain,llm,
+british,1540-1560,4,1300,abia; ioram; phrigia; clarence; wyllyam; carthage; roger; earle; argiues; raufe,Medieval Romance Narrative,"Literature, Drama & Poetic Diction",inherited,1520-1540#5
+british,1540-1560,16,321,voet; eux; def; dict; autre; vncore; doit; sil; enuers; deuant,Law French Text,Structural / Uncertain,inherited,1520-1540#8
+british,1540-1560,1,1863,beries; vyneger; apples; nuttes; violettes; malowes; barlye; nutmegges; endiue; suger,"Armor, Weapons & Body Parts",Military & Warfare,inherited,1520-1540#1
+british,1540-1560,15,339,iudi; regu; capit; xvij; iudic; xxviij; xxxij; esd; para; chaptre,Roman Numerals & Calendar Dates,Structural / Uncertain,inherited,1520-1540#9
+british,1540-1560,7,1154,terram; ipsius; hinc; illius; uero; nostris; deinde; quomodo; huius; poterit,Latin Text,Structural / Uncertain,inherited,1520-1540#2
+british,1540-1560,20,104,knoweste; desyrest; vnderstandest; beleuest; nedest; couldest; thynkest; speakest; slaucht; sayst,Second-Person Verb Forms,Structural / Uncertain,inherited,1520-1540#15
+british,1540-1560,19,203,demne; sidering; clusion; tinual; mendable; panye; municacion; fute; gregacio; maund,Scots Dialect Spelling Variants,Structural / Uncertain,inherited,1520-1540#13
+british,1540-1560,9,804,enfeffa; danis; fitz; nyghtshade; oistis; lyuere; predictum; confiderat; nychbour; iohne,Latin Fragments & Proper Names,Structural / Uncertain,inherited,1520-1540#7
+british,1560-1580,10,1137,learnedly; circumspecte; amplie; commendable; euidentlye; louely; bigger; darkely; amply; valient,Comparative & Manner Adverbs,Structural / Uncertain,inherited,1540-1560#14
+british,1560-1580,8,1738,condempne; assayle; enforce; compell; ronne; fling; constraine; beguile; apperteine; assaile,Common Verb Forms,Structural / Uncertain,inherited,1540-1560#3
+british,1560-1580,0,4292,harlotte; infidel; territories; englishman; isosceles; idolater; epitome; archbyshops; hereticke; fees,Grammar Cases & Civic Officials,Structural / Uncertain,inherited,1540-1560#2
+british,1560-1580,14,927,diameter; circumference; xlvii; virginis; december; februarie; fiftene; february; thicknes; septembre,Roman Numerals & Calendar Dates,Structural / Uncertain,inherited,1540-1560#15
+british,1560-1580,7,1822,glocester; bankes; cappadocia; blustring; leicester; sandwiche; sicilie; pontus; shores; waue,Cosmography: Zodiac & Geography,"Science, Mathematics & Natural Philosophy",inherited,1540-1560#6
+british,1560-1580,13,950,submitteth; assureth; hateth; afflicteth; considereth; armeth; rehearseth; expoundeth; repenteth; nameth,"Numerals, Abbreviations & Miscellany",Structural / Uncertain,inherited,1540-1560#12
+british,1560-1580,5,2724,separating; blamed; lyfted; entangled; rippe; occident; dissented; pulling; intangled; discomfited,Chronicle Narrative of English History,"History, Genealogy, Nobility & Kinship",inherited,1540-1560#5
+british,1560-1580,9,1411,qu'elle; estoit; paix; soleil; voir; marw; aussi; droit; eux; couleur,Welsh Text,Structural / Uncertain,inherited,1540-1560#18
+british,1560-1580,6,2064,quintus; lantgraue; lucius; chus; vvilliam; sextus; flauius; publius; tarquinius; cecilius,Medieval Romance Narrative,"Literature, Drama & Poetic Diction",inherited,1540-1560#4
+british,1560-1580,4,2821,adulteries; extorcion; spitefull; ruthfull; fretting; pyning; receauers; deceites; impious; outrages,Spiritual Devotion & Repentance,"Religion, Theology & the Church",inherited,1540-1560#0
+british,1560-1580,2,3422,quas; accessit; illam; scelerum; pendet; committere; patriae; illos; odio; fuerunt,Latin Text,Structural / Uncertain,inherited,1540-1560#7
+british,1560-1580,11,993,cyprianus; poti; alexandrinus; decretal; thucidides; barbara; ib; aduersus; andre; arria,"Rhetoric, Epistles & Texts","Books, Learning & Scholarship",inherited,1540-1560#11
+british,1560-1580,1,3897,tallow; barrowes; cucumbers; tetters; rocket; clarified; nutmegges; camomill; flewme; sorrell,"Armor, Weapons & Body Parts",Military & Warfare,inherited,1540-1560#1
+british,1560-1580,18,158,beleuest; sawest; vsest; receiuest; readest; askest; dooest; findest; thynkest; saiest,Second-Person Verb Forms,Structural / Uncertain,inherited,1540-1560#20
+british,1560-1580,16,277,nowel; confou; sou; beyo; feckenham; feck; dema; ila; fekenham; comprehe,Law French Text,Structural / Uncertain,inherited,1540-1560#16
+british,1560-1580,12,956,fische; inglismen; ressauit; felloun; sutheroun; wallace; thairof; barronis; gait; clerkis,Scots Dialect Text,Structural / Uncertain,inherited,1540-1560#8
+british,1560-1580,15,303,forter; sequently; futed; municating; mutua; iudici; stantinople; firmeth; maunding; fessed,Scots Dialect Spelling Variants,Structural / Uncertain,inherited,1540-1560#19
+british,1560-1580,17,178,conuenie; repugna; preside; penite; ancie; couenau; freque; appara; remembrau; maintena,German/Dutch Text,Structural / Uncertain,inherited,1540-1560#17
+british,1560-1580,3,2939,anceps; pugnare; exponere; proponere; brachia; haurire; fingere; appellationis; dixerit; legitur,Latin Fragments & Proper Names,Structural / Uncertain,inherited,1540-1560#9
+british,1580-1600,0,4840,melodious; villanously; grim; ecchoes; melancholly; warbling; periuries; railers; libelles; trecheries,Spiritual Devotion & Repentance,"Religion, Theology & the Church",inherited,1560-1580#4
+british,1580-1600,9,1820,betake; expose; daunt; detect; affoorde; punishe; addresse; enforce; gainesay; employ,Common Verb Forms,Structural / Uncertain,inherited,1560-1580#8
+british,1580-1600,1,4457,appendix; vproare; heretick; interiection; explication; allegorie; abatement; antithesis; archdeacons; leitourgie,Grammar Cases & Civic Officials,Structural / Uncertain,inherited,1560-1580#0
+british,1580-1600,7,2145,duskie; foggie; shady; craggie; horizontall; hurling; stormie; verticall; parke; eclipticke,Cosmography: Zodiac & Geography,"Science, Mathematics & Natural Philosophy",inherited,1560-1580#7
+british,1580-1600,11,1653,wheres; mortimor; railer; kate; sirra; nymphe; adonis; daphne; sander; perseda,Elizabethan Drama Character Names,"Literature, Drama & Poetic Diction",llm,
+british,1580-1600,23,130,bigger; liker; swifter; whiter; woorse; colder; thicker; hotter; lighter; drier,Comparative & Manner Adverbs,Structural / Uncertain,inherited,1560-1580#10
+british,1580-1600,15,730,ioash; ahaziah; ioram; abia; azarias; hazael; roboam; amasias; benhadad; nabuchodonozor,Biblical Names (Kings of Israel),Structural / Uncertain,llm,
+british,1580-1600,17,619,horssebacke; wondering; leastwise; december; october; winked; randon; ianuarie; wednesday; nouember,Roman Numerals & Calendar Dates,Structural / Uncertain,inherited,1560-1580#14
+british,1580-1600,6,2169,sequestred; benummed; abstayne; estraunged; ouertaken; vext; spide; succoured; ridden; reprehended,Chronicle Narrative of English History,"History, Genealogy, Nobility & Kinship",inherited,1560-1580#5
+british,1580-1600,4,2382,perswadeth; tearmeth; lyfted; beates; accounteth; runnes; describeth; expoundeth; leapt; termeth,"Numerals, Abbreviations & Miscellany",Structural / Uncertain,inherited,1560-1580#13
+british,1580-1600,5,2283,bithinia; montague; derbie; edmond; erle; sicilia; somerset; armenia; bulgaria; caracalla,Medieval Romance Narrative,"Literature, Drama & Poetic Diction",inherited,1560-1580#6
+british,1580-1600,12,1575,laurentius; histor; angl; repub; poti; decret; lati; reb; libr; valla,"Rhetoric, Epistles & Texts","Books, Learning & Scholarship",inherited,1560-1580#11
+british,1580-1600,14,857,cariages; rentes; wallons; regiments; lances; rents; pensions; hulkes; shipps; gallies,"Armies, Regiments & War Supplies",Military & Warfare,llm,
+british,1580-1600,10,1683,sanctaidd; gann; rhyw; pob; dros; iddi; eythr; iw; arnaw; achos,Law French Text,Structural / Uncertain,inherited,1560-1580#16
+british,1580-1600,13,1120,alors; qu'on; guillaume; desia; toutesfois; premierement; pouuoit; moins; peu; couronne,Welsh Text,Structural / Uncertain,inherited,1560-1580#9
+british,1580-1600,2,4226,succorie; masticke; cinamon; horehound; sorrell; lunges; fleame; almonds; hysope; iuniper,"Armor, Weapons & Body Parts",Military & Warfare,inherited,1560-1580#1
+british,1580-1600,3,3281,denique; disciplinae; turba; istam; liceat; suorum; illius; integra; aliquando; quarum,Latin Text,Structural / Uncertain,inherited,1560-1580#2
+british,1580-1600,22,158,sawest; thoughtest; requirest; wylt; askest; woldest; vnderstandest; sufferest; holdest; vsest,Second-Person Verb Forms,Structural / Uncertain,inherited,1560-1580#18
+british,1580-1600,21,162,vvholye; novv; suture; knevv; arteryes; poyncte; allsoe; knovve; vvounde; vise,Surgery & Wound Treatment,"Medicine, Body & Health",llm,
+british,1580-1600,16,635,sempre; essi; essendo; percioche; noi; accioche; fatto; fece; sarebbe; giorno,German/Dutch Text,Structural / Uncertain,inherited,1560-1580#17
+british,1580-1600,19,297,thairfoir; thocht; yat; zit; quhair; vith; quhais; greit; feir; estait,Scots Dialect Text,Structural / Uncertain,inherited,1560-1580#12
+british,1580-1600,18,347,cupiscence; temne; demnation; ceit; trouersies; fessio; firmation; temned; solation; ancie,Scots Dialect Spelling Variants,Structural / Uncertain,inherited,1560-1580#15
+british,1580-1600,20,186,medullae; lupinorum; resinae; chamaemeli; vsti; masticis; recentis; nucis; myrrhae; rosati,Latin Apothecary Ingredients,"Medicine, Body & Health",llm,
+british,1580-1600,8,1825,gobeithio; fluminis; mhobl; dialedd; celwydd; chaiff; dysc; luys; teml; firmius,Latin Fragments & Proper Names,Structural / Uncertain,inherited,1560-1580#3
+british,1600-1620,2,5312,irishman; oblonge; hypocrit; ethnike; assertions; intruder; jurisdiction; uniuersity; pondage; vproare,Grammar Cases & Civic Officials,Structural / Uncertain,inherited,1580-1600#1
+british,1600-1620,4,3891,alleageth; chastiseth; flatters; fauoureth; liken; oppresseth; oblige; tearmeth; contradict; referreth,Common Verb Forms,Structural / Uncertain,inherited,1580-1600#9
+british,1600-1620,12,1426,iniuriously; impiously; despitefully; vvheras; knovven; allovved; novv; grauely; grieuouslie; shamefully,Surgery & Wound Treatment,"Medicine, Body & Health",inherited,1580-1600#21
+british,1600-1620,9,1777,tinkers; spangled; dian; cynthia; radiant; endimion; sparkling; sky; panders; duskie,Cosmography: Zodiac & Geography,"Science, Mathematics & Natural Philosophy",inherited,1580-1600#7
+british,1600-1620,13,1022,omri; abimelech; ioas; zimri; ozias; iehoram; ammonites; ammon; ioram; amon,Biblical Names (Kings of Israel),Structural / Uncertain,inherited,1580-1600#15
+british,1600-1620,10,1651,ilf; walg; sim; val; hobs; hum; balurdo; sirrah; dol; crip,Elizabethan Drama Character Names,"Literature, Drama & Poetic Diction",inherited,1580-1600#11
+british,1600-1620,3,4030,calumniations; sleights; impostures; luxurie; mutinies; vproares; suspicions; defaming; backbiting; machiuilian,Spiritual Devotion & Repentance,"Religion, Theology & the Church",inherited,1580-1600#0
+british,1600-1620,15,726,sixty; sixtie; fifty; februarie; fourty; april; ianu; celebration; pounde; june,Roman Numerals & Calendar Dates,Structural / Uncertain,inherited,1580-1600#17
+british,1600-1620,7,2659,courted; dissenteth; ouerthrowen; glutted; censured; spied; repleat; ouercharged; gain'd; spoild,Chronicle Narrative of English History,"History, Genealogy, Nobility & Kinship",inherited,1580-1600#6
+british,1600-1620,5,3297,langton; artois; erle; slauonia; colonna; stewart; walchren; vvilliam; nottingham; penbroke,Medieval Romance Narrative,"Literature, Drama & Poetic Diction",inherited,1580-1600#5
+british,1600-1620,11,1650,flung; heaued; relied; leapt; ript; lifte; beates; beats; throwing; seazeth,"Numerals, Abbreviations & Miscellany",Structural / Uncertain,inherited,1580-1600#4
+british,1600-1620,0,5959,smallage; limons; sorrell; curled; shels; saffron; pimpernell; citrons; dill; yuorie,"Armor, Weapons & Body Parts",Military & Warfare,inherited,1580-1600#2
+british,1600-1620,6,2882,gregorius; oblatione; notis; sac; iohannes; adrianus; sacr; laurentius; defens; relect,"Rhetoric, Epistles & Texts","Books, Learning & Scholarship",inherited,1580-1600#12
+british,1600-1620,17,409,meli; wilfrid; albons; pawl; maximin; laurence; lucie; omers; ampli; giles,"Armies, Regiments & War Supplies",Military & Warfare,inherited,1580-1600#14
+british,1600-1620,1,5327,illorum; quarum; coelos; ideoque; huiusmodi; pontifici; una; inquam; denique; dictam,Latin Text,Structural / Uncertain,inherited,1580-1600#3
+british,1600-1620,20,226,requirest; oughtst; deniest; considerest; beholdest; pleasest; causest; lyest; wantest; sawest,Second-Person Verb Forms,Structural / Uncertain,inherited,1580-1600#22
+british,1600-1620,16,684,tropo; quelli; sonno; esser; questa; egli; peut; mia; suoi; cuore,Welsh Text,Structural / Uncertain,inherited,1580-1600#13
+british,1600-1620,14,985,phr; oedh; awr; wneuthur; iawn; ydyw; dwyn; galw; nerth; o'i,Law French Text,Structural / Uncertain,inherited,1580-1600#10
+british,1600-1620,19,288,richt; quhair; baith; weill; deid; nocht; syne; thairfoir; scho; befoir,Scots Dialect Text,Structural / Uncertain,inherited,1580-1600#19
+british,1600-1620,18,296,manding; pelled; mune; trariwise; tradiction; tinuance; tinual; judgeme; ceiued; uersation,Scots Dialect Spelling Variants,Structural / Uncertain,inherited,1580-1600#18
+british,1600-1620,8,2295,crederet; helw; visconte; monachis; violant; ayala; spine; gywir; anglor; scrythur,Latin Fragments & Proper Names,Structural / Uncertain,inherited,1580-1600#8
+british,1620-1640,13,1101,barbarously; shamefully; impiously; exquisitely; monstrously; inhumanely; impudently; vnmercifully; learnedly; copiously,Surgery & Wound Treatment,"Medicine, Body & Health",inherited,1600-1620#12
+british,1620-1640,1,7559,adultresse; aposteme; intruder; infidel; impostures; erysipelas; estranger; accusative; guiles; warbling,Spiritual Devotion & Repentance,"Religion, Theology & the Church",inherited,1600-1620#3
+british,1620-1640,3,4240,praiseth; tearmeth; flatters; curseth; communicates; forgets; abstracting; alleageth; denieth; citeth,Common Verb Forms,Structural / Uncertain,inherited,1600-1620#4
+british,1620-1640,6,2729,payments; commissaries; collectors; bayliffs; regalities; officials; couents; pensions; titulars; allowances,Grammar Cases & Civic Officials,Structural / Uncertain,inherited,1600-1620#2
+british,1620-1640,15,857,amaziah; ammonites; ioram; sihon; abner; moabites; ioash; nepos; baruch; ezechias,Biblical Names (Kings of Israel),Structural / Uncertain,inherited,1600-1620#13
+british,1620-1640,9,2222,vaporous; gouts; viscous; bile; phlegmatick; crude; phlegme; quadrant; waterish; fuliginous,Cosmography: Zodiac & Geography,"Science, Mathematics & Natural Philosophy",inherited,1600-1620#9
+british,1620-1640,10,1906,hum; cle; rosabella; sirra; vrs; prithee; trico; bass; torcol; igno,Elizabethan Drama Character Names,"Literature, Drama & Poetic Diction",inherited,1600-1620#10
+british,1620-1640,4,3482,stafford; dacia; dalmatia; ieronimo; compton; nottingham; sclavonia; exceter; rutland; hartfordshire,Medieval Romance Narrative,"Literature, Drama & Poetic Diction",inherited,1600-1620#5
+british,1620-1640,7,2691,deny'd; deceiv'd; betray'd; vext; demonstrated; prooued; blam'd; confuted; blamed; attainted,Chronicle Narrative of English History,"History, Genealogy, Nobility & Kinship",inherited,1600-1620#7
+british,1620-1640,2,5350,parrot; mallard; bodkin; speckled; succory; quinces; pheasant; mallowes; thyme; cats,"Armor, Weapons & Body Parts",Military & Warfare,inherited,1600-1620#0
+british,1620-1640,5,2994,sac; nicolaus; princip; gestis; scriptor; cathol; institut; antonini; philippus; tomo,"Rhetoric, Epistles & Texts","Books, Learning & Scholarship",inherited,1600-1620#6
+british,1620-1640,11,1673,pull'd; flung; puld; throwes; dries; blockt; flings; poures; tosse; tumbles,"Numerals, Abbreviations & Miscellany",Structural / Uncertain,inherited,1600-1620#11
+british,1620-1640,0,7921,ipsarum; perfectam; suarum; habeant; unius; oppidum; istam; inquam; vtpote; sororem,Latin Text,Structural / Uncertain,inherited,1600-1620#1
+british,1620-1640,12,1338,meddwl; iddynt; etto; amser; hwynt; gweddiau; drwg; hwnnw; anwiredd; rhac,Law French Text,Structural / Uncertain,inherited,1600-1620#14
+british,1620-1640,17,225,sawest; esteemest; vnderstandest; receivest; prayest; speak'st; didest; bearest; vsest; receiuest,Second-Person Verb Forms,Structural / Uncertain,inherited,1600-1620#20
+british,1620-1640,16,331,ninian; albans; augustins; penit; saepi; hacten; lucar; quaten; propi; hilary,"Armies, Regiments & War Supplies",Military & Warfare,inherited,1600-1620#17
+british,1620-1640,8,2565,gorchymynnasei; cyrilli; attebodd; reys; nucum; muscis; nitri; decoctum; martino; tutiae,Latin Fragments & Proper Names,Structural / Uncertain,inherited,1600-1620#8
+british,1620-1640,14,867,encore; s'en; amhail; tousiours; chemin; aussi; seul; puis; fois; feu,Welsh Text,Structural / Uncertain,inherited,1600-1620#16
+british,1640-1660,13,1855,unchristianly; endeauour; beleeued; accurately; formally; diuine; impiously; beleiue; advantagiously; discreetly,Surgery & Wound Treatment,"Medicine, Body & Health",inherited,1620-1640#13
+british,1640-1660,5,3484,dropsies; clammy; abdomen; viscous; humidity; corroding; waterish; glutinous; tumors; slimy,Cosmography: Zodiac & Geography,"Science, Mathematics & Natural Philosophy",inherited,1620-1640#9
+british,1640-1660,1,8148,ironie; swer; adverbe; hebraism; anchorite; surper; ideot; asper; explications; unison,Spiritual Devotion & Repentance,"Religion, Theology & the Church",inherited,1620-1640#1
+british,1640-1660,14,1542,affability; moister; broader; aromatick; mildnesse; delicious; affable; thicker; spicie; candor,Virtue & Pleasant Qualities,Morality: Virtue & Vice,llm,
+british,1640-1660,6,3377,mir; phi; chi; sirra; bris; i'faith; aurelia; daphne; pallas; bla,Elizabethan Drama Character Names,"Literature, Drama & Poetic Diction",inherited,1620-1640#10
+british,1640-1660,7,3006,copyhold; disseisor; termor; disseisin; conusee; feoffee; seisures; grantee; rescous; pensions,Grammar Cases & Civic Officials,Structural / Uncertain,inherited,1620-1640#6
+british,1640-1660,10,2510,cooped; reflecteth; flings; block'd; bundled; doated; dammed; puff'd; wrapping; flung,"Numerals, Abbreviations & Miscellany",Structural / Uncertain,inherited,1620-1640#11
+british,1640-1660,2,8085,interprets; asserts; communicates; affirmeth; surpriz'd; avoucheth; applyeth; accounteth; hates; swarving,Common Verb Forms,Structural / Uncertain,inherited,1620-1640#3
+british,1640-1660,19,499,celebration; twentie; sonday; sixteene; novem; solemnities; ninteenth; fortie; fifteene; iune,Calendar Dates & Numerals,Structural / Uncertain,llm,
+british,1640-1660,4,3504,sorrell; scabious; mallard; horehound; spinage; euphorbium; mastick; housleek; agrimony; maidenhaire,"Armor, Weapons & Body Parts",Military & Warfare,inherited,1620-1640#2
+british,1640-1660,3,4006,curl'd; sattin; curled; stockins; crisped; bc; ribbands; cynthia; satten; tufted,Chronicle Narrative of English History,"History, Genealogy, Nobility & Kinship",inherited,1620-1640#7
+british,1640-1660,15,1380,jehoram; amaziah; joash; ioash; ahaziah; aram; amon; ismael; iehoram; azariah,Biblical Names (Kings of Israel),Structural / Uncertain,inherited,1620-1640#15
+british,1640-1660,12,2248,dictae; praedictae; praef; avisamento; primatu; apparatu; manich; clementis; biblioth; eventibus,Latin Scholarly Abbreviations,Structural / Uncertain,llm,
+british,1640-1660,9,2779,sicilia; abington; epirus; leeds; sardinia; vvarwick; ancona; russia; bavaria; laugh'd,Medieval Romance Narrative,"Literature, Drama & Poetic Diction",inherited,1620-1640#4
+british,1640-1660,11,2404,gregorius; origenes; hispalensis; antiochenus; joannes; aurelius; gerardus; iohannes; bucerus; carthusianus,"Rhetoric, Epistles & Texts","Books, Learning & Scholarship",inherited,1620-1640#5
+british,1640-1660,8,2800,nicholson; vvilliams; basset; buckland; knightley; walton; wallop; worcest; lancelot; northamp,"Armies, Regiments & War Supplies",Military & Warfare,inherited,1620-1640#16
+british,1640-1660,0,10128,utpote; utique; multas; apposita; negationem; exinde; praeceps; nedum; pristinum; idque,Latin Text,Structural / Uncertain,inherited,1620-1640#0
+british,1640-1660,20,305,appearest; perceivest; conceivest; oughtst; hadest; sufferedst; saidest; calledst; blessest; thoughtst,Second-Person Verb Forms,Structural / Uncertain,inherited,1620-1640#17
+british,1640-1660,21,115,lviii; xvi; lix; xli; xviii; xlv; xxxvii; xvii; lv; xxv,Latin Fragments & Proper Names,Structural / Uncertain,inherited,1620-1640#8
+british,1640-1660,16,1233,gwrando; hefyd; yno; bydd; arnynt; nerth; i'w; grefydd; ymddiried; daioni,Law French Text,Structural / Uncertain,inherited,1620-1640#12
+british,1640-1660,18,1013,cosa; ux; receu; n'est; maith; perche; lettre; commissaires; traict; encore,Welsh Text,Structural / Uncertain,inherited,1620-1640#14
+british,1640-1660,17,1080,almeria; pimhill; kenilw; naucl; literati; cohaeres; saxatilis; privationem; jubente; sensisse,Latin Legal Fragments & Names,Structural / Uncertain,llm,
+british,1660-1680,17,520,noun; preposition; iuly; nouns; orum; ianuary; copula; whitsunday; thirteen; festival,Calendar Dates & Numerals,Structural / Uncertain,inherited,1640-1660#19
+british,1660-1680,15,1052,amaziah; moabites; jehoram; ammonites; moab; uzziah; zedekiah; ahaziah; joash; javan,Biblical Names (Kings of Israel),Structural / Uncertain,inherited,1640-1660#15
+british,1660-1680,5,4141,fred; bouncing; jacinta; valeria; i'faith; doll; woodcock; oroondates; cla; sirra,Elizabethan Drama Character Names,"Literature, Drama & Poetic Diction",inherited,1640-1660#6
+british,1660-1680,1,9284,empyema; infidell; quaeratur; interjection; organist; accipiatur; ascription; uprore; processit; occupant,Spiritual Devotion & Repentance,"Religion, Theology & the Church",inherited,1640-1660#1
+british,1660-1680,11,2690,ancona; picardy; tirol; livonia; corsica; artois; ravenna; chili; bourdeaux; mesopotamia,Medieval Romance Narrative,"Literature, Drama & Poetic Diction",inherited,1640-1660#9
+british,1660-1680,2,8044,asserts; communicates; tueddu; attenuates; tuag; betaking; evinced; loveth; expells; engenders,Common Verb Forms,Structural / Uncertain,inherited,1640-1660#2
+british,1660-1680,8,2992,carey; lloyd; brian; pigot; exton; dixon; rotheram; byron; davis; bampfield,"Armies, Regiments & War Supplies",Military & Warfare,inherited,1640-1660#8
+british,1660-1680,12,2362,disseisor; feoffor; grantee; demandant; bailiffs; regiments; provosts; feoffee; nonsuit; assignments,Grammar Cases & Civic Officials,Structural / Uncertain,inherited,1640-1660#7
+british,1660-1680,16,619,praedictis; predicta; praedicto; praedictorum; comitis; praedictae; subscriptis; praedictam; praedicti; praedictum,Latin Scholarly Abbreviations,Structural / Uncertain,inherited,1640-1660#12
+british,1660-1680,13,2089,lean'd; cooped; summing; pufft; flung; sum'd; wrap'd; father'd; doated; swalloweth,"Numerals, Abbreviations & Miscellany",Structural / Uncertain,inherited,1640-1660#10
+british,1660-1680,3,4640,ladle; membranes; embroidered; velvet; shovels; wedges; fringed; sattin; radius; breech,Chronicle Narrative of English History,"History, Genealogy, Nobility & Kinship",inherited,1640-1660#3
+british,1660-1680,10,2803,inflamations; unctuous; dysentery; serous; gouts; clammy; flegme; aqueous; buboes; dropsies,Cosmography: Zodiac & Geography,"Science, Mathematics & Natural Philosophy",inherited,1640-1660#5
+british,1660-1680,14,1757,moins; soir; retour; prix; vouloit; encore; manquer; avoit; voir; cosi,Welsh Text,Structural / Uncertain,inherited,1640-1660#18
+british,1660-1680,0,10496,istiusmodi; heic; istarum; novos; prudenter; excipere; arcem; confecta; tramite; nonnihil,Latin Text,Structural / Uncertain,inherited,1640-1660#0
+british,1660-1680,9,2822,gobaith; gelyn; heneidiau; anrhydedd; mwynhau; drachefn; iawn; gwastadol; tragwyddol; diwedd,Law French Text,Structural / Uncertain,inherited,1640-1660#16
+british,1660-1680,7,3364,scordium; turkies; cinam; hog; plover; coltsfoot; rosati; pidgeons; bugloss; barberies,"Armor, Weapons & Body Parts",Military & Warfare,inherited,1640-1660#4
+british,1660-1680,18,405,jago; augustine's; olave; ethelborough; anns; sebastians; inferi; anacletus; alban; neots,Surgery & Wound Treatment,"Medicine, Body & Health",inherited,1640-1660#13
+british,1660-1680,19,298,enjoyest; tell'st; esteemest; bringst; countest; sufferest; observest; losest; knew'st; liv'st,Second-Person Verb Forms,Structural / Uncertain,inherited,1640-1660#20
+british,1660-1680,6,3483,papirius; enchir; boiorum; possevin; praef; eutropius; symb; sacr; clementis; cyri,"Rhetoric, Epistles & Texts","Books, Learning & Scholarship",inherited,1640-1660#11
+british,1660-1680,20,108,xxi; xxiv; xxix; xxviii; xix; xxvi; xv; xx; xxx; xxii,Latin Fragments & Proper Names,Structural / Uncertain,inherited,1640-1660#21
+british,1660-1680,4,4535,existentem; capellano; excommunicatus; lladron; crechurch; vrai; medicamento; captionem; imponi; reverendi,Latin Legal Fragments & Names,Structural / Uncertain,inherited,1640-1660#17
+british,1680-1700,17,695,duci; edwardo; galfrido; nuper; caeterisque; willielmi; comitis; norfolciae; waltero; cantuariensis,Calendar Dates & Numerals,Structural / Uncertain,inherited,1660-1680#17
+british,1680-1700,5,3856,romandiola; sumatra; lisbon; pontus; perugia; auvergne; montpellier; croatia; ahaziah; joram,Medieval Romance Narrative,"Literature, Drama & Poetic Diction",inherited,1660-1680#11
+british,1680-1700,8,2917,disingenuously; untractable; ungovernable; unchristianly; learnedly; handsomer; essentially; formally; morose; indecent,Latin Fragments & Proper Names,Structural / Uncertain,inherited,1660-1680#20
+british,1680-1700,3,5536,dropsies; processus; peritonaeum; nitrous; oesophagus; rarefaction; mucilaginous; thorax; viscous; glutinous,Cosmography: Zodiac & Geography,"Science, Mathematics & Natural Philosophy",inherited,1660-1680#10
+british,1680-1700,2,6086,appendage; jade; eyewitness; irishman; orle; gel; buffoon; emplaister; coxcomb; ideot,Spiritual Devotion & Repentance,"Religion, Theology & the Church",inherited,1660-1680#1
+british,1680-1700,4,5398,shank; plover; sattin; pidgeons; breech; snout; chaps; perriwig; embroidered; rabbet,Chronicle Narrative of English History,"History, Genealogy, Nobility & Kinship",inherited,1660-1680#3
+british,1680-1700,1,7957,loveth; nibling; intitle; opposes; despises; explains; asserts; interprets; quotes; deviating,Common Verb Forms,Structural / Uncertain,inherited,1660-1680#2
+british,1680-1700,7,3342,lessor; replevin; assignment; bailiffs; grantee; demandant; disseisor; assessments; attachments; plantiff,Grammar Cases & Civic Officials,Structural / Uncertain,inherited,1660-1680#12
+british,1680-1700,9,2909,booby; saun; flo; cel; pho; nel; nell; chi; ler; sylvia,Elizabethan Drama Character Names,"Literature, Drama & Poetic Diction",inherited,1660-1680#5
+british,1680-1700,15,2121,coop'd; trussed; flung; wrapp'd; descanted; pryed; animadverted; heaved; lapt; relyed,"Numerals, Abbreviations & Miscellany",Structural / Uncertain,inherited,1660-1680#13
+british,1680-1700,16,1625,l'autorit; souffrir; connoissance; montrer; sujet; danemarc; maniere; hauts; trouver; pourtant,Welsh Text,Structural / Uncertain,inherited,1660-1680#14
+british,1680-1700,6,3822,stevenson; altham; millington; broughton; heveningham; blackwood; dormer; marmaduke; pawlet; haines,"Armies, Regiments & War Supplies",Military & Warfare,inherited,1660-1680#8
+british,1680-1700,12,2528,purslain; fumitory; bugloss; bawm; capon; galangal; purslane; borage; betony; carthamus,"Armor, Weapons & Body Parts",Military & Warfare,inherited,1660-1680#7
+british,1680-1700,18,343,neots; malo's; quintin; brieux; ierome; denis; michel; austine; iago; leonards,Surgery & Wound Treatment,"Medicine, Body & Health",inherited,1660-1680#18
+british,1680-1700,0,9293,protinus; constantiam; labores; earundem; splendore; pergit; itidem; reliquos; equitum; pertinaciter,Latin Text,Structural / Uncertain,inherited,1660-1680#0
+british,1680-1700,13,2454,heddwch; nawdd; dioddef; ystyried; mwyaf; arnom; bywyd; arwyddion; dysc; gyflwr,Law French Text,Structural / Uncertain,inherited,1660-1680#9
+british,1680-1700,19,241,said'st; thinkst; see'st; enjoyest; requirest; wantest; shou'dst; deservest; knewest; knowst,Second-Person Verb Forms,Structural / Uncertain,inherited,1660-1680#19
+british,1680-1700,11,2628,caius; cedrenus; domitius; lutatius; servilius; claudius; messala; matthaeus; decius; scaliger,"Rhetoric, Epistles & Texts","Books, Learning & Scholarship",inherited,1660-1680#6
+british,1680-1700,10,2852,vificare; leann; audeley; matignon; descriptum; rdughadh; archidiacono; rompa; guebriant; termin,Latin Legal Fragments & Names,Structural / Uncertain,inherited,1660-1680#4
+british,1680-1700,14,2204,ludov; salmas; cantab; antv; disputat; biblioth; arcanis; venetiis; legatione; varia,Latin Scholarly Abbreviations,Structural / Uncertain,inherited,1660-1680#16
+british,1680-1700,20,75,apostlis; feith; seid; whiche; bifore; trewe; othere; chirche; hool; peple,Biblical Names (Kings of Israel),Structural / Uncertain,inherited,1660-1680#15
+british,1700-1720,0,2597,fonte; mercure; ellipsis; acknowledgement; abridgment; valeriani; israelite; ideot; novatiani; tenets,Spiritual Devotion & Repentance,"Religion, Theology & the Church",inherited,1680-1700#2
+british,1700-1720,4,1525,tempt; prompt; persuade; exposes; explains; suggest; provoke; indulge; disappoint; expose,Common Verb Forms,Structural / Uncertain,inherited,1680-1700#1
+british,1700-1720,8,1182,brutish; villainous; depraved; lewd; significant; unchristian; accurate; delicate; intemperate; injuriously,Latin Fragments & Proper Names,Structural / Uncertain,inherited,1680-1700#8
+british,1700-1720,17,64,swifter; bigger; hotter; thicker; older; heavier; lighter; richer; surer; fairer,Latin Scholarly Abbreviations,Structural / Uncertain,inherited,1680-1700#14
+british,1700-1720,13,644,alin; betty; ant; aur; vellum; toby; lucy; fre; alp; iul,Elizabethan Drama Character Names,"Literature, Drama & Poetic Diction",inherited,1680-1700#9
+british,1700-1720,3,1552,reproached; mourn'd; affirmed; smitten; confuted; assaulted; abandoned; demonstrated; view'd; courted,Latin Legal Fragments & Names,Structural / Uncertain,inherited,1680-1700#10
+british,1700-1720,16,148,september; parlement; november; july; fourteenth; novemb; thursday; michaelmas; octob; december,Calendar Dates & Numerals,Structural / Uncertain,inherited,1680-1700#17
+british,1700-1720,6,1199,berries; juniper; crest; chalk; gum; saffron; cream; cinnamon; poppies; yellow,"Armor, Weapons & Body Parts",Military & Warfare,inherited,1680-1700#12
+british,1700-1720,9,926,patrick; christopher; murray; archbald; dunbar; kt; dorothy; errol; angus; lucas,"Armies, Regiments & War Supplies",Military & Warfare,inherited,1680-1700#6
+british,1700-1720,2,1651,archdeacons; brabant; goths; collectors; bay; tobacco; silk; wares; magistrats; artificers,Grammar Cases & Civic Officials,Structural / Uncertain,inherited,1680-1700#7
+british,1700-1720,15,240,ils; quelque; encore; comme; ciel; sont; seigneur; luy; choses; tout,Welsh Text,Structural / Uncertain,inherited,1680-1700#16
+british,1700-1720,12,671,insisting; pull'd; rely'd; flung; relying; hurried; blown; thrown; reflects; dry'd,"Numerals, Abbreviations & Miscellany",Structural / Uncertain,inherited,1680-1700#15
+british,1700-1720,1,2049,glowing; curling; tow'rs; foaming; feather'd; thunders; steeds; roll'd; leaping; azure,Chronicle Narrative of English History,"History, Genealogy, Nobility & Kinship",inherited,1680-1700#4
+british,1700-1720,10,784,phlegm; sulphureous; viscous; membranes; pancreas; elementary; saline; slimy; kidneys; scorbutick,Cosmography: Zodiac & Geography,"Science, Mathematics & Natural Philosophy",inherited,1680-1700#3
+british,1700-1720,5,1510,pariter; indicat; nempe; suam; nuper; igitur; tum; hujus; fuerat; primam,Latin Text,Structural / Uncertain,inherited,1680-1700#0
+british,1700-1720,11,682,historia; notis; reg; varro; romanus; novum; xxiv; sacr; shem; ep,Medieval Romance Narrative,"Literature, Drama & Poetic Diction",inherited,1680-1700#5
+british,1700-1720,18,38,wouldest; should'st; shouldest; wouldst; couldst; wou'dst; shouldst; could'st; seest; may'st,Second-Person Verb Forms,Structural / Uncertain,inherited,1680-1700#19
+british,1700-1720,14,365,mewn; byth; neu; oddiwrth; iw; oedd; drwy; awr; nefoedd; hwynt,Law French Text,Structural / Uncertain,inherited,1680-1700#13
+british,1700-1720,7,1187,proprie; laude; veniunt; paucis; ecclesias; frater; iter; erant; sententiae; suarum,"Rhetoric, Epistles & Texts","Books, Learning & Scholarship",inherited,1680-1700#11
+british,1720-1740,1,924,desirable; obvious; practical; morality; elegant; delicate; proved; disinterested; unaccountable; hurtful,Latin Legal Fragments & Names,Structural / Uncertain,inherited,1700-1720#3
+british,1720-1740,5,504,variation; hypothesis; proposal; nascent; ultimate; demonstration; proof; proposition; similar; principle,Latin Fragments & Proper Names,Structural / Uncertain,inherited,1700-1720#8
+british,1720-1740,3,583,satisfy; bind; apply; exalt; procure; submit; mourn; bend; sooth; recommend,Common Verb Forms,Structural / Uncertain,inherited,1700-1720#4
+british,1720-1740,12,35,lighter; larger; cheaper; bigger; harder; easier; less; finer; dearer; stronger,Latin Scholarly Abbreviations,Structural / Uncertain,inherited,1700-1720#17
+british,1720-1740,4,561,watery; stimulating; oily; obstructions; intestines; specifick; salts; acrimony; nervous; juices,Cosmography: Zodiac & Geography,"Science, Mathematics & Natural Philosophy",inherited,1700-1720#10
+british,1720-1740,9,400,ralph; schoeffer; durham; esq; ann; mayor; august; signed; journal; richard,"Armies, Regiments & War Supplies",Military & Warfare,inherited,1700-1720#9
+british,1720-1740,8,434,saffron; yellow; claws; blue; honey; broad; antimony; thin; oil; chest,"Armor, Weapons & Body Parts",Military & Warfare,inherited,1700-1720#6
+british,1720-1740,6,493,lud; leolyn; leon; moore; julio; yes; yvor; bass; som; elfrid,Elizabethan Drama Character Names,"Literature, Drama & Poetic Diction",inherited,1700-1720#13
+british,1720-1740,7,465,valour; generosity; griefs; deeds; piety; prudence; country's; bounty; ancestors; woe,Spiritual Devotion & Repentance,"Religion, Theology & the Church",inherited,1700-1720#0
+british,1720-1740,0,1060,purple; groves; gales; fragrant; stern; lofty; radiant; plains; blaze; floods,Chronicle Narrative of English History,"History, Genealogy, Nobility & Kinship",inherited,1700-1720#1
+british,1720-1740,2,862,trades; societies; bay; appearances; squadron; persia; earls; properties; popes; ranks,Grammar Cases & Civic Officials,Structural / Uncertain,inherited,1700-1720#2
+british,1720-1740,11,149,pour'd; threw; flew; rush'd; driven; throws; pull'd; ran; thrust; cast,"Numerals, Abbreviations & Miscellany",Structural / Uncertain,inherited,1700-1720#12
+british,1720-1740,10,328,tamen; hac; quidem; perpetuum; dum; dit; erat; semper; omnium; quam,Latin Text,Structural / Uncertain,inherited,1700-1720#5
+british,1740-1760,1,1207,divisions; universities; conceptions; privileges; utility; orkney; provinces; pillars; saxons; descendants,Grammar Cases & Civic Officials,Structural / Uncertain,inherited,1720-1740#2
+british,1740-1760,3,888,institution; fidelity; evidence; doctrine; habitual; operation; system; defect; epithet; sincerity,Spiritual Devotion & Repentance,"Religion, Theology & the Church",inherited,1720-1740#7
+british,1740-1760,15,41,harder; sweeter; wiser; faster; easier; stronger; older; finer; fairer; deeper,Latin Scholarly Abbreviations,Structural / Uncertain,inherited,1720-1740#12
+british,1740-1760,6,784,sweep; confine; satisfy; refuse; expose; resign; yield; persuade; quench; deceive,Common Verb Forms,Structural / Uncertain,inherited,1720-1740#3
+british,1740-1760,7,609,beneficial; hurtful; refined; interesting; efficacious; comical; detestable; subtile; respectable; refreshing,Literary & Critical Evaluative Adjectives,"Literature, Drama & Poetic Diction",llm,
+british,1740-1760,10,461,jewk; ay; catharine; grumio; gargle; rev; greville; sirrah; baptista; petruchio,Elizabethan Drama Character Names,"Literature, Drama & Poetic Diction",inherited,1720-1740#6
+british,1740-1760,8,532,bile; fibres; contraction; properties; salts; fluids; nervous; particles; moisture; acid,Cosmography: Zodiac & Geography,"Science, Mathematics & Natural Philosophy",inherited,1720-1740#4
+british,1740-1760,2,1049,combined; rush'd; tumbled; strengthened; stept; discovered; walk'd; inflamed; flung; walked,Latin Legal Fragments & Names,Structural / Uncertain,inherited,1720-1740#1
+british,1740-1760,4,865,egbert; caractacus; heav'nly; unrelenting; indignant; trebonius; thyra; survey'd; frantic; patriot's,Heroic Verse on British Kings,"Literature, Drama & Poetic Diction",llm,
+british,1740-1760,5,784,canterbury; eastward; anno; francis; bart; bay; edinburgh; rochester; quarto; earls,"Armies, Regiments & War Supplies",Military & Warfare,inherited,1720-1740#9
+british,1740-1760,11,436,velvet; yellow; boiling; broad; quart; slices; mace; shells; boiled; lemon,"Armor, Weapons & Body Parts",Military & Warfare,inherited,1720-1740#8
+british,1740-1760,0,1564,azure; foaming; dewy; verdant; flow'rs; vernal; forests; tides; plumes; neighb'ring,Chronicle Narrative of English History,"History, Genealogy, Nobility & Kinship",inherited,1720-1740#0
+british,1740-1760,13,277,mounts; pours; displays; wakes; decks; spreads; lifts; breathes; drives; beholds,"Numerals, Abbreviations & Miscellany",Structural / Uncertain,inherited,1720-1740#11
+british,1740-1760,12,390,vel; ipse; nisi; mo; vo; aeneid; mihi; liv; sibi; inter,Latin Text,Structural / Uncertain,inherited,1720-1740#10
+british,1740-1760,16,22,say'st; think'st; do'st; would'st; seest; mayst; may'st; didst; wouldst; wert,Second-Person Verb Forms,Structural / Uncertain,llm,
+british,1740-1760,14,69,depending; depended; rely; leaning; relied; reflecting; insisted; horseback; dependance; bestowing,"Dependence, Reliance & Insistence",Rhetoric & Persuasion,llm,
+british,1740-1760,9,511,keith; melvil; infinitly; turnkey; representatives; posthumous; gardiner; bothwel; burnet; burgh,Latin Fragments & Proper Names,Structural / Uncertain,inherited,1720-1740#5
+british,1760-1780,4,1437,disgusting; incursion; accurate; unlimited; augmentation; omrah; complex; interesting; irishman; brut,Literary & Critical Evaluative Adjectives,"Literature, Drama & Poetic Diction",inherited,1740-1760#7
+british,1760-1780,7,1117,anguish; theory; rectitude; guilt; perversion; candour; griefs; integrity; evidence; proposition,Spiritual Devotion & Repentance,"Religion, Theology & the Church",inherited,1740-1760#3
+british,1760-1780,13,70,heavier; swifter; lighter; harder; bigger; sweeter; easier; older; oftner; richer,Latin Scholarly Abbreviations,Structural / Uncertain,inherited,1740-1760#15
+british,1760-1780,11,866,mucus; muscular; serum; solids; secretion; urine; irritation; viscid; density; fluids,Cosmography: Zodiac & Geography,"Science, Mathematics & Natural Philosophy",inherited,1740-1760#8
+british,1760-1780,3,1522,retour; alexandro; waverl; lindsay; hugo; heming; chartul; ruthven; grizel; chartulary,"Armies, Regiments & War Supplies",Military & Warfare,inherited,1740-1760#5
+british,1760-1780,6,1156,fag; bravo; snob; pru; alice; lyd; sirrah; lucinda; allan; robin,Elizabethan Drama Character Names,"Literature, Drama & Poetic Diction",inherited,1740-1760#10
+british,1760-1780,0,1975,flow'ry; foliage; flaming; vernal; threat'ning; resounding; wintry; flow'rs; vaulted; foaming,Chronicle Narrative of English History,"History, Genealogy, Nobility & Kinship",inherited,1740-1760#0
+british,1760-1780,8,1096,acknowledged; demonstrated; surrendered; strengthened; declared; adopted; distended; attacked; generated; defeated,Latin Legal Fragments & Names,Structural / Uncertain,inherited,1740-1760#2
+british,1760-1780,1,1963,peculiarities; governors; institutions; tenets; barons; revenues; poems; constitutional; compositions; versions,Grammar Cases & Civic Officials,Structural / Uncertain,inherited,1740-1760#1
+british,1760-1780,2,1741,twisted; pendent; curled; cliffs; tufted; wool; goats; forehead; barley; craggy,"Armor, Weapons & Body Parts",Military & Warfare,inherited,1740-1760#11
+british,1760-1780,10,888,reconcile; tempt; persuade; depress; betray; forsake; restrain; rouze; provoke; submit,Common Verb Forms,Structural / Uncertain,inherited,1740-1760#6
+british,1760-1780,12,605,ambition's; orel; pharasmanes; zenobia; godlike; orontes; desp'rate; teribazus; elwina; vanquish'd,Heroic Verse on British Kings,"Literature, Drama & Poetic Diction",inherited,1740-1760#4
+british,1760-1780,9,1071,atque; domino; quibus; tamen; fuit; vos; vel; univ; nomine; rege,Latin Text,Structural / Uncertain,inherited,1740-1760#12
+british,1760-1780,5,1246,beholds; rolled; sweep; forsakes; flung; scatters; swells; pulled; adorns; view'd,"Numerals, Abbreviations & Miscellany",Structural / Uncertain,inherited,1740-1760#13
+british,1760-1780,14,28,shouldst; did'st; couldst; could'st; should'st; mayest; dar'st; would'st; wouldst; seest,Second-Person Verb Forms,Structural / Uncertain,inherited,1740-1760#16
+british,1780-1800,6,1514,unwarrantable; elaborate; captivating; forcible; complex; unmanly; defective; constitutional; inveterate; eloquent,Literary & Critical Evaluative Adjectives,"Literature, Drama & Poetic Diction",inherited,1760-1780#4
+british,1780-1800,14,159,bushels; quarts; guilders; pound; ninety; dollars; bushel; stivers; penny; lb,Currencies & Units of Measure,"Trade, Finance & Commerce",llm,
+british,1780-1800,16,79,bigger; richer; harder; lighter; heavier; swifter; thicker; quicker; faster; clearer,Latin Scholarly Abbreviations,Structural / Uncertain,inherited,1760-1780#13
+british,1780-1800,2,1903,tartary; hungary; prelates; payment; mesopotamia; armenia; electors; dalmatia; commissioners; huns,Grammar Cases & Civic Officials,Structural / Uncertain,inherited,1760-1780#1
+british,1780-1800,7,1319,m'gil; kit; gaby; billy; jemmy; leonidas; chelonice; bravo; lau; mog,Elizabethan Drama Character Names,"Literature, Drama & Poetic Diction",inherited,1760-1780#6
+british,1780-1800,5,1556,jun; hertford; webb; delaval; northampton; maxwell; lindsay; gibson; murray; argyle,"Armies, Regiments & War Supplies",Military & Warfare,inherited,1760-1780#3
+british,1780-1800,0,2917,vengeful; heav'nly; glitt'ring; thunders; odours; dewy; lightnings; flow'ry; bowers; murm'ring,Chronicle Narrative of English History,"History, Genealogy, Nobility & Kinship",inherited,1760-1780#0
+british,1780-1800,4,1611,seconded; employing; tormented; endeared; roused; demonstrated; establishing; expelled; exercising; deposed,Latin Legal Fragments & Names,Structural / Uncertain,inherited,1760-1780#8
+british,1780-1800,9,1095,reconcile; impute; counteract; compel; restrain; exalt; suggest; expose; weaken; drag,Common Verb Forms,Structural / Uncertain,inherited,1760-1780#10
+british,1780-1800,3,1867,onions; potatoes; parsley; sliced; tawny; lemon; hares; geese; jacket; ferruginous,"Armor, Weapons & Body Parts",Military & Warfare,inherited,1760-1780#2
+british,1780-1800,11,834,solids; vomiting; fluids; glandular; stimulus; purging; bilious; irritability; intestines; vascular,Cosmography: Zodiac & Geography,"Science, Mathematics & Natural Philosophy",inherited,1760-1780#11
+british,1780-1800,1,2332,diction; establishments; institutions; epitome; excellencies; compositions; texts; rancour; ideot; selfishness,Spiritual Devotion & Repentance,"Religion, Theology & the Church",inherited,1760-1780#7
+british,1780-1800,10,860,dicti; potest; enim; corporis; vero; cujus; tempore; pred; erat; sive,Latin Text,Structural / Uncertain,inherited,1760-1780#9
+british,1780-1800,8,1317,softens; flings; pour'd; fir'd; forsakes; proclaim'd; paints; flung; rends; warms,"Numerals, Abbreviations & Miscellany",Structural / Uncertain,inherited,1760-1780#5
+british,1780-1800,15,129,deut; exod; xxxi; judg; xxviii; xvii; xxiii; civ; chron; xxiv,Biblical Citation Abbreviations,"Religion, Theology & the Church",llm,
+british,1780-1800,13,285,alba; av; cinerea; suppl; aldr; lin; falco; motacilla; tribus; fusco,Latin Ornithological Taxonomy,"Science, Mathematics & Natural Philosophy",llm,
+british,1780-1800,17,22,wast; shouldst; could'st; wouldst; say'st; mayest; may'st; didst; should'st; seest,Second-Person Verb Forms,Structural / Uncertain,inherited,1760-1780#14
+british,1780-1800,12,718,hujusmodi; d'no; aliquis; johanne; ludovico; tems; habebunt; eisdem; sallust; ogilvie,Heroic Verse on British Kings,"Literature, Drama & Poetic Diction",inherited,1760-1780#12
+british,1800-1820,6,149,licentiousness; interludes; meritorious; foundation; compared; encouraged; amusements; affairs; contained; simplicity,Grammar Cases & Civic Officials,Structural / Uncertain,inherited,1780-1800#2
+british,1800-1820,4,151,please; mig; try; stay; mention; lose; ask; zur; succeed; readily,Common Verb Forms,Structural / Uncertain,inherited,1780-1800#9
+british,1800-1820,0,256,management; popular; theatrical; advanced; fletcher; constantly; system; improved; succeeded; exhibited,Literary & Critical Evaluative Adjectives,"Literature, Drama & Poetic Diction",inherited,1780-1800#6
+british,1800-1820,7,133,representation; excited; opened; concern; cardinal; james; addition; spanish; moliere; spectacle,"Armies, Regiments & War Supplies",Military & Warfare,inherited,1780-1800#5
+british,1800-1820,3,185,susan; pray; sophia; mod; marian; pardon; juan; larry; riv; eliza,Elizabethan Drama Character Names,"Literature, Drama & Poetic Diction",inherited,1780-1800#7
+british,1800-1820,5,150,spar; forty; crystallised; ditto; derbyshire; yellow; ones; nine; island; sheepy,"Armor, Weapons & Body Parts",Military & Warfare,inherited,1780-1800#3
+british,1800-1820,1,247,living; bold; cold; mistress; sake; close; bosom; tender; proud; triumph,Chronicle Narrative of English History,"History, Genealogy, Nobility & Kinship",inherited,1780-1800#0
+british,1800-1820,8,66,sufficiently; affected; temporary; noticed; applied; allowed; admired; experience; used; clearly,Latin Legal Fragments & Names,Structural / Uncertain,inherited,1780-1800#4
+british,1800-1820,2,186,countenance; vanity; conversation; sensible; gained; service; distress; shewn; belief; companion,Spiritual Devotion & Repentance,"Religion, Theology & the Church",inherited,1780-1800#1

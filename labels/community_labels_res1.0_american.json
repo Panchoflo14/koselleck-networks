@@ -1,0 +1,687 @@
+{
+  "1660-1680": {
+    "5": {
+      "label": "Puritan Grace & Sanctification",
+      "n_words": 228,
+      "lane": "Religion, Theology & the Church"
+    },
+    "0": {
+      "label": "Sin, Misery & Bodily Affliction",
+      "n_words": 399,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "2": {
+      "label": "Church Governance & Sacraments",
+      "n_words": 361,
+      "lane": "Religion, Theology & the Church"
+    },
+    "8": {
+      "label": "Biblical Citation Abbreviations (mixed)",
+      "n_words": 103,
+      "lane": "Structural / Uncertain"
+    },
+    "6": {
+      "label": "Local Civil Administration",
+      "n_words": 175,
+      "lane": "Government, Law & Administration"
+    },
+    "9": {
+      "label": "Numerals & Quantities (mixed)",
+      "n_words": 48,
+      "lane": "Structural / Uncertain"
+    },
+    "1": {
+      "label": "Colonial Frontier Warfare",
+      "n_words": 365,
+      "lane": "Military & Warfare"
+    },
+    "3": {
+      "label": "Common Action Verbs (mixed)",
+      "n_words": 325,
+      "lane": "Structural / Uncertain"
+    },
+    "4": {
+      "label": "Book Publication & Imprint Data",
+      "n_words": 234,
+      "lane": "Books, Learning & Scholarship"
+    },
+    "7": {
+      "label": "Reporting & Testimony Verbs (mixed)",
+      "n_words": 127,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1680-1700": {
+    "0": {
+      "label": "Puritan Grace & Sanctification",
+      "n_words": 750,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1660-1680#5"
+    },
+    "4": {
+      "label": "Common Action Verbs (mixed)",
+      "n_words": 465,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1660-1680#3"
+    },
+    "2": {
+      "label": "Local Civil Administration",
+      "n_words": 670,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1660-1680#6"
+    },
+    "9": {
+      "label": "Biblical Citation Abbreviations (mixed)",
+      "n_words": 139,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1660-1680#8"
+    },
+    "8": {
+      "label": "Book Publication & Imprint Data",
+      "n_words": 227,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1660-1680#4"
+    },
+    "5": {
+      "label": "Church Governance & Sacraments",
+      "n_words": 413,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1660-1680#2"
+    },
+    "3": {
+      "label": "Sin, Misery & Bodily Affliction",
+      "n_words": 538,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1660-1680#0"
+    },
+    "10": {
+      "label": "Comparative Forms (mixed)",
+      "n_words": 14,
+      "lane": "Structural / Uncertain"
+    },
+    "1": {
+      "label": "Colonial Frontier Warfare",
+      "n_words": 682,
+      "lane": "Military & Warfare",
+      "inherited_from": "1660-1680#1"
+    },
+    "6": {
+      "label": "Reporting & Testimony Verbs (mixed)",
+      "n_words": 408,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1660-1680#7"
+    },
+    "7": {
+      "label": "Numerals & Quantities (mixed)",
+      "n_words": 389,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1660-1680#9"
+    }
+  },
+  "1700-1720": {
+    "0": {
+      "label": "Puritan Grace & Sanctification",
+      "n_words": 842,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1680-1700#0"
+    },
+    "2": {
+      "label": "Common Action Verbs (mixed)",
+      "n_words": 569,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1680-1700#4"
+    },
+    "7": {
+      "label": "Biblical Citation Abbreviations (mixed)",
+      "n_words": 266,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1680-1700#9"
+    },
+    "3": {
+      "label": "Sin, Misery & Bodily Affliction",
+      "n_words": 545,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1680-1700#3"
+    },
+    "9": {
+      "label": "Book Publication & Imprint Data",
+      "n_words": 167,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1680-1700#8"
+    },
+    "4": {
+      "label": "Reporting & Testimony Verbs (mixed)",
+      "n_words": 503,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1680-1700#6"
+    },
+    "5": {
+      "label": "Colonial Frontier Warfare",
+      "n_words": 452,
+      "lane": "Military & Warfare",
+      "inherited_from": "1680-1700#1"
+    },
+    "8": {
+      "label": "Numerals & Quantities (mixed)",
+      "n_words": 231,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1680-1700#7"
+    },
+    "10": {
+      "label": "Comparative Forms (mixed)",
+      "n_words": 129,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1680-1700#10"
+    },
+    "1": {
+      "label": "Church Governance & Sacraments",
+      "n_words": 615,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1680-1700#5"
+    },
+    "6": {
+      "label": "Local Civil Administration",
+      "n_words": 419,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1680-1700#2"
+    },
+    "11": {
+      "label": "Reflection, Dependence & Obligation",
+      "n_words": 69,
+      "lane": "Rhetoric & Persuasion"
+    },
+    "12": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 17,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1720-1740": {
+    "0": {
+      "label": "Puritan Grace & Sanctification",
+      "n_words": 1214,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1700-1720#0"
+    },
+    "11": {
+      "label": "Book Publication & Imprint Data",
+      "n_words": 113,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1700-1720#9"
+    },
+    "1": {
+      "label": "Sin, Misery & Bodily Affliction",
+      "n_words": 940,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1700-1720#3"
+    },
+    "4": {
+      "label": "Common Action Verbs (mixed)",
+      "n_words": 598,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1700-1720#2"
+    },
+    "7": {
+      "label": "Church Governance & Sacraments",
+      "n_words": 492,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1700-1720#1"
+    },
+    "10": {
+      "label": "Reflection, Dependence & Obligation",
+      "n_words": 141,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1700-1720#11"
+    },
+    "13": {
+      "label": "Comparative Forms (mixed)",
+      "n_words": 24,
+      "lane": "Structural / Uncertain"
+    },
+    "6": {
+      "label": "Local Civil Administration",
+      "n_words": 556,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1700-1720#6"
+    },
+    "3": {
+      "label": "Reporting & Testimony Verbs (mixed)",
+      "n_words": 719,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1700-1720#4"
+    },
+    "5": {
+      "label": "Biblical Citation Abbreviations (mixed)",
+      "n_words": 557,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1700-1720#7"
+    },
+    "2": {
+      "label": "Colonial Frontier Warfare",
+      "n_words": 806,
+      "lane": "Military & Warfare",
+      "inherited_from": "1700-1720#5"
+    },
+    "8": {
+      "label": "Numerals & Quantities (mixed)",
+      "n_words": 315,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1700-1720#8"
+    },
+    "9": {
+      "label": "Comparative Forms (mixed)",
+      "n_words": 190,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1700-1720#10"
+    },
+    "12": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 52,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1700-1720#12"
+    }
+  },
+  "1740-1760": {
+    "0": {
+      "label": "Puritan Grace & Sanctification",
+      "n_words": 1052,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1720-1740#0"
+    },
+    "6": {
+      "label": "Moral & Religious Censure Terms",
+      "n_words": 663,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "5": {
+      "label": "Common Action Verbs (mixed)",
+      "n_words": 663,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1720-1740#4"
+    },
+    "15": {
+      "label": "Comparative Forms (mixed)",
+      "n_words": 92,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1720-1740#13"
+    },
+    "7": {
+      "label": "Church Governance & Sacraments",
+      "n_words": 627,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1720-1740#7"
+    },
+    "13": {
+      "label": "Book Publication & Imprint Data",
+      "n_words": 251,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1720-1740#11"
+    },
+    "8": {
+      "label": "Biblical Citation Abbreviations (mixed)",
+      "n_words": 520,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1720-1740#5"
+    },
+    "3": {
+      "label": "Sin, Misery & Bodily Affliction",
+      "n_words": 753,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1720-1740#1"
+    },
+    "1": {
+      "label": "Reporting & Testimony Verbs (mixed)",
+      "n_words": 891,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1720-1740#3"
+    },
+    "9": {
+      "label": "Colonial Coasts & Frontiers",
+      "n_words": 448,
+      "lane": "Geography & Territory"
+    },
+    "2": {
+      "label": "Colonial Frontier Warfare",
+      "n_words": 797,
+      "lane": "Military & Warfare",
+      "inherited_from": "1720-1740#2"
+    },
+    "11": {
+      "label": "Numerals & Quantities (mixed)",
+      "n_words": 396,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1720-1740#8"
+    },
+    "12": {
+      "label": "Comparative Forms (mixed)",
+      "n_words": 287,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1720-1740#9"
+    },
+    "14": {
+      "label": "Reflection, Dependence & Obligation",
+      "n_words": 176,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1720-1740#10"
+    },
+    "4": {
+      "label": "Herbal Remedies & Materia Medica",
+      "n_words": 664,
+      "lane": "Medicine, Body & Health"
+    },
+    "10": {
+      "label": "Local Civil Administration",
+      "n_words": 429,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1720-1740#6"
+    },
+    "16": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 21,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1720-1740#12"
+    }
+  },
+  "1760-1780": {
+    "17": {
+      "label": "Numerals & Quantities (mixed)",
+      "n_words": 57,
+      "lane": "Structural / Uncertain"
+    },
+    "7": {
+      "label": "Puritan Grace & Sanctification",
+      "n_words": 866,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1740-1760#0"
+    },
+    "14": {
+      "label": "Moral & Religious Censure Terms",
+      "n_words": 212,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1740-1760#6"
+    },
+    "0": {
+      "label": "Sin, Misery & Bodily Affliction",
+      "n_words": 1321,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1740-1760#3"
+    },
+    "3": {
+      "label": "Church Governance & Sacraments",
+      "n_words": 998,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1740-1760#7"
+    },
+    "18": {
+      "label": "Comparative Forms (mixed)",
+      "n_words": 49,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1740-1760#15"
+    },
+    "11": {
+      "label": "Disease Symptoms & Bodily Fluids",
+      "n_words": 441,
+      "lane": "Medicine, Body & Health"
+    },
+    "6": {
+      "label": "Local Civil Administration",
+      "n_words": 915,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1740-1760#10"
+    },
+    "15": {
+      "label": "Book Publication & Imprint Data",
+      "n_words": 123,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1740-1760#13"
+    },
+    "2": {
+      "label": "Reporting & Testimony Verbs (mixed)",
+      "n_words": 1039,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1740-1760#1"
+    },
+    "5": {
+      "label": "Common Action Verbs (mixed)",
+      "n_words": 925,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1740-1760#5"
+    },
+    "12": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 283,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1740-1760#16"
+    },
+    "4": {
+      "label": "Herbal Remedies & Materia Medica",
+      "n_words": 935,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1740-1760#4"
+    },
+    "10": {
+      "label": "Biblical Citation Abbreviations (mixed)",
+      "n_words": 487,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1740-1760#8"
+    },
+    "8": {
+      "label": "Colonial Coasts & Frontiers",
+      "n_words": 583,
+      "lane": "Geography & Territory",
+      "inherited_from": "1740-1760#9"
+    },
+    "1": {
+      "label": "Colonial Frontier Warfare",
+      "n_words": 1184,
+      "lane": "Military & Warfare",
+      "inherited_from": "1740-1760#2"
+    },
+    "9": {
+      "label": "Numerals & Quantities (mixed)",
+      "n_words": 496,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1740-1760#11"
+    },
+    "13": {
+      "label": "Comparative Forms (mixed)",
+      "n_words": 269,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1740-1760#12"
+    },
+    "16": {
+      "label": "Reflection, Dependence & Obligation",
+      "n_words": 122,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1740-1760#14"
+    }
+  },
+  "1780-1800": {
+    "7": {
+      "label": "Local Civil Administration",
+      "n_words": 1227,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1760-1780#6"
+    },
+    "5": {
+      "label": "Moral & Religious Censure Terms",
+      "n_words": 1399,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1760-1780#14"
+    },
+    "17": {
+      "label": "Comparative Forms (mixed)",
+      "n_words": 81,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1760-1780#18"
+    },
+    "1": {
+      "label": "Church Governance & Sacraments",
+      "n_words": 2467,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1760-1780#3"
+    },
+    "15": {
+      "label": "Book Publication & Imprint Data",
+      "n_words": 201,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1760-1780#15"
+    },
+    "10": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 1026,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1760-1780#12"
+    },
+    "4": {
+      "label": "Reporting & Testimony Verbs (mixed)",
+      "n_words": 1528,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1760-1780#2"
+    },
+    "0": {
+      "label": "Colonial Frontier Warfare",
+      "n_words": 2732,
+      "lane": "Military & Warfare",
+      "inherited_from": "1760-1780#1"
+    },
+    "3": {
+      "label": "Common Action Verbs (mixed)",
+      "n_words": 1988,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1760-1780#5"
+    },
+    "6": {
+      "label": "Biblical Citation Abbreviations (mixed)",
+      "n_words": 1375,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1760-1780#10"
+    },
+    "2": {
+      "label": "Herbal Remedies & Materia Medica",
+      "n_words": 2157,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1760-1780#4"
+    },
+    "9": {
+      "label": "Colonial Coasts & Frontiers",
+      "n_words": 1073,
+      "lane": "Geography & Territory",
+      "inherited_from": "1760-1780#8"
+    },
+    "12": {
+      "label": "Numerals & Quantities (mixed)",
+      "n_words": 845,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1760-1780#9"
+    },
+    "8": {
+      "label": "Sin, Misery & Bodily Affliction",
+      "n_words": 1096,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1760-1780#0"
+    },
+    "11": {
+      "label": "Disease Symptoms & Bodily Fluids",
+      "n_words": 983,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1760-1780#11"
+    },
+    "18": {
+      "label": "Numerals & Quantities (mixed)",
+      "n_words": 37,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1760-1780#17"
+    },
+    "13": {
+      "label": "Reflection, Dependence & Obligation",
+      "n_words": 276,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1760-1780#16"
+    },
+    "16": {
+      "label": "Puritan Grace & Sanctification",
+      "n_words": 197,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1760-1780#7"
+    },
+    "14": {
+      "label": "Comparative Forms (mixed)",
+      "n_words": 222,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1760-1780#13"
+    }
+  },
+  "1800-1820": {
+    "8": {
+      "label": "Biblical Citation Abbreviations (mixed)",
+      "n_words": 365,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1780-1800#6"
+    },
+    "0": {
+      "label": "Church Governance & Sacraments",
+      "n_words": 1066,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1780-1800#1"
+    },
+    "3": {
+      "label": "Local Civil Administration",
+      "n_words": 653,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1780-1800#7"
+    },
+    "6": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 482,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1780-1800#10"
+    },
+    "4": {
+      "label": "Moral & Religious Censure Terms",
+      "n_words": 591,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1780-1800#5"
+    },
+    "5": {
+      "label": "Common Action Verbs (mixed)",
+      "n_words": 576,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1780-1800#3"
+    },
+    "1": {
+      "label": "Reporting & Testimony Verbs (mixed)",
+      "n_words": 765,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1780-1800#4"
+    },
+    "7": {
+      "label": "Colonial Frontier Warfare",
+      "n_words": 378,
+      "lane": "Military & Warfare",
+      "inherited_from": "1780-1800#0"
+    },
+    "2": {
+      "label": "Herbal Remedies & Materia Medica",
+      "n_words": 732,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1780-1800#2"
+    }
+  },
+  "_meta": {
+    "resolution": 1.0,
+    "region": "american",
+    "n_communities": 112,
+    "n_human_edited": 0,
+    "n_inherited": 93,
+    "method": "Generated by a single LLM read-through of each community's top words, not an empirically validated taxonomy - a reading aid, not a checked ground truth. Rerunning `generate` on an unchanged input is not guaranteed to reproduce the same label text or lane for every community, since LLM sampling is not bitwise-deterministic even against an unchanged prompt.",
+    "compiled_at": "2026-08-04T22:51:33+00:00",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_file": "src/prompts/community_labeling_v1.md",
+    "prompt_version": "v1",
+    "prompt_sha256_16": "94616a163691487b",
+    "source_words_file": "community_words_res1.0_american.json",
+    "source_words_sha256_16": "8ac1504d46b6fd31",
+    "generated_at": "2026-08-04T22:51:22+00:00"
+  }
+}
