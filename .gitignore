@@ -11,8 +11,11 @@ __pycache__/
 .env
 config.local.yml
 
-# Impeccable design-critique snapshots - local scratch/backlog, not a deliverable
+# Impeccable design-critique snapshots and its planning docs - internal
+# working notes (names, deadlines, review feedback), not a deliverable
 .impeccable/
+DESIGN.md
+PRODUCT.md
 
 # editor / OS cruft
 .vscode/
