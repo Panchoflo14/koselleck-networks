@@ -55,18 +55,24 @@
             <h2 id="drilldown-heading"></h2>
             <button type="button" id="drilldown-close" class="reset-view-btn">close</button>
           </div>
+          <div class="detail-head">
+            <div id="drilldown-view-toggle" class="view-toggle"></div>
+          </div>
           <dl id="drilldown-meta" class="search-meta"></dl>
         </div>
-        <div class="neighbors-card">
-          <h3>Closest neighbours in this period, by similarity</h3>
-          <p class="search-hint">Rows in the same group as the searched word are marked. Click a word to see its own timeline instead.</p>
-          <table class="neighbors-table">
-            <thead>
-              <tr><th>Word</th><th>Similarity</th><th>Group</th></tr>
-            </thead>
-            <tbody id="drilldown-neighbors-body"></tbody>
-          </table>
+        <div id="drilldown-neighbors-view">
+          <div class="neighbors-card">
+            <h3>Closest neighbours in this period, by similarity</h3>
+            <p class="search-hint">Rows in the same group as the searched word are marked. Click a word to see its own timeline instead.</p>
+            <table class="neighbors-table">
+              <thead>
+                <tr><th>Word</th><th>Similarity</th><th>Group</th></tr>
+              </thead>
+              <tbody id="drilldown-neighbors-body"></tbody>
+            </table>
+          </div>
         </div>
+        <div id="drilldown-journey-view" class="journey-card hidden"></div>
       </div>
 
       <div class="findings-banner">

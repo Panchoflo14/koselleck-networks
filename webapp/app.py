@@ -39,7 +39,7 @@ import pandas as pd
 from flask import Flask, jsonify, render_template, request
 
 from metrics import align_communities
-from pipeline_config import discover_built_regions, load_config, variant_label
+from pipeline_config import combined_is_built, discover_built_regions, load_config, variant_label
 
 app = Flask(__name__)
 
@@ -56,6 +56,12 @@ RESOLUTIONS = config["leiden"]["resolution_sweep"]  # the 7 swept values, e.g. 0
 # here, and the frontend never renders a toggle it can't back with real files
 # (see /api/periods, which reports has_data per region too).
 REGIONS = discover_built_regions(config)
+# Whether the pipeline has actually been run on the combined corpus at all -
+# a deployment that only ever built one or more region-split variants (e.g.
+# british-only) has REGIONS non-empty but no un-suffixed network files, and
+# used to still default every page to a "Combined" tab that silently showed
+# every period as a coverage gap. See resolve_region and /api/regions below.
+COMBINED_BUILT = combined_is_built(config)
 HEADLINE_RES = 1.0  # resolution shown by default in the UI
 DEFAULT_K = 12  # words kept per community in "full network" mode
 SEED_PERIOD = "1790-1810"  # last real, populated period - 1810-1830 (the literal Sattelzeit-closing edge, after the 2026-08-04 boundary shift) has no data yet, would land /graph and /search on an empty coverage-gap by default
@@ -97,8 +103,15 @@ def resolve_region(value):
     """None (combined) unless value names a region that's actually built - an
     unknown/typo'd region silently falls back to combined rather than
     erroring, same spirit as resolve_resolution's snap-to-nearest-valid-value
-    below."""
-    return value if value in REGIONS else None
+    below. Falls back to the first built region instead, when combined
+    itself was never built (see COMBINED_BUILT) - otherwise an unrecognized
+    or missing ?region= would silently resolve to a "combined" that has no
+    files behind it at all, rather than to real data that does exist."""
+    if value in REGIONS:
+        return value
+    if COMBINED_BUILT or not REGIONS:
+        return None
+    return REGIONS[0]
 
 
 def get_graph(label, region=None):
@@ -345,8 +358,11 @@ def regions():
     """Region toggle options this deployment actually has data for at all
     (e.g. ["american", "british"]), independent of any one period - lets the
     frontend decide whether to render the toggle UI at all before it even
-    knows which period is selected."""
-    return jsonify(REGIONS)
+    knows which period is selected. combined_built tells it whether a
+    "Combined" option belongs in that toggle at all, or whether this
+    deployment only ever built one or more region-split variants (see
+    COMBINED_BUILT/resolve_region above)."""
+    return jsonify({"regions": REGIONS, "combined_built": COMBINED_BUILT})
 
 
 @app.route("/api/transitions")

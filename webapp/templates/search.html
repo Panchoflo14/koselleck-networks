@@ -39,21 +39,28 @@
 
     <div id="search-results" class="search-results hidden">
       <div class="search-summary-card">
-        <h2 id="search-word-heading"></h2>
+        <div class="detail-head">
+          <h2 id="search-word-heading"></h2>
+          <div id="search-view-toggle" class="view-toggle"></div>
+        </div>
         <dl id="search-word-meta" class="search-meta"></dl>
         <p id="label-caveat-text" class="timeline-facts">Loading...</p>
       </div>
 
-      <div class="neighbors-card">
-        <h3>Closest neighbours in this period, by similarity</h3>
-        <p class="search-hint">Rows in the same group as the searched word are marked. Click a word to look it up in turn.</p>
-        <table class="neighbors-table">
-          <thead>
-            <tr><th>Word</th><th>Similarity</th><th>Group</th></tr>
-          </thead>
-          <tbody id="neighbors-body"></tbody>
-        </table>
+      <div id="search-neighbors-view">
+        <div class="neighbors-card">
+          <h3>Closest neighbours in this period, by similarity</h3>
+          <p class="search-hint">Rows in the same group as the searched word are marked. Click a word to look it up in turn.</p>
+          <table class="neighbors-table">
+            <thead>
+              <tr><th>Word</th><th>Similarity</th><th>Group</th></tr>
+            </thead>
+            <tbody id="neighbors-body"></tbody>
+          </table>
+        </div>
       </div>
+
+      <div id="search-journey-view" class="journey-card hidden"></div>
     </div>
   </div>
 

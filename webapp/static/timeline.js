@@ -30,6 +30,23 @@ const drilldownHeadingEl = document.getElementById("drilldown-heading");
 const drilldownMetaEl = document.getElementById("drilldown-meta");
 const drilldownNeighborsBody = document.getElementById("drilldown-neighbors-body");
 const drilldownCloseBtn = document.getElementById("drilldown-close");
+
+// Neighbours/Journey toggle - shared with /search, see word_detail.js's
+// attachJourneyToggle. getWord() reads whichever word the drill-in is
+// currently open on, tracked below in openDrilldown, not the timeline
+// search box - the two can differ (drilling into a neighbour word from an
+// earlier search closes the drill-in and reruns the whole timeline instead
+// of opening a nested one, see WordDetail.render's onWordClick below).
+let currentDrilldownWord = null;
+const journeyToggle = WordDetail.attachJourneyToggle(
+  {
+    toggle: document.getElementById("drilldown-view-toggle"),
+    neighbors: document.getElementById("drilldown-neighbors-view"),
+    journey: document.getElementById("drilldown-journey-view"),
+  },
+  () => currentDrilldownWord,
+  () => activeRegion,
+);
 const rangeFullBtn = document.getElementById("range-full");
 const rangeSattelzeitBtn = document.getElementById("range-sattelzeit");
 const verdictEl = document.getElementById("timeline-verdict");
@@ -45,6 +62,7 @@ const SEED_WORD = document.body.dataset.seedWord;
 inputEl.addEventListener("focus", () => inputEl.select());
 
 let REGIONS = [];
+let COMBINED_BUILT = true; // whether the combined (un-suffixed) network was ever built - see /api/regions
 let activeRegion = null; // null = combined; otherwise one of REGIONS
 let requestSeq = 0; // guards against a slow in-flight search resolving after a newer one
 
@@ -162,18 +180,27 @@ loadLabelCaveat();
 
 async function loadRegions() {
   const res = await fetch("/api/regions");
-  REGIONS = await res.json();
+  const data = await res.json();
+  REGIONS = data.regions;
+  COMBINED_BUILT = data.combined_built;
+  // No combined data at all (a deployment that only ever built one or more
+  // region-split variants) - land on a region that actually has files
+  // instead of a "Combined" that would silently show every period as a gap.
+  if (!COMBINED_BUILT && REGIONS.length) activeRegion = REGIONS[0];
   renderRegionToggle();
 }
 
 function renderRegionToggle() {
-  if (!REGIONS.length) {
+  // Nothing to toggle between if there's zero or one real option (e.g. only
+  // "Combined" exists, or only a single region and no combined) - same
+  // reasoning either way, so one check covers both.
+  if ((COMBINED_BUILT ? 1 : 0) + REGIONS.length <= 1) {
     regionRow.style.display = "none";
     return;
   }
   regionRow.style.display = "";
   regionToggleEl.innerHTML = "";
-  const options = [{ value: null, label: "Combined" }]
+  const options = (COMBINED_BUILT ? [{ value: null, label: "Combined" }] : [])
     .concat(REGIONS.map((r) => ({ value: r, label: r.charAt(0).toUpperCase() + r.slice(1) })));
   options.forEach((opt) => {
     const btn = document.createElement("button");
@@ -247,6 +274,7 @@ async function openDrilldown(period, word, cardEl) {
   // rendered entirely below the fold - clicking a card visibly did nothing.
   drilldownEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
   drilldownHeadingEl.textContent = `Loading "${word}" in ${period}...`;
+  currentDrilldownWord = word;
   const data = await WordDetail.fetchDetail(period, word, activeRegion);
   if (!data.found) {
     drilldownHeadingEl.textContent = `"${word}" in ${period}`;
@@ -259,6 +287,7 @@ async function openDrilldown(period, word, cardEl) {
     data,
     (newWord) => { closeDrilldown(); runTimeline(newWord); },
   );
+  journeyToggle.refresh();
 }
 
 // A period label is "<start>-<end>" (20-year bins). Bin edges were shifted

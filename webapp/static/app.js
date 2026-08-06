@@ -76,6 +76,7 @@ const PALETTE = ["#00608c", "#a8372a", "#1b4ba9", "#993366", "#236014", "#6a3aa8
 
 let periods = [];
 let REGIONS = []; // e.g. ["american", "british"] - whatever this deployment actually has built, see /api/regions
+let COMBINED_BUILT = true; // whether the combined (un-suffixed) network was ever built - see /api/regions
 let activeRegion = null; // null = combined; otherwise one of REGIONS
 let currentIndex = 0;
 let focusWord = SEED_WORD || "";
@@ -188,18 +189,27 @@ function periodHasData(p) {
 
 async function loadRegions() {
   const res = await fetch("/api/regions");
-  REGIONS = await res.json();
+  const data = await res.json();
+  REGIONS = data.regions;
+  COMBINED_BUILT = data.combined_built;
+  // No combined data at all (a deployment that only ever built one or more
+  // region-split variants) - land on a region that actually has files
+  // instead of a "Combined" that would silently show every period as a gap.
+  if (!COMBINED_BUILT && REGIONS.length) activeRegion = REGIONS[0];
   renderRegionToggle();
 }
 
 function renderRegionToggle() {
-  if (!REGIONS.length) {
+  // Nothing to toggle between if there's zero or one real option (e.g. only
+  // "Combined" exists, or only a single region and no combined) - same
+  // reasoning either way, so one check covers both.
+  if ((COMBINED_BUILT ? 1 : 0) + REGIONS.length <= 1) {
     regionRow.style.display = "none";
     return;
   }
   regionRow.style.display = "";
   regionToggleEl.innerHTML = "";
-  const options = [{ value: null, label: "Combined" }]
+  const options = (COMBINED_BUILT ? [{ value: null, label: "Combined" }] : [])
     .concat(REGIONS.map((r) => ({ value: r, label: r.charAt(0).toUpperCase() + r.slice(1) })));
   options.forEach((opt) => {
     const btn = document.createElement("button");

@@ -1009,6 +1009,95 @@ h1 {
   border-color: var(--accent-net);
 }
 
+/* Neighbours / Journey toggle, and the journey chart itself - lives inside
+   a word's detail panel wherever one is drilled into (/search's own
+   results, /timeline's per-period drill-in). Added 2026-08-05 alongside
+   word_detail.js's attachJourneyToggle/buildJourneySvg. */
+.detail-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  /* A flex row's own bottom margin doesn't inherit from a child's margin
+     (h2's margin-bottom used to be what separated the heading from the
+     meta dl below it - trapped inside this row once the toggle joined the
+     heading in a flex line), so it needs its own explicit margin here or
+     the toggle row sits right on top of "Group" with almost no gap. */
+  margin-bottom: 0.7rem;
+}
+.view-toggle {
+  display: inline-flex;
+  gap: 0.3rem;
+}
+.view-toggle button {
+  font-family: var(--font-body);
+  font-size: var(--type--1);
+  font-weight: 600;
+  height: var(--control-h-sm);
+  padding: 0 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+.view-toggle button:hover { border-color: var(--accent-net); color: var(--ink); }
+.view-toggle button.active { background: var(--accent-net); border-color: var(--accent-net); color: #fff; }
+
+.journey-card {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--card);
+  padding: 1rem 1.3rem;
+}
+.journey-caption {
+  font-size: var(--type--1);
+  color: var(--muted);
+  margin: 0 0 0.8rem;
+}
+.journey-scroll { overflow-x: auto; }
+.journey-svg { display: block; min-width: 100%; }
+.journey-guide { stroke: var(--line); stroke-width: 1; opacity: 0.35; }
+.journey-gap-band { fill: var(--gap-bg); opacity: 0.5; }
+.journey-gap-label {
+  font-family: var(--font-mono);
+  font-size: var(--type--2);
+  fill: var(--muted);
+}
+.journey-notfound-tick { stroke: var(--muted); stroke-width: 1; }
+.journey-segment { stroke-width: 2.25; stroke-linecap: round; }
+.journey-point { stroke: var(--card); stroke-width: 1.5; }
+.journey-subchange-tick { fill: var(--accent-hist); }
+/* Same paint-order halo .node-label uses in app.js's force graph, applied
+   here for the same reason: a label sits directly on a guide track or a
+   line segment (a steep jump between distant lanes passes close to its own
+   arrival point), and the halo cuts a clean gap through whatever is behind
+   it instead of visually overlapping it. Labels are drawn in a final pass
+   in buildJourneySvg, after every line, so this halo is never itself
+   painted over by a later segment. */
+.journey-label text {
+  font-family: var(--font-body);
+  font-size: var(--type--2);
+  font-weight: 600;
+  paint-order: stroke fill;
+  stroke: var(--card);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+.journey-tick-label {
+  font-family: var(--font-mono);
+  font-size: var(--type--2);
+  fill: var(--muted);
+}
+.journey-caveat {
+  margin: 0.9rem 0 0;
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--line);
+  font-size: var(--type--2);
+  color: var(--muted);
+}
+
 /* Timeline tab */
 .timeline-results {
   display: flex;
@@ -1292,8 +1381,12 @@ h1 {
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
+  /* Same fix as .detail-head below: a flex row's own bottom margin doesn't
+     inherit from the h2's, so the row needs its own explicit margin or the
+     view-toggle right after it sits with almost no gap. */
+  margin-bottom: 0.6rem;
 }
-.drilldown-header h2 { margin: 0 0 0.6rem; }
+.drilldown-header h2 { margin: 0; }
 
 .timeline-note {
   border: 1px solid var(--line);

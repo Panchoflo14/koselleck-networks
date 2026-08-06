@@ -96,6 +96,22 @@ def discover_built_regions(config):
     return sorted(regions)
 
 
+def combined_is_built(config):
+    """Whether at least one no-suffix <label>.graphml exists - i.e. the
+    pipeline has actually been run on the combined corpus, not just on one
+    or more region-split variants. Someone who only ever builds a
+    british-only or american-only corpus (never runs the combined stages)
+    would otherwise still see a "Combined" option that silently shows every
+    period as a coverage gap - discover_built_regions above only reports
+    which region suffixes exist, it says nothing about the un-suffixed
+    (combined) case, so that had to be checked separately here."""
+    networks_dir = Path(config["data_root"]) / config["paths"]["networks"]
+    if not networks_dir.exists():
+        return False
+    base_labels = {label for _, _, label in config["periods"]}
+    return any(path.stem in base_labels for path in networks_dir.glob("*.graphml"))
+
+
 def variant_label(label, region):
     """The filename stem for one (label, region) pair - "<label>" for the
     combined variant (region=None), "<label>_<region>" otherwise. The one
