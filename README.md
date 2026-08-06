@@ -162,7 +162,9 @@ python webapp/app.py
 
 Then open http://127.0.0.1:5000. Four pages: a landing page, `/timeline` (the primary view - track one word's group across every period in a single strip), `/graph` (D3 graph explorer - pick a period and a word, see its neighbourhood; toggle a full-network sampled view), and `/search` (plain word-lookup table: nearest neighbours, community, whether the word's community changed since the previous period).
 
-If the pipeline was run for region-split data too (see Data above), both pages also expose a region toggle (combined / one option per region built) - it only appears for regions this deployment actually has built network files for, read off the data itself, never hardcoded.
+Wherever a word is drilled into (`/search`'s own results, `/timeline`'s per-period drill-in), a Neighbours/Journey toggle switches between that same neighbour table and a chart of the word's path through the fixed lane list (see Labeling communities below) across every period - a coarser, single-word view of the same underlying data, not a second computation.
+
+If the pipeline was run for region-split data too (see Data above), every page also exposes a region toggle (combined / one option per region built) - it only appears for regions this deployment actually has built network files for, read off the data itself, never hardcoded. This adapts both ways: a deployment that only ever ran the pipeline on one or more region-split variants and never on the combined corpus does not get a "Combined" option either, and lands on a region that actually has data instead.
 
 ## Deployment
 

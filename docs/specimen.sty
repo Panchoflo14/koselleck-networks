@@ -1,0 +1,226 @@
+% ---------------------------------------------------------------------------
+% specimen.sty - shared visual system for the Koselleck Machine's PDF docs
+% (docs/method.tex and docs/overview.tex load it, so the two read as one
+% family).
+%
+% The palette and the type roles are lifted from the webapp's own shipped
+% design system, "The Specimen Reclassified" (webapp/static/style.css, the
+% :root block, which is the ground truth for this project's look - not the
+% older navy "Reading Room" pass that DESIGN.md still describes).
+%
+% Two-Accent Rule, carried over from the webapp unchanged:
+%   accenthist (oxidized iron red, #8C2F1C) = "the method asserts that
+%       something happened here" - the Sattelzeit claim, hard rules, honest
+%       limitations. Never used for navigation.
+%   accentnet  (deep bottle green, #2E4A34) = "this is stable, or you can
+%       act on it" - section headings, the table of contents, links,
+%       commands, file paths. Never used to make a claim.
+%
+% Type roles (2026-08-05 revision, after Panch found the Roboto Slab/Roboto
+% pairing too heavy and too large): one plain, legible sans throughout -
+% Montserrat, same choice the very first pre-redesign version of this
+% document made, differentiated only by weight and a restrained size scale,
+% not by mixing families. [webapp: Zilla Slab/Public Sans - not followed
+% here on Panch's explicit instruction, this is a deliberate departure from
+% the webapp's own type pairing for the print documents specifically.]
+%   Montserrat (\displayfont, bold) = headings, titles, run-in labels.
+%   Montserrat (default body, regular) = running text and operational prose.
+%   Roboto Mono (\ttfamily) = catalogue numbers, dates, file paths, commands.
+%       [webapp: JetBrains Mono] - unchanged, not part of this revision.
+% ---------------------------------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{specimen}[2026/08/05 Specimen Reclassified document style]
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage{montserrat}
+\RequirePackage[scaled=0.86]{roboto-mono}
+\renewcommand{\familydefault}{\sfdefault}   % body text sets in Montserrat
+\newcommand{\displayfont}{\normalfont}      % same family as body; headings differ by weight/size/color only
+
+\RequirePackage{microtype}
+\RequirePackage{upquote}
+\RequirePackage{xcolor}
+\RequirePackage{titlesec}
+\RequirePackage{enumitem}
+\RequirePackage{setspace}
+\RequirePackage{array}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\RequirePackage{fancyhdr}
+\RequirePackage{eso-pic}
+\RequirePackage{needspace}
+\RequirePackage{url}
+\RequirePackage{hyperref}
+
+% Long file paths set in \texttt cannot break, and a few of them are wider
+% than the measure. \pathref is url's \path: verbatim (no escaping needed for
+% _ or #) and breakable at /, ., -, _.
+\urlstyle{tt}
+\let\pathref\path
+\setlength{\emergencystretch}{1em}
+
+% --- palette ---------------------------------------------------------------
+\definecolor{paper}{HTML}{E7E8E2}       % --bg      bone/sage page ground
+\definecolor{ink}{HTML}{1B1F19}         % --ink     primary text
+\definecolor{muted}{HTML}{5C6157}       % --muted   secondary text
+\definecolor{line}{HTML}{A9AE9F}        % --line    rules and borders
+\definecolor{card}{HTML}{F4F5F0}        % --card    surfaces
+\definecolor{accenthist}{HTML}{8C2F1C}  % --accent-hist  historical claim
+\definecolor{accentnet}{HTML}{2E4A34}   % --accent-net   stable / actionable
+
+\AtBeginDocument{\color{ink}}
+
+% --- measure and rhythm ----------------------------------------------------
+\setstretch{1.16}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setlist[enumerate]{itemsep=0.6em,leftmargin=*}
+\setlist[itemize]{itemsep=0.35em,leftmargin=1.2em}
+
+% --- headings --------------------------------------------------------------
+% Sized down a full step from the first pass (Panch: "too large") - \Large is
+% the biggest anything gets outside the cover, and the rule under \section
+% carries the weight a bigger size used to.
+\titleformat{\section}[block]
+  {\displayfont\Large\bfseries\color{accentnet}}
+  {\thesection}{0.6em}{}
+  [{\vspace{0.2em}\color{line}\titlerule[0.6pt]}]
+\titleformat{\subsection}[block]
+  {\displayfont\normalsize\bfseries\color{accentnet}}
+  {\thesubsection}{0.55em}{}
+\titleformat{\subsubsection}[block]
+  {\displayfont\small\bfseries\color{muted}}
+  {\thesubsubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.5em}{0.7em}
+\titlespacing*{\subsection}{0pt}{1.1em}{0.45em}
+\titlespacing*{\subsubsection}{0pt}{0.9em}{0.3em}
+
+% --- table of contents -----------------------------------------------------
+\renewcommand{\contentsname}{Contents}
+\RequirePackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\displayfont\large\bfseries\color{accentnet}}
+\renewcommand{\cftsecfont}{\displayfont\normalsize\bfseries\color{ink}}
+\renewcommand{\cftsubsecfont}{\small\color{muted}}
+\renewcommand{\cftsecpagefont}{\ttfamily\small\color{muted}}
+\renewcommand{\cftsubsecpagefont}{\ttfamily\small\color{muted}}
+\renewcommand{\cftsecleader}{\color{line}\cftdotfill{\cftsecdotsep}}
+\renewcommand{\cftsecdotsep}{\cftdotsep}
+\setlength{\cftbeforesecskip}{0.55em}
+% tocloft defaults the contents page to `plain`, which drops the running head
+% and puts a stray centred folio at the foot. Keep it in the same style as
+% every other page.
+\tocloftpagestyle{fancy}
+
+% --- links -----------------------------------------------------------------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=accentnet,
+  urlcolor=accentnet,
+  citecolor=accentnet,
+}
+
+% --- running head ----------------------------------------------------------
+\newcommand{\runninghead}{}
+\newcommand{\setrunninghead}[1]{\renewcommand{\runninghead}{#1}}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrule}{\color{line}\hrule height 0.5pt}
+\renewcommand{\headrulewidth}{0.5pt}
+\fancyhead[L]{\ttfamily\footnotesize\color{muted}\runninghead}
+\fancyhead[R]{\ttfamily\footnotesize\color{muted}\thepage}
+
+% --- run-in labels ---------------------------------------------------------
+% A named thing you can go and use (a view of the tool, a command, a step):
+% stable/actionable, so it takes the green accent.
+\newcommand{\runin}[1]{{\displayfont\bfseries\color{accentnet}#1}}
+% Something the method is asserting or conceding: the red accent.
+\newcommand{\claimlabel}[1]{{\displayfont\bfseries\color{accenthist}#1}}
+% Inline emphasis for a term the reader should hold onto.
+\newcommand{\term}[1]{\textbf{#1}}
+% Inline code, file path, command. Written so a literal double hyphen in a
+% CLI flag cannot be turned into a dash by the font's ligature table.
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\dd}{-\kern0pt-}
+
+% --- callout boxes ---------------------------------------------------------
+% claimbox: the method is asserting or conceding something. Red bar.
+\newtcolorbox{claimbox}[1][]{
+  enhanced, breakable,
+  colback=card, colframe=line,
+  boxrule=0.4pt, arc=1.5pt,
+  left=0.9em, right=0.9em, top=0.7em, bottom=0.7em,
+  before upper={\setlength{\parskip}{0.5em}\setlength{\parindent}{0pt}},
+  borderline west={2.2pt}{0pt}{accenthist},
+  fontupper=\normalsize,
+  #1}
+% dobox: something the reader can go and run. Green bar.
+\newtcolorbox{dobox}[1][]{
+  enhanced, breakable,
+  colback=card, colframe=line,
+  boxrule=0.4pt, arc=1.5pt,
+  left=0.9em, right=0.9em, top=0.7em, bottom=0.7em,
+  before upper={\setlength{\parskip}{0.5em}\setlength{\parindent}{0pt}},
+  borderline west={2.2pt}{0pt}{accentnet},
+  fontupper=\small,
+  #1}
+% quotebox: verbatim source material quoted from the repo. Neutral, no bar.
+\newtcolorbox{quotebox}[1][]{
+  enhanced, breakable,
+  colback=card, colframe=line,
+  boxrule=0.4pt, arc=1.5pt,
+  left=0.9em, right=0.9em, top=0.7em, bottom=0.7em,
+  before upper={\setlength{\parskip}{0.5em}\setlength{\parindent}{0pt}},
+  fontupper=\small,
+  #1}
+
+% --- cover page ------------------------------------------------------------
+% \specimencover{title}{subtitle}{catalogue rows}
+% Revised 2026-08-05: the first pass (left-aligned, a huge dead \vfill gap
+% between subtitle and the metadata block) read as unbalanced, not designed.
+% This version centers on both axes - a plain, classic title-page
+% composition (kicker, title, rule, subtitle, then a compact colophon) - and
+% keeps the specimen-card metadata idea, but as a narrow centered block
+% instead of a full-width table that read like a spec sheet.
+\newcommand{\coverfield}[2]{%
+  {\ttfamily\footnotesize\color{muted}\MakeUppercase{#1}} &
+  {\ttfamily\footnotesize\color{ink}#2} \\[0.32em]}
+
+\newcommand{\specimencover}[3]{%
+  \begin{titlepage}
+  \AddToShipoutPictureBG*{\AtPageLowerLeft{\color{paper}\rule{\paperwidth}{\paperheight}}}
+  \thispagestyle{empty}
+  \begin{center}
+  \vspace*{\fill}
+
+  {\ttfamily\small\color{muted}\MakeUppercase{The Koselleck Machine}}
+
+  \vspace{2.4em}
+  \begin{minipage}{0.82\textwidth}
+  \centering
+  {\displayfont\bfseries\fontsize{23}{28}\selectfont\color{ink}#1\par}
+  \end{minipage}
+
+  \vspace{0.85em}
+  {\color{accenthist}\rule{2.6cm}{1.3pt}}
+
+  \vspace{1.3em}
+  \begin{minipage}{0.62\textwidth}
+  \centering
+  {\fontsize{10.5}{15}\selectfont\color{muted}#2\par}
+  \end{minipage}
+
+  \vspace*{\fill}
+
+  {\color{line}\rule{0.5\textwidth}{0.5pt}}
+
+  \vspace{0.9em}
+  \begin{tabular}{@{}r@{\hspace{0.85em}}l@{}}
+  #3
+  \end{tabular}
+
+  \vspace{0.09\textheight}
+  \end{center}
+  \end{titlepage}}
+
+\endinput

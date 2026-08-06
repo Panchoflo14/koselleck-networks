@@ -1,55 +1,42 @@
 \documentclass[11pt]{article}
 
-\usepackage[margin=1in]{geometry}
-\usepackage[T1]{fontenc}
-\usepackage{montserrat}
-\renewcommand{\familydefault}{\sfdefault}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{setspace}
+\usepackage[margin=1.05in,top=1.2in,bottom=1.15in]{geometry}
+\usepackage{specimen}   % shared "Specimen Reclassified" design system, docs/specimen.sty
 
-\setstretch{1.2}
-\setlist[enumerate]{itemsep=0.6em}
-\setlength{\parskip}{0.4em}
-
-\definecolor{accent}{HTML}{1B3A5C}
-
-\titleformat{\section}{\normalfont\Large\bfseries\color{accent}}{\thesection}{0.6em}{}
-\titleformat{\subsection}{\normalfont\large\bfseries\color{accent}}{\thesubsection}{0.6em}{}
-\titlespacing*{\section}{0pt}{1.4em}{0.8em}
-\titlespacing*{\subsection}{0pt}{1.2em}{0.6em}
+\setrunninghead{METHOD NOTE / KOSELLECK MACHINE}
 
 \hypersetup{
-  colorlinks=true,
-  linkcolor=accent,
-  urlcolor=accent,
-  citecolor=accent,
   pdftitle={Testing the Sattelzeit as a Network Event},
+  pdfsubject={A method note on the Koselleck Machine},
 }
 
-\title{\color{accent}\textbf{Testing the Sattelzeit as a Network Event}\\[0.3em]
-\Large\normalfont A method note on the \textbf{Koselleck Machine}}
-\author{}
-\date{\today}
-
 \begin{document}
-\maketitle
 
-{\hypersetup{linkcolor=accent}
+\specimencover
+  {Testing the Sattelzeit\\as a Network Event}
+  {A method note on the Koselleck Machine: measuring whether English
+   vocabulary reorganized as a system, and not only word by word, across
+   1770-1830.}
+  {%
+  \coverfield{Repository}{koselleck-networks}
+  \coverfield{Document}{docs/method.tex $\rightarrow$ docs/method.pdf}
+  \coverfield{Corpus span}{1500-1900, uniform 20-year windows}
+  \coverfield{Display resolution}{1.0 (sweep: 7 settings)}
+  \coverfield{Compiled}{\today}
+  }
+
+{\hypersetup{linkcolor=accentnet}
 \tableofcontents}
-\vspace{1em}
 
 \newpage
 
 \section{Context}
 
-The historian Reinhart Koselleck argued that the period 1770 -- 1830 (the
-\textbf{Sattelzeit}, German for ``saddle period'') was not simply an era
+The historian Reinhart Koselleck argued that the period 1770-1830 (the
+\term{Sattelzeit}, German for ``saddle period'') was not simply an era
 in which many words happened to change meaning at the same time. He
 claimed it was a moment when the whole vocabulary of politics and society
-reorganized \textbf{as a system} -- concepts shifted together, in
+reorganized \term{as a system}: concepts shifted together, in
 relation to one another, rather than drifting independently one at a
 time. This has always been argued in prose, from close reading of texts.
 It has never been tested computationally.
@@ -58,18 +45,18 @@ Ryan Heuser's \emph{Computing Koselleck} took the first step towards such
 a test: he trained a separate word-embedding model for each historical
 period and measured how far each individual word moves from one period
 to the next. He found that this movement is unusually large around
-1770 -- 1830, which supports the idea that something real happened in that
+1770-1830, which supports the idea that something real happened in that
 window. But his method looks at one word at a time. It cannot say
-whether words moved \textbf{together}, as a system reorganizing around a
+whether words moved \term{together}, as a system reorganizing around a
 shared structure, or whether each word's shift is its own independent
 event that simply happens to cluster in time.
 
 This project adds that second, missing test. Instead of asking how far a
-single word moves, it asks whether the \textbf{groupings} among words --
-the way the whole vocabulary is organized into clusters of related
-meaning -- change unusually around the same decades. If Koselleck is
-right, we should see the cluster structure itself reorganize at the
-Sattelzeit, not just individual words drifting off on their own.
+single word moves, it asks whether the \term{groupings} among words, the
+way the whole vocabulary is organized into clusters of related meaning,
+change unusually around the same decades. If Koselleck is right, we
+should see the cluster structure itself reorganize at the Sattelzeit, not
+just individual words drifting off on their own.
 
 \section{Method}
 
@@ -77,24 +64,24 @@ The method reuses the same per-period training that Heuser's approach
 uses, so the two studies remain directly comparable, and adds a network
 layer on top that a word-by-word approach cannot produce.
 
-\begin{enumerate}[leftmargin=*]
+\begin{enumerate}
 
-  \item \textbf{Split the corpus into time windows.} The corpus is
+  \item \term{Split the corpus into time windows.} The corpus is
     divided into even 20-year windows, currently 1500 to 1900. The windows
     are uniform across the whole timeline, not just around the Sattelzeit:
     if the method measured more finely right where reorganization was
     expected and more coarsely everywhere else, it would be biased toward
     finding exactly what it was looking for. Heuser's own results, in
-    fact, show a second spike of word-level change around 1905 -- 1925,
-    unrelated to the Sattelzeit -- a pattern that a Sattelzeit-only
-    sampling scheme could never have picked up. The 1500 -- 1900 span
+    fact, show a second spike of word-level change around 1905-1925,
+    unrelated to the Sattelzeit, a pattern that a Sattelzeit-only
+    sampling scheme could never have picked up. The 1500-1900 span
     reflects the corpus assembled for this project so far, not a limit of
-    the method itself -- the same pipeline applies unchanged to any other
+    the method itself: the same pipeline applies unchanged to any other
     span or window size, set entirely in configuration, given a
     period-dated corpus to feed it.
 
-  \item \textbf{Train a language model per period.} For each time window,
-    a model (\textbf{word2vec}) is trained independently, learning a
+  \item \term{Train a language model per period.} For each time window,
+    a model (\term{word2vec}) is trained independently, learning a
     numeric representation of every word from how it is actually used in
     that period's text: words that appear in similar contexts end up with
     similar representations. Training a separate model per period, rather
@@ -103,23 +90,23 @@ layer on top that a word-by-word approach cannot produce.
     reorganization: a word's meaning only makes sense relative to the
     other words trained alongside it, in that same period.
 
-  \item \textbf{Build a word-similarity network.} From those
+  \item \term{Build a word-similarity network.} From those
     representations, a network is built for each period: every word is a
-    node, linked to its 15 closest neighbours by \textbf{cosine
+    node, linked to its 15 closest neighbours by \term{cosine
     similarity} (a standard measure of how alike two words'
     representations are). A fixed number of nearest neighbours is used
     instead of a similarity threshold, because at this vocabulary scale a
-    fixed threshold produces networks that are almost fully connected --
+    fixed threshold produces networks that are almost fully connected:
     tens of millions of edges per period, unusable and with no meaningful
     structure to cluster. Purely grammatical words (articles,
     prepositions, pronouns) and single-letter tokens are excluded as
-    network nodes: the interest is in words that carry conceptual
+    network nodes, since the interest is in words that carry conceptual
     content, not the grammatical scaffolding of the language (those
     grammatical words are still used during training itself, since they
     help place every other word correctly).
 
-  \item \textbf{Detect communities.} A \textbf{community detection}
-    algorithm (\textbf{Leiden}) is run on each network, grouping words
+  \item \term{Detect communities.} A \term{community detection}
+    algorithm (\term{Leiden}) is run on each network, grouping words
     that are densely connected to one another. In practice, these groups
     function as semantic fields: sets of words that, in that period, are
     used in similar ways to each other more than to the rest of the
@@ -129,7 +116,7 @@ layer on top that a word-by-word approach cannot produce.
     basic way. $k$-means fixes a number of groups in advance and assigns
     each item to whichever group's average position it sits closest to.
     Leiden does neither: it does not fix the number of groups beforehand,
-    and it never compares a word to a group's ``average'' -- it only ever
+    and it never compares a word to a group's ``average'', it only ever
     asks a relational question about a word's actual connections. For any
     word, and any group it is already directly connected to, Leiden checks
     whether moving that word into the group would make the network as a
@@ -141,7 +128,7 @@ layer on top that a word-by-word approach cannot produce.
     entire algorithm.
 
     The number this process is trying to improve at every step has a name,
-    \textbf{modularity} (written $Q$). It compares how connected the words
+    \term{modularity} (written $Q$). It compares how connected the words
     placed inside the same group actually are against how connected they
     would be expected to be if the same set of connections had been handed
     out at random instead. A grouping that captures real structure scores
@@ -150,64 +137,68 @@ layer on top that a word-by-word approach cannot produce.
     \emph{below} zero, actively worse than not grouping at all. Leiden's
     search is nothing more than hill-climbing on this one number.
 
-  \item \textbf{Repeat detection at several levels of detail.} Community
+  \item \term{Repeat detection at several levels of detail.} Community
     detection does not have one single ``correct'' answer: a parameter
-    called \textbf{resolution} controls how many groups appear and how
+    called \term{resolution} controls how many groups appear and how
     large they are, by changing how large a word's own connections have to
     be, relative to chance, before joining a group is judged worthwhile.
     For that reason every network is processed at seven different
     resolution settings, and any claim about reorganization has to hold up
     across most of those settings, not just one chosen after the fact.
-    Critically, no single setting among the seven is ever treated as
-    ``the'' result and the rest discarded -- the sweep's entire purpose is
-    to check that the same conclusion holds broadly across settings, not
-    to pick whichever one happens to agree with the hypothesis. This is a
-    hard rule of the project: no finding is reported if it only holds at a
-    single, convenient resolution. (One setting, resolution 1.0 -- plain
-    textbook modularity, with no bias toward larger or smaller groups --
-    is used separately, only to choose a single picture to display in the
-    interactive explorer described below. That is a display choice with no
-    bearing on which finding gets reported as real, and it is not an
-    arbitrary one: looking across the already-computed sweep, modularity
-    -- how well a grouping captures real structure, against random chance
-    -- sits on a broad plateau from resolution 0.5 to 1.5 and peaks, only
-    marginally, at 1.0, while the migration fraction rises and
-    period-to-period stability falls fairly steadily as resolution
-    increases beyond a low setting. A higher display resolution would
-    therefore mechanically inflate the very reorganization measurement
-    this project is testing, which is reason enough to keep the display
-    fixed at the standard default rather than a value chosen after seeing
-    the result.)
 
-  \item \textbf{Compare consecutive periods.} For each pair of
+    \begin{claimbox}
+    \claimlabel{Hard rule.} No single setting among the seven is ever
+    treated as ``the'' result and the rest discarded. The sweep's entire
+    purpose is to check that the same conclusion holds broadly across
+    settings, not to pick whichever one happens to agree with the
+    hypothesis. No finding is reported if it only holds at a single,
+    convenient resolution.
+    \end{claimbox}
+
+    One setting, resolution 1.0 (plain textbook modularity, with no bias
+    toward larger or smaller groups) is used separately, only to choose a
+    single picture to display in the interactive explorer described below.
+    That is a display choice with no bearing on which finding gets
+    reported as real, and it is not an arbitrary one: looking across the
+    already-computed sweep, modularity (how well a grouping captures real
+    structure, against random chance) sits on a broad plateau from
+    resolution 0.5 to 1.5 and peaks, only marginally, at 1.0, while the
+    migration fraction rises and period-to-period stability falls fairly
+    steadily as resolution increases beyond a low setting. A higher
+    display resolution would therefore mechanically inflate the very
+    reorganization measurement this project is testing, which is reason
+    enough to keep the display fixed at the standard default rather than a
+    value chosen after seeing the result.
+
+  \item \term{Compare consecutive periods.} For each pair of
     consecutive periods, the comparison is restricted to words that
     appear in both (each period has its own vocabulary). The best
     possible match between one period's groups and the next period's
-    groups is found first -- group numbers do not mean the same thing
-    from one period to the next, so the correspondence has to be
-    established before anything can be compared -- and then the fraction
+    groups is found first, because group numbers do not mean the same
+    thing from one period to the next, so the correspondence has to be
+    established before anything can be compared. Then the fraction
     of shared words that still ended up in a different group, despite
     that best match, is measured. That fraction, how much of the shared
     vocabulary ``migrated'' to a new group, is what this project calls
-    the \textbf{migration fraction} -- its central measurement of how
+    the \term{migration fraction}: its central measurement of how
     much reorganization happened between two periods.
 
-  \item \textbf{Test whether reorganization concentrates at the
+  \item \term{Test whether reorganization concentrates at the
     Sattelzeit.} The hypothesis predicts that the migration fraction
     should be unusually high specifically for the transitions that fall
-    inside or close out the 1770 -- 1830 window, compared to every other
-    transition across the full 1500 -- 1900 timeline.
+    inside or close out the 1770-1830 window, compared to every other
+    transition across the full 1500-1900 timeline.
 
-  \item \textbf{Repeat the whole measurement per region.} The corpus is not
+  \item \term{Repeat the whole measurement per region.} The corpus is not
     evenly British across the timeline, and the imbalance is worst exactly
-    where it matters most: in 1780 -- 1800 the American material
+    where it matters most: in 1780-1800 the American material
     (Evans-TCP, 1681 documents) outweighs the British (ECCO-TCP, 910
     documents), because ECCO's public transcriptions thin out sharply at
     the end of the eighteenth century. A change in the cluster structure
     across that boundary could therefore reflect a change in \emph{who was
     writing} rather than a change in the language. To separate the two,
-    every step above -- training, network construction, community
-    detection, the resolution sweep, and the migration fraction -- is also
+    every step above (training, network construction, community
+    detection, the resolution sweep, and the migration fraction) is also
     run on each region's documents alone, in addition to the combined
     corpus. If the reorganization is real, it should show up inside the
     British-only and the American-only timelines as well, not only in the
@@ -217,7 +208,7 @@ layer on top that a word-by-word approach cannot produce.
     top-level folder its source was filed under, so the same check extends
     to any other split of the corpus.
 
-  \item \textbf{Dictionary cross-check (not yet implemented).} As a
+  \item \term{Dictionary cross-check (not yet implemented).} As a
     second line of evidence, independent of the network entirely, the
     plan is to take the words that change group right at the pivot and
     check whether the OED or other period dictionaries independently
@@ -231,44 +222,95 @@ layer on top that a word-by-word approach cannot produce.
 
 \subsection{Corpus}
 
-The primary source is the \textbf{Text Creation Partnership (TCP)}:
+The primary source is the \term{Text Creation Partnership (TCP)}:
 curated, manually corrected transcriptions with no OCR noise, covering
-1500 -- 1800 (EEBO-TCP, ECCO-TCP, Evans-TCP). Since the Sattelzeit extends
-to 1830 and TCP stops at 1800, the plan is to supplement 1800 -- 1900 with
+1500-1800 (EEBO-TCP, ECCO-TCP, Evans-TCP). Since the Sattelzeit extends
+to 1830 and TCP stops at 1800, the plan is to supplement 1800-1900 with
 Project Gutenberg. HistWords (pre-trained historical embeddings) is used
 only as an independent sanity check, not as primary evidence. Each source
-is filed under a region (currently \texttt{british} for EEBO-TCP and
-ECCO-TCP, \texttt{american} for Evans-TCP), which is what makes the
+is filed under a region (currently \code{british} for EEBO-TCP and
+ECCO-TCP, \code{american} for Evans-TCP), which is what makes the
 per-region rerun described above possible at all.
+
+\subsection{Not a closed dataset}
+
+This project is a method with one corpus attached, not a finished corpus
+that happens to have a method. The repository ships the pipeline; the
+corpus is fetched separately and is deliberately not vendored. That has a
+practical consequence worth stating plainly: a reader who disagrees with
+the corpus, or who simply has a better one, can rerun the whole
+measurement on their own text rather than take these numbers on trust.
+There are exactly two cases, and only one of them touches code.
+
+\runin{Case A: the material is already in TCP's P4 XML format} (another
+TCP release, or a repackaged TCP subset). No code change at all. The
+zip files are dropped at
+\pathref{<data_root>/corpus/tcp/regions/<region>/<source>/*.zip} and the
+pipeline is rerun from \code{src/parse\_tcp.py}, which discovers regions
+and sources by scanning that folder tree rather than from any registry.
+Both folder names are free-form: the region level becomes the region tag
+carried through the entire pipeline and the webapp's region toggle, and
+the source level is a label kept in the manifest for diagnostics. Shards
+whose filename marks them as TCP ``unedited'' variants are skipped
+automatically.
+
+\runin{Case B: the material is in any other raw format} (plain text,
+JSON, a different XML flavour, OCR dumps). One file changes,
+\code{src/parse\_tcp.py}. A reader function is added next to the existing
+\code{iter\_xml\_members} that walks the new format and, for each
+document, emits the same normalised record the TCP path already writes to
+\code{processed/all\_docs.jsonl}:
+
+\begin{dobox}
+\code{\{"region": "...", "source": "...", "doc\_id": "...", "year": 1782,
+"text": "..."\}}
+\end{dobox}
+
+plus the matching \code{region,source,doc\_id,year,chars} row in
+\code{manifest.csv}. Documents with no extractable year or no text are
+dropped, exactly as in the TCP path. That is the entire contract:
+everything downstream, \code{bucket\_periods.py}, \code{embeddings.py},
+\code{network.py}, \code{community.py}, \code{metrics.py}, and the
+webapp, reads only those normalised records and needs no change. Period
+boundaries and model hyperparameters are configuration, not code, and
+live in \code{config.yml}. In both cases, if the new material introduces
+a region name that did not exist before, the region-split outputs and the
+webapp's region toggle pick it up on their own; there is no list of valid
+regions anywhere to update.
+
+To be clear about what this is not: there is no upload interface, no
+hosted service, and no API-key-driven ingestion. The mechanism is the
+ordinary one, clone the repository, put corpus files in the right folder,
+rerun the pipeline scripts in order.
 
 \section{The interactive explorer}
 
-Alongside the pipeline, a small web tool -- the \textbf{Koselleck
-Machine} -- makes the per-period networks directly explorable, without
+Alongside the pipeline, a small web tool, the \term{Koselleck
+Machine}, makes the per-period networks directly explorable, without
 reading raw numbers. It has three views of the same underlying data.
 
-\textbf{Timeline.} The primary view. Type a word and see, in one
+\runin{Timeline.} The primary view. Type a word and see, in one
 continuous strip, which community it belonged to in every period it
-appears in -- the community's plain-English label and its lane (below)
+appears in: the community's plain-English label and its lane (below)
 as a secondary colour cue, an explicit gap where the word is simply
 absent from that period's vocabulary, and a marked step wherever the
 word's community actually changed from the period before, versus stayed
 the same. Earlier drafts of this tool led with the graph explorer below,
 but historian collaborators who reviewed it found a force-directed
 diagram hard to read at a glance; what they consistently asked for
-instead was exactly this -- which domain a word belonged to, over time,
+instead was exactly this, which domain a word belonged to, over time,
 read directly rather than inferred from a picture. Clicking any period
 in the strip opens that word's full neighbourhood there, reusing the
 word search view below.
 
-\textbf{Word search.} The same underlying data, presented as a plain
+\runin{Word search.} The same underlying data, presented as a plain
 table instead of a diagram: type a word and a period, and get back its
 closest neighbours by similarity, each neighbour's community, and whether
 the searched word's own community changed since the previous period.
 Useful when the actual numbers matter more than the picture, and reused
 directly by the timeline's own per-period drill-in above.
 
-\textbf{Graph explorer.} A period slider drives a force-directed network
+\runin{Graph explorer.} A period slider drives a force-directed network
 diagram: nodes are words, their size reflects how connected they are,
 and their color marks which community they belong to in that period. A
 search box focuses the view on one word and its neighbourhood; moving the
@@ -277,15 +319,15 @@ change in a word's color between periods marks a real change of
 community, not just a coincidence of the diagram's layout. A side panel
 explains the method in plain terms and shows, for the currently selected
 resolution, how the migration measurement holds up across all seven
-resolution settings -- the same robustness check described above, made
+resolution settings, the same robustness check described above, made
 visible rather than just claimed. Kept for browsing the raw network
-structure -- and because building it first is what surfaced this whole
-labeling and lane apparatus -- but no longer the primary way to read the
+structure, and because building it first is what surfaced this whole
+labeling and lane apparatus, but no longer the primary way to read the
 tool, per the reception above.
 
-\textbf{Region toggle.} Where the per-region runs described above have been
-built, both views also offer a region switch -- combined, British only,
-American only -- so the same word in the same period can be compared across
+\runin{Region toggle.} Where the per-region runs described above have been
+built, both views also offer a region switch (combined, British only,
+American only) so the same word in the same period can be compared across
 the sub-corpora directly, and a shift can be checked against the possibility
 that it only exists in the mixture. The switch lists only the regions that
 were actually built, read off the data itself rather than assumed.
@@ -294,12 +336,12 @@ Every community shown in any view carries a short, plain-English
 label (for example ``Government \& Law'', ``Moral Character \& Virtue'').
 These labels were generated by having a language model read each
 community's most representative words and summarize the shared theme in
-a few words -- a convenience for a human reader, not a finding in
-themselves. A label is not re-read independently every period, however:
-whenever a community's best correspondence to the period before it (the
+a few words: a convenience for a human reader, not a finding in
+themselves. A label is not re-read independently every period, however.
+Whenever a community's best correspondence to the period before it (the
 same correspondence step the migration fraction is built on) can be
 established, its label is inherited unchanged from that predecessor, and
-a fresh read only happens for a community with no such predecessor -- the
+a fresh read only happens for a community with no such predecessor: the
 first period a region's data begins, or the side of a genuine
 reorganization that a word moved into. In the combined corpus, roughly
 seven in eight community labels are inherited this way rather than
@@ -307,64 +349,241 @@ independently generated for a given pipeline run; the per-region runs
 behave similarly. This keeps a community's displayed name consistent with
 whether the tool has actually flagged it as having moved or stayed,
 rather than the two being computed separately and occasionally
-disagreeing, which an early version of the tool did. Roughly 60 -- 70\% of communities are honestly flagged, by
-the same process, as \textbf{``mixed''}: the corpus is multilingual
-(English, Latin, Law French, Welsh, Scots, and more) and early modern,
-and a community detected by this method sometimes groups words by shared
-grammar -- verb conjugations, comparative forms, spelling variants --
-rather than by shared topic. Every view surfaces this caveat directly next
-to the labels, rather than presenting every label as equally reliable.
+disagreeing, which an early version of the tool did. Roughly 60-70\% of
+communities are honestly flagged, by the same process, as
+\term{``mixed''}: the corpus is multilingual (English, Latin, Law French,
+Welsh, Scots, and more) and early modern, and a community detected by
+this method sometimes groups words by shared grammar (verb conjugations,
+comparative forms, spelling variants) rather than by shared topic. Every
+view surfaces this caveat directly next to the labels, rather than
+presenting every label as equally reliable.
 
-Each community is additionally sorted into one \textbf{lane}: a small,
-fixed list of about a dozen broad domains (government and law, religion,
+Each community is additionally sorted into one \term{lane}: a small,
+fixed list of fifteen broad domains (government and law, religion,
 medicine, trade, and so on), plus one explicit ``structural / uncertain''
 lane for exactly the ``mixed'' case above. The lane list itself was
 authored once by hand, from a read-through of every non-mixed label
-already produced, then fixed -- a language model assigns each community
-to one of these existing lanes, it never invents a new one per run. That
+already produced, then fixed. A language model assigns each community
+to one of these existing lanes; it never invents a new one per run. That
 fixed-in-advance property is what lets a lane stay a meaningful,
 comparable signal across independent pipeline runs even though, as the
-next section explains, the underlying community structure and the raw
+last section explains, the underlying community structure and the raw
 label text do not reproduce identically run to run. In the tools above,
 a community's plain-English label and number stay the primary signal;
 its lane is a secondary colour cue layered on top, not a replacement for
 reading the actual label.
+
+\subsection{How the labels are actually produced}
+
+The paragraphs above describe what the labels are for. This subsection
+gives the mechanics, so that a technical reader can see exactly what the
+model was asked to do and reproduce or replace it. Labeling is an
+optional, clearly separable stage: every quantitative result in this
+document is produced by \code{src/metrics.py} and needs no labels at all.
+
+\subsubsection{The prompt}
+
+The prompt lives in the repository as a single Markdown file,
+\pathref{src/prompts/community_labeling_v1.md}, which is parsed at runtime
+by \code{src/label\_communities.py} rather than duplicated as a string
+constant in code, so the file stays the one place the instructions and
+the lane list are edited. It has three sections: the fixed lane list, the
+system prompt, and the user message template. One model call is made per
+Leiden community, at resolution 1.0.
+
+The system prompt, quoted from that file, tells the model:
+
+\begin{quotebox}
+``You are labeling word clusters from a computational study of an early
+modern and eighteenth/nineteenth-century English-language corpus (the
+Text Creation Partnership: EEBO, ECCO, Evans). Each cluster is a
+`community' found by running the Leiden algorithm on a per-period
+word-similarity network, words that are used in similar contexts more
+than they are used with the rest of that period's vocabulary. The corpus
+is multilingual (English, Latin, Law French, Welsh, Scots, and other
+languages appear untranslated) and pre-modern, so a community sometimes
+groups words by shared grammatical form (verb conjugations,
+comparatives, spelling variants), by shared foreign language, or by
+proper names (people, places, biblical figures) rather than by a real
+topic. \emph{That is an honest and expected outcome, not a failure to
+avoid.}''
+
+It then asks for exactly three decisions:
+
+\begin{enumerate}[itemsep=0.3em]
+  \item ``Whether most of the top words share a genuine topical or
+    thematic connection a historian would recognize (e.g. law, medicine,
+    religion, trade), as opposed to being grouped mainly by grammar, a
+    shared non-English language, or being mostly proper names or
+    fragments.''
+  \item ``A short plain-English label, two to five words, for what the
+    community is actually about. If the grouping is grammatical,
+    foreign-language, or name-driven rather than topical, the label
+    should say what kind of cluster it is (e.g. `Second-Person Verb
+    Forms', `Latin Text', `Biblical Names'), not force a topic onto it.''
+  \item ``Exactly one lane from the fixed list above. Use `Structural /
+    Uncertain' whenever the answer to (1) is no, do not stretch a
+    grammatical, foreign-language, or name cluster into a thematic lane
+    just because a few of its words are suggestive of one.''
+\end{enumerate}
+\end{quotebox}
+
+The user message carries only the material the model is meant to judge,
+filled in from the extraction step: the region, the period, the community
+size in words, and the community's top 25 highest-degree words, most
+connected first.
+
+Two properties of this setup matter more than the wording. First, the
+lane vocabulary is closed. The model is not asked to invent a taxonomy;
+it must choose one of fifteen lanes fixed in advance, listed in the same
+file and reproduced here in the order the prompt gives them:
+
+\begin{dobox}
+\begin{enumerate}[itemsep=0.15em,label=\arabic*.]
+  \item Government, Law \& Administration
+  \item Religion, Theology \& the Church
+  \item Morality: Virtue \& Vice
+  \item Medicine, Body \& Health
+  \item Science, Mathematics \& Natural Philosophy
+  \item Nature, Landscape \& Weather
+  \item Military \& Warfare
+  \item Trade, Finance \& Commerce
+  \item History, Genealogy, Nobility \& Kinship
+  \item Rhetoric \& Persuasion
+  \item Literature, Drama \& Poetic Diction
+  \item Domestic Life, Dress \& Household
+  \item Geography \& Territory
+  \item Books, Learning \& Scholarship
+  \item Structural / Uncertain
+\end{enumerate}
+\end{dobox}
+
+That list was not invented for the prompt either: it was derived by hand
+from 707 labels already produced across the combined, British, and
+American runs, then frozen. Second, the response is not free text. The
+model must answer by calling a tool, \code{assign\_label}, whose schema
+takes a \code{label} string (``two to five word plain-English label'')
+and a \code{lane} constrained by a JSON-schema \code{enum} to exactly the
+fifteen lanes parsed out of the prompt file. A returned lane outside that
+list is rejected and the call retried, so a label with an out-of-taxonomy
+lane can never reach the data files.
+
+\subsubsection{The workflow}
+
+Labeling runs as two scripts and three subcommands, after
+\code{src/community.py} has produced the community assignments:
+
+\begin{dobox}
+\code{python src/extract\_community\_words.py}\\
+\code{python src/label\_communities.py generate {\dd}region combined}\\
+\code{python src/label\_communities.py compile {\dd}region combined}\\
+\code{python src/label\_communities.py publish {\dd}region combined}
+\end{dobox}
+
+\code{extract\_community\_words.py} writes, for each populated period at
+resolution 1.0, every community's size and its top 25 highest-degree
+member words to
+\pathref{communities/community_words_res1.0[_<region>].json}. It runs once
+for the combined corpus and once per region discovered on disk, because a
+region's own Leiden run has its own community numbering and therefore
+needs its own words file and its own labels file.
+
+\code{generate} turns that JSON into a human-editable CSV with one row
+per community and the columns \code{region}, \code{period},
+\code{community\_id}, \code{n\_words}, \code{top\_words\_preview},
+\code{label}, \code{lane}, \code{origin}, \code{inherited\_from}. It
+walks periods in chronological order and, for each community, first asks
+whether the Hungarian alignment that \code{metrics.py} already uses for
+the migration fraction maps it back to a predecessor community that
+already has a label. If so, the label and lane are inherited verbatim
+(\code{origin=inherited}: free, deterministic, no model call). Only a
+genesis community, a region's first labeled period or the moved-into side
+of a real reorganization, needs a fresh read. Genesis rows are either
+left blank for a human or an agent to fill in by hand
+(\code{{\dd}fill blank}, the default, and this project's actual practice)
+or filled by one API call each (\code{{\dd}fill llm}). Rows whose
+\code{origin} is \code{human} are never overwritten; \code{{\dd}overwrite}
+re-fills only the blank and model-generated genesis rows. In the normal
+flow \code{generate} is run twice: once to see which rows come back
+blank, then again after the genesis rows are filled, which resolves every
+inheriting row downstream of them for free.
+
+\code{compile} turns the CSV, including any hand edits, into
+\pathref{communities/community_labels_res1.0[_<region>].json}, which is
+the exact file \code{webapp/app.py} reads. It also stamps a
+\code{\_meta} block into that JSON recording the resolution, the region,
+the number of communities, how many were human-edited, how many were
+inherited, and a standing caveat that the labels are a single model
+read-through and not an empirically validated taxonomy.
+
+\code{publish} copies the CSV and the compiled JSON for a region out of
+the data directory and into this repository. \code{{\dd}region} also
+accepts a region name or \code{all} at every subcommand.
+
+\subsubsection{Where the published labels live}
+
+The label files that the pipeline writes live in the data directory,
+which is gitignored and does not travel with the repository. That is why
+a collaborator cloning the repo previously saw no community names at
+all. The \code{publish} subcommand exists to fix exactly that: it copies
+a small (roughly 60 KB total) snapshot into the repository's
+\code{labels/} directory, which currently holds one CSV and one compiled
+JSON per region:
+
+\begin{dobox}
+\code{labels/community\_labels\_res1.0.csv}\\
+\code{labels/community\_labels\_res1.0.json}\\
+\code{labels/community\_labels\_res1.0\_british.csv}\\
+\code{labels/community\_labels\_res1.0\_british.json}\\
+\code{labels/community\_labels\_res1.0\_american.csv}\\
+\code{labels/community\_labels\_res1.0\_american.json}
+\end{dobox}
+
+That is the citable snapshot: the version of the labels this document
+describes, readable without running the pipeline or holding the corpus.
+\code{publish} only copies files to disk; it never commits, so the
+snapshot is reviewed by hand before it is added to version control.
 
 \section{Current limitations}
 
 Three limitations shape what can be claimed right now, and all three are
 visible in the tool itself rather than hidden.
 
-\textbf{Corpus coverage.} The corpus does not yet cover 1800 -- 1900 with
+\begin{claimbox}
+\claimlabel{Corpus coverage.} The corpus does not yet cover 1800-1900 with
 the same density as earlier periods, since the Gutenberg supplement
 described above has not been sourced yet. The periods with the least
 surviving text are, not coincidentally, the ones closing the Sattelzeit
 window, so any comparison across that boundary currently rests on a
 thinner sample than the rest of the timeline. That gap skews composition
-and not only volume: with ECCO thin after 1780, the 1780 -- 1800 window
+and not only volume: with ECCO thin after 1780, the 1780-1800 window
 holds more American than British documents, which is why the per-region
-rerun exists. It bounds the problem rather than solving it -- each
+rerun exists. It bounds the problem rather than solving it: each
 regional sub-corpus is thinner still than the combined one, so per-region
 results carry wider uncertainty than the headline numbers.
+\end{claimbox}
 
-\textbf{Label reliability.} A community's label is inherited, not
+\begin{claimbox}
+\claimlabel{Label reliability.} A community's label is inherited, not
 re-read, for as long as its best correspondence to the previous period
-holds -- only a minority of labels (roughly one in ten to one in six,
+holds. Only a minority of labels (roughly one in ten to one in six,
 depending on region) are an independent read for a given pipeline run.
 That independent read is still a single, unvalidated pass by a language
-model, not a checked ground truth -- useful for orientation, not for
-citation. Inheritance carries its own, different cost: on the corpus's
+model, not a checked ground truth: useful for orientation, not for
+citation. Inheritance carries its own, different cost. On the corpus's
 longest-running community lineages, a label can go up to fifteen periods
 (close to three hundred years) without being independently re-read, and
 the community's actual word composition can drift well past what the
-label still says by then -- a staleness problem, not a wrong-read one,
-and not yet addressed.
+label still says by then, a staleness problem rather than a wrong-read
+one, and not yet addressed.
+\end{claimbox}
 
-\textbf{Reproducibility.} Rerunning the full pipeline from scratch on
+\begin{claimbox}
+\claimlabel{Reproducibility.} Rerunning the full pipeline from scratch on
 the same corpus does not reproduce an identical result, and this is
 worth stating plainly rather than glossing over. Community detection
-itself is properly seeded and deterministic given a fixed network -- the
-gap sits one step earlier, in training: language-model training here
+itself is properly seeded and deterministic given a fixed network; the
+gap sits one step earlier, in training. Language-model training here
 uses multiple parallel threads for speed, and that kind of parallel
 training is not bit-for-bit repeatable even with a fixed random seed,
 because the exact order in which threads update shared values depends on
@@ -373,16 +592,17 @@ differences in the trained word vectors cascade into a similarity
 network with slightly different edges, which cascades into a
 structurally similar but not identical community partition. In practice
 this shows up as, for instance, one full rerun finding 304 communities
-in the combined corpus where an earlier run found 308 -- a real
+in the combined corpus where an earlier run found 308: a real
 difference, not a bug, and not one worth trading away the threefold
 training speed of parallel execution to chase, since it does not bear on
 the actual claim under test. That claim is whether reorganization
 concentrates at the Sattelzeit, tested by the resolution sweep described
-above, holding across settings within one run -- not whether a specific
+above, holding across settings within one run, and not whether a specific
 community keeps the same id, or even the same member words down to the
 last one, across two independently retrained copies of the pipeline. The
 one thing designed to stay meaningfully comparable across independent
 reruns is the small, fixed lane list described above, precisely because
 it is authored once by hand and never reinvented per run.
+\end{claimbox}
 
 \end{document}
