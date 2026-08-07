@@ -749,6 +749,12 @@ def timeline(word):
             "lane": entry.get("lane") if entry else None,
             "n_words_in_community": entry["n_words"] if entry else None,
             "changed_from_prev": changed,
+            # True only when label_communities.py's chain cap forced a fresh
+            # read of a community that structurally stayed the same
+            # (changed_from_prev is False/None here, never True) - "same
+            # tracked lineage, description just re-examined," distinct from
+            # both a plain inherited "stayed" and a real "moved"/reorganized.
+            "reclassified": bool(entry and entry.get("reclassified")),
         })
         prev_label = label
 

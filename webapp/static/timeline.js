@@ -440,6 +440,18 @@ function renderTimeline(data) {
           arrow.textContent = state === "changed" ? "moved" : "stayed";
           if (state === "changed") {
             arrow.title = "moved to a different group since the previous period with data";
+          } else if (p.reclassified) {
+            // The chain cap in label_communities.py (MAX_INHERITANCE_CHAIN)
+            // forced a fresh read here - the group is still structurally
+            // the same lineage (that's why this arrow says "stayed" at
+            // all), but its label was re-examined against this period's
+            // actual words rather than carried forward unread. Distinct
+            // from plain nameChanged below: this is a deliberate,
+            // scheduled re-check, not two independent reads happening to
+            // land on different wording.
+            arrow.title = `the same underlying group persists (judged by its whole membership) - its ` +
+              `description was just re-examined against this period's own words, rather than carried ` +
+              `forward unread, since a label may only inherit for a few periods before that happens.`;
           } else if (nameChanged) {
             arrow.title = `the same underlying group persists (judged by its whole membership), but its ` +
               `written name changed - it was called “${prevFoundName}” in the previous period. Each ` +
