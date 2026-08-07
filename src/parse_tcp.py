@@ -22,13 +22,22 @@
 # not quality-checked, so any zip whose filename contains "unedited" is
 # skipped regardless of which region/source folder it's sitting in.
 #
+# Also reads the British Library's 19th-century JSONL dataset (see
+# iter_bl_records below) from <corpus_bl>, tagging every volume "british" -
+# this is the corpus's actual 1800-1900 supplement (Gutenberg was the
+# earlier plan but was never wired in; its metadata turned out to have no
+# original publication date at all, only its own digitization date, so it
+# was dropped rather than built around).
+#
 # Output: <extracted>/all_docs.jsonl - one JSON object per document
 #         ({"region", "source", "doc_id", "year", "text"})
 #         <extracted>/manifest.csv - region,source,doc_id,year,chars per
 #         document, for a quick corpus-balance check without reading the jsonl.
 
+import gzip
 import json
 import re
+import tarfile
 import zipfile
 from collections import defaultdict
 from pathlib import Path
@@ -38,6 +47,37 @@ from lxml import etree
 from pipeline_config import load_config
 
 YEAR_RE = re.compile(r"(1[4-9]\d{2})")
+
+BL_SKIP_ARCHIVES = frozenset({"1510_1699.tar.gz", "1700_1799.tar.gz", "unk.tar.gz"})
+# Pre-1800 BL OCR text would duplicate what TCP already covers with clean,
+# double-keyed transcription - including it would mix OCR noise into
+# periods that already have better text, for no coverage gain. unk.tar.gz's
+# records carry no date at all (that's why they're filed under "unk"), so
+# every one of them would be dropped by the "no extractable year" rule below
+# anyway - skipped up front instead of decompressing gigabytes for nothing.
+
+BL_LANGUAGE_FIELD = "Language_1"
+BL_REQUIRED_LANGUAGE = "English"
+# The BL 19th-century collection is not English-only (Welsh, French, Latin
+# and other titles are mixed in). This project is English-specific
+# throughout (method, labeling), so anything not tagged English is dropped
+# rather than silently blended into the corpus.
+
+# Found 2026-08-06 after labeling turned up entire "communities" that were
+# nothing but word fragments ("construc", "riched", "tertainment"...): the
+# BL's OCR text still carries the original page's line-break hyphen as a
+# literal "-", and joining pages/lines with a plain space (below) leaves it
+# sitting right before the whitespace - "utrum- que" instead of "utrumque".
+# A real ~28% of pages sampled from one decade archive have at least one
+# instance. Unlike TCP (whose transcribers already resolved this into a
+# dedicated marker, see embeddings.py's LINEBREAK_HYPHEN), BL's raw OCR text
+# has no separate marker - a literal hyphen is genuinely ambiguous with a
+# real hyphenated compound ("well-known"), but a real compound never has
+# whitespace between the hyphen and the next letter, so "letter-<space>letter"
+# is safe to rejoin without a marker: at worst it merges a genuine
+# space-hyphenated compound ("co- operation") into a still-real word
+# ("cooperation"), never into a new fragment.
+BL_LINEBREAK_HYPHEN_RE = re.compile(r"([A-Za-z])-\s+([A-Za-z])")
 
 # Report every N files instead of a per-file tqdm bar - a zip can hold tens
 # of thousands of XML members, and a per-file progress tick produces far more
@@ -135,6 +175,48 @@ def extract_text(root):
     return re.sub(r"\s+", " ", text).strip()
 
 
+def discover_bl_archives(bl_root):
+    """Yields the decade .tar.gz files under <bl_root> worth ingesting, in a
+    stable sorted order, skipping BL_SKIP_ARCHIVES."""
+    if not bl_root.exists():
+        return
+    for archive_path in sorted(bl_root.glob("*.tar.gz")):
+        if archive_path.name in BL_SKIP_ARCHIVES:
+            continue
+        yield archive_path
+
+
+def iter_bl_records(bl_root):
+    """Yields (doc_id, year, text) for every English-language volume across
+    the decade archives discover_bl_archives() selects. Each archive member
+    is itself a gzipped JSONL file, one line per page, all pages for a given
+    volume sharing one "record_id" and "date" - read straight out of the
+    tar.gz in memory, same "no bulk extraction to disk" approach this file
+    already uses for TCP's zips."""
+    for archive_path in discover_bl_archives(bl_root):
+        with tarfile.open(archive_path, mode="r:gz") as tf:
+            members = [m for m in tf.getmembers() if m.isfile() and m.name.endswith(".jsonl.gz")]
+            print(f"  {archive_path.name}: {len(members)} volumes")
+            for i, member in enumerate(members, 1):
+                if i % REPORT_EVERY == 0:
+                    print(f"  {archive_path.name}: {i}/{len(members)}")
+                raw = tf.extractfile(member).read()
+                pages = [json.loads(line) for line in gzip.decompress(raw).splitlines() if line]
+                if not pages:
+                    continue
+                if pages[0].get(BL_LANGUAGE_FIELD) != BL_REQUIRED_LANGUAGE:
+                    continue
+                year = next((p["date"] for p in pages if p.get("date")), None)
+                if year is None:
+                    continue
+                text_parts = [p["text"] for p in sorted(pages, key=lambda p: p.get("pg", 0)) if p.get("text")]
+                text = re.sub(r"\s+", " ", " ".join(text_parts)).strip()
+                text = BL_LINEBREAK_HYPHEN_RE.sub(r"\1\2", text)
+                if not text:
+                    continue
+                yield pages[0]["record_id"], year, text
+
+
 def main():
     config = load_config()
     data_root = Path(config["data_root"])
@@ -184,6 +266,25 @@ def main():
                 }) + "\n")
                 manifest_f.write(f"{region},{source_name},{doc_id},{year},{len(text)}\n")
                 counts_by_source[(region, source_name)] += 1
+
+        # BL is filed under the "british" region tag - it's a British-
+        # published archive, just like EEBO/ECCO, extending that region's
+        # coverage from TCP's 1800 cutoff into the 19th century. It's not a
+        # TCP zip, so it doesn't go through discover_sources()/
+        # iter_xml_members() above; it gets its own reader, per this repo's
+        # documented "Case B" contract in README.md, but still lands in the
+        # exact same all_docs.jsonl/manifest.csv.
+        bl_root = data_root / config["paths"].get("corpus_bl", "corpus/bl")
+        for doc_id, year, text in iter_bl_records(bl_root):
+            docs_f.write(json.dumps({
+                "region": "british",
+                "source": "bl_19c",
+                "doc_id": doc_id,
+                "year": year,
+                "text": text,
+            }) + "\n")
+            manifest_f.write(f"british,bl_19c,{doc_id},{year},{len(text)}\n")
+            counts_by_source[("british", "bl_19c")] += 1
 
     if n_zips == 0:
         print(f"warning: no zips found under {corpus_root} (expected <region>/<source>/*.zip)")

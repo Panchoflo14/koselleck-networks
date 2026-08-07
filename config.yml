@@ -23,6 +23,7 @@ paths:
   # already expects. Anything outside this "regions" folder (old format
   # variants, reference files) is ignored by the pipeline.
   corpus_tcp:      corpus/tcp/regions
+  corpus_bl:       corpus/bl              # British Library 19th-century JSONL, see parse_tcp.py's iter_bl_records
   extracted:       processed             # flat per-document extraction (parse_tcp.py)
   processed:       processed/periods     # per-period bucketed text (bucket_periods.py)
   vocab:           processed/vocab

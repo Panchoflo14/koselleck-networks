@@ -4,16 +4,31 @@
 # a region-restricted subset of the period's documents.
 # Input:  processed/<label>.txt / <label>_<region>.txt (from bucket_periods.py)
 # Output: <embeddings>/<label>.model / <label>_<region>.model
+#
+# Periods are fully independent of each other, so they're trained in
+# parallel processes (PARALLEL_PERIODS at a time) instead of one after
+# another - the machine this was first run on has 20 physical cores and the
+# old strictly-sequential loop only ever used the 4 gensim already spends
+# per model, leaving most of it idle. GPU training was considered and
+# rejected: gensim's Word2Vec is a CPU-only (Cython) implementation with no
+# CUDA path, so using the GPU would mean replacing the training code
+# entirely, not just a flag - a much bigger undertaking than this.
 
 import logging
 import re
 import time
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 
 from gensim.models import Word2Vec
 from gensim.models.callbacks import CallbackAny2Vec
 
 from pipeline_config import load_config, variant_label, variant_labels
+
+# 4 processes x word2vec's own workers=4 threads each = 16 of the 20 physical
+# cores, leaving headroom for the OS and whatever else is running. Tune down
+# if this machine has fewer cores than the one this was written for.
+PARALLEL_PERIODS = 4
 
 # gensim's own INFO-level logging (periodic %-progress, words/sec during
 # vocab-building and training) is useful when watching a terminal directly,
@@ -66,17 +81,65 @@ def tokenize(doc):
     return TOKEN_RE.findall(doc)
 
 
-def load_documents(period_file):
-    # one token list per document, not per linguistic sentence - word2vec's
-    # sliding window doesn't need true sentence boundaries, and historical
-    # spelling makes real sentence segmentation unreliable anyway.
-    docs = []
+class PeriodCorpus:
+    # Iterates one period's tokenized documents straight off disk, on every
+    # pass, instead of materializing them all in a Python list first. Some
+    # BL 19th-century volumes run past a million characters each, and a
+    # period with thousands of them (2-6GB of raw text) as one in-memory
+    # list of token-string lists was large enough to exhaust available RAM
+    # and get the process killed outright - not a gensim limitation, just
+    # too much held live at once. gensim iterates `sentences` twice itself
+    # (a vocab-building pass, then the training pass), so this needs to
+    # support being iterated more than once - a plain generator function
+    # can't do that, a class with its own __iter__ can (re-opens the file
+    # fresh each time it's iterated).
+    def __init__(self, period_file):
+        self.period_file = period_file
+
+    def __iter__(self):
+        with open(self.period_file, encoding="utf-8") as f:
+            for line in f:
+                tokens = tokenize(line)
+                if tokens:
+                    yield tokens
+
+
+def count_docs(period_file):
+    # A cheap first pass so main() can report doc/token counts and enforce
+    # MIN_DOCS without ever holding more than one line's tokens at a time.
+    n_docs = 0
+    n_tokens = 0
     with open(period_file, encoding="utf-8") as f:
         for line in f:
             tokens = tokenize(line)
             if tokens:
-                docs.append(tokens)
-    return docs
+                n_docs += 1
+                n_tokens += len(tokens)
+    return n_docs, n_tokens
+
+
+def train_one(variant, period_file, model_path, w2v_cfg):
+    # Runs in its own process (see main()'s ProcessPoolExecutor) - everything
+    # it touches (the corpus file, the model it saves) is private to this one
+    # variant, so no coordination with any other in-flight period is needed.
+    n_docs, n_tokens = count_docs(period_file)
+    if n_docs < MIN_DOCS:
+        return f"skip {variant}: only {n_docs} documents (< {MIN_DOCS}), not enough for a period-level signal"
+
+    print(f"{variant}: training on {n_docs} documents, {n_tokens} tokens")
+
+    model = Word2Vec(
+        sentences=PeriodCorpus(period_file),
+        vector_size=w2v_cfg["vector_size"],
+        window=w2v_cfg["window"],
+        min_count=w2v_cfg["min_count"],
+        workers=w2v_cfg["workers"],
+        epochs=w2v_cfg["epochs"],
+        seed=w2v_cfg["seed"],
+        callbacks=[EpochProgress(variant, w2v_cfg["epochs"])],
+    )
+    model.save(str(model_path))
+    return f"{variant}: done, vocab size {len(model.wv)}"
 
 
 def main():
@@ -88,6 +151,10 @@ def main():
 
     w2v_cfg = config["word2vec"]
 
+    # Cheap existence/size checks happen up front in the main process, before
+    # anything is handed to a worker - no point spending a process slot on a
+    # variant that's just going to be skipped instantly.
+    jobs = []
     for label, region in variant_labels(config):
         variant = variant_label(label, region)
         model_path = embeddings_dir / f"{variant}.model"
@@ -100,26 +167,13 @@ def main():
             print(f"skip {variant}: no processed file (run parse_tcp.py/bucket_periods.py first)")
             continue
 
-        docs = load_documents(period_file)
-        if len(docs) < MIN_DOCS:
-            print(f"skip {variant}: only {len(docs)} documents (< {MIN_DOCS}), not enough for a period-level signal")
-            continue
+        jobs.append((variant, period_file, model_path))
 
-        n_tokens = sum(len(d) for d in docs)
-        print(f"{variant}: training on {len(docs)} documents, {n_tokens} tokens")
-
-        model = Word2Vec(
-            sentences=docs,
-            vector_size=w2v_cfg["vector_size"],
-            window=w2v_cfg["window"],
-            min_count=w2v_cfg["min_count"],
-            workers=w2v_cfg["workers"],
-            epochs=w2v_cfg["epochs"],
-            seed=w2v_cfg["seed"],
-            callbacks=[EpochProgress(variant, w2v_cfg["epochs"])],
-        )
-        model.save(str(model_path))
-        print(f"{variant}: vocab size {len(model.wv)}")
+    with ProcessPoolExecutor(max_workers=PARALLEL_PERIODS) as pool:
+        futures = [pool.submit(train_one, variant, period_file, model_path, w2v_cfg)
+                   for variant, period_file, model_path in jobs]
+        for future in as_completed(futures):
+            print(future.result())
 
 
 if __name__ == "__main__":
