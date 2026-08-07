@@ -62,7 +62,7 @@ REGIONS = discover_built_regions(config)
 # used to still default every page to a "Combined" tab that silently showed
 # every period as a coverage gap. See resolve_region and /api/regions below.
 COMBINED_BUILT = combined_is_built(config)
-HEADLINE_RES = 1.0  # resolution shown by default in the UI
+HEADLINE_RES = config["leiden"]["label_resolution"]  # resolution shown by default in the UI
 DEFAULT_K = 12  # words kept per community in "full network" mode
 SEED_PERIOD = "1790-1810"  # last real, populated period - 1810-1830 (the literal Sattelzeit-closing edge, after the 2026-08-04 boundary shift) has no data yet, would land /graph and /search on an empty coverage-gap by default
 # One seed word everywhere (2026-08-04) - /graph and /search used to default
@@ -81,7 +81,7 @@ _community_df_cache = {}
 _community_cache = {}
 _transitions_cache = None
 _labels_cache = {}  # keyed by region (None = combined)
-LABELS_RESOLUTION = 1.0  # community_labels_res1.0.json only covers this resolution
+LABELS_RESOLUTION = config["leiden"]["label_resolution"]  # community_labels_res<X>.json only covers this resolution
 
 
 def resolve_resolution(value):
@@ -293,21 +293,26 @@ _label_caveat_cache = None
 
 
 def get_label_caveat():
-    """Derived once from community_labels_res1.0.json's own entries, not
-    hardcoded, so this stays accurate if the labels are ever regenerated:
-    what fraction of communities the labeling pass itself flagged "(mixed)"
-    in the label text - i.e. probably clustered by shared grammatical form
+    """Derived once from community_labels_res<LABELS_RESOLUTION>.json's own
+    entries, not hardcoded, so this stays accurate if the labels are ever
+    regenerated: what fraction of communities landed in the "Structural /
+    Uncertain" lane - i.e. probably clustered by shared grammatical form
     (verb conjugations, comparatives, proper-name patterns, OCR fragments)
     rather than a real topic, since Leiden clusters on distributional
     similarity in a multilingual early-modern corpus (English/Latin/Law
     French/Welsh/Scots/Italian/Hebrew), which grammar produces as readily as
-    theme does. See src/extract_community_words.py and the labeling fork's
-    own read-through, not an empirically validated taxonomy."""
+    theme does. Keyed off `lane`, not a "(mixed)" substring in the label
+    text (2026-08-06 through 2026-08-04(ish): the label text itself no
+    longer carries that suffix - it made even a decisive grammatical
+    description like "Second-Person Verb Forms" read as if the tool
+    couldn't figure it out, redundant with the lane already saying so).
+    See src/extract_community_words.py and the labeling pass's own
+    read-through, not an empirically validated taxonomy."""
     global _label_caveat_cache
     if _label_caveat_cache is None:
         labels = get_labels()
         entries = [e for period, comms in labels.items() if period != "_meta" for e in comms.values()]
-        n_mixed = sum(1 for e in entries if "(mixed)" in e["label"])
+        n_mixed = sum(1 for e in entries if e.get("lane") == "Structural / Uncertain")
         _label_caveat_cache = {
             "n_total": len(entries),
             "n_mixed": n_mixed,

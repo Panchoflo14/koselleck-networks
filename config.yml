@@ -103,6 +103,24 @@ network:
 
 # Community detection (Leiden)
 leiden:
-  resolution_sweep: [0.1, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0]
+  # 3.0/4.0 added 2026-08-07: at 1.0 (the old fixed display/label resolution)
+  # the largest community in the later, BL-enriched periods had grown to
+  # 24,608 words (14% of that period's vocabulary) - too large and too
+  # heterogeneous for any label, human or LLM, to describe. Modularity falls
+  # off smoothly with resolution (no sharp elbow), so the real ceiling here
+  # is practical, not statistical: how many communities per period stay
+  # browsable/labelable. 4.0 was the point where a concrete worst-case
+  # community (1870-1890, containing "system") actually split into a real,
+  # nameable theme (civil administration/property law) instead of staying a
+  # perjury/indigestion/loans grab-bag - verified directly, not assumed.
+  resolution_sweep: [0.1, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0, 4.0]
+  # The one resolution the webapp displays and label_communities.py labels
+  # at - a display/legibility choice, separate from the resolution_sweep
+  # above, which is what every quantitative reorganization claim is
+  # actually tested against (see CLAUDE.md's hard rule). Was 1.0; raised to
+  # 4.0 for the reason above. Growing the corpus further may call for
+  # raising this again - the right resolution scales with vocabulary size,
+  # not a fixed constant for all time.
+  label_resolution: 4.0
   n_iterations: 10
   seed: 42

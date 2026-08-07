@@ -85,10 +85,11 @@ function subjectColor(p) {
   return WordDetail.subjectColor(p.lane, p.community_label);
 }
 
-// The "(mixed)" tag is still how compile()d label files flag a group as
-// having no clear subject (see src/label_communities.py) - detected above,
-// then stripped here so it never appears twice (once as the tag, once as
-// the subject line already saying "No clear subject").
+// compile() (src/label_communities.py) no longer bakes a "(mixed)" tag into
+// the label text - the `lane` field carries "no clear subject" now, and
+// stacking the tag on top of an already-decisive grammatical label just
+// made it read as uncertain twice. This strip is kept only for any older
+// cached label file that still has the tag in it.
 function groupName(p) {
   return (p.community_label || "").replace(/\s*\(mixed\)\s*$/i, "").trim();
 }

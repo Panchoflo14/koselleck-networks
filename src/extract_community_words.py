@@ -27,7 +27,6 @@ import pandas as pd
 
 from pipeline_config import discover_built_regions, load_config, variant_label
 
-RESOLUTION = 1.0
 TOP_K = 25  # words per community - enough to judge a theme confidently
 
 
@@ -35,6 +34,7 @@ def extract(config, region):
     data_root = Path(config["data_root"])
     networks_dir = data_root / config["paths"]["networks"]
     communities_dir = data_root / config["paths"]["communities"]
+    resolution = config["leiden"]["label_resolution"]
 
     out = {}
     for _, _, label in config["periods"]:
@@ -46,7 +46,7 @@ def extract(config, region):
 
         g = ig.Graph.Read_GraphML(str(graph_path))
         df = pd.read_csv(comm_path, keep_default_na=False, na_values=[])
-        col = f"res_{RESOLUTION}"
+        col = f"res_{resolution}"
         if col not in df.columns:
             continue
         comm_map = df.set_index("word")[col].to_dict()
@@ -70,7 +70,7 @@ def extract(config, region):
         print(f"{stem}: {len(period_out)} communities")
 
     suffix = "" if region is None else f"_{region}"
-    out_path = communities_dir / f"community_words_res{RESOLUTION}{suffix}.json"
+    out_path = communities_dir / f"community_words_res{resolution}{suffix}.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(out, f, indent=2)
     print(f"written -> {out_path}")

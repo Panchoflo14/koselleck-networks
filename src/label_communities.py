@@ -76,7 +76,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from metrics import MIN_SHARED_WORDS, align_communities
 from pipeline_config import REPO_ROOT, discover_built_regions, load_config, variant_label
 
-RESOLUTION = 1.0
+RESOLUTION = load_config()["leiden"]["label_resolution"]
 PROMPT_PATH = Path(__file__).resolve().parent / "prompts" / "community_labeling_v1.md"
 PROMPT_VERSION = "v1"
 DEFAULT_MODEL = "claude-haiku-4-5-20251001"
@@ -433,8 +433,15 @@ def cmd_compile(args):
             if not label:
                 n_blank += 1
                 continue  # unfilled genesis row - leave out of the compiled JSON rather than publish an empty label
-            if lane == "Structural / Uncertain" and "(mixed)" not in label.lower():
-                label = f"{label} (mixed)"
+            # No "(mixed)" suffix baked into the label text: the `lane` field
+            # already carries "this isn't a real topic" (lane ==
+            # "Structural / Uncertain"), and appending the word "mixed" to an
+            # already-decisive description ("Second-Person Verb Forms",
+            # "Biblical Book Abbreviations") made even a clear grammatical
+            # reading look like the tool couldn't figure it out. The webapp's
+            # own stripMixedTag() already treats a literal "(mixed)" in older
+            # label text as redundant with the lane - this just stops writing
+            # the redundant text in the first place.
             entry = {
                 "label": label,
                 "n_words": int(row["n_words"]),
