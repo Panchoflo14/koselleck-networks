@@ -176,12 +176,30 @@ layer on top that a word-by-word approach cannot produce.
     possible match between one period's groups and the next period's
     groups is found first, because group numbers do not mean the same
     thing from one period to the next, so the correspondence has to be
-    established before anything can be compared. Then the fraction
+    established before anything can be compared. Concretely
+    (\code{metrics.py}'s \code{align\_communities}): build a contingency
+    table counting, for every (old group, new group) pair, how many
+    shared words fall in that pair, then solve it as a single global
+    assignment problem (the Hungarian algorithm, via SciPy's
+    \code{linear\_sum\_assignment}) that picks the one-to-one relabeling
+    of new group numbers onto old ones maximizing the total word count
+    matched. This is a fixed, deterministic optimum over all groups at
+    once, computed once per period pair -- there is no
+    percentage-overlap threshold anywhere in it, and no per-group
+    decision made independently of the others. A single shared word then
+    counts as \term{moved} if, under that one relabeling, its new
+    group's mapped-back old identity differs from the old group it was
+    actually in; otherwise it counts as \term{stayed}. Then the fraction
     of shared words that still ended up in a different group, despite
     that best match, is measured. That fraction, how much of the shared
     vocabulary ``migrated'' to a new group, is what this project calls
     the \term{migration fraction}: its central measurement of how
-    much reorganization happened between two periods.
+    much reorganization happened between two periods. The interactive
+    explorer's per-word ``moved''/``stayed'' arrows (Section
+    \ref{sec:webapp}) are read off this exact same per-word classification,
+    not a separate or looser check, so a single word's arrow and the
+    aggregate migration fraction can never disagree about what counts as
+    moving.
 
   \item \term{Test whether reorganization concentrates at the
     Sattelzeit.} The hypothesis predicts that the migration fraction
@@ -305,6 +323,7 @@ ordinary one, clone the repository, put corpus files in the right folder,
 rerun the pipeline scripts in order.
 
 \section{The interactive explorer}
+\label{sec:webapp}
 
 Alongside the pipeline, a small web tool, the \term{Koselleck
 Machine}, makes the per-period networks directly explorable, without
