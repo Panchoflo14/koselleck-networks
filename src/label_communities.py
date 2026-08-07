@@ -35,6 +35,30 @@
 # migration_fraction, rather than two independent judgments that can
 # disagree.
 #
+# Bounded reclassification (2026-08-07): verbatim inheritance fixed the
+# problem above, but introduced a different one - nothing ever forced a
+# fresh read again, so a chain could inherit unbroken for the community's
+# entire remaining lifetime. Found in practice: a community genuinely
+# Dutch/German text at 1510-1530 was still labeled "Dutch and German
+# Text" fifteen periods (~300 years) later at 1810-1830, by which point
+# its actual content had passed through Scots legal prose, classical
+# mythology, early Popes, and emotional-distress vocabulary before
+# landing on church governance - none of it Dutch or German. The
+# structural signal (this community's best-matching predecessor really
+# is that same community) was never wrong; only the label text, carried
+# forward without ever being checked against current content, was.
+#
+# Fix: MAX_INHERITANCE_CHAIN caps how many consecutive periods a label may
+# be inherited before `generate` forces a fresh read instead - same
+# mechanism as a genesis community (LLM call or blank for an agent/human),
+# except `inherited_from` stays populated, so the row is visibly a
+# reclassification of a continuing lineage, not a brand-new entity. This
+# does not touch align_communities or migration_fraction at all - "stayed"
+# still means exactly what it always meant, structurally. It only bounds
+# how long a *label* may go without being re-checked against the words
+# actually in front of it, the same way a museum re-examines and
+# occasionally reclassifies a specimen without disputing its provenance.
+#
 # Three subcommands, meant to be run in this order:
 #
 #   generate  community_words_res<res>[_<region>].json -> CSV. For each
@@ -77,6 +101,13 @@ from metrics import MIN_SHARED_WORDS, align_communities
 from pipeline_config import REPO_ROOT, discover_built_regions, load_config, variant_label
 
 RESOLUTION = load_config()["leiden"]["label_resolution"]
+# See "Bounded reclassification" above. 3 was picked, not measured: short
+# enough that the Dutch/German case (which drifted through 7+ unrelated
+# themes over 15 periods) could never recur unnoticed, long enough that a
+# genuinely stable, slow-changing lineage isn't re-read every single time
+# for no reason. Revisit if a shorter/longer cap turns out to matter once
+# this has run for real.
+MAX_INHERITANCE_CHAIN = 3
 PROMPT_PATH = Path(__file__).resolve().parent / "prompts" / "community_labeling_v1.md"
 PROMPT_VERSION = "v1"
 DEFAULT_MODEL = "claude-haiku-4-5-20251001"
@@ -287,9 +318,11 @@ def cmd_generate(args):
         n_called = 0
         n_blank = 0
         n_kept = 0
+        n_reclassify_needed = 0
 
         prev_period = None
         prev_labels = {}  # {raw_cid (str): {"label":..., "lane":...}} for prev_period
+        prev_chain = {}  # {raw_cid (str): int} periods since this lineage was last actually read
 
         for period in base_labels:
             if period not in words_data:
@@ -303,6 +336,7 @@ def cmd_generate(args):
                 )
 
             period_labels = {}
+            period_chain = {}
             for cid, info in communities.items():
                 key = (period, cid)
                 prior = existing.get(key)
@@ -319,6 +353,7 @@ def cmd_generate(args):
                            "origin": "human", "inherited_from": prior.get("inherited_from", "")}
                     rows.append(row)
                     period_labels[cid] = {"label": row["label"], "lane": row["lane"]}
+                    period_chain[cid] = 0
                     n_kept += 1
                     continue
 
@@ -326,11 +361,60 @@ def cmd_generate(args):
                 if predecessor is not None:
                     predecessor_entry = prev_labels.get(predecessor)
                     if predecessor_entry is not None:
-                        row = {**base_row, "label": predecessor_entry["label"], "lane": predecessor_entry["lane"],
-                               "origin": "inherited", "inherited_from": f"{prev_period}#{predecessor}"}
+                        chain = prev_chain.get(predecessor, 0) + 1
+                        if chain <= MAX_INHERITANCE_CHAIN:
+                            row = {**base_row, "label": predecessor_entry["label"], "lane": predecessor_entry["lane"],
+                                   "origin": "inherited", "inherited_from": f"{prev_period}#{predecessor}"}
+                            rows.append(row)
+                            period_labels[cid] = {"label": row["label"], "lane": row["lane"]}
+                            period_chain[cid] = chain
+                            n_inherited += 1
+                            continue
+                        # Chain capped (see "Bounded reclassification" above):
+                        # structurally still the same community - inherited_from
+                        # stays set - but the label has gone MAX_INHERITANCE_CHAIN
+                        # periods without a real read, so one is forced now
+                        # instead of inheriting again. Falls through to the same
+                        # fill logic as a genesis community, just with
+                        # inherited_from populated so this reads as a
+                        # reclassification of a continuing lineage, not a new
+                        # one. The "keep prior text" escape hatch below must
+                        # require prior.origin to be a genuine past read
+                        # (human/llm) - checking only "prior has a label" was
+                        # the actual bug that let 19-period chains through
+                        # unnoticed: an "inherited"-origin prior always has a
+                        # non-empty label too (inheritance copies it), so
+                        # that check just kept re-perpetuating the exact
+                        # stale blind-copy this cap exists to stop.
+                        if prior is not None and prior.get("origin") in ("human", "llm") and prior.get("label") \
+                                and not (args.overwrite and args.fill == "llm"):
+                            row = {**base_row, "label": prior["label"], "lane": prior["lane"],
+                                   "origin": prior["origin"],
+                                   "inherited_from": f"{prev_period}#{predecessor}"}
+                            rows.append(row)
+                            period_labels[cid] = {"label": row["label"], "lane": row["lane"]}
+                            period_chain[cid] = 0
+                            n_kept += 1
+                            continue
+                        if args.fill == "llm":
+                            user_message = user_template.format(
+                                region=region_label(region), period=period, n_words=info["n_words"],
+                                n_shown=len(info["top_words"]), top_words=", ".join(info["top_words"]),
+                            )
+                            label, lane = call_llm(get_client(), args.model, lanes, system_prompt, user_message)
+                            row = {**base_row, "label": label, "lane": lane, "origin": "llm",
+                                   "inherited_from": f"{prev_period}#{predecessor}"}
+                            period_labels[cid] = {"label": label, "lane": lane}
+                            period_chain[cid] = 0
+                            n_called += 1
+                            print(f"{region_label(region)} {period} #{cid} (reclassify, chain capped at "
+                                  f"{MAX_INHERITANCE_CHAIN}): {label} [{lane}]")
+                        else:
+                            row = {**base_row, "label": "", "lane": "", "origin": "",
+                                   "inherited_from": f"{prev_period}#{predecessor}"}
+                            n_blank += 1
                         rows.append(row)
-                        period_labels[cid] = {"label": row["label"], "lane": row["lane"]}
-                        n_inherited += 1
+                        n_reclassify_needed += 1
                         continue
 
                     # Structurally a continuation (align_communities does map it
@@ -363,6 +447,7 @@ def cmd_generate(args):
                            "origin": prior.get("origin") or "llm", "inherited_from": ""}
                     rows.append(row)
                     period_labels[cid] = {"label": row["label"], "lane": row["lane"]}
+                    period_chain[cid] = 0
                     n_kept += 1
                     continue
 
@@ -377,6 +462,7 @@ def cmd_generate(args):
                     label, lane = call_llm(get_client(), args.model, lanes, system_prompt, user_message)
                     row = {**base_row, "label": label, "lane": lane, "origin": "llm", "inherited_from": ""}
                     period_labels[cid] = {"label": label, "lane": lane}
+                    period_chain[cid] = 0
                     n_called += 1
                     print(f"{region_label(region)} {period} #{cid} (genesis): {label} [{lane}]")
                 else:
@@ -386,6 +472,7 @@ def cmd_generate(args):
 
             prev_period = period
             prev_labels = period_labels
+            prev_chain = period_chain
 
         write_csv(csv_path, rows)
 
@@ -401,14 +488,16 @@ def cmd_generate(args):
         with open(meta_sidecar_path_for(config, region), "w", encoding="utf-8") as f:
             json.dump(meta, f, indent=2)
 
-        print(f"{region_label(region)}: {n_inherited} inherited, {n_pending} pending (structurally "
-              f"inherited, waiting on an unresolved predecessor - rerun generate once genesis rows "
-              f"below are filled), {n_called} labeled via LLM, {n_blank} genesis rows left blank for "
-              f"manual fill, {n_kept} kept from existing CSV -> {csv_path}")
+        print(f"{region_label(region)}: {n_inherited} inherited, {n_reclassify_needed} chain-capped at "
+              f"{MAX_INHERITANCE_CHAIN} periods (reclassification needed - same lineage, fresh read), "
+              f"{n_pending} pending (structurally inherited, waiting on an unresolved predecessor - rerun "
+              f"generate once genesis rows below are filled), {n_called} labeled via LLM, {n_blank} genesis/"
+              f"reclassification rows left blank for manual fill, {n_kept} kept from existing CSV -> {csv_path}")
         if n_blank:
-            print(f"{region_label(region)}: {n_blank} genesis communities need a label - fill only "
-                  f"the rows with an empty 'origin' (not 'inherited') in {csv_path} by hand or via an "
-                  f"agent, then rerun generate (resolves the {n_pending} pending rows for free) and compile.")
+            print(f"{region_label(region)}: {n_blank} communities need a label (genesis or chain-capped "
+                  f"reclassification) - fill only the rows with an empty 'origin' (not 'inherited') in "
+                  f"{csv_path} by hand or via an agent, then rerun generate (resolves the {n_pending} "
+                  f"pending rows for free) and compile.")
 
 
 def cmd_compile(args):
@@ -449,6 +538,16 @@ def cmd_compile(args):
             }
             if row.get("inherited_from"):
                 entry["inherited_from"] = row["inherited_from"]
+                # A fresh read (origin human/llm, not "inherited") that still
+                # has inherited_from set can only mean one thing: the chain
+                # cap (MAX_INHERITANCE_CHAIN) forced a reclassification of a
+                # structurally-continuing lineage, as opposed to either a
+                # blind inherit (origin=="inherited") or a true first-ever
+                # genesis (inherited_from empty). Surfaced so the webapp can
+                # tell a reader "same tracked group, description just
+                # refreshed" apart from a real reorganization.
+                if row.get("origin") != "inherited":
+                    entry["reclassified"] = True
             out.setdefault(row["period"], {})[row["community_id"]] = entry
             if row.get("origin") == "human":
                 n_human += 1
