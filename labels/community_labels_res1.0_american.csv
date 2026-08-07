@@ -1,117 +1,122 @@
 region,period,community_id,n_words,top_words_preview,label,lane,origin,inherited_from
-american,1650-1670,5,107,truths; author; personally; infancy; qualified; judgments; safety; reverend; hinder; charge,"Truth, Argument & Judgment",Rhetoric & Persuasion,llm,
-american,1650-1670,3,115,calling; col; thes; exercise; discipline; eph; obedience; iohn; giving; external,Biblical Book Abbreviations & Citations,"Religion, Theology & the Church",llm,
-american,1650-1670,0,188,foes; ay; sore; voyce; bless; arise; sing; rejoyce; grave; eat,Psalms & Devotional Praise,"Religion, Theology & the Church",llm,
-american,1650-1670,1,134,orders; matters; ecclesiastical; immediate; reference; assistants; service; sect; officers; major,Civil & Ecclesiastical Governance,"Government, Law & Administration",llm,
-american,1650-1670,2,130,continued; died; massachusets; certain; got; loss; quite; gracious; corn; captain,Colonial Settlement Narrative,"History, Genealogy, Nobility & Kinship",llm,
-american,1650-1670,4,109,denied; granted; conceive; proved; expresly; object; else; easily; doubt; thereby,Disputation & Argument Vocabulary,Rhetoric & Persuasion,llm,
-american,1650-1670,6,57,chap; song; favour; devil; point; heavens; testament; resurrection; jerusalem; beginning,Scripture & Biblical Prophecy,"Religion, Theology & the Church",llm,
-american,1670-1690,0,763,internal; enjoyment; administration; perfection; constitution; rights; maintaining; edification; sanctification; corruptions,"Truth, Argument & Judgment",Rhetoric & Persuasion,inherited,1650-1670#5
-american,1670-1690,4,388,asserted; proposition; anno; samuel; ult; lib; thomas; cap; william; richard,Biblical Book Abbreviations & Citations,"Religion, Theology & the Church",inherited,1650-1670#3
-american,1670-1690,3,399,marshal; commissioners; secretary; clerk; deputies; treasurer; damage; colonies; territories; fines,Civil & Ecclesiastical Governance,"Government, Law & Administration",inherited,1650-1670#1
-american,1670-1690,9,134,belly; minds; foes; fears; neighbours; lips; wife; mothers; maid; doings,"Women, Family & the Body","Domestic Life, Dress & Household",llm,
-american,1670-1690,7,176,nine; eighteen; eighty; february; december; pound; november; thirty; sixty; august,Scripture & Biblical Prophecy,"Religion, Theology & the Church",inherited,1650-1670#6
-american,1670-1690,2,423,cold; grievous; sorrow; filthy; envy; grief; foolish; pride; anguish; weakness,"Vice, Sin & Misery",Morality: Virtue & Vice,llm,
-american,1670-1690,5,387,approve; perswade; render; submit; yield; subdue; procure; apply; accept; expose,Disputation & Argument Vocabulary,Rhetoric & Persuasion,inherited,1650-1670#4
-american,1670-1690,6,322,struck; ran; throw; blown; pulled; fled; drowned; tread; ride; pull,Psalms & Devotional Praise,"Religion, Theology & the Church",inherited,1650-1670#0
-american,1670-1690,1,462,mountains; ocean; rocks; powder; ships; wigwams; ice; hill; germany; neck,Colonial Settlement Narrative,"History, Genealogy, Nobility & Kinship",inherited,1650-1670#2
-american,1670-1690,8,143,sheweth; gives; confessed; giveth; leads; forsaken; teacheth; seeth; sets; sayes,Third-Person Singular Verb Forms (-eth),Structural / Uncertain,llm,
-american,1690-1710,0,609,manifestation; sanctification; abilities; industry; essential; illumination; perfection; peaceable; fidelity; establishment,"Truth, Argument & Judgment",Rhetoric & Persuasion,inherited,1670-1690#0
-american,1690-1710,4,477,commissioner; collecting; assessments; rates; collectors; commissioners; sheriffs; payment; fines; excise,Civil & Ecclesiastical Governance,"Government, Law & Administration",inherited,1670-1690#3
-american,1690-1710,6,368,smith; esq; samuell; thomas; samuel; esqr; daughter; van; nicholas; richard,"Women, Family & the Body","Domestic Life, Dress & Household",inherited,1670-1690#9
-american,1690-1710,12,194,sugar; oyl; pint; ounces; powder; nine; drops; red; barrel; tobacco,Scripture & Biblical Prophecy,"Religion, Theology & the Church",inherited,1670-1690#7
-american,1690-1710,7,337,practices; opinions; authors; vertues; presbyterian; speeches; kinds; doctrines; abuses; heresies,Religious Doctrine & Church Controversy,"Religion, Theology & the Church",llm,
-american,1690-1710,8,274,paragraph; preface; doctrinal; dependence; assertion; explication; dependance; treatise; paper; cited,Treatise & Textual Argument,"Books, Learning & Scholarship",llm,
-american,1690-1710,3,490,propose; advise; oblige; expose; submit; perswade; justifie; grieve; enable; engage,Disputation & Argument Vocabulary,Rhetoric & Persuasion,inherited,1670-1690#5
-american,1690-1710,1,552,mischievous; uncharitable; impious; anguish; grievous; bitter; hypocrisie; guile; affectionate; useful,"Vice, Sin & Misery",Morality: Virtue & Vice,inherited,1670-1690#2
-american,1690-1710,9,272,wares; sale; colonies; provinces; neighbouring; boat; massachusetts; creek; shoar; leather,Colonial Trade & Ports,"Trade, Finance & Commerce",llm,
-american,1690-1710,14,94,september; october; november; month; moneth; february; december; june; july; clock,Calendar Months & Dates,Structural / Uncertain,llm,
-american,1690-1710,2,508,asserted; questioned; discharged; abused; deceived; confessed; allowed; fill'd; detected; quoted,Past-Tense Verbs of Accusation & Proof,Rhetoric & Persuasion,llm,
-american,1690-1710,11,233,throw; running; broke; tear; thrust; cover; hang; driven; burn; sunk,Psalms & Devotional Praise,"Religion, Theology & the Church",inherited,1670-1690#6
-american,1690-1710,13,144,calleth; affirms; denies; expresseth; renders; declares; speaketh; maketh; loveth; counts,Third-Person Singular Verb Forms (-eth),Structural / Uncertain,inherited,1670-1690#8
-american,1690-1710,5,424,rocks; tempest; brimstone; hills; snow; iron; mountains; wood; neck; groans,Colonial Settlement Narrative,"History, Genealogy, Nobility & Kinship",inherited,1670-1690#1
-american,1690-1710,10,233,lib; ab; cum; quam; christi; si; qui; esse; ed; opera,Biblical Book Abbreviations & Citations,"Religion, Theology & the Church",inherited,1670-1690#4
-american,1710-1730,0,1076,tempers; activity; vigorous; qualities; improving; gravity; actings; qualifications; performances; excellencies,"Truth, Argument & Judgment",Rhetoric & Persuasion,inherited,1690-1710#0
-american,1710-1730,4,653,conform; recommend; oblige; expose; imagine; exert; refer; apply; discover; commend,Disputation & Argument Vocabulary,Rhetoric & Persuasion,inherited,1690-1710#3
-american,1710-1730,1,813,unnatural; dangerous; luxury; fraud; intemperance; vices; stupid; vicious; faulty; base,"Vice, Sin & Misery",Morality: Virtue & Vice,inherited,1690-1710#1
-american,1710-1730,6,482,idea; reflecting; explanation; considerations; depending; preface; narrative; depended; paragraph; essay,Treatise & Textual Argument,"Books, Learning & Scholarship",inherited,1690-1710#8
-american,1710-1730,13,137,xxiii; xxviii; xi; xix; xviii; xiii; viii; xxvi; xxiv; xx,Biblical Book Abbreviations & Citations,"Religion, Theology & the Church",inherited,1690-1710#10
-american,1710-1730,12,156,october; september; fifteen; april; thirty; sixty; sixteen; january; nine; month,Scripture & Biblical Prophecy,"Religion, Theology & the Church",inherited,1690-1710#12
-american,1710-1730,2,756,observ'd; drowned; asserted; cruelly; adapted; explained; detained; serviceable; applyed; interpreted,Past-Tense Verbs of Accusation & Proof,Rhetoric & Persuasion,inherited,1690-1710#2
-american,1710-1730,3,680,lieut; robert; boat; schooner; smith; massachusetts; canoo; islands; edward; shot,Colonial Trade & Ports,"Trade, Finance & Commerce",inherited,1690-1710#9
-american,1710-1730,7,286,pull; turn'd; fired; throw; thrown; threw; throwing; thrust; carry'd; ran,Psalms & Devotional Praise,"Religion, Theology & the Church",inherited,1690-1710#11
-american,1710-1730,10,188,asserts; shows; applies; discovers; refers; owns; teaches; mentions; declares; loveth,Third-Person Singular Verb Forms (-eth),Structural / Uncertain,inherited,1690-1710#13
-american,1710-1730,8,249,deacons; apostolical; ecclesiastical; apostolick; inferior; superior; presbyter; ordination; episcopal; rites,Religious Doctrine & Church Controversy,"Religion, Theology & the Church",inherited,1690-1710#7
-american,1710-1730,5,572,tempest; rocks; thick; coals; storms; smoke; hail; brass; trees; cloud,Colonial Settlement Narrative,"History, Genealogy, Nobility & Kinship",inherited,1690-1710#5
-american,1710-1730,11,185,cap; dei; epist; quae; lib; cum; sunt; baxter; quod; cotton,"Women, Family & the Body","Domestic Life, Dress & Household",inherited,1690-1710#6
-american,1710-1730,9,202,tobacco; quantity; timber; sale; ships; yearly; sugar; cash; currency; consumption,Civil & Ecclesiastical Governance,"Government, Law & Administration",inherited,1690-1710#4
-american,1710-1730,14,20,knowest; seest; canst; shouldst; wouldst; wouldest; wilt; wast; shouldest; mayest,Calendar Months & Dates,Structural / Uncertain,inherited,1690-1710#14
-american,1730-1750,0,1108,constancy; internal; excellence; display; unlimited; intellectual; sanctifying; blessedness; accomplishments; operation,"Truth, Argument & Judgment",Rhetoric & Persuasion,inherited,1710-1730#0
-american,1730-1750,10,320,september; nov; burlington; anno; november; iune; june; april; october; gloucester,Scripture & Biblical Prophecy,"Religion, Theology & the Church",inherited,1710-1730#12
-american,1730-1750,4,707,refer; expose; damn; tempt; exciting; induce; recommend; apply; provoke; animate,Disputation & Argument Vocabulary,Rhetoric & Persuasion,inherited,1710-1730#4
-american,1730-1750,2,953,stupid; sloth; foul; avarice; intemperance; appetites; unaccountable; unnatural; sensuality; senseless,"Vice, Sin & Misery",Morality: Virtue & Vice,inherited,1710-1730#1
-american,1730-1750,12,207,wife; daughter; sister; sarah; widow; merits; ancestors; pardon; consort; aged,Civil & Ecclesiastical Governance,"Government, Law & Administration",inherited,1710-1730#9
-american,1730-1750,14,98,square; particle; companies; species; drummers; serjeants; files; rear; fluids; distances,Calendar Months & Dates,Structural / Uncertain,inherited,1710-1730#14
-american,1730-1750,7,387,reflecting; paragraph; insists; proposition; historians; assertion; rely; passages; pages; interpretation,Treatise & Textual Argument,"Books, Learning & Scholarship",inherited,1710-1730#6
-american,1730-1750,5,627,fees; secretary; manufactures; cash; jurisdiction; episcopal; partners; ecclesiastical; presbyterian; commodities,Religious Doctrine & Church Controversy,"Religion, Theology & the Church",inherited,1710-1730#8
-american,1730-1750,8,349,newfoundland; islands; mexico; bay; harbours; plantations; fleet; west; canso; settlements,Colonial Trade & Ports,"Trade, Finance & Commerce",inherited,1710-1730#3
-american,1730-1750,3,720,discovered; demonstrated; declared; signed; prosecuted; shewn; inserted; fired; drowned; deceived,Past-Tense Verbs of Accusation & Proof,Rhetoric & Persuasion,inherited,1710-1730#2
-american,1730-1750,11,249,represents; declares; refers; applies; loveth; beholds; asserts; affirms; relates; expresses,Third-Person Singular Verb Forms (-eth),Structural / Uncertain,inherited,1710-1730#10
-american,1730-1750,9,323,drove; broke; thrown; turn'd; driven; drive; hung; threw; blown; rush,Psalms & Devotional Praise,"Religion, Theology & the Church",inherited,1710-1730#7
-american,1730-1750,6,423,iames; francis; robert; andrew; bp; lewis; octavo; colman; collection; thomas,"Women, Family & the Body","Domestic Life, Dress & Household",inherited,1710-1730#11
-american,1730-1750,1,959,skies; cloth; sky; gay; butter; boiling; raging; nutmeg; balls; sack,Colonial Settlement Narrative,"History, Genealogy, Nobility & Kinship",inherited,1710-1730#5
-american,1730-1750,15,94,surrounded; conversing; adorn'd; furnish'd; complied; unacquainted; covered; cover'd; accompanied; join'd,Apostrophe Past-Participle Forms (-'d),Structural / Uncertain,llm,
-american,1730-1750,13,193,xxiv; xxi; xix; xvi; daniel; matt; xxxii; xxiii; xviii; xxii,Biblical Book Abbreviations & Citations,"Religion, Theology & the Church",inherited,1710-1730#13
-american,1750-1770,13,195,june; december; tuesday; friday; january; september; october; monday; july; april,Scripture & Biblical Prophecy,"Religion, Theology & the Church",inherited,1730-1750#10
-american,1750-1770,0,1194,tempers; fortitude; manly; rectitude; ardor; vertue; benevolence; endowments; frugality; excellence,"Truth, Argument & Judgment",Rhetoric & Persuasion,inherited,1730-1750#0
-american,1750-1770,4,723,conform; attach; impute; prompt; incline; recommend; expose; sooth; suggest; flatter,Disputation & Argument Vocabulary,Rhetoric & Persuasion,inherited,1730-1750#4
-american,1750-1770,1,1075,avarice; disagreeable; appetites; impious; perfidious; absurd; unnatural; lawless; inhuman; intemperance,"Vice, Sin & Misery",Morality: Virtue & Vice,inherited,1730-1750#2
-american,1750-1770,15,35,fewer; plainer; stronger; heavier; larger; harder; higher; dearer; less; easier,Apostrophe Past-Participle Forms (-'d),Structural / Uncertain,inherited,1730-1750#15
-american,1750-1770,3,802,covered; strengthened; relieved; abused; weakened; shewn; explained; allowed; rejected; cover'd,Past-Tense Verbs of Accusation & Proof,Rhetoric & Persuasion,inherited,1730-1750#3
-american,1750-1770,8,532,poems; geography; poetry; vols; persian; essays; histories; edin; modern; passages,Treatise & Textual Argument,"Books, Learning & Scholarship",inherited,1730-1750#7
-american,1750-1770,7,584,logan; andrew; peters; jonathan; moore; richardson; nicholas; jun; hugh; hon,"Women, Family & the Body","Domestic Life, Dress & Household",inherited,1730-1750#6
-american,1750-1770,10,450,mounted; drove; beat; blown; pulled; turn'd; threw; obligatory; throw; relied,Psalms & Devotional Praise,"Religion, Theology & the Church",inherited,1730-1750#9
-american,1750-1770,14,126,allies; senecas; nephews; chiefs; cayugas; predecessors; memories; delawares; shawanese; deputies,Civil & Ecclesiastical Governance,"Government, Law & Administration",inherited,1730-1750#12
-american,1750-1770,9,482,eastward; canso; missisippi; africa; boat; bank; montreal; fleet; coast; shot,Colonial Trade & Ports,"Trade, Finance & Commerce",inherited,1730-1750#8
-american,1750-1770,11,247,denies; applies; affirms; intimates; receiveth; expresses; mentions; teacheth; represents; assures,Third-Person Singular Verb Forms (-eth),Structural / Uncertain,inherited,1730-1750#11
-american,1750-1770,6,681,payment; costs; attornies; certificate; chattels; sugars; fortresses; certificates; affidavit; defendant,Religious Doctrine & Church Controversy,"Religion, Theology & the Church",inherited,1730-1750#5
-american,1750-1770,12,218,xix; xxiii; xxii; matth; isa; chron; xviii; luk; ix; isaiah,Biblical Book Abbreviations & Citations,"Religion, Theology & the Church",inherited,1730-1750#13
-american,1750-1770,5,699,boil'd; ulcers; conserve; powder'd; camomile; flowers; butter; inflammations; berries; ball,Calendar Months & Dates,Structural / Uncertain,inherited,1730-1750#14
-american,1750-1770,2,874,shade; groves; dire; glow; heav'nly; skies; fierce; charming; roll; brow,Colonial Settlement Narrative,"History, Genealogy, Nobility & Kinship",inherited,1730-1750#1
-american,1770-1790,13,329,september; feb; random; january; february; april; thursday; november; sept; october,Scripture & Biblical Prophecy,"Religion, Theology & the Church",inherited,1750-1770#13
-american,1770-1790,0,1845,poems; heroes; insinuations; proposition; texts; geography; magnanimity; passages; particulars; publications,"Truth, Argument & Judgment",Rhetoric & Persuasion,inherited,1750-1770#0
-american,1770-1790,6,808,prompt; refer; compel; suggest; conform; restrain; provoke; perceive; waft; disappoint,Disputation & Argument Vocabulary,Rhetoric & Persuasion,inherited,1750-1770#4
-american,1770-1790,2,1646,unrelenting; merciless; subtile; insolent; illiberal; turbulent; unjustifiable; unfavourable; rapacious; levity,"Vice, Sin & Misery",Morality: Virtue & Vice,inherited,1750-1770#1
-american,1770-1790,15,51,thicker; sweeter; quicker; faster; heavier; harder; oftener; lighter; older; stronger,Apostrophe Past-Participle Forms (-'d),Structural / Uncertain,inherited,1750-1770#15
-american,1770-1790,8,610,salem; worcester; missisippi; creek; cumberland; cambridge; newport; portsmouth; gloucester; chester,Colonial Trade & Ports,"Trade, Finance & Commerce",inherited,1750-1770#9
-american,1770-1790,5,934,deputies; shipping; commodities; electors; funds; specie; trustees; senators; sale; payment,Religious Doctrine & Church Controversy,"Religion, Theology & the Church",inherited,1750-1770#6
-american,1770-1790,11,392,harry; maid; jerome; tom; quoth; betty; aye; gibb; boy; flora,Civil & Ecclesiastical Governance,"Government, Law & Administration",inherited,1750-1770#14
-american,1770-1790,1,1817,vales; flowery; billows; flow'rs; livid; pensive; wakes; snowy; groves; forests,Colonial Settlement Narrative,"History, Genealogy, Nobility & Kinship",inherited,1750-1770#2
-american,1770-1790,3,1087,benefited; demonstrated; referred; unacquainted; crushed; augmented; murdered; relieved; extinguished; devoured,Past-Tense Verbs of Accusation & Proof,Rhetoric & Persuasion,inherited,1750-1770#3
-american,1770-1790,7,678,jun; walker; nathan; richardson; nathaniel; williams; harrington; fisher; davis; christopher,"Women, Family & the Body","Domestic Life, Dress & Household",inherited,1750-1770#7
-american,1770-1790,9,458,throwing; insisting; rush'd; relying; relied; drove; tumble; pours; thrust; rode,Psalms & Devotional Praise,"Religion, Theology & the Church",inherited,1750-1770#10
-american,1770-1790,4,1042,stalks; sliced; parsley; pork; slices; yellow; walnut; leaved; shells; broth,Calendar Months & Dates,Structural / Uncertain,inherited,1750-1770#5
-american,1770-1790,10,423,putrid; cough; bile; vomiting; intestines; urine; hysteric; nausea; costiveness; diaphoretic,Treatise & Textual Argument,"Books, Learning & Scholarship",inherited,1750-1770#8
-american,1770-1790,12,342,considers; hates; loveth; exposes; understands; knoweth; exalts; inclines; constitutes; owns,Third-Person Singular Verb Forms (-eth),Structural / Uncertain,inherited,1750-1770#11
-american,1770-1790,14,142,matth; chron; matthew; jer; exod; jeremiah; xxxiii; xxii; isai; isaiah,Biblical Book Abbreviations & Citations,"Religion, Theology & the Church",inherited,1750-1770#12
-american,1770-1790,16,17,wouldst; shouldst; canst; seest; mayst; may'st; know'st; wouldest; wilt; wast,Second-Person Singular Verb Forms (thou),Structural / Uncertain,llm,
-american,1790-1810,16,205,dec; nov; sept; feb; november; april; sixty; fourteen; eleventh; thirty,Scripture & Biblical Prophecy,"Religion, Theology & the Church",inherited,1770-1790#13
-american,1790-1810,2,2009,lemon; geese; almonds; ducks; linseed; velvet; pounded; pork; peas; amber,Calendar Months & Dates,Structural / Uncertain,inherited,1770-1790#4
-american,1790-1810,18,75,quicker; hotter; lighter; bigger; swifter; heavier; whiter; firmer; sweeter; larger,Apostrophe Past-Participle Forms (-'d),Structural / Uncertain,inherited,1770-1790#15
-american,1790-1810,3,1702,arrogant; idiot; unmanly; impostor; softness; astregal; turbulent; outrageous; unbridled; revengeful,"Vice, Sin & Misery",Morality: Virtue & Vice,inherited,1770-1790#2
-american,1790-1810,13,651,scythians; darius; manasseh; jeremiah; enoch; emperors; vandals; jehoram; herod; aaron,Ancient Empires & Biblical Rulers,"History, Genealogy, Nobility & Kinship",llm,
-american,1790-1810,0,2600,essays; payments; chemistry; poems; vols; managers; insurance; payment; clerks; augmentation,"Truth, Argument & Judgment",Rhetoric & Persuasion,inherited,1770-1790#0
-american,1790-1810,5,1122,rov; eh; lucy; bravo; hah; amant; sim; floretta; zounds; rhodolpha,Civil & Ecclesiastical Governance,"Government, Law & Administration",inherited,1770-1790#11
-american,1790-1810,14,408,ably; extensively; barbarously; judiciously; essentially; successfully; strenuously; legally; dreadfully; variously,Adverbs of Manner (-ly),Structural / Uncertain,llm,
-american,1790-1810,4,1514,characterized; blamed; benefited; soothed; assailed; objected; referred; misled; tinged; lessened,Past-Tense Verbs of Accusation & Proof,Rhetoric & Persuasion,inherited,1770-1790#3
-american,1790-1810,11,847,salem; hudson; labrador; portsmouth; newcastle; kingston; fez; falmouth; detroit; chester,Colonial Trade & Ports,"Trade, Finance & Commerce",inherited,1770-1790#8
-american,1790-1810,10,892,harrison; archibald; duncan; jones; palmer; stephens; mitchell; baker; nathaniel; caleb,"Women, Family & the Body","Domestic Life, Dress & Household",inherited,1770-1790#7
-american,1790-1810,6,1072,attach; provoke; refer; tempt; impute; conform; expose; stimulate; condemn; oblige,Disputation & Argument Vocabulary,Rhetoric & Persuasion,inherited,1770-1790#6
-american,1790-1810,9,941,perceives; loveth; lends; discovers; assuring; yields; justifieth; calleth; loves; procuring,Third-Person Singular Verb Forms (-eth),Structural / Uncertain,inherited,1770-1790#12
-american,1790-1810,12,823,pulled; thrust; jumped; rushes; pulling; perched; pent; rode; swam; snatched,Psalms & Devotional Praise,"Religion, Theology & the Church",inherited,1770-1790#9
-american,1790-1810,1,2511,dewy; verdant; flow'ry; drear; unnumber'd; foam; woodland; flow'rs; wither'd; threat'ning,Colonial Settlement Narrative,"History, Genealogy, Nobility & Kinship",inherited,1770-1790#1
-american,1790-1810,8,1026,baseness; legions; sensuality; insatiate; galleys; garrison; perjury; slanders; merciless; immorality,Religious Doctrine & Church Controversy,"Religion, Theology & the Church",inherited,1770-1790#5
-american,1790-1810,7,1045,clammy; colic; diarrhoea; expectoration; excretion; costiveness; spasm; cavity; bladder; sweats,Treatise & Textual Argument,"Books, Learning & Scholarship",inherited,1770-1790#10
-american,1790-1810,19,38,mightest; would'st; doest; wouldest; may'st; couldst; sayest; mayst; makest; thinkest,Second-Person Singular Verb Forms (thou),Structural / Uncertain,inherited,1770-1790#16
-american,1790-1810,15,394,judaea; waldron; foix; fois; d'un; sont; que; ils; mais; antelopes,French Text,Structural / Uncertain,llm,
-american,1790-1810,17,184,xl; isai; chron; matt; exod; xlv; exodus; xxiii; xxxiv; isaiah,Biblical Book Abbreviations & Citations,"Religion, Theology & the Church",inherited,1770-1790#14
+american,1650-1670,3,108,calling; qualified; exercise; subjects; external; author; obedience; giving; judgments; seal,"Calling, Obedience & Divine Ordinance","Religion, Theology & the Church",human,
+american,1650-1670,0,178,glad; rejoyce; sing; sore; mighty; voyce; foes; ay; goodness; servant,Psalms of Praise & Deliverance,"Religion, Theology & the Church",human,
+american,1650-1670,1,146,orders; following; election; matters; ecclesiastical; sort; sect; proposition; consent; immediately,Civil & Ecclesiastical Governance,"Government, Law & Administration",human,
+american,1650-1670,7,58,immediate; alledged; denied; manifest; admitted; proved; observed; excommunication; ans; difference,"Argument, Proof & Rebuttal",Rhetoric & Persuasion,human,
+american,1650-1670,5,69,thes; col; joh; eternal; eph; pet; jer; conversion; luke; sam,Biblical Book Abbreviations,Structural / Uncertain,human,
+american,1650-1670,2,117,loss; personally; died; continued; massachusets; truths; infancy; certain; got; arms,Colonial Settlement Narrative,"History, Genealogy, Nobility & Kinship",human,
+american,1650-1670,4,97,conceive; confess; object; easily; plainly; else; eat; doubt; alwayes; enough,Verbs of Belief & Doubt,Structural / Uncertain,human,
+american,1650-1670,6,67,express; granted; safety; seems; darkness; observe; sound; deep; search; large,Divine Judgment & Darkness,"Religion, Theology & the Church",human,
+american,1670-1690,0,553,prudence; internal; enjoyment; maintaining; operation; institution; constitution; consists; concernments; administration,"Calling, Obedience & Divine Ordinance","Religion, Theology & the Church",inherited,1650-1670#3
+american,1670-1690,7,288,anno; lib; samuel; col; ult; stubs; cap; thomas; gal; daughter,Biblical Book Abbreviations,Structural / Uncertain,inherited,1650-1670#5
+american,1670-1690,3,390,corruptions; hypocrisie; uncleanness; grievous; notorious; sore; odious; hellish; malice; imaginations,Divine Judgment & Darkness,"Religion, Theology & the Church",inherited,1650-1670#6
+american,1670-1690,5,337,secretary; deputies; governours; clerk; commissioners; fines; damage; colonies; treasurer; territories,Civil & Ecclesiastical Governance,"Government, Law & Administration",inherited,1650-1670#1
+american,1670-1690,4,352,wigwams; pequots; germany; narraganset; fort; swamp; north; eighty; massachusets; pound,Colonial Settlement Narrative,"History, Genealogy, Nobility & Kinship",inherited,1650-1670#2
+american,1670-1690,2,394,approve; yield; encourage; quicken; submit; heal; subdue; promote; procure; expose,Verbs of Belief & Doubt,Structural / Uncertain,inherited,1650-1670#4
+american,1670-1690,1,433,mountains; flame; powder; rocks; flood; wind; waves; hill; ice; fields,Psalms of Praise & Deliverance,"Religion, Theology & the Church",inherited,1650-1670#0
+american,1670-1690,9,207,affirmed; published; owned; observed; relates; performed; membership; discovered; infants; forsaken,"Argument, Proof & Rebuttal",Rhetoric & Persuasion,inherited,1650-1670#7
+american,1670-1690,6,309,asserted; proposition; testimonies; points; properties; epistle; forms; writers; cities; expressed,Theological Argument & Scholarly Writing,"Books, Learning & Scholarship",human,
+american,1670-1690,8,244,struck; throw; blown; pulled; ran; fled; tread; sink; cutting; driven,Verbs of Violent Motion,Structural / Uncertain,human,
+american,1670-1690,10,90,giveth; helped; sheweth; hates; gives; spake; teacheth; sets; makes; replied,Archaic Third-Person Verb Forms,Structural / Uncertain,human,
+american,1690-1710,0,737,sanctification; fidelity; essential; management; perfection; activity; abilities; vertues; passions; affectionate,"Calling, Obedience & Divine Ordinance","Religion, Theology & the Church",inherited,1670-1690#0
+american,1690-1710,1,511,commissioner; sheriffs; assessments; collectors; collecting; rates; excise; assessment; commissioners; collector,Civil & Ecclesiastical Governance,"Government, Law & Administration",inherited,1670-1690#5
+american,1690-1710,10,245,cum; ac; lib; isaiah; ab; quam; ed; si; qui; daniel,Biblical Book Abbreviations,Structural / Uncertain,inherited,1670-1690#7
+american,1690-1710,11,215,november; february; december; october; july; september; nine; month; june; january,Colonial Settlement Narrative,"History, Genealogy, Nobility & Kinship",inherited,1670-1690#4
+american,1690-1710,8,273,smith; esq; samuel; nicholas; governor; daughter; samuell; majesty's; edward; van,Personal Names & Titles,Structural / Uncertain,human,
+american,1690-1710,2,506,anguish; malicious; groans; sensual; odious; fury; atheism; hellish; calamities; wounds,Divine Judgment & Darkness,"Religion, Theology & the Church",inherited,1670-1690#3
+american,1690-1710,13,20,less; otherwise; wonder; lower; harm; farther; worse; sooner; longer; rather,Comparative Adjectives & Adverbs,Structural / Uncertain,human,
+american,1690-1710,6,465,presbyterian; practices; owen; authors; paragraph; dr; printed; heresies; assertion; passages,Theological Argument & Scholarly Writing,"Books, Learning & Scholarship",inherited,1670-1690#6
+american,1690-1710,4,495,propose; oblige; advise; grieve; expose; submit; assist; perswade; justifie; engage,Verbs of Belief & Doubt,Structural / Uncertain,inherited,1670-1690#2
+american,1690-1710,3,505,rocks; brimstone; tempest; snow; arrows; mountains; hills; wood; oyl; woods,Psalms of Praise & Deliverance,"Religion, Theology & the Church",inherited,1670-1690#1
+american,1690-1710,9,250,colonies; massachusetts; bristol; provinces; companies; islands; castle; bay; boat; troops,"Colonies, Provinces & Territories",Geography & Territory,human,
+american,1690-1710,5,476,confessed; affirmed; asserted; acknowledged; deceived; proved; quoted; ruined; allowed; improved,"Argument, Proof & Rebuttal",Rhetoric & Persuasion,inherited,1670-1690#9
+american,1690-1710,7,330,throw; thrown; gott; carryed; dependence; broke; turn'd; ran; thrust; melt,Verbs of Violent Motion,Structural / Uncertain,inherited,1670-1690#8
+american,1690-1710,12,181,denies; affirms; calls; calleth; counts; giveth; expresseth; declares; teaches; shews,Archaic Third-Person Verb Forms,Structural / Uncertain,inherited,1670-1690#10
+american,1710-1730,1,886,idea; serviceable; internal; activity; sobriety; introduction; essential; agency; industry; exquisite,"Calling, Obedience & Divine Ordinance","Religion, Theology & the Church",inherited,1690-1710#0
+american,1710-1730,11,155,october; anno; fifteen; nine; sixty; sixteen; september; thirty; month; fifty,Colonial Settlement Narrative,"History, Genealogy, Nobility & Kinship",inherited,1690-1710#11
+american,1710-1730,2,738,luxury; intemperance; dangerous; unnatural; vicious; fraud; inclinations; intolerable; aggravated; vices,Divine Judgment & Darkness,"Religion, Theology & the Church",inherited,1690-1710#2
+american,1710-1730,9,311,tobacco; cash; quantity; commodity; yearly; selling; commodities; ships; corn; sugar,Civil & Ecclesiastical Governance,"Government, Law & Administration",inherited,1690-1710#1
+american,1710-1730,12,137,xxiii; xx; xvi; xix; xiii; xxviii; xxv; xii; zech; xxii,Biblical Book Abbreviations,Structural / Uncertain,inherited,1690-1710#10
+american,1710-1730,4,638,recommend; oblige; expose; refer; imagine; compel; discover; commend; reduce; propose,Verbs of Belief & Doubt,Structural / Uncertain,inherited,1690-1710#4
+american,1710-1730,0,906,deacons; capacities; apostolick; tempers; diocesan; considerations; preface; acknowledgments; qualities; essay,Theological Argument & Scholarly Writing,"Books, Learning & Scholarship",inherited,1690-1710#6
+american,1710-1730,5,484,coals; rocks; tempest; thick; hail; smoke; brass; waves; rivers; furnace,Psalms of Praise & Deliverance,"Religion, Theology & the Church",inherited,1690-1710#3
+american,1710-1730,3,655,observ'd; asserted; maintained; consecrated; interpreted; examined; govern'd; overtaken; ordain'd; cruelly,"Argument, Proof & Rebuttal",Rhetoric & Persuasion,inherited,1690-1710#5
+american,1710-1730,6,451,lieut; massachusetts; edward; robert; smith; cotton; consisting; francis; cornelius; brown,Personal Names & Titles,Structural / Uncertain,inherited,1690-1710#8
+american,1710-1730,8,320,boat; islands; schooner; hunting; shot; gun; capt; harbour; boats; castle,"Colonies, Provinces & Territories",Geography & Territory,inherited,1690-1710#9
+american,1710-1730,7,368,threw; reflecting; turn'd; depended; thrust; throw; fired; thrown; pull; ran,Verbs of Violent Motion,Structural / Uncertain,inherited,1690-1710#7
+american,1710-1730,13,127,lib; ab; quae; dei; cap; epist; cum; sunt; sed; qui,Comparative Adjectives & Adverbs,Structural / Uncertain,inherited,1690-1710#13
+american,1710-1730,10,219,declares; refers; applies; mentions; expresseth; denies; owns; loveth; asserts; owes,Archaic Third-Person Verb Forms,Structural / Uncertain,inherited,1690-1710#12
+american,1710-1730,14,60,derived; cleansed; banished; excluded; abstain; freed; arising; collected; released; derive,Verbs of Derivation & Removal,Structural / Uncertain,human,
+american,1730-1750,1,1022,constancy; blessedness; glories; excellence; sanctity; vertuous; transcendent; fervent; display; physical,"Calling, Obedience & Divine Ordinance","Religion, Theology & the Church",inherited,1710-1730#1
+american,1730-1750,10,318,september; november; nov; iune; sept; feb; cambridge; october; gloucester; salem,Colonial Settlement Narrative,"History, Genealogy, Nobility & Kinship",inherited,1710-1730#11
+american,1730-1750,4,719,persuade; refer; expose; terrify; reduce; recommend; explain; damn; constrain; tempt,Verbs of Belief & Doubt,Structural / Uncertain,inherited,1710-1730#4
+american,1730-1750,0,1027,unnatural; sensuality; extravagance; intemperance; avarice; irreligion; malignant; profaneness; sloth; stupid,Divine Judgment & Darkness,"Religion, Theology & the Church",inherited,1710-1730#2
+american,1730-1750,13,87,square; species; surface; distances; wheel; serjeants; drummers; regiment; rear; files,Comparative Adjectives & Adverbs,Structural / Uncertain,inherited,1710-1730#13
+american,1730-1750,15,29,stronger; faster; worse; wiser; weaker; sooner; brighter; sweeter; easier; better,Comparative Adjectives & Adverbs,Structural / Uncertain,human,
+american,1730-1750,5,669,manufactures; secretary; treasurer; canons; partners; governments; fees; jurisdiction; ecclesiastical; bishops,Civil & Ecclesiastical Governance,"Government, Law & Administration",inherited,1710-1730#9
+american,1730-1750,7,413,iames; robert; lewis; clark; portugal; francis; jones; colman; thomas; edward,Personal Names & Titles,Structural / Uncertain,inherited,1710-1730#6
+american,1730-1750,6,498,bp; lib; paragraph; lond; assertion; edit; vols; octavo; interpretation; preface,Theological Argument & Scholarly Writing,"Books, Learning & Scholarship",inherited,1710-1730#0
+american,1730-1750,3,808,discovered; smitten; freed; declared; drowned; demonstrated; slew; questioned; proved; explained,"Argument, Proof & Rebuttal",Rhetoric & Persuasion,inherited,1710-1730#3
+american,1730-1750,9,329,newfoundland; islands; africa; fort; plymouth; mexico; colonies; west; forts; india,"Colonies, Provinces & Territories",Geography & Territory,inherited,1710-1730#8
+american,1730-1750,11,260,declares; asserts; represents; intimates; beholds; loveth; shews; shows; heareth; convinces,Archaic Third-Person Verb Forms,Structural / Uncertain,inherited,1710-1730#10
+american,1730-1750,8,399,drove; reflecting; thrown; broke; rush; turn'd; brake; reflected; hung; driven,Verbs of Violent Motion,Structural / Uncertain,inherited,1710-1730#7
+american,1730-1750,2,935,skies; sack; oysters; horrors; butter; sky; boiling; roses; nutmeg; grated,Psalms of Praise & Deliverance,"Religion, Theology & the Church",inherited,1710-1730#5
+american,1730-1750,12,123,xxiv; xix; xxii; xvi; xvii; xxvi; xx; xv; jeremiah; xxi,Biblical Book Abbreviations,Structural / Uncertain,inherited,1710-1730#12
+american,1730-1750,14,81,enthusiast; abstract; unlimited; habitual; inch; emblem; acknowledgment; unbeliever; addition; invariable,Verbs of Derivation & Removal,Structural / Uncertain,inherited,1710-1730#14
+american,1750-1770,16,170,friday; december; february; sept; september; october; april; june; thirty; tuesday,Colonial Settlement Narrative,"History, Genealogy, Nobility & Kinship",inherited,1730-1750#10
+american,1750-1770,7,591,fortitude; rectitude; excellence; manifestations; manly; perception; disinterested; fidelity; unshaken; bravery,"Calling, Obedience & Divine Ordinance","Religion, Theology & the Church",inherited,1730-1750#1
+american,1750-1770,4,734,payment; fees; certificate; certificates; assistants; bail; wares; sheriffs; defendant; affidavit,Civil & Ecclesiastical Governance,"Government, Law & Administration",inherited,1730-1750#5
+american,1750-1770,8,548,disagreeable; invidious; delicate; absurd; imprudent; painful; ridiculous; sublime; intolerable; striking,Evaluative & Aesthetic Adjectives,Structural / Uncertain,human,
+american,1750-1770,11,365,proposition; relied; insisting; assertion; reflecting; obligatory; preface; depended; rely; insisted,Verbs of Derivation & Removal,Structural / Uncertain,inherited,1730-1750#14
+american,1750-1770,17,38,heavier; fewer; larger; dearer; stronger; plainer; worse; cheaper; harder; wiser,Comparative Adjectives & Adverbs,Structural / Uncertain,inherited,1730-1750#15
+american,1750-1770,9,533,peters; moore; jun; logan; andrew; hugh; roger; hutchinson; hon; allen,Personal Names & Titles,Structural / Uncertain,inherited,1730-1750#7
+american,1750-1770,3,770,tempers; allies; passages; sects; qualities; modern; considerations; precepts; presbyterian; texts,Theological Argument & Scholarly Writing,"Books, Learning & Scholarship",inherited,1730-1750#6
+american,1750-1770,10,401,eastward; canso; africa; montreal; ontario; banks; quebec; easton; louisbourg; newfoundland,"Colonies, Provinces & Territories",Geography & Territory,inherited,1730-1750#9
+american,1750-1770,5,630,prompt; conform; impute; expose; incline; refer; recommend; sooth; suggest; discover,Verbs of Belief & Doubt,Structural / Uncertain,inherited,1730-1750#4
+american,1750-1770,12,324,threw; ran; blown; pulled; drove; throw; beat; pulling; pull; turn'd,Verbs of Violent Motion,Structural / Uncertain,inherited,1730-1750#8
+american,1750-1770,1,788,strengthened; abused; covered; printed; cover'd; released; clothed; handled; weakened; shewn,"Argument, Proof & Rebuttal",Rhetoric & Persuasion,inherited,1730-1750#3
+american,1750-1770,0,863,powder'd; camomile; flowers; butter; boil'd; bag; expels; vinegar; yellow; bladder,Psalms of Praise & Deliverance,"Religion, Theology & the Church",inherited,1730-1750#2
+american,1750-1770,2,773,skies; brow; groves; beauteous; fierce; shade; dire; charming; throng; raging,Comparative Adjectives & Adverbs,Structural / Uncertain,inherited,1730-1750#13
+american,1750-1770,13,298,owns; applies; mentions; esteems; asserts; inspires; giveth; supposes; loveth; intimates,Archaic Third-Person Verb Forms,Structural / Uncertain,inherited,1730-1750#11
+american,1750-1770,6,624,intemperance; inhuman; profaneness; rage; perfidious; fury; avarice; irreligious; cruelty; uncleanness,Divine Judgment & Darkness,"Religion, Theology & the Church",inherited,1730-1750#0
+american,1750-1770,15,218,matth; xviii; isa; luk; xix; xxv; xxii; galatians; exod; xvi,Biblical Book Abbreviations,Structural / Uncertain,inherited,1730-1750#12
+american,1750-1770,14,249,haberdashery; poems; poetry; cwt; bales; lb; cambricks; essays; lib; geography,Merchandise & Book-Trade Advertising,"Trade, Finance & Commerce",human,
+american,1770-1790,17,63,sixty; eighty; fifteen; thirty; seventy; sixteen; fourteen; forty; eight; seventeen,Cardinal Numbers,Structural / Uncertain,human,
+american,1770-1790,8,792,magnanimity; firmness; persevering; anxiety; circumcision; sanctification; manifestation; perfections; steadiness; constancy,"Calling, Obedience & Divine Ordinance","Religion, Theology & the Church",inherited,1750-1770#7
+american,1770-1790,4,972,inhuman; illiberal; unruly; unjustifiable; insolent; turbulent; subtile; unfavourable; stupid; malicious,Evaluative & Aesthetic Adjectives,Structural / Uncertain,inherited,1750-1770#8
+american,1770-1790,1,1322,inlet; deputies; insisting; senators; adjective; proposition; propositions; angel's; legislation; infringement,Verbs of Derivation & Removal,Structural / Uncertain,inherited,1750-1770#11
+american,1770-1790,18,53,sweeter; quicker; lighter; thicker; safer; oftener; faster; older; heavier; wiser,Comparative Adjectives & Adverbs,Structural / Uncertain,inherited,1750-1770#17
+american,1770-1790,16,174,september; sept; thursday; february; november; april; random; nineteenth; shudder; october,Colonial Settlement Narrative,"History, Genealogy, Nobility & Kinship",inherited,1750-1770#16
+american,1770-1790,3,1009,suggest; conform; crush; waft; restrain; prompt; expose; refer; discourage; dispossess,Verbs of Belief & Doubt,Structural / Uncertain,inherited,1750-1770#5
+american,1770-1790,6,872,rapine; merciless; unrelenting; levity; debauchery; unprovoked; venality; sensuality; malignity; hellish,Divine Judgment & Darkness,"Religion, Theology & the Church",inherited,1750-1770#6
+american,1770-1790,0,1854,charm'd; vales; pensive; billows; wakes; azure; roll'd; purple; glows; verdure,Comparative Adjectives & Adverbs,Structural / Uncertain,inherited,1750-1770#2
+american,1770-1790,2,1053,demonstrated; benefited; crushed; murdered; referred; unacquainted; explained; devoured; augmented; relieved,"Argument, Proof & Rebuttal",Rhetoric & Persuasion,inherited,1750-1770#1
+american,1770-1790,14,308,maid; jerome; gibb; flora; girl; antonio; marquis; humphry; boy; beau,Theological Argument & Scholarly Writing,"Books, Learning & Scholarship",inherited,1750-1770#3
+american,1770-1790,9,685,handkerchief; newport; worcester; salem; missisippi; huron; knife; cambridge; portsmouth; neck,"Colonies, Provinces & Territories",Geography & Territory,inherited,1750-1770#10
+american,1770-1790,7,836,jun; nathaniel; richardson; williams; walker; jonathan; esquire; fisher; parker; livingston,Personal Names & Titles,Structural / Uncertain,inherited,1750-1770#9
+american,1770-1790,10,436,turn'd; throwing; thrust; look'd; drive; pulled; draws; rode; rides; blown,Verbs of Violent Motion,Structural / Uncertain,inherited,1750-1770#12
+american,1770-1790,5,878,sliced; stalks; parsley; yellow; nutmeg; slices; shells; ice; walnut; grated,Psalms of Praise & Deliverance,"Religion, Theology & the Church",inherited,1750-1770#0
+american,1770-1790,12,336,shipping; commodities; fisheries; payment; payable; funds; wares; specie; fees; sale,Civil & Ecclesiastical Governance,"Government, Law & Administration",inherited,1750-1770#4
+american,1770-1790,13,332,understands; giveth; explains; hates; considers; exposes; loveth; exalts; allows; knoweth,Archaic Third-Person Verb Forms,Structural / Uncertain,inherited,1750-1770#13
+american,1770-1790,11,403,putrid; bitters; vomiting; astringent; nausea; cooling; urine; intestines; gum; emetics,Merchandise & Book-Trade Advertising,"Trade, Finance & Commerce",inherited,1750-1770#14
+american,1770-1790,15,226,daniel; matth; jer; chron; matthew; deut; joshua; jeremiah; ezek; isa,Biblical Book Abbreviations,Structural / Uncertain,inherited,1750-1770#15
+american,1770-1790,19,17,wouldst; shouldst; wast; seest; mayst; may'st; know'st; didst; canst; wouldest,Second-Person Verb Forms,Structural / Uncertain,human,
+american,1790-1810,14,237,dec; sixty; termination; nov; eleventh; feb; fourteen; november; dated; thirty,Colonial Settlement Narrative,"History, Genealogy, Nobility & Kinship",inherited,1770-1790#16
+american,1790-1810,4,1589,managers; payments; payment; sales; certified; judiciary; statute; securities; funds; surplus,Verbs of Derivation & Removal,Structural / Uncertain,inherited,1770-1790#1
+american,1790-1810,17,76,hotter; lighter; quicker; bigger; swifter; heavier; firmer; broader; sweeter; stronger,Comparative Adjectives & Adverbs,Structural / Uncertain,inherited,1770-1790#18
+american,1790-1810,1,1957,unmanly; revengeful; turbulent; forcible; softness; outrageous; gentleness; arrogant; atrocious; rapturous,Evaluative & Aesthetic Adjectives,Structural / Uncertain,inherited,1770-1790#4
+american,1790-1810,3,1845,essays; chemistry; vo; poems; publications; revelations; aristotle; abbe; vols; positions,"Calling, Obedience & Divine Ordinance","Religion, Theology & the Church",inherited,1770-1790#8
+american,1790-1810,6,1307,rov; waldron; fois; eh; lucy; sim; floretta; foix; mastich; eleazar,Theological Argument & Scholarly Writing,"Books, Learning & Scholarship",inherited,1770-1790#14
+american,1790-1810,5,1587,soothed; characterized; damped; swayed; tormented; benefited; tinged; exempted; wrested; objected,"Argument, Proof & Rebuttal",Rhetoric & Persuasion,inherited,1770-1790#2
+american,1790-1810,7,1258,hudson; salem; labrador; ipswich; lakes; darius; amsterdam; quebec; newfoundland; manchester,"Colonies, Provinces & Territories",Geography & Territory,inherited,1770-1790#9
+american,1790-1810,11,878,archibald; dickinson; harrison; baker; nathaniel; palmer; jones; scott; caleb; stephens,Personal Names & Titles,Structural / Uncertain,inherited,1770-1790#7
+american,1790-1810,10,1012,attach; expose; refer; impute; conform; tempt; advert; provoke; accommodate; rob,Verbs of Belief & Doubt,Structural / Uncertain,inherited,1770-1790#3
+american,1790-1810,13,684,discovers; calleth; loveth; perceives; deprives; obliges; imparts; forsakes; considers; softens,Archaic Third-Person Verb Forms,Structural / Uncertain,inherited,1770-1790#13
+american,1790-1810,12,760,jumped; pulled; relied; pulls; stepping; pulling; thrust; rode; relying; dash,Verbs of Violent Motion,Structural / Uncertain,inherited,1770-1790#10
+american,1790-1810,0,2288,verdant; dewy; bow'rs; drear; wither'd; flow'ry; orient; flow'rs; rosy; heav'nly,Comparative Adjectives & Adverbs,Structural / Uncertain,inherited,1770-1790#0
+american,1790-1810,2,1938,almonds; geese; lemon; sorrel; hickory; pork; ducks; mace; pounded; nutmeg,Psalms of Praise & Deliverance,"Religion, Theology & the Church",inherited,1770-1790#5
+american,1790-1810,8,1167,insatiate; anguish; minions; legions; hypocrisy; baseness; effeminacy; disorganizing; timidity; slanders,Divine Judgment & Darkness,"Religion, Theology & the Church",inherited,1770-1790#6
+american,1790-1810,9,1061,spasm; expectoration; spasms; diarrhoea; colic; clammy; catarrh; sulphur; vitriol; viscid,Merchandise & Book-Trade Advertising,"Trade, Finance & Commerce",inherited,1770-1790#11
+american,1790-1810,15,202,impostor; idiot; infraction; aqueous; usurper; astregal; accomplice; infinity; inventory; inmate,Cardinal Numbers,Structural / Uncertain,inherited,1770-1790#17
+american,1790-1810,18,42,doest; shouldst; would'st; makest; wouldest; sayest; mightest; wouldst; thinkest; couldst,Second-Person Verb Forms,Structural / Uncertain,inherited,1770-1790#19
+american,1790-1810,16,171,ezekiel; isaiah; xxxiii; matth; chron; jeremiah; isai; xxxiv; xviii; xlv,Biblical Book Abbreviations,Structural / Uncertain,inherited,1770-1790#15

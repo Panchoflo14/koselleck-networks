@@ -1,710 +1,740 @@
 {
   "1650-1670": {
-    "5": {
-      "label": "Truth, Argument & Judgment",
-      "n_words": 107,
-      "lane": "Rhetoric & Persuasion"
-    },
     "3": {
-      "label": "Biblical Book Abbreviations & Citations",
-      "n_words": 115,
+      "label": "Calling, Obedience & Divine Ordinance",
+      "n_words": 108,
       "lane": "Religion, Theology & the Church"
     },
     "0": {
-      "label": "Psalms & Devotional Praise",
-      "n_words": 188,
+      "label": "Psalms of Praise & Deliverance",
+      "n_words": 178,
       "lane": "Religion, Theology & the Church"
     },
     "1": {
       "label": "Civil & Ecclesiastical Governance",
-      "n_words": 134,
+      "n_words": 146,
       "lane": "Government, Law & Administration"
+    },
+    "7": {
+      "label": "Argument, Proof & Rebuttal",
+      "n_words": 58,
+      "lane": "Rhetoric & Persuasion"
+    },
+    "5": {
+      "label": "Biblical Book Abbreviations (mixed)",
+      "n_words": 69,
+      "lane": "Structural / Uncertain"
     },
     "2": {
       "label": "Colonial Settlement Narrative",
-      "n_words": 130,
+      "n_words": 117,
       "lane": "History, Genealogy, Nobility & Kinship"
     },
     "4": {
-      "label": "Disputation & Argument Vocabulary",
-      "n_words": 109,
-      "lane": "Rhetoric & Persuasion"
+      "label": "Verbs of Belief & Doubt (mixed)",
+      "n_words": 97,
+      "lane": "Structural / Uncertain"
     },
     "6": {
-      "label": "Scripture & Biblical Prophecy",
-      "n_words": 57,
+      "label": "Divine Judgment & Darkness",
+      "n_words": 67,
       "lane": "Religion, Theology & the Church"
     }
   },
   "1670-1690": {
     "0": {
-      "label": "Truth, Argument & Judgment",
-      "n_words": 763,
-      "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1650-1670#5"
-    },
-    "4": {
-      "label": "Biblical Book Abbreviations & Citations",
-      "n_words": 388,
+      "label": "Calling, Obedience & Divine Ordinance",
+      "n_words": 553,
       "lane": "Religion, Theology & the Church",
       "inherited_from": "1650-1670#3"
     },
-    "3": {
-      "label": "Civil & Ecclesiastical Governance",
-      "n_words": 399,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1650-1670#1"
-    },
-    "9": {
-      "label": "Women, Family & the Body",
-      "n_words": 134,
-      "lane": "Domestic Life, Dress & Household"
-    },
     "7": {
-      "label": "Scripture & Biblical Prophecy",
-      "n_words": 176,
+      "label": "Biblical Book Abbreviations (mixed)",
+      "n_words": 288,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1650-1670#5"
+    },
+    "3": {
+      "label": "Divine Judgment & Darkness",
+      "n_words": 390,
       "lane": "Religion, Theology & the Church",
       "inherited_from": "1650-1670#6"
     },
-    "2": {
-      "label": "Vice, Sin & Misery",
-      "n_words": 423,
-      "lane": "Morality: Virtue & Vice"
-    },
     "5": {
-      "label": "Disputation & Argument Vocabulary",
-      "n_words": 387,
-      "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1650-1670#4"
+      "label": "Civil & Ecclesiastical Governance",
+      "n_words": 337,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1650-1670#1"
     },
-    "6": {
-      "label": "Psalms & Devotional Praise",
-      "n_words": 322,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1650-1670#0"
-    },
-    "1": {
+    "4": {
       "label": "Colonial Settlement Narrative",
-      "n_words": 462,
+      "n_words": 352,
       "lane": "History, Genealogy, Nobility & Kinship",
       "inherited_from": "1650-1670#2"
     },
+    "2": {
+      "label": "Verbs of Belief & Doubt (mixed)",
+      "n_words": 394,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1650-1670#4"
+    },
+    "1": {
+      "label": "Psalms of Praise & Deliverance",
+      "n_words": 433,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1650-1670#0"
+    },
+    "9": {
+      "label": "Argument, Proof & Rebuttal",
+      "n_words": 207,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1650-1670#7"
+    },
+    "6": {
+      "label": "Theological Argument & Scholarly Writing",
+      "n_words": 309,
+      "lane": "Books, Learning & Scholarship"
+    },
     "8": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 143,
+      "label": "Verbs of Violent Motion (mixed)",
+      "n_words": 244,
+      "lane": "Structural / Uncertain"
+    },
+    "10": {
+      "label": "Archaic Third-Person Verb Forms (mixed)",
+      "n_words": 90,
       "lane": "Structural / Uncertain"
     }
   },
   "1690-1710": {
     "0": {
-      "label": "Truth, Argument & Judgment",
-      "n_words": 609,
-      "lane": "Rhetoric & Persuasion",
+      "label": "Calling, Obedience & Divine Ordinance",
+      "n_words": 737,
+      "lane": "Religion, Theology & the Church",
       "inherited_from": "1670-1690#0"
     },
-    "4": {
+    "1": {
       "label": "Civil & Ecclesiastical Governance",
-      "n_words": 477,
+      "n_words": 511,
       "lane": "Government, Law & Administration",
-      "inherited_from": "1670-1690#3"
-    },
-    "6": {
-      "label": "Women, Family & the Body",
-      "n_words": 368,
-      "lane": "Domestic Life, Dress & Household",
-      "inherited_from": "1670-1690#9"
-    },
-    "12": {
-      "label": "Scripture & Biblical Prophecy",
-      "n_words": 194,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1670-1690#7"
-    },
-    "7": {
-      "label": "Religious Doctrine & Church Controversy",
-      "n_words": 337,
-      "lane": "Religion, Theology & the Church"
-    },
-    "8": {
-      "label": "Treatise & Textual Argument",
-      "n_words": 274,
-      "lane": "Books, Learning & Scholarship"
-    },
-    "3": {
-      "label": "Disputation & Argument Vocabulary",
-      "n_words": 490,
-      "lane": "Rhetoric & Persuasion",
       "inherited_from": "1670-1690#5"
     },
-    "1": {
-      "label": "Vice, Sin & Misery",
-      "n_words": 552,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1670-1690#2"
+    "10": {
+      "label": "Biblical Book Abbreviations (mixed)",
+      "n_words": 245,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1670-1690#7"
     },
-    "9": {
-      "label": "Colonial Trade & Ports",
-      "n_words": 272,
-      "lane": "Trade, Finance & Commerce"
+    "11": {
+      "label": "Colonial Settlement Narrative",
+      "n_words": 215,
+      "lane": "History, Genealogy, Nobility & Kinship",
+      "inherited_from": "1670-1690#4"
     },
-    "14": {
-      "label": "Calendar Months & Dates (mixed)",
-      "n_words": 94,
+    "8": {
+      "label": "Personal Names & Titles (mixed)",
+      "n_words": 273,
       "lane": "Structural / Uncertain"
     },
     "2": {
-      "label": "Past-Tense Verbs of Accusation & Proof",
-      "n_words": 508,
-      "lane": "Rhetoric & Persuasion"
-    },
-    "11": {
-      "label": "Psalms & Devotional Praise",
-      "n_words": 233,
+      "label": "Divine Judgment & Darkness",
+      "n_words": 506,
       "lane": "Religion, Theology & the Church",
-      "inherited_from": "1670-1690#6"
+      "inherited_from": "1670-1690#3"
     },
     "13": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 144,
+      "label": "Comparative Adjectives & Adverbs (mixed)",
+      "n_words": 20,
+      "lane": "Structural / Uncertain"
+    },
+    "6": {
+      "label": "Theological Argument & Scholarly Writing",
+      "n_words": 465,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1670-1690#6"
+    },
+    "4": {
+      "label": "Verbs of Belief & Doubt (mixed)",
+      "n_words": 495,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1670-1690#2"
+    },
+    "3": {
+      "label": "Psalms of Praise & Deliverance",
+      "n_words": 505,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1670-1690#1"
+    },
+    "9": {
+      "label": "Colonies, Provinces & Territories",
+      "n_words": 250,
+      "lane": "Geography & Territory"
+    },
+    "5": {
+      "label": "Argument, Proof & Rebuttal",
+      "n_words": 476,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1670-1690#9"
+    },
+    "7": {
+      "label": "Verbs of Violent Motion (mixed)",
+      "n_words": 330,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#8"
     },
-    "5": {
-      "label": "Colonial Settlement Narrative",
-      "n_words": 424,
-      "lane": "History, Genealogy, Nobility & Kinship",
-      "inherited_from": "1670-1690#1"
-    },
-    "10": {
-      "label": "Biblical Book Abbreviations & Citations",
-      "n_words": 233,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1670-1690#4"
+    "12": {
+      "label": "Archaic Third-Person Verb Forms (mixed)",
+      "n_words": 181,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1670-1690#10"
     }
   },
   "1710-1730": {
-    "0": {
-      "label": "Truth, Argument & Judgment",
-      "n_words": 1076,
-      "lane": "Rhetoric & Persuasion",
+    "1": {
+      "label": "Calling, Obedience & Divine Ordinance",
+      "n_words": 886,
+      "lane": "Religion, Theology & the Church",
       "inherited_from": "1690-1710#0"
     },
-    "4": {
-      "label": "Disputation & Argument Vocabulary",
-      "n_words": 653,
-      "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1690-1710#3"
-    },
-    "1": {
-      "label": "Vice, Sin & Misery",
-      "n_words": 813,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1690-1710#1"
-    },
-    "6": {
-      "label": "Treatise & Textual Argument",
-      "n_words": 482,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1690-1710#8"
-    },
-    "13": {
-      "label": "Biblical Book Abbreviations & Citations",
-      "n_words": 137,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1690-1710#10"
-    },
-    "12": {
-      "label": "Scripture & Biblical Prophecy",
-      "n_words": 156,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1690-1710#12"
+    "11": {
+      "label": "Colonial Settlement Narrative",
+      "n_words": 155,
+      "lane": "History, Genealogy, Nobility & Kinship",
+      "inherited_from": "1690-1710#11"
     },
     "2": {
-      "label": "Past-Tense Verbs of Accusation & Proof",
-      "n_words": 756,
-      "lane": "Rhetoric & Persuasion",
+      "label": "Divine Judgment & Darkness",
+      "n_words": 738,
+      "lane": "Religion, Theology & the Church",
       "inherited_from": "1690-1710#2"
     },
+    "9": {
+      "label": "Civil & Ecclesiastical Governance",
+      "n_words": 311,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1690-1710#1"
+    },
+    "12": {
+      "label": "Biblical Book Abbreviations (mixed)",
+      "n_words": 137,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#10"
+    },
+    "4": {
+      "label": "Verbs of Belief & Doubt (mixed)",
+      "n_words": 638,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#4"
+    },
+    "0": {
+      "label": "Theological Argument & Scholarly Writing",
+      "n_words": 906,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1690-1710#6"
+    },
+    "5": {
+      "label": "Psalms of Praise & Deliverance",
+      "n_words": 484,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1690-1710#3"
+    },
     "3": {
-      "label": "Colonial Trade & Ports",
-      "n_words": 680,
-      "lane": "Trade, Finance & Commerce",
+      "label": "Argument, Proof & Rebuttal",
+      "n_words": 655,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1690-1710#5"
+    },
+    "6": {
+      "label": "Personal Names & Titles (mixed)",
+      "n_words": 451,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#8"
+    },
+    "8": {
+      "label": "Colonies, Provinces & Territories",
+      "n_words": 320,
+      "lane": "Geography & Territory",
       "inherited_from": "1690-1710#9"
     },
     "7": {
-      "label": "Psalms & Devotional Praise",
-      "n_words": 286,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1690-1710#11"
+      "label": "Verbs of Violent Motion (mixed)",
+      "n_words": 368,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#7"
     },
-    "10": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 188,
+    "13": {
+      "label": "Comparative Adjectives & Adverbs (mixed)",
+      "n_words": 127,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#13"
     },
-    "8": {
-      "label": "Religious Doctrine & Church Controversy",
-      "n_words": 249,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1690-1710#7"
-    },
-    "5": {
-      "label": "Colonial Settlement Narrative",
-      "n_words": 572,
-      "lane": "History, Genealogy, Nobility & Kinship",
-      "inherited_from": "1690-1710#5"
-    },
-    "11": {
-      "label": "Women, Family & the Body",
-      "n_words": 185,
-      "lane": "Domestic Life, Dress & Household",
-      "inherited_from": "1690-1710#6"
-    },
-    "9": {
-      "label": "Civil & Ecclesiastical Governance",
-      "n_words": 202,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1690-1710#4"
+    "10": {
+      "label": "Archaic Third-Person Verb Forms (mixed)",
+      "n_words": 219,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#12"
     },
     "14": {
-      "label": "Calendar Months & Dates (mixed)",
-      "n_words": 20,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1690-1710#14"
+      "label": "Verbs of Derivation & Removal (mixed)",
+      "n_words": 60,
+      "lane": "Structural / Uncertain"
     }
   },
   "1730-1750": {
-    "0": {
-      "label": "Truth, Argument & Judgment",
-      "n_words": 1108,
-      "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1710-1730#0"
-    },
-    "10": {
-      "label": "Scripture & Biblical Prophecy",
-      "n_words": 320,
+    "1": {
+      "label": "Calling, Obedience & Divine Ordinance",
+      "n_words": 1022,
       "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#12"
-    },
-    "4": {
-      "label": "Disputation & Argument Vocabulary",
-      "n_words": 707,
-      "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1710-1730#4"
-    },
-    "2": {
-      "label": "Vice, Sin & Misery",
-      "n_words": 953,
-      "lane": "Morality: Virtue & Vice",
       "inherited_from": "1710-1730#1"
     },
-    "12": {
+    "10": {
+      "label": "Colonial Settlement Narrative",
+      "n_words": 318,
+      "lane": "History, Genealogy, Nobility & Kinship",
+      "inherited_from": "1710-1730#11"
+    },
+    "4": {
+      "label": "Verbs of Belief & Doubt (mixed)",
+      "n_words": 719,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#4"
+    },
+    "0": {
+      "label": "Divine Judgment & Darkness",
+      "n_words": 1027,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1710-1730#2"
+    },
+    "13": {
+      "label": "Comparative Adjectives & Adverbs (mixed)",
+      "n_words": 87,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#13"
+    },
+    "15": {
+      "label": "Comparative Adjectives & Adverbs (mixed)",
+      "n_words": 29,
+      "lane": "Structural / Uncertain"
+    },
+    "5": {
       "label": "Civil & Ecclesiastical Governance",
-      "n_words": 207,
+      "n_words": 669,
       "lane": "Government, Law & Administration",
       "inherited_from": "1710-1730#9"
     },
-    "14": {
-      "label": "Calendar Months & Dates (mixed)",
-      "n_words": 98,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1710-1730#14"
-    },
     "7": {
-      "label": "Treatise & Textual Argument",
-      "n_words": 387,
-      "lane": "Books, Learning & Scholarship",
+      "label": "Personal Names & Titles (mixed)",
+      "n_words": 413,
+      "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#6"
     },
-    "5": {
-      "label": "Religious Doctrine & Church Controversy",
-      "n_words": 627,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#8"
-    },
-    "8": {
-      "label": "Colonial Trade & Ports",
-      "n_words": 349,
-      "lane": "Trade, Finance & Commerce",
-      "inherited_from": "1710-1730#3"
+    "6": {
+      "label": "Theological Argument & Scholarly Writing",
+      "n_words": 498,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1710-1730#0"
     },
     "3": {
-      "label": "Past-Tense Verbs of Accusation & Proof",
-      "n_words": 720,
+      "label": "Argument, Proof & Rebuttal",
+      "n_words": 808,
       "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1710-1730#2"
+      "inherited_from": "1710-1730#3"
+    },
+    "9": {
+      "label": "Colonies, Provinces & Territories",
+      "n_words": 329,
+      "lane": "Geography & Territory",
+      "inherited_from": "1710-1730#8"
     },
     "11": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 249,
+      "label": "Archaic Third-Person Verb Forms (mixed)",
+      "n_words": 260,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#10"
     },
-    "9": {
-      "label": "Psalms & Devotional Praise",
-      "n_words": 323,
-      "lane": "Religion, Theology & the Church",
+    "8": {
+      "label": "Verbs of Violent Motion (mixed)",
+      "n_words": 399,
+      "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#7"
     },
-    "6": {
-      "label": "Women, Family & the Body",
-      "n_words": 423,
-      "lane": "Domestic Life, Dress & Household",
-      "inherited_from": "1710-1730#11"
-    },
-    "1": {
-      "label": "Colonial Settlement Narrative",
-      "n_words": 959,
-      "lane": "History, Genealogy, Nobility & Kinship",
+    "2": {
+      "label": "Psalms of Praise & Deliverance",
+      "n_words": 935,
+      "lane": "Religion, Theology & the Church",
       "inherited_from": "1710-1730#5"
     },
-    "15": {
-      "label": "Apostrophe Past-Participle Forms (-'d) (mixed)",
-      "n_words": 94,
-      "lane": "Structural / Uncertain"
+    "12": {
+      "label": "Biblical Book Abbreviations (mixed)",
+      "n_words": 123,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#12"
     },
-    "13": {
-      "label": "Biblical Book Abbreviations & Citations",
-      "n_words": 193,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#13"
+    "14": {
+      "label": "Verbs of Derivation & Removal (mixed)",
+      "n_words": 81,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#14"
     }
   },
   "1750-1770": {
-    "13": {
-      "label": "Scripture & Biblical Prophecy",
-      "n_words": 195,
-      "lane": "Religion, Theology & the Church",
+    "16": {
+      "label": "Colonial Settlement Narrative",
+      "n_words": 170,
+      "lane": "History, Genealogy, Nobility & Kinship",
       "inherited_from": "1730-1750#10"
     },
-    "0": {
-      "label": "Truth, Argument & Judgment",
-      "n_words": 1194,
-      "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1730-1750#0"
+    "7": {
+      "label": "Calling, Obedience & Divine Ordinance",
+      "n_words": 591,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1730-1750#1"
     },
     "4": {
-      "label": "Disputation & Argument Vocabulary",
-      "n_words": 723,
-      "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1730-1750#4"
+      "label": "Civil & Ecclesiastical Governance",
+      "n_words": 734,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1730-1750#5"
     },
-    "1": {
-      "label": "Vice, Sin & Misery",
-      "n_words": 1075,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1730-1750#2"
+    "8": {
+      "label": "Evaluative & Aesthetic Adjectives (mixed)",
+      "n_words": 548,
+      "lane": "Structural / Uncertain"
     },
-    "15": {
-      "label": "Apostrophe Past-Participle Forms (-'d) (mixed)",
-      "n_words": 35,
+    "11": {
+      "label": "Verbs of Derivation & Removal (mixed)",
+      "n_words": 365,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#14"
+    },
+    "17": {
+      "label": "Comparative Adjectives & Adverbs (mixed)",
+      "n_words": 38,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#15"
     },
-    "3": {
-      "label": "Past-Tense Verbs of Accusation & Proof",
-      "n_words": 802,
-      "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1730-1750#3"
-    },
-    "8": {
-      "label": "Treatise & Textual Argument",
-      "n_words": 532,
-      "lane": "Books, Learning & Scholarship",
+    "9": {
+      "label": "Personal Names & Titles (mixed)",
+      "n_words": 533,
+      "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#7"
     },
-    "7": {
-      "label": "Women, Family & the Body",
-      "n_words": 584,
-      "lane": "Domestic Life, Dress & Household",
+    "3": {
+      "label": "Theological Argument & Scholarly Writing",
+      "n_words": 770,
+      "lane": "Books, Learning & Scholarship",
       "inherited_from": "1730-1750#6"
     },
     "10": {
-      "label": "Psalms & Devotional Praise",
-      "n_words": 450,
-      "lane": "Religion, Theology & the Church",
+      "label": "Colonies, Provinces & Territories",
+      "n_words": 401,
+      "lane": "Geography & Territory",
       "inherited_from": "1730-1750#9"
     },
-    "14": {
-      "label": "Civil & Ecclesiastical Governance",
-      "n_words": 126,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1730-1750#12"
+    "5": {
+      "label": "Verbs of Belief & Doubt (mixed)",
+      "n_words": 630,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#4"
     },
-    "9": {
-      "label": "Colonial Trade & Ports",
-      "n_words": 482,
-      "lane": "Trade, Finance & Commerce",
+    "12": {
+      "label": "Verbs of Violent Motion (mixed)",
+      "n_words": 324,
+      "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#8"
     },
-    "11": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 247,
+    "1": {
+      "label": "Argument, Proof & Rebuttal",
+      "n_words": 788,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1730-1750#3"
+    },
+    "0": {
+      "label": "Psalms of Praise & Deliverance",
+      "n_words": 863,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1730-1750#2"
+    },
+    "2": {
+      "label": "Comparative Adjectives & Adverbs (mixed)",
+      "n_words": 773,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#13"
+    },
+    "13": {
+      "label": "Archaic Third-Person Verb Forms (mixed)",
+      "n_words": 298,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#11"
     },
     "6": {
-      "label": "Religious Doctrine & Church Controversy",
-      "n_words": 681,
+      "label": "Divine Judgment & Darkness",
+      "n_words": 624,
       "lane": "Religion, Theology & the Church",
-      "inherited_from": "1730-1750#5"
+      "inherited_from": "1730-1750#0"
     },
-    "12": {
-      "label": "Biblical Book Abbreviations & Citations",
+    "15": {
+      "label": "Biblical Book Abbreviations (mixed)",
       "n_words": 218,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1730-1750#13"
-    },
-    "5": {
-      "label": "Calendar Months & Dates (mixed)",
-      "n_words": 699,
       "lane": "Structural / Uncertain",
-      "inherited_from": "1730-1750#14"
+      "inherited_from": "1730-1750#12"
     },
-    "2": {
-      "label": "Colonial Settlement Narrative",
-      "n_words": 874,
-      "lane": "History, Genealogy, Nobility & Kinship",
-      "inherited_from": "1730-1750#1"
+    "14": {
+      "label": "Merchandise & Book-Trade Advertising",
+      "n_words": 249,
+      "lane": "Trade, Finance & Commerce"
     }
   },
   "1770-1790": {
-    "13": {
-      "label": "Scripture & Biblical Prophecy",
-      "n_words": 329,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1750-1770#13"
-    },
-    "0": {
-      "label": "Truth, Argument & Judgment",
-      "n_words": 1845,
-      "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1750-1770#0"
-    },
-    "6": {
-      "label": "Disputation & Argument Vocabulary",
-      "n_words": 808,
-      "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1750-1770#4"
-    },
-    "2": {
-      "label": "Vice, Sin & Misery",
-      "n_words": 1646,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1750-1770#1"
-    },
-    "15": {
-      "label": "Apostrophe Past-Participle Forms (-'d) (mixed)",
-      "n_words": 51,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1750-1770#15"
+    "17": {
+      "label": "Cardinal Numbers (mixed)",
+      "n_words": 63,
+      "lane": "Structural / Uncertain"
     },
     "8": {
-      "label": "Colonial Trade & Ports",
-      "n_words": 610,
-      "lane": "Trade, Finance & Commerce",
-      "inherited_from": "1750-1770#9"
-    },
-    "5": {
-      "label": "Religious Doctrine & Church Controversy",
-      "n_words": 934,
+      "label": "Calling, Obedience & Divine Ordinance",
+      "n_words": 792,
       "lane": "Religion, Theology & the Church",
-      "inherited_from": "1750-1770#6"
-    },
-    "11": {
-      "label": "Civil & Ecclesiastical Governance",
-      "n_words": 392,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1750-1770#14"
-    },
-    "1": {
-      "label": "Colonial Settlement Narrative",
-      "n_words": 1817,
-      "lane": "History, Genealogy, Nobility & Kinship",
-      "inherited_from": "1750-1770#2"
-    },
-    "3": {
-      "label": "Past-Tense Verbs of Accusation & Proof",
-      "n_words": 1087,
-      "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1750-1770#3"
-    },
-    "7": {
-      "label": "Women, Family & the Body",
-      "n_words": 678,
-      "lane": "Domestic Life, Dress & Household",
       "inherited_from": "1750-1770#7"
     },
-    "9": {
-      "label": "Psalms & Devotional Praise",
-      "n_words": 458,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1750-1770#10"
-    },
     "4": {
-      "label": "Calendar Months & Dates (mixed)",
-      "n_words": 1042,
+      "label": "Evaluative & Aesthetic Adjectives (mixed)",
+      "n_words": 972,
       "lane": "Structural / Uncertain",
-      "inherited_from": "1750-1770#5"
-    },
-    "10": {
-      "label": "Treatise & Textual Argument",
-      "n_words": 423,
-      "lane": "Books, Learning & Scholarship",
       "inherited_from": "1750-1770#8"
     },
-    "12": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 342,
+    "1": {
+      "label": "Verbs of Derivation & Removal (mixed)",
+      "n_words": 1322,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#11"
     },
-    "14": {
-      "label": "Biblical Book Abbreviations & Citations",
-      "n_words": 142,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1750-1770#12"
+    "18": {
+      "label": "Comparative Adjectives & Adverbs (mixed)",
+      "n_words": 53,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#17"
     },
     "16": {
-      "label": "Second-Person Singular Verb Forms (thou) (mixed)",
+      "label": "Colonial Settlement Narrative",
+      "n_words": 174,
+      "lane": "History, Genealogy, Nobility & Kinship",
+      "inherited_from": "1750-1770#16"
+    },
+    "3": {
+      "label": "Verbs of Belief & Doubt (mixed)",
+      "n_words": 1009,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#5"
+    },
+    "6": {
+      "label": "Divine Judgment & Darkness",
+      "n_words": 872,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1750-1770#6"
+    },
+    "0": {
+      "label": "Comparative Adjectives & Adverbs (mixed)",
+      "n_words": 1854,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#2"
+    },
+    "2": {
+      "label": "Argument, Proof & Rebuttal",
+      "n_words": 1053,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1750-1770#1"
+    },
+    "14": {
+      "label": "Theological Argument & Scholarly Writing",
+      "n_words": 308,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1750-1770#3"
+    },
+    "9": {
+      "label": "Colonies, Provinces & Territories",
+      "n_words": 685,
+      "lane": "Geography & Territory",
+      "inherited_from": "1750-1770#10"
+    },
+    "7": {
+      "label": "Personal Names & Titles (mixed)",
+      "n_words": 836,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#9"
+    },
+    "10": {
+      "label": "Verbs of Violent Motion (mixed)",
+      "n_words": 436,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#12"
+    },
+    "5": {
+      "label": "Psalms of Praise & Deliverance",
+      "n_words": 878,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1750-1770#0"
+    },
+    "12": {
+      "label": "Civil & Ecclesiastical Governance",
+      "n_words": 336,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1750-1770#4"
+    },
+    "13": {
+      "label": "Archaic Third-Person Verb Forms (mixed)",
+      "n_words": 332,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#13"
+    },
+    "11": {
+      "label": "Merchandise & Book-Trade Advertising",
+      "n_words": 403,
+      "lane": "Trade, Finance & Commerce",
+      "inherited_from": "1750-1770#14"
+    },
+    "15": {
+      "label": "Biblical Book Abbreviations (mixed)",
+      "n_words": 226,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#15"
+    },
+    "19": {
+      "label": "Second-Person Verb Forms (mixed)",
       "n_words": 17,
       "lane": "Structural / Uncertain"
     }
   },
   "1790-1810": {
-    "16": {
-      "label": "Scripture & Biblical Prophecy",
-      "n_words": 205,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1770-1790#13"
+    "14": {
+      "label": "Colonial Settlement Narrative",
+      "n_words": 237,
+      "lane": "History, Genealogy, Nobility & Kinship",
+      "inherited_from": "1770-1790#16"
     },
-    "2": {
-      "label": "Calendar Months & Dates (mixed)",
-      "n_words": 2009,
+    "4": {
+      "label": "Verbs of Derivation & Removal (mixed)",
+      "n_words": 1589,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#1"
+    },
+    "17": {
+      "label": "Comparative Adjectives & Adverbs (mixed)",
+      "n_words": 76,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#18"
+    },
+    "1": {
+      "label": "Evaluative & Aesthetic Adjectives (mixed)",
+      "n_words": 1957,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#4"
     },
-    "18": {
-      "label": "Apostrophe Past-Participle Forms (-'d) (mixed)",
-      "n_words": 75,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1770-1790#15"
-    },
     "3": {
-      "label": "Vice, Sin & Misery",
-      "n_words": 1702,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1770-1790#2"
-    },
-    "13": {
-      "label": "Ancient Empires & Biblical Rulers",
-      "n_words": 651,
-      "lane": "History, Genealogy, Nobility & Kinship"
-    },
-    "0": {
-      "label": "Truth, Argument & Judgment",
-      "n_words": 2600,
-      "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1770-1790#0"
-    },
-    "5": {
-      "label": "Civil & Ecclesiastical Governance",
-      "n_words": 1122,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1770-1790#11"
-    },
-    "14": {
-      "label": "Adverbs of Manner (-ly) (mixed)",
-      "n_words": 408,
-      "lane": "Structural / Uncertain"
-    },
-    "4": {
-      "label": "Past-Tense Verbs of Accusation & Proof",
-      "n_words": 1514,
-      "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1770-1790#3"
-    },
-    "11": {
-      "label": "Colonial Trade & Ports",
-      "n_words": 847,
-      "lane": "Trade, Finance & Commerce",
+      "label": "Calling, Obedience & Divine Ordinance",
+      "n_words": 1845,
+      "lane": "Religion, Theology & the Church",
       "inherited_from": "1770-1790#8"
     },
-    "10": {
-      "label": "Women, Family & the Body",
-      "n_words": 892,
-      "lane": "Domestic Life, Dress & Household",
-      "inherited_from": "1770-1790#7"
-    },
     "6": {
-      "label": "Disputation & Argument Vocabulary",
-      "n_words": 1072,
+      "label": "Theological Argument & Scholarly Writing",
+      "n_words": 1307,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1770-1790#14"
+    },
+    "5": {
+      "label": "Argument, Proof & Rebuttal",
+      "n_words": 1587,
       "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1770-1790#6"
+      "inherited_from": "1770-1790#2"
     },
-    "9": {
-      "label": "Third-Person Singular Verb Forms (-eth) (mixed)",
-      "n_words": 941,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1770-1790#12"
-    },
-    "12": {
-      "label": "Psalms & Devotional Praise",
-      "n_words": 823,
-      "lane": "Religion, Theology & the Church",
+    "7": {
+      "label": "Colonies, Provinces & Territories",
+      "n_words": 1258,
+      "lane": "Geography & Territory",
       "inherited_from": "1770-1790#9"
     },
-    "1": {
-      "label": "Colonial Settlement Narrative",
-      "n_words": 2511,
-      "lane": "History, Genealogy, Nobility & Kinship",
-      "inherited_from": "1770-1790#1"
+    "11": {
+      "label": "Personal Names & Titles (mixed)",
+      "n_words": 878,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#7"
     },
-    "8": {
-      "label": "Religious Doctrine & Church Controversy",
-      "n_words": 1026,
+    "10": {
+      "label": "Verbs of Belief & Doubt (mixed)",
+      "n_words": 1012,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#3"
+    },
+    "13": {
+      "label": "Archaic Third-Person Verb Forms (mixed)",
+      "n_words": 684,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#13"
+    },
+    "12": {
+      "label": "Verbs of Violent Motion (mixed)",
+      "n_words": 760,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#10"
+    },
+    "0": {
+      "label": "Comparative Adjectives & Adverbs (mixed)",
+      "n_words": 2288,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#0"
+    },
+    "2": {
+      "label": "Psalms of Praise & Deliverance",
+      "n_words": 1938,
       "lane": "Religion, Theology & the Church",
       "inherited_from": "1770-1790#5"
     },
-    "7": {
-      "label": "Treatise & Textual Argument",
-      "n_words": 1045,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1770-1790#10"
+    "8": {
+      "label": "Divine Judgment & Darkness",
+      "n_words": 1167,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1770-1790#6"
     },
-    "19": {
-      "label": "Second-Person Singular Verb Forms (thou) (mixed)",
-      "n_words": 38,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1770-1790#16"
+    "9": {
+      "label": "Merchandise & Book-Trade Advertising",
+      "n_words": 1061,
+      "lane": "Trade, Finance & Commerce",
+      "inherited_from": "1770-1790#11"
     },
     "15": {
-      "label": "French Text (mixed)",
-      "n_words": 394,
-      "lane": "Structural / Uncertain"
+      "label": "Cardinal Numbers (mixed)",
+      "n_words": 202,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#17"
     },
-    "17": {
-      "label": "Biblical Book Abbreviations & Citations",
-      "n_words": 184,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1770-1790#14"
+    "18": {
+      "label": "Second-Person Verb Forms (mixed)",
+      "n_words": 42,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#19"
+    },
+    "16": {
+      "label": "Biblical Book Abbreviations (mixed)",
+      "n_words": 171,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#15"
     }
   },
   "_meta": {
     "resolution": 1.0,
     "region": "american",
-    "n_communities": 116,
-    "n_human_edited": 0,
-    "n_inherited": 96,
+    "n_communities": 121,
+    "n_human_edited": 20,
+    "n_inherited": 101,
     "method": "Generated by a single LLM read-through of each community's top words, not an empirically validated taxonomy - a reading aid, not a checked ground truth. Rerunning `generate` on an unchanged input is not guaranteed to reproduce the same label text or lane for every community, since LLM sampling is not bitwise-deterministic even against an unchanged prompt.",
-    "compiled_at": "2026-08-05T03:02:23+00:00",
+    "compiled_at": "2026-08-07T04:22:51+00:00",
     "model": "claude-haiku-4-5-20251001",
     "prompt_file": "src/prompts/community_labeling_v1.md",
     "prompt_version": "v1",
     "prompt_sha256_16": "94616a163691487b",
     "source_words_file": "community_words_res1.0_american.json",
-    "source_words_sha256_16": "c1bafc1ae453de1c",
-    "generated_at": "2026-08-05T03:02:10+00:00"
+    "source_words_sha256_16": "e32971d4aa4ae91f",
+    "generated_at": "2026-08-07T04:22:50+00:00"
   }
 }

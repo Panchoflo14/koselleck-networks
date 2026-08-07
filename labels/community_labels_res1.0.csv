@@ -1,286 +1,478 @@
 region,period,community_id,n_words,top_words_preview,label,lane,origin,inherited_from
-combined,1510-1530,1,937,felycyte; gladnes; corage; affection; petycyon; withdrewe; spouse; sensuall; strength; pacyence,Virtues and Moral Qualities,Morality: Virtue & Vice,llm,
-combined,1510-1530,3,741,strake; helme; holdynge; ranne; sate; chayre; baner; wales; salued; mounted,Chivalric Chronicle: Combat & Travel,Military & Warfare,llm,
-combined,1510-1530,4,721,lyked; consente; parceyue; accuse; gete; displease; excuse; vnderstand; reioyce; oppresse,Common Verbs (Base Forms),Structural / Uncertain,llm,
-combined,1510-1530,9,125,kyndes; neutre; diseases; sortes; gendre; realmes; cases; ablatyf; ablatiue; comune,Latin Grammar Instruction,"Books, Learning & Scholarship",llm,
-combined,1510-1530,7,387,ceo; apres; accio; mez; staple; dit; auer; del; bref; sur,Law French Legal Terminology,"Government, Law & Administration",llm,
-combined,1510-1530,6,423,preach; loose; trueth; bloud; lustes; evyll; promises; bloude; flesh; godly,Sermon Vocabulary: Sin and Grace,"Religion, Theology & the Church",llm,
-combined,1510-1530,2,764,iam; enim; singulis; ibi; diuisor; nunc; patris; exemplum; sapientia; rursus,Latin Text Fragments,Structural / Uncertain,llm,
-combined,1510-1530,8,244,xxxvi; xviij; xxxix; xxv; xxii; xvij; lvii; lii; xliii; score,Roman Numerals,Structural / Uncertain,llm,
-combined,1510-1530,10,116,gregory; martyne; baptyst; iames; luke; austyn; bisshop; saieth; euangelyst; phylyp,Saints and Apostles' Names,"Religion, Theology & the Church",llm,
-combined,1510-1530,5,624,lynen; vyne; roses; guttes; hony; salte; grene; plate; peper; lytter,Remedies and Bodily Ailments,"Medicine, Body & Health",llm,
-combined,1510-1530,0,1015,integra; zelande; marcell; fleme; lucru; lucrum; hattes; fient; countreys; capitaynes,"Mixed Names, Places & Latin Fragments",Structural / Uncertain,llm,
-combined,1510-1530,12,41,godt; dat; op; niet; maer; een; germanice; nicht; ist; het,Dutch and German Text,Structural / Uncertain,llm,
-combined,1510-1530,13,30,shuldest; oughtest; mayste; haddest; sholdest; doest; wyllyngly; wylte; maist; wylt,Second-Person Verb Forms,Structural / Uncertain,llm,
-combined,1510-1530,11,50,mytte; cluded; maundeme; forte; fort; syder; mended; maundementes; fesse; myt,Truncated Word Fragments,Structural / Uncertain,llm,
-combined,1530-1550,6,1238,caleys; auctorities; liberties; hundredes; castelles; baylyffes; marches; studies; reuenues; issues,Latin Grammar Instruction,"Books, Learning & Scholarship",inherited,1510-1530#9
-combined,1530-1550,5,1340,vsages; ymaginacions; proposicion; fraudes; sincere; chanons; doctoures; constitucions; rytes; auctours,Sermon Vocabulary: Sin and Grace,"Religion, Theology & the Church",inherited,1510-1530#6
-combined,1530-1550,4,1422,impute; enforce; assist; compell; resist; beate; catche; pitche; compel; offend,Common Verbs (Base Forms),Structural / Uncertain,inherited,1510-1530#4
-combined,1530-1550,15,435,euydently; plainly; doune; down; playnlye; euidently; asyde; sweter; thyther; sufficiently,Adverbs of Manner and Degree,Structural / Uncertain,llm,
-combined,1530-1550,1,1846,detraction; sauage; glotony; filthines; arrogancy; couetise; outragious; dooynges; heuynes; temperaunce,Virtues and Moral Qualities,Morality: Virtue & Vice,inherited,1510-1530#1
-combined,1530-1550,9,634,offenses; neighboure; heartes; eldaris; iniquities; pleasaunce; enymes; redempcion; mindes; doynges,Dutch and German Text,Structural / Uncertain,inherited,1510-1530#12
-combined,1530-1550,14,448,thirtie; ork; westminster; october; dyce; euensonge; mydnyght; score; landed; twentye,Roman Numerals,Structural / Uncertain,inherited,1510-1530#8
-combined,1530-1550,10,519,penite; ni; agreme; kyd; auncie; augme; tiel; plesau; blou; arroga,Law French Legal Terminology,"Government, Law & Administration",inherited,1510-1530#7
-combined,1530-1550,13,468,thairof; pychtis; mouit; baith; quhyll; weill; spul; namit; quhais; plesand,Scots-Language Chronicle Text,Structural / Uncertain,llm,
-combined,1530-1550,3,1652,pulled; cary; throwen; combred; threwe; digged; blowe; plucke; carye; tormented,Chivalric Chronicle: Combat & Travel,Military & Warfare,inherited,1510-1530#3
-combined,1530-1550,12,510,rekeneth; regardeth; despiseth; loueth; feareth; rebuketh; testifyeth; wyste; affirmeth; vnderstandeth,Third-Person Verb Forms (-eth),Structural / Uncertain,llm,
-combined,1530-1550,7,1051,octauius; roger; claudius; discomfited; ioram; raufe; seuerus; rychard; rufus; arriued,"Mixed Names, Places & Latin Fragments",Structural / Uncertain,inherited,1510-1530#0
-combined,1530-1550,0,2374,veluet; barly; fygges; bankes; gynger; hennes; myters; ueluet; grauell; sorell,Remedies and Bodily Ailments,"Medicine, Body & Health",inherited,1510-1530#5
-combined,1530-1550,2,1691,tamen; dedit; uero; ipsis; quomodo; principis; similiter; deinde; filij; unus,Latin Text Fragments,Structural / Uncertain,inherited,1510-1530#2
-combined,1530-1550,17,127,couldest; hearest; knoweste; didest; beleuest; saiest; sawest; thinkest; shewest; askest,Second-Person Verb Forms,Structural / Uncertain,inherited,1510-1530#13
-combined,1530-1550,11,511,xxiiij; regu; capvt; xxij; ierome; augustyn; xxvij; matthew; deute; psalmus,Saints and Apostles' Names,"Religion, Theology & the Church",inherited,1510-1530#10
-combined,1530-1550,16,254,clusyon; gregacio; cluded; tynued; tinuall; quered; clusion; gregacyon; munycacyon; municacion,Truncated Word Fragments,Structural / Uncertain,inherited,1510-1530#11
-combined,1530-1550,18,102,ape; adder; handmayde; homicide; harlotte; instrumente; archer; acre; ydoll; egge,"Miscellaneous Nouns, Mixed Topics",Structural / Uncertain,llm,
-combined,1530-1550,8,759,danis; yair; ancte; duabus; federike; capernaum; aminadab; gumme; dict; maryit,Mixed Fragments and Biblical Names,Structural / Uncertain,llm,
-combined,1550-1570,3,1827,reueale; constraine; enforce; compell; assayle; assaile; ioyn; incline; greue; condempne,Common Verbs (Base Forms),Structural / Uncertain,inherited,1530-1550#4
-combined,1550-1570,0,3592,annuities; tenements; rentes; hereticke; auncesters; idolater; hypocrite; commissions; predecessors; monks,Latin Grammar Instruction,"Books, Learning & Scholarship",inherited,1530-1550#6
-combined,1550-1570,10,971,nouember; sixtie; fiftene; valeant; october; lenght; westmynster; thirty; december; episcoporum,Roman Numerals,Structural / Uncertain,inherited,1530-1550#14
-combined,1550-1570,16,422,plainlye; plainely; euidently; impudently; euidentlye; aptly; largely; manifestly; shamefully; horribly,Adverbs of Manner and Degree,Structural / Uncertain,inherited,1530-1550#15
-combined,1550-1570,5,1610,vnfaithfulnes; fylthie; mallice; countenaunces; spitefull; supersticions; irefull; superstitions; outragious; outrages,Virtues and Moral Qualities,Morality: Virtue & Vice,inherited,1530-1550#1
-combined,1550-1570,2,2084,discomfited; pluckt; flew; threwe; entangled; throwen; dissenteth; runnes; pulled; conquered,Chivalric Chronicle: Combat & Travel,Military & Warfare,inherited,1530-1550#3
-combined,1550-1570,7,1429,boyling; bankes; blastes; fyry; waue; cankred; amid; restlesse; flouds; rocks,Dutch and German Text,Structural / Uncertain,inherited,1530-1550#9
-combined,1550-1570,15,548,ilz; couient; eux; mort; obstant; reles; toutes; prendre; seigniour; enfeoffa,Law French Legal Terminology,"Government, Law & Administration",inherited,1530-1550#10
-combined,1550-1570,12,613,tempteth; repenteth; confesseth; loueth; affirmeth; assureth; embraceth; noteth; knowes; expoundeth,Third-Person Verb Forms (-eth),Structural / Uncertain,inherited,1530-1550#12
-combined,1550-1570,6,1607,samnites; assyria; quintus; marius; syria; palais; maximus; foteme; bithinia; macedonie,"Mixed Names, Places & Latin Fragments",Structural / Uncertain,inherited,1530-1550#7
-combined,1550-1570,14,549,abia; ioram; asa; xxij; micheas; xxvij; assur; esd; xxvi; gedeon,Saints and Apostles' Names,"Religion, Theology & the Church",inherited,1530-1550#11
-combined,1550-1570,11,768,ecclesiastica; cipria; anacletus; verb; publica; alexandrinus; clemens; cypria; irenaeus; arria,Sermon Vocabulary: Sin and Grace,"Religion, Theology & the Church",inherited,1530-1550#5
-combined,1550-1570,1,2385,ginger; violettes; plantayne; garlandes; cloues; barlye; calamint; sorell; wormewood; pomegranates,Remedies and Bodily Ailments,"Medicine, Body & Health",inherited,1530-1550#0
-combined,1550-1570,4,1669,postea; tantum; modo; solum; quidem; suum; ipsam; itaque; quas; quibus,Latin Text Fragments,Structural / Uncertain,inherited,1530-1550#2
-combined,1550-1570,13,567,duw; tad; hwy; llaw; wraic; iddo; i'r; nep; velly; ywch,"Miscellaneous Nouns, Mixed Topics",Structural / Uncertain,inherited,1530-1550#18
-combined,1550-1570,18,223,vnderstandest; thynkest; beleuest; sawest; nedest; lyest; ragau; saiest; syr; knaue,Second-Person Verb Forms,Structural / Uncertain,inherited,1530-1550#17
-combined,1550-1570,9,1014,ald; eftir; brekaris; tothir; thaym; quhe; richt; auld; cummis; gyf,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1530-1550#13
-combined,1550-1570,19,176,sou; desce; fekenham; eping; defe; fekenhams; withsta; efe; barns; shad,Truncated Words Ending in '-nd',Structural / Uncertain,llm,
-combined,1550-1570,17,235,firmeth; forter; secrate; municatio; tention; panions; fesseth; cluded; stantinople; prehended,Truncated Word Fragments,Structural / Uncertain,inherited,1530-1550#16
-combined,1550-1570,20,173,regime; iudgme; patie; commandeme; preside; poi; gouerneme; deua; audie; repenta,Truncated Words Ending in '-nt',Structural / Uncertain,llm,
-combined,1550-1570,8,1281,cornelio; passionis; summon; meason; saxones; eto; sozom; absit; surrend; archoffeiriat,Mixed Fragments and Biblical Names,Structural / Uncertain,inherited,1530-1550#8
-combined,1570-1590,0,4661,extortioner; vnthrift; vnderling; cylinder; priors; applications; heretick; abbots; archdeacons; isosceles,Latin Grammar Instruction,"Books, Learning & Scholarship",inherited,1550-1570#0
-combined,1570-1590,8,2657,inforce; noteth; nameth; correcteth; describeth; expoundeth; accuseth; betake; chastiseth; auoucheth,Common Verbs (Base Forms),Structural / Uncertain,inherited,1550-1570#3
-combined,1570-1590,10,1345,villanously; daintily; greuouse; drier; sharplie; manyfestly; fauourablie; vnnaturally; vnaptly; louingly,Adverbs of Manner and Degree,Structural / Uncertain,inherited,1550-1570#16
-combined,1570-1590,13,1113,tropicke; virginis; shillinges; zodiacke; thirty; xxvii; capricorne; cancer; concauitie; circumference,Roman Numerals,Structural / Uncertain,inherited,1550-1570#10
-combined,1570-1590,2,3611,hurling; targets; caps; blades; collers; crimson; stagge; forkes; sylke; imbrodered,Dutch and German Text,Structural / Uncertain,inherited,1550-1570#7
-combined,1570-1590,14,716,iosaphat; manasses; ioram; ammon; syriae; abia; booz; baasa; amasa; asa,Saints and Apostles' Names,"Religion, Theology & the Church",inherited,1550-1570#14
-combined,1570-1590,4,3161,secluded; encombred; gushed; withdrawne; lyfte; hurled; absteyne; lyfted; dissenteth; trussed,Chivalric Chronicle: Combat & Travel,Military & Warfare,inherited,1550-1570#2
-combined,1570-1590,3,3335,lantgraue; peloponesus; lincolne; edmond; mysia; southhampton; huntingdon; vvilliam; blasts; thracia,"Mixed Names, Places & Latin Fragments",Structural / Uncertain,inherited,1550-1570#6
-combined,1570-1590,11,1133,marsilius; emilius; probus; lucius; libr; clemens; nazianzenus; cyprianus; cardinalis; alexandrinus,Sermon Vocabulary: Sin and Grace,"Religion, Theology & the Church",inherited,1550-1570#11
-combined,1570-1590,5,3086,disdainefull; periuries; villanous; dissimulations; murders; glosing; bawdes; dissensions; deceyte; violences,Virtues and Moral Qualities,Morality: Virtue & Vice,inherited,1550-1570#5
-combined,1570-1590,12,1122,pouuoit; d'angleterre; toutesfois; soyent; mieux; qu'en; donc; iamais; conciles; roys,Law French Legal Terminology,"Government, Law & Administration",inherited,1550-1570#15
-combined,1570-1590,9,1351,o'm; nef; pob; vphern; iniondeb; gwared; a'n; ydwyfi; nid; daioni,"Miscellaneous Nouns, Mixed Topics",Structural / Uncertain,inherited,1550-1570#13
-combined,1570-1590,1,4487,nempe; regia; disciplinae; illius; splendida; jam; pariter; mortales; nomina; qualem,Latin Text Fragments,Structural / Uncertain,inherited,1550-1570#4
-combined,1570-1590,16,570,deaco; poti; baro; barbara; austens; citize; lati; enu; auste; trn,Truncated Words Ending in '-nd',Structural / Uncertain,inherited,1550-1570#19
-combined,1570-1590,6,2842,tetters; cinamon; masticke; galingale; decoct; licoras; sorrell; mundifieth; swellings; berries,Remedies and Bodily Ailments,"Medicine, Body & Health",inherited,1550-1570#1
-combined,1570-1590,19,167,seemest; thoughtest; hearest; fearest; findest; woldest; sawest; commaundest; maiste; couldst,Second-Person Verb Forms,Structural / Uncertain,inherited,1550-1570#18
-combined,1570-1590,17,413,essendo; nella; sotto; sopra; hauer; quei; onde; altra; verso; tenuto,Third-Person Verb Forms (-eth),Structural / Uncertain,inherited,1550-1570#12
-combined,1570-1590,15,712,swa; curage; gait; inglismen; uolf; dreid; wallace; felloun; feill; tuik,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1550-1570#9
-combined,1570-1590,18,226,demnation; maunding; plained; futed; panion; municating; trouersies; redigere; iecture; fessio,Truncated Word Fragments,Structural / Uncertain,inherited,1550-1570#17
-combined,1570-1590,7,2697,amicorum; constituere; rabies; hyperici; chwy; dysc; violare; yddaw; amoriaid; societatem,Mixed Fragments and Biblical Names,Structural / Uncertain,inherited,1550-1570#8
-combined,1570-1590,20,159,appointme; conuenie; ancie; regime; repugna; preside; maintena; vau; sile; expedie,Truncated Words Ending in '-nt',Structural / Uncertain,inherited,1550-1570#20
-combined,1590-1610,11,1556,impiously; iniuriously; clearly; novv; vvhervvith; fiercely; vilely; vvher; trecherously; childishly,Adverbs of Manner and Degree,Structural / Uncertain,inherited,1570-1590#10
-combined,1590-1610,9,1849,contradict; propose; entreate; constraine; approoue; enforce; disproue; addresse; vndoe; gainesay,Common Verbs (Base Forms),Structural / Uncertain,inherited,1570-1590#8
-combined,1590-1610,0,5747,interiection; westmon; apostrophe; heretick; vrinall; propositions; decessit; oppressour; infidel; commissaries,Latin Grammar Instruction,"Books, Learning & Scholarship",inherited,1570-1590#0
-combined,1590-1610,20,148,bigger; woorse; thicker; blacker; swifter; lighter; whiter; happier; harder; heauier,Truncated Words Ending in '-nt',Structural / Uncertain,inherited,1570-1590#20
-combined,1590-1610,4,3550,forgeries; inhumaine; chambering; deceits; mutinies; vnchristian; blockish; impostures; toies; conspiracies,Virtues and Moral Qualities,Morality: Virtue & Vice,inherited,1570-1590#5
-combined,1590-1610,16,812,zodiacke; eclipticke; quadrant; horizontall; verticall; semicircle; excentrique; equinoctiall; sixty; nouember,Roman Numerals,Structural / Uncertain,inherited,1570-1590#13
-combined,1590-1610,3,3923,ript; ripping; seazeth; wrongd; leaped; tumbled; threwe; leapt; swalloweth; ceaze,Chivalric Chronicle: Combat & Travel,Military & Warfare,inherited,1570-1590#4
-combined,1590-1610,1,4639,almonds; corke; smallage; limons; ducke; cinamon; flegme; figs; sorrell; betonie,Remedies and Bodily Ailments,"Medicine, Body & Health",inherited,1570-1590#6
-combined,1590-1610,6,2484,languedoc; auxerre; bithinia; marques; brabant; bohemia; istria; cappadocia; pontus; lances,"Mixed Names, Places & Latin Fragments",Structural / Uncertain,inherited,1570-1590#3
-combined,1590-1610,12,1433,tearmeth; derideth; describes; curseth; perswadeth; alleageth; flattereth; kils; accounteth; inflameth,Third-Person Verb Forms (-eth),Structural / Uncertain,inherited,1570-1590#17
-combined,1590-1610,7,2068,translat; couar; damasc; clericis; gestis; illustr; gener; relect; haeret; enchirid,Sermon Vocabulary: Sin and Grace,"Religion, Theology & the Church",inherited,1570-1590#11
-combined,1590-1610,17,358,quhill; thairfoir; quhy; declair; agane; weill; befoir; thocht; richt; zit,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1570-1590#15
-combined,1590-1610,5,2839,warbling; spangled; speckled; flowrie; tresses; curled; duskie; phoebe; rosie; radiant,Dutch and German Text,Structural / Uncertain,inherited,1570-1590#2
-combined,1590-1610,13,1135,quelques; mesmes; venir; moins; cheuaux; depuis; liure; fatto; percioche; hauendo,Law French Legal Terminology,"Government, Law & Administration",inherited,1570-1590#12
-combined,1590-1610,2,4274,istam; inquam; iudaei; imperare; denique; principibus; alioqui; doctrinam; erga; nullam,Latin Text Fragments,Structural / Uncertain,inherited,1570-1590#1
-combined,1590-1610,8,1925,gordon; ilf; fran; sirrah; darby; geor; val; oni; ifaith; excester,Truncated Words Ending in '-nd',Structural / Uncertain,inherited,1570-1590#16
-combined,1590-1610,19,159,requirest; lyest; vsest; fearest; talkest; praiest; vnderstandest; lou'st; sayst; needst,Second-Person Verb Forms,Structural / Uncertain,inherited,1570-1590#19
-combined,1590-1610,14,1069,eythr; pwy; erioed; madrodh; drwy; mewn; amser; ddim; ynom; fawr,"Miscellaneous Nouns, Mixed Topics",Structural / Uncertain,inherited,1570-1590#9
-combined,1590-1610,15,921,ahaziah; ioash; ioram; eliakim; heber; aram; ahab; azarias; ioatham; amon,Saints and Apostles' Names,"Religion, Theology & the Church",inherited,1570-1590#14
-combined,1590-1610,18,356,sequently; tradiction; manding; commaundeme; uersation; fessed; monweale; sidering; panie; imprisonme,Truncated Word Fragments,Structural / Uncertain,inherited,1570-1590#18
-combined,1590-1610,10,1609,ddydd; ferarum; siccr; leoedd; fidelitatem; archiepiscopo; duras; trit; eiusd; longus,Mixed Fragments and Biblical Names,Structural / Uncertain,inherited,1570-1590#7
-combined,1610-1630,5,3381,fines; jurisdictions; amerciaments; jurisdiction; prouinciall; marchandises; landes; subsidies; presbyteries; ecclesiastical,Latin Grammar Instruction,"Books, Learning & Scholarship",inherited,1590-1610#0
-combined,1610-1630,4,3878,tempts; flatters; alleageth; accuseth; auoucheth; apprehends; denyeth; alleadgeth; tearmeth; humbles,Common Verbs (Base Forms),Structural / Uncertain,inherited,1590-1610#9
-combined,1610-1630,9,2123,sirra; tinkers; cle; dick; frisco; hum; daphne; pander; seb; bawde,Truncated Words Ending in '-nd',Structural / Uncertain,inherited,1590-1610#8
-combined,1610-1630,12,1018,shamefully; impiously; barbarously; malitiously; grauely; learnedly; amply; louingly; ridiculously; impudently,Adverbs of Manner and Degree,Structural / Uncertain,inherited,1590-1610#11
-combined,1610-1630,2,6380,uniuersity; intruder; assertions; hebraisme; vproare; narrations; impostures; wiles; embryo; worldlinesse,Virtues and Moral Qualities,Morality: Virtue & Vice,inherited,1590-1610#4
-combined,1610-1630,13,889,assur; iehoram; ammonites; ioram; ammon; amaziah; thamar; amorites; zimri; ismael,Saints and Apostles' Names,"Religion, Theology & the Church",inherited,1590-1610#15
-combined,1610-1630,7,3133,carlton; nottingham; cambridgeshire; artois; rodriguez; brasile; basset; windsore; northwales; random,"Mixed Names, Places & Latin Fragments",Structural / Uncertain,inherited,1590-1610#6
-combined,1610-1630,14,874,quadrant; diameter; equinoctiall; sixtie; aequator; triangles; triangle; eclipticke; concaue; semidiameter,Roman Numerals,Structural / Uncertain,inherited,1590-1610#16
-combined,1610-1630,3,3879,beguild; courted; flung; beguil'd; ript; leapes; stir'd; rends; rippe; throwing,Chivalric Chronicle: Combat & Travel,Military & Warfare,inherited,1590-1610#3
-combined,1610-1630,0,6579,mallard; berries; sorrell; leather; cinamon; quinces; sleeues; ginger; cinnamon; stockins,Remedies and Bodily Ailments,"Medicine, Body & Health",inherited,1590-1610#1
-combined,1610-1630,6,3379,episc; gregorius; sac; papias; barth; nicolaus; laurentius; extat; defens; sacr,Sermon Vocabulary: Sin and Grace,"Religion, Theology & the Church",inherited,1590-1610#7
-combined,1610-1630,1,6511,cunctis; inquam; praecipue; vndique; fati; quamvis; versu; vtpote; pluribus; summi,Latin Text Fragments,Structural / Uncertain,inherited,1590-1610#2
-combined,1610-1630,11,1311,mwy; yno; bobl; ddy; dynion; hwynt; gelwydd; nawdd; amser; hyder,"Miscellaneous Nouns, Mixed Topics",Structural / Uncertain,inherited,1590-1610#14
-combined,1610-1630,16,226,deniest; enioyest; oughtst; pleasest; sawest; perceiuest; causest; vvilt; may'st; deseruest,Second-Person Verb Forms,Structural / Uncertain,inherited,1590-1610#19
-combined,1610-1630,15,250,spitted; preyed; relied; relyed; horseback; relieth; fathered; relyeth; hangers; fastens,Dutch and German Text,Structural / Uncertain,inherited,1590-1610#5
-combined,1610-1630,8,2215,ebrwydd; cyfia; lefaru; ni's; cingis; iaen; caethiwed; doethion; glaw; rhodio,Mixed Fragments and Biblical Names,Structural / Uncertain,inherited,1590-1610#10
-combined,1610-1630,10,1454,papes; soleil; sete; yeux; veux; l'huomo; pouuoir; dalla; quelli; perche,Law French Legal Terminology,"Government, Law & Administration",inherited,1590-1610#13
-combined,1610-1630,17,98,uersation; tinuance; trarie; maunded; mandeth; secrated; monwealth; forted; fidence; clude,Truncated Word Fragments,Structural / Uncertain,inherited,1590-1610#18
-combined,1630-1650,0,9423,irishman; amorite; ironie; enthymeme; unbeliever; hermaphrodite; additament; anchorite; descriptions; appelles,Virtues and Moral Qualities,Morality: Virtue & Vice,inherited,1610-1630#2
-combined,1630-1650,5,3048,woodcock; daphne; knaue; capons; nimph; hens; iuno; shrill; partridges; panthers,Truncated Words Ending in '-nd',Structural / Uncertain,inherited,1610-1630#9
-combined,1630-1650,18,268,longi; meli; augustins; hacten; diuti; ulteri; penit; ampli; laurence; ierom,Latin Fragments and Church Fathers' Names,Structural / Uncertain,llm,
-combined,1630-1650,7,2424,coroners; disseisor; grantee; assessements; payments; clarkes; feoffee; bayliffs; attachment; wools,Latin Grammar Instruction,"Books, Learning & Scholarship",inherited,1610-1630#5
-combined,1630-1650,3,3934,velvet; taffata; tissue; chin; sattin; embrodered; satten; kettles; tresses; veluet,Remedies and Bodily Ailments,"Medicine, Body & Health",inherited,1610-1630#0
-combined,1630-1650,4,3412,charm'd; betray'd; vext; ruinated; wrong'd; desce; traduced; surprised; grac'd; deceiv'd,Chivalric Chronicle: Combat & Travel,Military & Warfare,inherited,1610-1630#3
-combined,1630-1650,2,4193,interprets; befriend; quotes; esteemes; communicates; avoucheth; applies; accounteth; stileth; blesseth,Common Verbs (Base Forms),Structural / Uncertain,inherited,1610-1630#4
-combined,1630-1650,15,1164,amaziah; iehoram; aram; ioash; amon; abijah; ahaziah; nahor; ammonites; uzziah,Saints and Apostles' Names,"Religion, Theology & the Church",inherited,1610-1630#13
-combined,1630-1650,10,1912,dalmatia; bassianus; caius; severus; marca; maximinus; flaunders; dacia; scythia; valerius,"Mixed Names, Places & Latin Fragments",Structural / Uncertain,inherited,1610-1630#7
-combined,1630-1650,11,1871,trussed; dries; stir'd; doated; fling; doate; tumbled; cooped; flung; flings,Dutch and German Text,Structural / Uncertain,inherited,1610-1630#15
-combined,1630-1650,12,1865,chi; eux; rosabella; dick; slen; encore; nur; sirrah; gur; florio,Law French Legal Terminology,"Government, Law & Administration",inherited,1610-1630#10
-combined,1630-1650,8,2176,emendat; trinit; primatu; epit; cathol; theolog; defens; carm; scriptor; iacobus,Sermon Vocabulary: Sin and Grace,"Religion, Theology & the Church",inherited,1610-1630#6
-combined,1630-1650,1,7771,dari; eaque; inquam; tantam; perfectam; doctoribus; rursus; confert; nequeunt; debeat,Latin Text Fragments,Structural / Uncertain,inherited,1610-1630#1
-combined,1630-1650,6,2663,barrington; barker; walton; pury; cox; harvie; hudson; gower; wheeler; sadler,"English Surnames, Political and Gentry",Structural / Uncertain,llm,
-combined,1630-1650,19,236,requirest; talkest; perceivest; beleeuest; receivest; answerest; saw'st; spakest; hopest; say'st,Second-Person Verb Forms,Structural / Uncertain,inherited,1610-1630#16
-combined,1630-1650,14,1384,inflammations; cramps; windinesse; dropsies; flegme; vlcers; inflamation; inflamations; phlegme; sanies,Adverbs of Manner and Degree,Structural / Uncertain,inherited,1610-1630#12
-combined,1630-1650,20,87,xxv; xviii; xix; xv; xiv; xxi; xiiii; xiii; xxii; xxix,Roman Numerals,Structural / Uncertain,llm,
-combined,1630-1650,9,1958,sorrell; berries; quinces; fumitory; pullet; cinamon; cloues; sallet; cinnamon; masticke,Medicinal Herbs and Spices,"Medicine, Body & Health",llm,
-combined,1630-1650,17,520,semicircle; quadrant; axis; aequator; meridians; equinoctiall; semidiameter; mathematicks; magnitudes; diameter,Roman Numerals,Structural / Uncertain,inherited,1610-1630#14
-combined,1630-1650,16,834,ynddynt; hefyd; drwy; cyflwr; meddwl; fawr; cyfryw; hwynt; yno; bydd,"Miscellaneous Nouns, Mixed Topics",Structural / Uncertain,inherited,1610-1630#11
-combined,1630-1650,21,40,dition; trary; tinued; tinue; manded; mitted; cerning; pany; demned; monly,Truncated Word Fragments,Structural / Uncertain,inherited,1610-1630#17
-combined,1630-1650,13,1452,llefaru; renatus; awron; daucus; scabiosa; myrtus; feloniam; mandavit; hominu; appellum,Mixed Fragments and Biblical Names,Structural / Uncertain,inherited,1610-1630#8
-combined,1630-1650,22,21,quoe; quich; thist; thel; leyr; soune; maxt; dofe; vulle; thels,"OCR Noise, Garbled Fragments",Structural / Uncertain,llm,
-combined,1650-1670,14,1561,bc; rectangle; fc; cf; diameters; semidiameter; segments; dg; aequinoctiall; db,Roman Numerals,Structural / Uncertain,inherited,1630-1650#17
-combined,1650-1670,1,10703,allegorie; alcetas; atrophia; interlude; interjection; hebraisme; peevishness; surper; anchorite; aequilibrium,Virtues and Moral Qualities,Morality: Virtue & Vice,inherited,1630-1650#0
-combined,1650-1670,13,1623,endeauour; unchristianly; euen; loue; deceiue; deserue; beleiue; leaue; audaciously; receiue,Chivalric Chronicle: Combat & Travel,Military & Warfare,inherited,1630-1650#4
-combined,1650-1670,9,3074,pompeius; modena; sardinia; philometor; epirus; diocles; galicia; marcus; severus; goa,"Mixed Names, Places & Latin Fragments",Structural / Uncertain,inherited,1630-1650#10
-combined,1650-1670,16,1346,jehoram; ahaziah; hezron; aram; amaziah; amon; jehoahaz; zechariah; azariah; jehoash,Saints and Apostles' Names,"Religion, Theology & the Church",inherited,1630-1650#15
-combined,1650-1670,2,7584,asserteth; asserts; affirmeth; interprets; communicates; befriend; encounter'd; demonstrated; explains; abuseth,Common Verbs (Base Forms),Structural / Uncertain,inherited,1630-1650#2
-combined,1650-1670,6,3480,disseisor; termor; copyhold; franktenement; feoffee; disseisee; conusee; replevin; grantee; feoffor,Latin Grammar Instruction,"Books, Learning & Scholarship",inherited,1630-1650#7
-combined,1650-1670,12,2270,mir; valerio; dogrel; aurelia; pish; dessandro; sirra; hub; euph; aur,Truncated Words Ending in '-nd',Structural / Uncertain,inherited,1630-1650#5
-combined,1650-1670,11,2847,cooped; blockt; wrapp'd; dammed; relied; indus; flung; incroached; mediterranean; hudled,Dutch and German Text,Structural / Uncertain,inherited,1630-1650#11
-combined,1650-1670,3,5001,catt; taffaty; sattin; duck; jade; jacket; kite; stockins; curled; hog,Remedies and Bodily Ailments,"Medicine, Body & Health",inherited,1630-1650#3
-combined,1650-1670,18,841,dictorum; dictae; curiis; existentium; securitate; ordinavimus; tranquillitatem; praedictis; willielmus; praedictum,Latin Fragments and Church Fathers' Names,Structural / Uncertain,inherited,1630-1650#18
-combined,1650-1670,7,3198,viscous; glutinous; inflamations; dropsies; vaporous; calx; waterish; dysentery; impetigo; clammy,Adverbs of Manner and Degree,Structural / Uncertain,inherited,1630-1650#14
-combined,1650-1670,0,11268,novos; ducum; ramis; utrinque; simulque; utique; istiusmodi; cumque; eumque; duntaxat,Latin Text Fragments,Structural / Uncertain,inherited,1630-1650#1
-combined,1650-1670,5,3763,carey; trenchard; markham; basset; denton; errington; buckland; boteler; russel; seaton,"English Surnames, Political and Gentry",Structural / Uncertain,inherited,1630-1650#6
-combined,1650-1670,10,2958,scordium; purslane; housleek; bistort; bugloss; tansie; sorrell; masterwort; galbanum; euphorbium,Medicinal Herbs and Spices,"Medicine, Body & Health",inherited,1630-1650#9
-combined,1650-1670,19,337,actest; expectest; diddest; appearest; enjoyest; conceivest; gettest; saw'st; labourest; thoughtst,Second-Person Verb Forms,Structural / Uncertain,inherited,1630-1650#19
-combined,1650-1670,20,102,xxv; xiiii; liii; lii; xxxix; xxiv; xxii; xviii; xvi; xxvii,Roman Numerals,Structural / Uncertain,inherited,1630-1650#20
-combined,1650-1670,8,3088,insti; theolog; syntag; synt; nicolaus; chamierus; euch; emend; praeteritis; iohannes,Sermon Vocabulary: Sin and Grace,"Religion, Theology & the Church",inherited,1630-1650#8
-combined,1650-1670,17,1346,arnynt; ymmaith; sanctaidd; fydd; rhyw; perffaith; gelli; etto; bydd; anrhydedd,"Miscellaneous Nouns, Mixed Topics",Structural / Uncertain,inherited,1630-1650#16
-combined,1650-1670,15,1350,zu; fatto; perche; faccia; donc; quei; laquelle; combien; voir; volta,Law French Legal Terminology,"Government, Law & Administration",inherited,1630-1650#12
-combined,1650-1670,4,4116,sufficientia; pimhill; putemus; admissus; dicesi; icones; northt; servientium; requisiti; nobisque,Mixed Fragments and Biblical Names,Structural / Uncertain,inherited,1630-1650#13
-combined,1670-1690,17,627,hogsheads; pences; drachmes; sochm; livres; dollers; stivers; bushels; ianuary; fourty,Roman Numerals,Structural / Uncertain,inherited,1650-1670#14
-combined,1670-1690,7,3554,croatia; pontus; thracia; thrace; amaziah; sumatra; cilicia; franconia; ferrara; groot,Saints and Apostles' Names,"Religion, Theology & the Church",inherited,1650-1670#16
-combined,1670-1690,16,1107,disingenuously; uncharitably; injuriously; ungratefully; unmercifully; judiciously; dexterously; cautiously; ridiculously; impiously,Chivalric Chronicle: Combat & Travel,Military & Warfare,inherited,1650-1670#13
-combined,1670-1690,4,4200,waterish; abcd; glutinous; catarrhs; unctuous; imposthumes; serous; gouts; cholick; membranes,Adverbs of Manner and Degree,Structural / Uncertain,inherited,1650-1670#7
-combined,1670-1690,2,8279,gel; irishman; amorite; annulet; owle; outlet; deceat; sot; melodious; fops,Virtues and Moral Qualities,Morality: Virtue & Vice,inherited,1650-1670#1
-combined,1670-1690,20,188,nimbler; handsomer; older; thicker; thinner; mightier; taller; antienter; blacker; smoother,Roman Numerals,Structural / Uncertain,inherited,1650-1670#20
-combined,1670-1690,3,5372,turkeys; sattin; plover; pidgeons; leathern; pheasants; pullets; chops; pheasant; ducks,Remedies and Bodily Ailments,"Medicine, Body & Health",inherited,1650-1670#3
-combined,1670-1690,1,10612,coop'd; scoft; pufft; trussed; rely'd; tueddu; div'd; flung; father'd; flings,Common Verbs (Base Forms),Structural / Uncertain,inherited,1650-1670#2
-combined,1670-1690,5,3701,replevin; assise; dett; agard; appiert; assignment; disseisor; foresaids; demandant; prebendaries,Latin Grammar Instruction,"Books, Learning & Scholarship",inherited,1650-1670#6
-combined,1670-1690,13,2032,venetiis; emendat; bellarminus; praef; salmas; genevae; republ; parisiis; sacr; biblioth,Sermon Vocabulary: Sin and Grace,"Religion, Theology & the Church",inherited,1650-1670#8
-combined,1670-1690,10,2724,sdeath; ghabh; ler; carel; dhamh; abd; cu; lamh; cla; flo,Truncated Words Ending in '-nd',Structural / Uncertain,inherited,1650-1670#12
-combined,1670-1690,6,3637,griffith; challoner; clavering; wheeler; campbell; carmarthen; nichols; smyth; chetwynd; neilson,"English Surnames, Political and Gentry",Structural / Uncertain,inherited,1650-1670#5
-combined,1670-1690,14,1878,oubli; amiti; juger; rompre; tourner; clart; encore; divertir; l'avantage; vouloir,Law French Legal Terminology,"Government, Law & Administration",inherited,1650-1670#15
-combined,1670-1690,8,3532,erioed; meddyliau; bechodau; odfa; priod; gwymp; gobaith; adrodd; ymarfer; pregethu,"Miscellaneous Nouns, Mixed Topics",Structural / Uncertain,inherited,1650-1670#17
-combined,1670-1690,0,10907,ideoque; protinus; ingentem; aliquem; muneris; applicata; veras; iisque; laeto; commodis,Latin Text Fragments,Structural / Uncertain,inherited,1650-1670#0
-combined,1670-1690,11,2539,purslane; bugloss; cinam; purslain; plantane; galangal; scabious; liquorice; croci; mastich,Medicinal Herbs and Spices,"Medicine, Body & Health",inherited,1650-1670#10
-combined,1670-1690,9,3197,ovidius; hieronymus; statius; norbanus; aemilius; scaliger; caius; aulus; cajus; trithemius,"Mixed Names, Places & Latin Fragments",Structural / Uncertain,inherited,1650-1670#9
-combined,1670-1690,18,300,neots; sebastians; augustine's; johnstons; aust; michael's; denis; michel; helens; martin's,Dutch and German Text,Structural / Uncertain,inherited,1650-1670#11
-combined,1670-1690,19,277,answerest; perceivest; enjoyest; mean'st; shou'dst; confessest; wantest; see'st; feest; said'st,Second-Person Verb Forms,Structural / Uncertain,inherited,1650-1670#19
-combined,1670-1690,15,1201,praedictorum; praedicti; nostrorum; eligi; provinciae; praesentium; praedictum; hertf; procerum; praedicto,Latin Fragments and Church Fathers' Names,Structural / Uncertain,inherited,1650-1670#18
-combined,1670-1690,12,2283,intelligeret; verificatur; fidel; tragacantha; convenienti; foenic; ddychwelasant; malolacu; gymeradwy; iudaeorum,Mixed Fragments and Biblical Names,Structural / Uncertain,inherited,1650-1670#4
-combined,1690-1710,12,1714,borrage; mugwort; bugloss; horehound; quinces; betony; cinamon; purslain; liquorice; lbj,Medicinal Herbs and Spices,"Medicine, Body & Health",inherited,1670-1690#11
-combined,1690-1710,0,6696,accomplice; irishman; ideot; aposteme; valeriani; inversion; extortioner; pedantick; fictions; enthusiast,Virtues and Moral Qualities,Morality: Virtue & Vice,inherited,1670-1690#2
-combined,1690-1710,6,2936,lucy; alonzo; dor; alph; slife; cesario; cata; daphnis; aurelia; wench,Truncated Words Ending in '-nd',Structural / Uncertain,inherited,1670-1690#10
-combined,1690-1710,18,154,handsomer; broader; blacker; swifter; pleasanter; bigger; fonder; viler; older; finer,Roman Numerals,Structural / Uncertain,inherited,1670-1690#20
-combined,1690-1710,1,6507,loveth; explains; asserteth; intitle; ascribes; pestered; flatters; hates; disarm; receded,Common Verbs (Base Forms),Structural / Uncertain,inherited,1670-1690#1
-combined,1690-1710,3,3665,buckles; goose; velvet; slit; breech; curl'd; ducks; feathers; snout; tresses,Remedies and Bodily Ailments,"Medicine, Body & Health",inherited,1670-1690#3
-combined,1690-1710,16,368,conniv'd; leastwise; scoffed; laught; boggle; connived; iune; laughs; laugh'd; iuly,Roman Numerals,Structural / Uncertain,inherited,1670-1690#17
-combined,1690-1710,5,2959,mortgagee; grantee; monies; tradesmen; demandant; lessor; ejectment; deput; retorn; bailiffs,Latin Grammar Instruction,"Books, Learning & Scholarship",inherited,1670-1690#5
-combined,1690-1710,4,3119,quintus; claudius; caius; marius; antonius; marcus; cambyses; cincinnatus; severus; arsinoe,"Mixed Names, Places & Latin Fragments",Structural / Uncertain,inherited,1670-1690#9
-combined,1690-1710,7,2882,viscous; catarrhs; rheumatisms; abdomen; cranium; membranes; tumours; flegm; diarrhaea; viscid,Adverbs of Manner and Degree,Structural / Uncertain,inherited,1670-1690#4
-combined,1690-1710,11,1718,relyed; flung; blocked; animadverted; puff'd; rowls; blockt; stir'd; relye; pluck'd,Chivalric Chronicle: Combat & Travel,Military & Warfare,inherited,1670-1690#16
-combined,1690-1710,13,1552,biblioth; ecclesiasticae; orationes; pontificum; westmonasteriensis; latino; francof; latinum; antv; romanorum,Sermon Vocabulary: Sin and Grace,"Religion, Theology & the Church",inherited,1670-1690#13
-combined,1690-1710,8,2546,annesly; gerrard; marmaduke; bathurst; hodges; hawkins; upton; gould; barnard; aston,"English Surnames, Political and Gentry",Structural / Uncertain,inherited,1670-1690#6
-combined,1690-1710,14,1428,gallu; iddynt; gwell; in'i; yntef; arnaf; bywyd; o'n; arall; fwrw,"Miscellaneous Nouns, Mixed Topics",Structural / Uncertain,inherited,1670-1690#8
-combined,1690-1710,10,1926,lawenburg; graveling; brabant; ghent; limoges; arles; tours; juliers; courtray; boisleduc,Saints and Apostles' Names,"Religion, Theology & the Church",inherited,1670-1690#7
-combined,1690-1710,2,5421,jugiter; sententiam; certis; praedicto; ornamenta; idque; labores; denique; reddidit; vellet,Latin Text Fragments,Structural / Uncertain,inherited,1670-1690#0
-combined,1690-1710,17,174,thinkst; knowst; saist; cou'dst; saw'st; findest; askest; seemest; saidst; requirest,Second-Person Verb Forms,Structural / Uncertain,inherited,1670-1690#19
-combined,1690-1710,9,2037,gorta; memores; guebriant; conditionibus; seva; exodo; caritate; tslighe; cineadh; baylie,Mixed Fragments and Biblical Names,Structural / Uncertain,inherited,1670-1690#12
-combined,1690-1710,15,1204,danemarc; sujet; jeune; l'un; connoissance; encore; famille; enfin; peu; quelle,Law French Legal Terminology,"Government, Law & Administration",inherited,1670-1690#14
-combined,1710-1730,8,498,plantations; hemp; garrisons; sale; freight; commodities; provinces; silk; flax; tobacco,Medicinal Herbs and Spices,"Medicine, Body & Health",inherited,1690-1710#12
-combined,1710-1730,0,1859,employments; intemperance; diocesan; histories; danes; avarice; texts; deacons; commanders; invectives,Latin Grammar Instruction,"Books, Learning & Scholarship",inherited,1690-1710#5
-combined,1710-1730,9,431,vellum; rav; maria; jeff; gard; betty; tin; abigal; cun; jub,Truncated Words Ending in '-nd',Structural / Uncertain,inherited,1690-1710#6
-combined,1710-1730,5,775,reduce; persuade; recommend; expose; conform; perswade; communicate; oblige; relate; procure,Saints and Apostles' Names,"Religion, Theology & the Church",inherited,1690-1710#10
-combined,1710-1730,3,1004,inhumane; elegant; mischievous; shocking; lewd; brutish; impious; enormous; passionate; sanguine,Virtues and Moral Qualities,Morality: Virtue & Vice,inherited,1690-1710#0
-combined,1710-1730,15,47,lighter; finer; bigger; sweeter; richer; harder; stronger; larger; easier; oftner,Roman Numerals,Structural / Uncertain,inherited,1690-1710#18
-combined,1710-1730,2,1103,affirmed; smitten; explained; attack'd; strengthned; overwhelmed; deriv'd; shewn; overtaken; freed,Common Verbs (Base Forms),Structural / Uncertain,inherited,1690-1710#1
-combined,1710-1730,13,183,xxvi; xxv; xxiii; xxxii; xix; xviii; xxviii; xxiv; xx; xv,"Mixed Names, Places & Latin Fragments",Structural / Uncertain,inherited,1690-1710#4
-combined,1710-1730,4,911,hamilton; stewart; margaret; crawfurd; murray; campbel; robert; francis; patrick; townsend,"English Surnames, Political and Gentry",Structural / Uncertain,inherited,1690-1710#8
-combined,1710-1730,14,117,october; december; july; april; fifteenth; november; june; thirteenth; august; january,Roman Numerals,Structural / Uncertain,inherited,1690-1710#16
-combined,1710-1730,6,643,insisting; engine; atheist; impostor; reflecting; relying; preface; exposition; reflected; origen,Sermon Vocabulary: Sin and Grace,"Religion, Theology & the Church",inherited,1690-1710#13
-combined,1710-1730,10,430,pull'd; pulls; pours; bursts; flung; tore; threw; thrown; ran; pulled,Chivalric Chronicle: Combat & Travel,Military & Warfare,inherited,1690-1710#11
-combined,1710-1730,7,550,salts; moist; nervous; fluid; fibres; viscid; juice; juices; membranes; herbs,Adverbs of Manner and Degree,Structural / Uncertain,inherited,1690-1710#7
-combined,1710-1730,1,1840,verdant; purple; rolling; glitt'ring; amid; foaming; roll'd; sands; yellow; glows,Remedies and Bodily Ailments,"Medicine, Body & Health",inherited,1690-1710#3
-combined,1710-1730,12,302,commits; represents; ascribes; exposes; manifests; declares; pursues; mentions; creates; asserts,Mixed Fragments and Biblical Names,Structural / Uncertain,inherited,1690-1710#9
-combined,1710-1730,16,24,wouldest; seest; mayest; would'st; shouldst; shouldest; mayst; wouldst; know'st; can'st,Second-Person Verb Forms,Structural / Uncertain,inherited,1690-1710#17
-combined,1710-1730,11,314,tamen; quidem; suo; dum; atque; sua; erat; haec; nos; quid,Latin Text Fragments,Structural / Uncertain,inherited,1690-1710#2
-combined,1730-1750,16,58,eighteen; ninety; thirty; sixteen; eighty; sixty; fourteen; fifteen; thirteen; seventeen,Cardinal Numbers Spelled Out,Structural / Uncertain,llm,
-combined,1730-1750,1,1503,avarice; superstitions; intemperance; irreligion; malice; insinuations; maladies; sensuality; anguish; fraud,Latin Grammar Instruction,"Books, Learning & Scholarship",inherited,1710-1730#0
-combined,1730-1750,2,1175,insolent; languid; immoral; vitiated; irregular; unmanly; malicious; impious; epidemical; unchristian,Virtues and Moral Qualities,Morality: Virtue & Vice,inherited,1710-1730#3
-combined,1730-1750,5,853,ralph; iames; wm; davis; preston; dood; iohn; andrew; cooper; leonard,Truncated Words Ending in '-nd',Structural / Uncertain,inherited,1710-1730#9
-combined,1730-1750,6,823,tempt; prompt; persuade; expose; suggest; reclaim; injure; refer; damn; provoke,Saints and Apostles' Names,"Religion, Theology & the Church",inherited,1710-1730#5
-combined,1730-1750,8,777,islands; newfoundland; exeter; plymouth; canso; africa; iuly; salem; mexico; saxons,"English Surnames, Political and Gentry",Structural / Uncertain,inherited,1710-1730#4
-combined,1730-1750,4,933,manufactures; sale; emitting; fees; counties; villages; harbours; secretary; warrants; canons,Medicinal Herbs and Spices,"Medicine, Body & Health",inherited,1710-1730#8
-combined,1730-1750,3,1152,weakened; obstructed; attributed; demonstrated; suspected; adorn'd; stung; slew; oblig'd; smitten,Common Verbs (Base Forms),Structural / Uncertain,inherited,1710-1730#2
-combined,1730-1750,9,656,flour; shells; lemon; butter; oysters; pan; cream; saffron; kettle; stockings,Roman Numerals,Structural / Uncertain,inherited,1710-1730#14
-combined,1730-1750,10,545,viscid; acrid; bile; juices; moisture; oils; salts; intestines; phlegm; magnitudes,Adverbs of Manner and Degree,Structural / Uncertain,inherited,1710-1730#7
-combined,1730-1750,7,791,reasonings; astronomy; antiquities; historians; livy; poems; preface; paragraph; lond; geography,Sermon Vocabulary: Sin and Grace,"Religion, Theology & the Church",inherited,1710-1730#6
-combined,1730-1750,0,1671,warbling; flow'rs; forests; glitt'ring; op'ning; azure; foaming; amid; breeze; indignant,Remedies and Bodily Ailments,"Medicine, Body & Health",inherited,1710-1730#1
-combined,1730-1750,11,499,flew; rush'd; throwing; throws; snatch'd; pours; hung; reflecting; pour'd; wash'd,Chivalric Chronicle: Combat & Travel,Military & Warfare,inherited,1710-1730#10
-combined,1730-1750,12,308,compares; declares; applies; represents; inclines; beholds; describes; loveth; obliges; expresses,Mixed Fragments and Biblical Names,Structural / Uncertain,inherited,1710-1730#12
-combined,1730-1750,17,29,would'st; seest; mightest; may'st; can'st; wert; shouldst; shouldest; mayst; couldst,Second-Person Verb Forms,Structural / Uncertain,inherited,1710-1730#16
-combined,1730-1750,14,192,xxiv; matt; jeremiah; xxx; ezekiel; xxxiii; xxvii; xxxii; xviii; xxii,"Mixed Names, Places & Latin Fragments",Structural / Uncertain,inherited,1710-1730#13
-combined,1730-1750,13,271,etiam; quam; atque; cui; enim; quos; ejus; quis; neque; sunt,Latin Text Fragments,Structural / Uncertain,inherited,1710-1730#11
-combined,1730-1750,15,167,inundation; impostor; englishman; engine; angle; infidel; unlimited; enthusiast; abatement; ulcer,Roman Numerals,Structural / Uncertain,inherited,1710-1730#15
-combined,1750-1770,4,1392,boil'd; velvet; powdered; bladder; roasted; kidneys; berries; parsley; bilious; bag,Roman Numerals,Structural / Uncertain,inherited,1730-1750#9
-combined,1750-1770,5,1296,ungovernable; accurate; hazardous; alarming; revengeful; licentious; elegant; dissolute; inconsiderate; shocking,Virtues and Moral Qualities,Morality: Virtue & Vice,inherited,1730-1750#2
-combined,1750-1770,1,2364,poems; dryden's; heretic; antiquities; ideot; miscellanies; tasso; miscellaneous; virgil; diction,Sermon Vocabulary: Sin and Grace,"Religion, Theology & the Church",inherited,1730-1750#7
-combined,1750-1770,15,62,lighter; faster; bigger; harder; warmer; sweeter; richer; easier; fairer; older,Roman Numerals,Structural / Uncertain,inherited,1730-1750#15
-combined,1750-1770,3,1708,payment; mercia; chattels; barons; sheriffs; sweden; saxons; fees; denmark; treasurer,Medicinal Herbs and Spices,"Medicine, Body & Health",inherited,1730-1750#4
-combined,1750-1770,2,2177,harrassed; ascertained; demonstrated; besought; beholds; wakes; exalts; applies; debased; strengthened,Common Verbs (Base Forms),Structural / Uncertain,inherited,1730-1750#3
-combined,1750-1770,8,781,trus; teribazus; eh; urs; clara; sirrah; lucetta; celia; irene; moody,Adverbs of Manner and Degree,Structural / Uncertain,inherited,1730-1750#10
-combined,1750-1770,11,616,winchester; chester; hartford; kingston; portsmouth; eastward; cambridge; bristol; glasgow; exeter,"English Surnames, Political and Gentry",Structural / Uncertain,inherited,1730-1750#8
-combined,1750-1770,7,863,howard; eaton; archibald; stephen; scott; clinton; webb; jun; woodbridge; northumberland,Truncated Words Ending in '-nd',Structural / Uncertain,inherited,1730-1750#5
-combined,1750-1770,0,2614,spectres; glitt'ring; vaulted; verdant; dewy; hov'ring; glade; fragrant; flow'rs; grim,Remedies and Bodily Ailments,"Medicine, Body & Health",inherited,1730-1750#0
-combined,1750-1770,6,934,attach; conform; tempt; suggest; recommend; deny; intitle; prompt; refer; injure,Saints and Apostles' Names,"Religion, Theology & the Church",inherited,1730-1750#6
-combined,1750-1770,10,643,flung; relying; pulled; pull'd; insisting; entailed; tumbled; relied; pulling; obligatory,Chivalric Chronicle: Combat & Travel,Military & Warfare,inherited,1730-1750#11
-combined,1750-1770,9,684,rancour; sensuality; insults; lawless; profaneness; unmanly; levity; vexations; hypocrisy; perjury,Latin Grammar Instruction,"Books, Learning & Scholarship",inherited,1730-1750#1
-combined,1750-1770,12,450,hoc; tamen; ita; quas; sibi; vel; autem; sed; suo; omnibus,Latin Text Fragments,Structural / Uncertain,inherited,1730-1750#13
-combined,1750-1770,14,210,isa; matt; jeremiah; xxii; exod; elijah; matth; mat; xxviii; xlv,"Mixed Names, Places & Latin Fragments",Structural / Uncertain,inherited,1730-1750#14
-combined,1750-1770,16,29,could'st; should'st; did'st; couldst; mayst; sayst; may'st; shouldst; dar'st; would'st,Second-Person Verb Forms,Structural / Uncertain,inherited,1730-1750#17
-combined,1750-1770,13,333,thomae; oliphant; ruthven; retour; haddington; waverl; vicecom; crawford; scotiae; heming,Mixed Fragments and Biblical Names,Structural / Uncertain,inherited,1730-1750#12
-combined,1770-1790,10,1048,sheriffs; deputies; treasurer; funds; payment; electors; fees; burgesses; specie; wares,Medicinal Herbs and Spices,"Medicine, Body & Health",inherited,1750-1770#3
-combined,1770-1790,17,95,bigger; thicker; swifter; whiter; lighter; heavier; sweeter; quicker; richer; harder,Roman Numerals,Structural / Uncertain,inherited,1750-1770#15
-combined,1770-1790,4,1766,illiberal; unjustifiable; disgustful; disgusting; irritable; humorous; vindictive; ungovernable; subtile; timorous,Virtues and Moral Qualities,Morality: Virtue & Vice,inherited,1750-1770#5
-combined,1770-1790,1,2920,compositions; poems; malignity; baseness; diction; treatises; levity; perjury; romances; manuscripts,Sermon Vocabulary: Sin and Grace,"Religion, Theology & the Church",inherited,1750-1770#1
-combined,1770-1790,8,1202,betty; dolly; gibb; susan; jemmy; fag; kit; hah; elwina; otanes,Adverbs of Manner and Degree,Structural / Uncertain,inherited,1750-1770#8
-combined,1770-1790,2,2392,parsley; thyme; jacket; stockings; lemon; curled; walnut; berries; ash; soup,Roman Numerals,Structural / Uncertain,inherited,1750-1770#4
-combined,1770-1790,6,1521,demonstrated; crushed; benefited; swayed; distended; tinctured; nominated; censured; referred; reproached,Common Verbs (Base Forms),Structural / Uncertain,inherited,1750-1770#2
-combined,1770-1790,14,654,prelates; barons; matth; hos; jeremiah; chron; dependants; xxxiii; daniel; zech,"Mixed Names, Places & Latin Fragments",Structural / Uncertain,inherited,1750-1770#14
-combined,1770-1790,9,1123,richardson; jackson; fenwick; jun; walker; graham; nathaniel; harris; glover; ralph,Truncated Words Ending in '-nd',Structural / Uncertain,inherited,1750-1770#7
-combined,1770-1790,3,2134,forsakes; tempt; vex; owns; sooths; suggest; warms; reconcile; confining; wafts,Saints and Apostles' Names,"Religion, Theology & the Church",inherited,1750-1770#6
-combined,1770-1790,11,916,foetid; castor; scorbutic; myrrh; mucus; syrup; spasms; viscid; fomentations; vomiting,Latin Grammar Instruction,"Books, Learning & Scholarship",inherited,1750-1770#9
-combined,1770-1790,5,1652,bedford; worcester; exeter; taunton; chester; missisippi; gauls; nevil; gloucester; warwick,"English Surnames, Political and Gentry",Structural / Uncertain,inherited,1750-1770#11
-combined,1770-1790,13,721,flung; jumped; pulled; tumbled; tumbling; relied; animadvert; pulls; rushes; relies,Chivalric Chronicle: Combat & Travel,Military & Warfare,inherited,1750-1770#10
-combined,1770-1790,0,3225,tufted; dewy; vernal; lightnings; murm'ring; wintry; vengeful; chill'd; heav'd; glossy,Remedies and Bodily Ailments,"Medicine, Body & Health",inherited,1750-1770#0
-combined,1770-1790,12,828,idiot; leland; pliny; accomplice; coll; abridgement; miscellanies; plin; incursion; polybius,Mixed Fragments and Biblical Names,Structural / Uncertain,inherited,1750-1770#13
-combined,1770-1790,7,1337,nuper; modo; sibi; johanne; concedimus; habebunt; tighernac; tamen; eos; fuerit,Latin Text Fragments,Structural / Uncertain,inherited,1750-1770#12
-combined,1770-1790,16,131,quhen; mak; lang; wald; sae; deir; castel; alle; wi; scho,Second-Person Verb Forms,Structural / Uncertain,inherited,1750-1770#16
-combined,1770-1790,15,229,axis; diameter; dc; ph; plane; radius; rectangle; curve; semicircle; diagonal,Geometry and Mathematical Diagrams,"Science, Mathematics & Natural Philosophy",llm,
-combined,1790-1810,14,337,guilders; nov; florins; pounders; stivers; hogsheads; dec; cents; dollar; oct,Geometry and Mathematical Diagrams,"Science, Mathematics & Natural Philosophy",inherited,1770-1790#15
-combined,1790-1810,15,96,swifter; hotter; bigger; handsomer; lighter; quicker; harder; sweeter; blacker; heavier,Roman Numerals,Structural / Uncertain,inherited,1770-1790#17
-combined,1790-1810,5,1777,unmanly; unrelenting; outrageous; attrocious; lawless; avaricious; unbridled; ungoverned; ungovernable; attractive,Virtues and Moral Qualities,Morality: Virtue & Vice,inherited,1770-1790#4
-combined,1790-1810,10,1067,surplus; payments; investment; augmentation; subscriptions; certificates; insurance; commodities; payment; wares,Medicinal Herbs and Spices,"Medicine, Body & Health",inherited,1770-1790#10
-combined,1790-1810,8,1307,len; eh; m'gil; lucy; wal; jen; amant; gaby; cad; floretta,Adverbs of Manner and Degree,Structural / Uncertain,inherited,1770-1790#8
-combined,1790-1810,0,4126,poems; arrant; ideot; acorn; tacitus; impostor; effeminacy; compositions; baseness; astregal,Sermon Vocabulary: Sin and Grace,"Religion, Theology & the Church",inherited,1770-1790#1
-combined,1790-1810,4,2006,salem; suffolk; kingston; swamps; newark; norfolk; labrador; portsmouth; legions; knights,"English Surnames, Political and Gentry",Structural / Uncertain,inherited,1770-1790#5
-combined,1790-1810,6,1625,damped; swayed; characterized; soothed; stimulated; benefited; wrested; refuted; demonstrated; referred,Common Verbs (Base Forms),Structural / Uncertain,inherited,1770-1790#6
-combined,1790-1810,7,1316,harrison; bingham; baldwin; nathaniel; moore; bleecker; scott; stewart; richards; lessington,Truncated Words Ending in '-nd',Structural / Uncertain,inherited,1770-1790#9
-combined,1790-1810,3,2169,attach; impute; accommodate; refer; calleth; provoke; loveth; inspires; seduce; softens,Saints and Apostles' Names,"Religion, Theology & the Church",inherited,1770-1790#3
-combined,1790-1810,1,2664,op'ning; vengeful; verdant; glitt'ring; flow'ry; sorrow's; heav'nly; sunny; ruthless; dewy,Remedies and Bodily Ailments,"Medicine, Body & Health",inherited,1770-1790#0
-combined,1790-1810,12,1007,jumped; pulls; pulled; rushes; animadvert; thrust; hauled; flung; transformed; stepping,Chivalric Chronicle: Combat & Travel,Military & Warfare,inherited,1770-1790#13
-combined,1790-1810,2,2427,powdered; parsley; geese; jacket; ginger; cabbage; turkeys; lemon; whitish; pies,Roman Numerals,Structural / Uncertain,inherited,1770-1790#2
-combined,1790-1810,9,1105,diarrhoea; catarrh; cavity; ammoniac; costiveness; vitriol; spasms; excretion; mucus; contraction,Latin Grammar Instruction,"Books, Learning & Scholarship",inherited,1770-1790#11
-combined,1790-1810,13,356,manasseh; tiberius; assyria; aaron; matth; jeremiah; darius; herod; chron; xlv,"Mixed Names, Places & Latin Fragments",Structural / Uncertain,inherited,1770-1790#14
-combined,1790-1810,11,1065,esp; qu'elle; fois; sulz; qu'ils; enim; ogilvie; peu; qu'on; juglans,Latin Text Fragments,Structural / Uncertain,inherited,1770-1790#7
-combined,1790-1810,16,42,wouldest; doest; couldst; did'st; shouldst; sayest; say'st; mightest; should'st; could'st,Second-Person Verb Forms,Structural / Uncertain,inherited,1770-1790#16
+combined,1510-1530,1,785,merytes; withdrewe; excellence; petycyon; worthynesse; conuersacyon; exercyse; goodnesse; mekenesse; strength,Virtue and Moral Qualities,Morality: Virtue & Vice,human,
+combined,1510-1530,3,729,fyersly; honorably; strake; baner; lyked; holdynge; ranne; ioyously; lepte; spedde,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",human,
+combined,1510-1530,0,867,obedience; consciences; styrre; turne; merites; trueth; obeye; offer; love; happely,"Obedience, Conscience and Sin","Religion, Theology & the Church",human,
+combined,1510-1530,8,326,countreys; forestes; burgesses; costes; capitaynes; furnysshed; countres; kyndes; capytaynes; marchesse,"Kingdoms, Officials and Institutions","Government, Law & Administration",human,
+combined,1510-1530,7,331,apres; ceo; auera; staple; bref; mez; feme; sur; dit; brefe,Law French Legal Text,Structural / Uncertain,human,
+combined,1510-1530,6,558,penbroke; newcastell; eldred; loyes; scotlonde; decessed; romayne; bretayne; saxons; vicount,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",human,
+combined,1510-1530,4,700,iam; ecclesiae; enim; exemplum; singulis; hunc; eam; nostra; primi; nunc,Latin Text (Function Words),Structural / Uncertain,human,
+combined,1510-1530,9,279,xxvij; xxxvi; xxij; lvii; xlvi; xlv; xliii; xj; perche; xviij,Roman Numerals and Dates,Structural / Uncertain,human,
+combined,1510-1530,5,644,roses; vyne; coler; grauell; lynen; cole; potte; guttes; barly; hony,"Body, Ailments and Remedies","Medicine, Body & Health",human,
+combined,1510-1530,10,89,perfe; diuerse; neutre; ritis; diseases; fuisse; rit; rint; plurel; nownes,Latin Grammar Terminology,Structural / Uncertain,human,
+combined,1510-1530,12,42,godt; niet; maer; als; op; een; van; nicht; dat; ist,Dutch/German Text,Structural / Uncertain,human,
+combined,1510-1530,11,60,mytted; mended; maundeme; quered; myt; maundementes; syder; forte; scie; maundeth,Truncated Word Fragments,Structural / Uncertain,human,
+combined,1510-1530,13,34,oughtest; wylte; mayste; reioyce; doest; shuldest; haddest; canst; wylt; woldest,Second-Person Verb Forms,Structural / Uncertain,human,
+combined,1510-1530,2,774,dimidium; regulam; differentiam; stell; lucrum; marcell; margarete; zelande; blud; wette,Mixed Latin Arithmetic and Names,Structural / Uncertain,human,
+combined,1530-1550,0,2648,vsages; glotony; sauage; dooynges; abbottes; enormities; deceytes; flesshely; studies; perils,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1510-1530#1
+combined,1530-1550,5,1155,neighboure; homicide; adder; proposicion; ape; redempcion; instrumente; iniquities; enymes; teethe,Latin Grammar Terminology,Structural / Uncertain,inherited,1510-1530#10
+combined,1530-1550,2,1738,assist; compell; enforce; condemne; resist; condempne; belong; keape; nyl; impute,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1510-1530#0
+combined,1530-1550,4,1206,guysnes; caleys; liberties; hundredes; archedeacons; castelles; reuenues; marches; countye; pencions,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1510-1530#8
+combined,1530-1550,6,1127,disquieted; conuicte; filled; aforesaied; benne; slaine; inuaded; enryched; combred; arrested,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1510-1530#2
+combined,1530-1550,14,358,vie; penite; tiel; agreme; blou; thinte; clare; arroga; augme; suffycye,Law French Legal Text,Structural / Uncertain,inherited,1510-1530#7
+combined,1530-1550,11,499,baith; quhyll; thairof; pychtis; quhil; slauchter; mouit; wiffis; efter; nowmer,Scots-Language Chronicle Text,Structural / Uncertain,human,
+combined,1530-1550,1,2465,bankes; baners; sylke; hennes; veluet; fygges; coler; fome; gynger; speres,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1510-1530#5
+combined,1530-1550,10,587,rekeneth; feareth; rebuketh; fealeth; affirmeth; testifyeth; describeth; regardeth; despiseth; nameth,Third-Person -eth Verb Forms,Structural / Uncertain,human,
+combined,1530-1550,13,438,westminster; syege; score; mydnyght; lxxx; apryll; twentye; nouember; westmynster; marche,"Dates, Months and Calendar Terms",Structural / Uncertain,human,
+combined,1530-1550,9,651,threwe; throwen; cary; hermon; pulled; cutteth; carye; plucke; caryed; blowe,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1510-1530#3
+combined,1530-1550,16,127,val; ni; mae; yw; nyd; ir; ef; ae; pan; ond,Dutch/German Text,Structural / Uncertain,inherited,1510-1530#12
+combined,1530-1550,7,1027,roger; octauius; abia; glocester; gallia; antiochus; discomfited; roberte; nicolas; ioram,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1510-1530#6
+combined,1530-1550,3,1725,uero; posuit; princeps; tamen; fama; dedit; principis; ipsis; fructum; illius,Latin Text (Function Words),Structural / Uncertain,inherited,1510-1530#4
+combined,1530-1550,17,112,knoweste; saiest; speakest; iudgest; beleuest; hearest; sawest; shouldest; herest; didest,Second-Person Verb Forms,Structural / Uncertain,inherited,1510-1530#13
+combined,1530-1550,12,495,xxvij; capvt; regu; xxviij; psalmus; xxij; hierome; chrysostome; amos; augustyne,Roman Numerals and Dates,Structural / Uncertain,inherited,1510-1530#9
+combined,1530-1550,15,236,demne; gregacio; demned; cluded; quered; fessyon; fessio; tynually; gregacyon; tinued,Truncated Word Fragments,Structural / Uncertain,inherited,1510-1530#11
+combined,1530-1550,8,787,danis; iohne; yair; duabus; recoueries; uocem; maryit; dict; federike; nare,Mixed Names and Latin Fragments,Structural / Uncertain,human,
+combined,1550-1570,5,1688,constraine; incline; reueale; assayle; compell; assaile; enforce; greue; applye; alledge,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1530-1550#2
+combined,1550-1570,3,1958,annuities; rentes; iurisdictions; castles; tenements; reuenues; superstitions; commissions; paymentes; fermes,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1530-1550#4
+combined,1550-1570,4,1922,hereticke; prelat; hypocrite; idolater; excellencie; beaute; kindnesse; treatise; particion; proposition,Latin Grammar Terminology,Structural / Uncertain,inherited,1530-1550#5
+combined,1550-1570,10,890,thirtie; fyftene; nouember; fiftene; decembre; ides; southe; zodiake; thicknes; heyght,"Dates, Months and Calendar Terms",Structural / Uncertain,inherited,1530-1550#13
+combined,1550-1570,16,473,plainlye; euidently; plainely; cruellie; aptly; hertely; rigorously; manifestly; ernestly; entierly,Manner Adverbs (-ly Forms),Structural / Uncertain,human,
+combined,1550-1570,1,2053,countenaunces; outrages; mallice; mischieues; ambicion; practises; heuines; strengthes; spitefull; heretical,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1530-1550#0
+combined,1550-1570,8,1284,discomfited; blamed; encountred; lien; entangled; encombred; vanquished; condempned; warded; stryken,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1530-1550#6
+combined,1550-1570,2,1962,octauius; frenchmen; treuers; assyria; annibal; aegipt; anniball; quintus; westmynster; lucius,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1530-1550#7
+combined,1550-1570,0,3167,ginger; calamint; bushes; barlye; sorell; wormewood; endiue; haire; speares; storax,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1530-1550#1
+combined,1550-1570,18,263,patie; iudgme; preside; couena; commandeme; sou; gouerneme; poi; freque; penite,Law French Legal Text,Structural / Uncertain,inherited,1530-1550#14
+combined,1550-1570,11,885,hung; throwne; burste; pul; throwen; pluckt; dissenteth; seuered; pulled; dryue,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1530-1550#9
+combined,1550-1570,13,673,tempteth; despiseth; embraceth; loueth; mencioneth; assureth; calleth; affirmeth; nameth; possesseth,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1530-1550#10
+combined,1550-1570,17,435,ilz; autre; mort; eux; leur; toutes; prendre; auer; estre; poit,French Language Text,Structural / Uncertain,human,
+combined,1550-1570,6,1611,solum; modo; aliquam; illius; postea; illud; quidem; ipsius; hinc; sui,Latin Text (Function Words),Structural / Uncertain,inherited,1530-1550#3
+combined,1550-1570,14,615,hwy; eithyr; ryw; iddo; tad; marw; wedy; nep; nau; yw'r,Dutch/German Text,Structural / Uncertain,inherited,1530-1550#16
+combined,1550-1570,12,733,ecclesiastica; biel; arria; auste; alexandrinus; luthera; historia; cipria; anacletus; publica,Second-Person Verb Forms,Structural / Uncertain,inherited,1530-1550#17
+combined,1550-1570,15,496,ioram; abia; xxij; xxxvij; esd; micheas; xxviij; manasses; moabites; xxiij,Roman Numerals and Dates,Structural / Uncertain,inherited,1530-1550#12
+combined,1550-1570,9,1016,commoun; ald; richt; eftir; brekaris; quham; greit; quhil; quhe; attanis,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1530-1550#11
+combined,1550-1570,19,235,tention; secrate; forter; firmeth; panions; ditions; tinual; sidering; fesseth; municatio,Truncated Word Fragments,Structural / Uncertain,inherited,1530-1550#15
+combined,1550-1570,7,1384,absit; enfeffa; yntef; passionis; cornelio; cnawd; saxones; meason; discontinue; clarence,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1530-1550#8
+combined,1570-1590,1,5380,periuries; dissimulations; disdainefull; parasites; villanous; dissolutenes; applications; dissensions; raylers; pyning,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1550-1570#1
+combined,1570-1590,6,2515,inforce; employe; vttereth; acknowledgeth; correcteth; entangle; betake; termeth; rehearseth; expoundeth,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1550-1570#5
+combined,1570-1590,9,1208,sharplie; daintily; villanously; amply; shamefully; notvvithstanding; manyfestly; impudently; impudentlie; clearly,Manner Adverbs (-ly Forms),Structural / Uncertain,inherited,1550-1570#16
+combined,1570-1590,7,2408,subdeacons; harquebuziers; occupiers; regiments; exemptions; archdeacons; rentes; abbots; vestiments; seminaries,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1550-1570#3
+combined,1570-1590,12,936,abcd; tropicke; virginis; squares; thirty; cancer; triangles; episcopi; sixtie; twentye,"Dates, Months and Calendar Terms",Structural / Uncertain,inherited,1550-1570#10
+combined,1570-1590,0,6079,tetters; sorrell; decoct; cinamon; woolfes; licoras; masticke; galingale; hysope; borage,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1550-1570#0
+combined,1570-1590,4,3159,lyfte; gushed; leapt; secluded; flang; withdrawne; lyfted; flew; hurled; seuereth,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1550-1570#8
+combined,1570-1590,20,200,seemest; sawest; hearest; fearest; beleuest; sufferest; thinkst; commaundest; sayst; woldest,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1550-1570#13
+combined,1570-1590,3,3286,preston; notingham; southhampton; cremona; sextus; lincolne; emilius; edmond; feuersham; lantgraue,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1550-1570#2
+combined,1570-1590,10,1053,poti; deaco; iohannis; fid; cyprianus; pelag; policarpus; clemens; alexandrinus; marsilius,Second-Person Verb Forms,Structural / Uncertain,inherited,1550-1570#12
+combined,1570-1590,17,272,dema; apprehe; ila; compou; scotla; propou; eply; confou; comprehe; erys,Truncated Word Fragments,Structural / Uncertain,human,
+combined,1570-1590,11,998,toutesfois; d'angleterre; d'auoir; iamais; estoyent; tellement; mieux; pouuoit; tuer; soyent,French Language Text,Structural / Uncertain,inherited,1550-1570#17
+combined,1570-1590,8,1380,ofn; gwared; daioni; i'm; drwg; vphern; ynot; iniondeb; nef; gweithred,Dutch/German Text,Structural / Uncertain,inherited,1550-1570#14
+combined,1570-1590,13,886,extortioner; introduction; parasite; vnderling; heretick; isosceles; gaethiwed; oyster; adulteresse; ethnike,Latin Grammar Terminology,Structural / Uncertain,inherited,1550-1570#4
+combined,1570-1590,2,4289,iudices; denique; nempe; eandem; disciplinae; lumina; pariter; saepe; fuerat; mentis,Latin Text (Function Words),Structural / Uncertain,inherited,1550-1570#6
+combined,1570-1590,15,693,ioram; ammon; iosaphat; manasses; amasa; abimelech; paral; zach; asa; nabuchodonosor,Roman Numerals and Dates,Structural / Uncertain,inherited,1550-1570#15
+combined,1570-1590,14,723,inglismen; felloun; seruandis; sutheroun; swa; feir; wallace; presoun; curage; sair,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1550-1570#9
+combined,1570-1590,16,535,essendo; onde; sopra; sotto; nella; percioche; stati; ancora; all'hora; pipino,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1550-1570#11
+combined,1570-1590,19,214,resinae; plumbi; chamaemeli; recentis; succi; cerusae; vituli; nucis; myrrhae; olibani,Latin Pharmacy and Apothecary Terms,"Medicine, Body & Health",human,
+combined,1570-1590,18,243,demnation; stantly; trariwise; maunding; fessing; prehendeth; plained; futed; panion; taineth,Truncated Word Fragments,Structural / Uncertain,inherited,1550-1570#19
+combined,1570-1590,5,2936,rabies; exponere; societatem; southwell; amoriaid; chwy; seruiteurs; cortes; vtilitatem; sicome,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1550-1570#7
+combined,1570-1590,21,171,appointme; conse; preside; conuenie; regime; sile; impedime; expedie; maintena; imprisonme,Law French Legal Text,Structural / Uncertain,inherited,1550-1570#18
+combined,1590-1610,12,1453,knovven; impiously; notvvithstandinge; clearly; impertinently; novv; vvher; exactlie; trepane; lavvyers,Manner Adverbs (-ly Forms),Structural / Uncertain,inherited,1570-1590#9
+combined,1590-1610,8,1703,propose; contradict; approoue; iniure; conforme; imagin; gainesay; entreate; daunt; inuite,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1570-1590#6
+combined,1590-1610,0,5047,interiection; westmon; ethnike; appendix; allegory; vproare; provinciall; oligarchie; acorne; allegations,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1570-1590#7
+combined,1590-1610,10,1524,ilf; sirrah; val; ifaith; cand; crip; hippolito; sirha; flo; geor,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1570-1590#16
+combined,1590-1610,1,5012,ducke; speckled; warbling; spangled; carnation; ierkin; tresses; flowrie; duskie; plates,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1570-1590#0
+combined,1590-1610,20,131,blacker; woorse; bigger; liker; swifter; thicker; harder; wealthier; hotter; whiter,Truncated Word Fragments,Structural / Uncertain,inherited,1570-1590#17
+combined,1590-1610,3,4089,forgeries; inhumaine; monothelites; chambering; mutinies; felonie; deuices; deceits; blockish; calumniations,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1570-1590#1
+combined,1590-1610,14,1016,quadrant; eclipticke; horizontall; zodiacke; equator; verticall; semicircle; fourty; ianuary; zenith,"Dates, Months and Calendar Terms",Structural / Uncertain,inherited,1570-1590#12
+combined,1590-1610,4,4071,chastiseth; tearmeth; wrongd; interpreteth; accuseth; alleageth; kils; nameth; afflicts; proposeth,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1570-1590#4
+combined,1590-1610,5,2530,gordon; picardie; excester; erle; edmund; auxerre; clermont; roan; rodrigo; languedoc,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1570-1590#3
+combined,1590-1610,7,2261,damasc; enchirid; symbolo; gestis; feod; gener; valla; translat; euchar; libro,Second-Person Verb Forms,Structural / Uncertain,inherited,1570-1590#10
+combined,1590-1610,9,1694,seazeth; ript; tumbled; swalloweth; casts; flung; estraunged; lifte; pulled; leapt,Latin Grammar Terminology,Structural / Uncertain,inherited,1570-1590#13
+combined,1590-1610,6,2468,betony; almonds; limons; cinamon; fleame; flegme; fennell; ireos; vinegar; cotten,Latin Pharmacy and Apothecary Terms,"Medicine, Body & Health",inherited,1570-1590#19
+combined,1590-1610,17,397,sequently; manding; trariwise; sideratio; uersation; appara; panie; monweale; conuenie; tena,Truncated Word Fragments,Structural / Uncertain,inherited,1570-1590#18
+combined,1590-1610,2,4380,denique; principibus; quarum; iudaei; sanctitatis; summi; nullam; illorum; praecipu; ritus,Latin Text (Function Words),Structural / Uncertain,inherited,1570-1590#2
+combined,1590-1610,19,159,vsest; vnderstandest; lyest; wantest; fearest; talkest; requirest; loosest; sawest; deseruest,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1570-1590#20
+combined,1590-1610,13,1155,eythr; pwy; amser; gwirionedd; torri; etto; llos; catholic; cwbl; lhe,Dutch/German Text,Structural / Uncertain,inherited,1570-1590#8
+combined,1590-1610,16,958,ahaziah; abimelech; issachar; amon; ioram; manasseh; ahab; iehoshaphat; ioatham; ozias,Roman Numerals and Dates,Structural / Uncertain,inherited,1570-1590#15
+combined,1590-1610,15,985,venir; moins; quelques; molti; essi; depuis; mesmes; percioche; encore; royaume,French Language Text,Structural / Uncertain,inherited,1570-1590#11
+combined,1590-1610,18,342,quhy; thairfoir; declair; richt; agane; quhill; thocht; befoir; weill; zit,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1570-1590#14
+combined,1590-1610,11,1479,moesia; bourguignon; archiepiscopo; ymryson; mercatores; duras; gulielmo; philopator; royaumes; siccr,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1570-1590#5
+combined,1610-1630,0,6559,embryo; uniuersity; intruder; vproare; hebraisme; assertions; fines; amorite; jurisdiction; annuities,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1590-1610#0
+combined,1610-1630,4,3924,flatters; tempts; denyeth; alleageth; stileth; tearmeth; recommend; oppresseth; reject; termeth,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1590-1610#8
+combined,1610-1630,9,2096,flowry; quadrant; rhosne; spangled; clifts; flakes; sky; whoes; tanais; welkin,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1590-1610#1
+combined,1610-1630,13,1065,shamefully; audaciously; barbarously; impiously; impudently; egregiously; vntruly; copiously; louingly; essentially,Manner Adverbs (-ly Forms),Structural / Uncertain,inherited,1590-1610#12
+combined,1610-1630,14,932,assur; ammonites; amaziah; ioram; moabites; ammon; assirians; iehoram; ezekiel; philistins,Roman Numerals and Dates,Structural / Uncertain,inherited,1590-1610#16
+combined,1610-1630,2,5137,sorrell; cinamon; ierkin; leather; mallard; citrons; smallage; quinces; doublet; berries,Latin Pharmacy and Apothecary Terms,"Medicine, Body & Health",inherited,1590-1610#6
+combined,1610-1630,10,1623,sirra; frisco; cle; delio; seb; brac; adonis; nisus; iack; tinker,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1590-1610#10
+combined,1610-1630,7,2868,carlton; ralph; diaz; windsore; henault; gloucester; ieronimo; thorpe; northwales; darby,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1590-1610#5
+combined,1610-1630,5,3636,tinkers; routs; bawdes; dissimulations; panders; forgeries; calumniations; worldlinesse; luxury; luxurie,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1590-1610#3
+combined,1610-1630,15,485,sixtie; sixty; fourteene; thirtie; fourteenth; fiftie; sixteene; seauenteenth; februarie; xxiiii,"Dates, Months and Calendar Terms",Structural / Uncertain,inherited,1590-1610#14
+combined,1610-1630,3,3962,leaps; courted; flung; rippe; beguil'd; heaued; ripped; stir'd; dissenteth; tumble,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1590-1610#4
+combined,1610-1630,6,3078,sac; malmesb; gregorius; epit; episc; sacr; cathol; petil; defens; adrianus,Second-Person Verb Forms,Structural / Uncertain,inherited,1590-1610#7
+combined,1610-1630,1,6522,quamvis; uno; vtpote; priusquam; fati; inquam; vndique; cunctis; denique; interdum,Latin Text (Function Words),Structural / Uncertain,inherited,1590-1610#2
+combined,1610-1630,16,272,seri; saepi; penit; ampli; albones; denis; alti; albons; maximin; poti,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1590-1610#18
+combined,1610-1630,12,1155,bydd; gwrando; hyder; byw; marw; mwy; attaf; drugaredd; rhan; eglur,Dutch/German Text,Structural / Uncertain,inherited,1590-1610#13
+combined,1610-1630,18,231,oughtst; sinnest; pleasest; deniest; seruest; vvilt; requirest; saiest; com'st; loosest,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1590-1610#19
+combined,1610-1630,17,260,relyed; relies; relied; spitted; preyed; horseback; fathered; relyeth; looker; railed,Latin Grammar Terminology,Structural / Uncertain,inherited,1590-1610#9
+combined,1610-1630,11,1286,yeux; soleil; papes; l'huomo; stomaco; pouuoir; fois; vient; quelli; vray,French Language Text,Structural / Uncertain,inherited,1590-1610#15
+combined,1610-1630,19,101,uersation; sidering; maunded; monwealth; trarie; mandeth; fusion; forted; secrated; fessed,Truncated Word Fragments,Structural / Uncertain,inherited,1590-1610#17
+combined,1610-1630,8,2386,iaen; clywed; teco; ddirgel; ddywedant; spine; hurtado; cingis; chyfiawnder; caethiwed,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1590-1610#11
+combined,1630-1650,0,8437,amorite; anchorite; irishman; ironie; hermaphrodite; umbell; rascalls; unbeliever; incubus; enthymeme,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1610-1630#5
+combined,1630-1650,5,3099,hum; chi; slen; queane; daphne; bla; stult; mir; knaue; sirra,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1610-1630#10
+combined,1630-1650,10,1852,cramps; dropsies; flegme; semicircle; windinesse; inflammations; lungues; phlegme; inflamation; chollicke,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1610-1630#9
+combined,1630-1650,13,1097,abijah; amaziah; ioash; iehoram; amon; ismael; ahaziah; aram; benhadad; ezekias,Roman Numerals and Dates,Structural / Uncertain,inherited,1610-1630#14
+combined,1630-1650,8,2376,reversion; assessements; payments; disseisor; bayliffs; arrerages; escheators; plaintiff; replevin; pensions,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1610-1630#0
+combined,1630-1650,2,5273,sorrell; berries; endiue; succory; cinnamon; quinces; embrodered; taffata; velvet; fumitory,Latin Pharmacy and Apothecary Terms,"Medicine, Body & Health",inherited,1610-1630#2
+combined,1630-1650,4,3445,charm'd; vext; deceiv'd; betray'd; scoft; laugh'd; laught; carpe; ruinated; courted,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1610-1630#3
+combined,1630-1650,3,4856,avoucheth; stileth; quotes; interprets; applies; blesseth; tearmeth; imputes; expels; assureth,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1610-1630#4
+combined,1630-1650,17,560,fiftie; thirtie; thirteene; parliamenti; nouember; henrici; fourescore; festivall; celebration; novem,"Dates, Months and Calendar Terms",Structural / Uncertain,inherited,1610-1630#15
+combined,1630-1650,15,797,impiously; unchristianly; maliciously; abominably; impudently; discreetly; scandalously; injuriously; audaciously; malitiously,Manner Adverbs (-ly Forms),Structural / Uncertain,inherited,1610-1630#13
+combined,1630-1650,9,2137,trussed; stir'd; flung; cooped; stird; doated; billowes; dammed; relyed; gliding,Latin Grammar Terminology,Structural / Uncertain,inherited,1610-1630#17
+combined,1630-1650,6,2824,sicilia; dalmatia; dacia; woodstocke; ancona; shrewsbury; marca; sardinia; flaunders; southampton,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1610-1630#7
+combined,1630-1650,7,2669,defens; emendat; biblioth; carm; libr; praefat; andreas; sacr; epit; citat,Second-Person Verb Forms,Structural / Uncertain,inherited,1610-1630#6
+combined,1630-1650,1,8086,inquam; dari; debeat; utrinque; tantam; discursu; vocamus; quodque; velint; multas,Latin Text (Function Words),Structural / Uncertain,inherited,1610-1630#1
+combined,1630-1650,11,1577,walton; barker; randall; pury; sadler; fleming; barrington; wallis; mowbray; leighton,Truncated Word Fragments,Structural / Uncertain,inherited,1610-1630#19
+combined,1630-1650,18,237,perceivest; requirest; intendest; talkest; pretendest; receivest; saiest; spakest; runnest; didest,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1610-1630#18
+combined,1630-1650,20,90,xix; xv; xviii; xxix; xxiii; xxxii; xxv; xxii; xvii; xxvi,Roman Numerals,Structural / Uncertain,human,
+combined,1630-1650,19,221,longi; augustins; ulteri; meli; alban; ampli; facili; hilarie; edmunds; penit,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1610-1630#16
+combined,1630-1650,14,892,llall; pawb; ydynt; drwy; cwbl; hefyd; clywed; gwneuthur; yw'r; drwg,Dutch/German Text,Structural / Uncertain,inherited,1610-1630#12
+combined,1630-1650,16,653,acht; encore; gur; faict; mesmes; eux; amhail; maseadh; ci; peu,French Language Text,Structural / Uncertain,inherited,1610-1630#11
+combined,1630-1650,12,1478,piacenza; renatus; scabiosa; mandavit; awron; naturas; feloniam; gallwn; hominu; oportebit,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1610-1630#8
+combined,1650-1670,11,1970,leaue; deceiue; loue; itt; euen; accurately; audaciously; unchristianly; beleeue; conceiued,Manner Adverbs (-ly Forms),Structural / Uncertain,inherited,1630-1650#15
+combined,1650-1670,1,9229,allegorie; alcetas; interjection; ideot; peevishness; atrophia; anchorite; estray; toyish; excrescence,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1630-1650#0
+combined,1650-1670,9,2892,mir; sirra; dessandro; pish; eug; doll; valerio; phi; euph; dogrel,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1630-1650#5
+combined,1650-1670,6,3956,copyhold; termor; disseisor; demandant; assise; disseisin; disseisee; replevin; grantee; feoffee,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1630-1650#8
+combined,1650-1670,15,1266,jehoram; aram; azariah; jehoahaz; ahaziah; amaziah; hezron; zechariah; moab; eliab,Roman Numerals and Dates,Structural / Uncertain,inherited,1630-1650#13
+combined,1650-1670,2,8195,asserteth; asserts; affirmeth; carped; hates; receded; interprets; complied; boggle; explains,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1630-1650#3
+combined,1650-1670,17,552,iune; duckats; walms; twentie; celebrating; festivals; solemnities; pintes; thirteen; iuly,"Dates, Months and Calendar Terms",Structural / Uncertain,inherited,1630-1650#17
+combined,1650-1670,5,5211,catt; hog; stockins; taffaty; curled; duck; mallard; sattin; kite; buttocks,Latin Pharmacy and Apothecary Terms,"Medicine, Body & Health",inherited,1630-1650#2
+combined,1650-1670,10,2737,sardinia; galicia; astrachan; calabria; murcia; brunswick; peloponesus; sumatra; livonia; epirus,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1630-1650#6
+combined,1650-1670,12,1969,cooped; blockt; wrapp'd; flung; stirrs; hudled; wrapping; swalloweth; dammed; spewed,Latin Grammar Terminology,Structural / Uncertain,inherited,1630-1650#9
+combined,1650-1670,4,5691,scordium; sorrell; lungues; bettony; viscous; bugloss; fryed; agrimony; bistort; dropsies,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1630-1650#10
+combined,1650-1670,0,10465,haberi; novos; simulque; quaeque; cernis; utique; solummodo; reddunt; muneribus; utpote,Latin Text (Function Words),Structural / Uncertain,inherited,1630-1650#1
+combined,1650-1670,16,1170,bc; rectangle; bf; fc; db; diameters; fg; segments; solids; semidiameter,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1630-1650#4
+combined,1650-1670,8,3045,hughes; carey; boteler; melton; hatton; basset; thornton; gillingham; seaton; trenchard,Truncated Word Fragments,Structural / Uncertain,inherited,1630-1650#11
+combined,1650-1670,7,3829,theolog; syntag; nicolaus; praef; dogmat; joannes; synt; insti; bromt; euch,Second-Person Verb Forms,Structural / Uncertain,inherited,1630-1650#7
+combined,1650-1670,19,344,actest; esteemest; diddest; speak'st; enjoyest; saidest; haddest; beginnest; conceivest; gettest,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1630-1650#18
+combined,1650-1670,3,6121,tranquillitate; fynck; veros; pimhill; vacantem; superbiam; daiarol; servientium; utrobique; crechurch,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1630-1650#12
+combined,1650-1670,18,432,doated; neginoth; relye; relied; incroached; preyed; relyes; father'd; entrenching; reflecteth,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1630-1650#19
+combined,1650-1670,13,1369,arnynt; bydd; fydd; gyda; nifer; cyflawni; weision; fywyd; rhyw; hwynt,Dutch/German Text,Structural / Uncertain,inherited,1630-1650#14
+combined,1650-1670,14,1332,zu; volta; laquelle; parlar; fatto; quello; passo; molti; voglia; dentro,French Language Text,Structural / Uncertain,inherited,1630-1650#16
+combined,1650-1670,20,81,xiiii; xxxix; xxxv; xviii; xxi; xxii; lviii; xxvii; xxv; xlix,Roman Numerals,Structural / Uncertain,inherited,1630-1650#20
+combined,1670-1690,10,2743,borage; purslain; spinage; scordium; cinam; bugloss; mastich; turnips; mugwort; goosberries,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1650-1670#4
+combined,1670-1690,15,1532,gauls; zephaniah; ammonites; jehoshaphat; amaziah; joash; ahaziah; scythians; juda; heber,Roman Numerals and Dates,Structural / Uncertain,inherited,1650-1670#15
+combined,1670-1690,11,2740,sdeath; ler; bhi; lamh; cla; bheir; zi; leonora; nish; dhamh,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1650-1670#9
+combined,1670-1690,1,11101,gel; annulet; deceat; harddwch; irishman; ideot; owle; outlet; puppy; melodious,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1650-1670#1
+combined,1670-1690,19,183,handsomer; thicker; broader; mightier; older; thinner; taller; blacker; nimbler; antienter,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1650-1670#18
+combined,1670-1690,3,4654,sattin; thornback; ducks; pidgeons; hog; plover; pheasants; watchet; scarf; fring'd,Latin Pharmacy and Apothecary Terms,"Medicine, Body & Health",inherited,1650-1670#5
+combined,1670-1690,2,8148,loveth; asserts; scar'd; intitle; interprets; betrays; demonstrated; asserteth; applies; betaking,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1650-1670#2
+combined,1670-1690,16,413,supradicto; nono; eighteenth; vicesimo; quinto; septembris; festival; epiphany; candlemas; septimo,"Dates, Months and Calendar Terms",Structural / Uncertain,inherited,1650-1670#17
+combined,1670-1690,8,3350,replevin; disseisor; assignment; decreets; assise; grantee; assessments; demandant; capias; bailiffs,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1650-1670#6
+combined,1670-1690,0,12009,radicibus; ultro; commercio; pecunias; mentionem; exinde; splendore; commod; istam; maligna,Latin Text (Function Words),Structural / Uncertain,inherited,1650-1670#0
+combined,1670-1690,4,4134,waterish; gouts; glutinous; cathetus; windpipe; serous; dropsies; cholick; catarrhs; acrimonious,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1650-1670#16
+combined,1670-1690,12,2325,coop'd; trussed; flings; buoy'd; rely'd; lock't; pufft; wrapp'd; sum'd; ripping,Latin Grammar Terminology,Structural / Uncertain,inherited,1650-1670#12
+combined,1670-1690,6,3570,griffith; carmarthen; purefoy; humfrey; beauchamp; marmaduke; neilson; wilford; boughton; newton,Truncated Word Fragments,Structural / Uncertain,inherited,1650-1670#8
+combined,1670-1690,14,1988,cieux; choisir; soir; juger; l'eternel; pieds; muraille; s'en; oubli; maintenir,French Language Text,Structural / Uncertain,inherited,1650-1670#14
+combined,1670-1690,9,2834,croatia; dalmatia; scoft; ferrara; picardy; gramont; thracia; bosnia; pontus; cilicia,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1650-1670#10
+combined,1670-1690,7,3547,pechu; odfa; gobaith; ordeinio; oddimewn; chwennychu; feddyliau; wrthod; enwedigol; gwrr,Dutch/German Text,Structural / Uncertain,inherited,1650-1670#13
+combined,1670-1690,17,395,neots; barbe; augustine's; antoine; sebastians; johnstons; helens; michel; denis; martin's,Manner Adverbs (-ly Forms),Structural / Uncertain,inherited,1650-1670#11
+combined,1670-1690,18,273,answerest; enjoyest; deniest; requirest; see'st; said'st; shou'dst; mean'st; feest; thinkst,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1650-1670#19
+combined,1670-1690,5,3972,praef; emendat; republ; salmas; subtilitate; parisiis; basileae; venetiis; logicae; opusc,Second-Person Verb Forms,Structural / Uncertain,inherited,1650-1670#7
+combined,1670-1690,13,2236,intelligeret; convenienti; newynog; subtiliter; murailles; mareschalle; mframvill; anegos; philost; vigne,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1650-1670#3
+combined,1690-1710,3,3915,irishman; ideot; inversion; accomplice; aposteme; atrophy; extortioner; enthusiast; abscess; inchanter,Mixed Learned Vocabulary,Structural / Uncertain,human,
+combined,1690-1710,9,2231,alonzo; alon; florella; aurelia; dor; ler; sparkish; saun; hernando; cudd,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1670-1690#11
+combined,1690-1710,2,4765,beaus; pedantick; wench; fops; slut; clown; bully; booby; disingenuously; blockhead,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1670-1690#1
+combined,1690-1710,19,152,swifter; fonder; broader; handsomer; bigger; whiter; thicker; pleasanter; blacker; viler,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1670-1690#19
+combined,1690-1710,0,6376,loveth; pestered; explains; intitle; opposeth; asserts; hates; conniv'd; ascribes; receded,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1670-1690#2
+combined,1690-1710,4,3255,curl'd; velvet; buckles; breech; curled; goose; beak; pidgeons; slit; snout,Latin Pharmacy and Apothecary Terms,"Medicine, Body & Health",inherited,1670-1690#3
+combined,1690-1710,17,884,superficies; cone; bc; cd; quadrant; abcd; circles; radius; polar; ecliptick,"Dates, Months and Calendar Terms",Structural / Uncertain,inherited,1670-1690#16
+combined,1690-1710,6,2699,grantee; monies; ejectment; mistriss; supersedeas; lessor; abbots; tradesmen; demandant; capias,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1670-1690#8
+combined,1690-1710,15,987,jotham; pharez; arphaxad; manasseh; joash; ahab; joram; uzziah; ezekiel; shem,Roman Numerals and Dates,Structural / Uncertain,inherited,1670-1690#15
+combined,1690-1710,5,3133,caius; marius; brabant; cambyses; quintus; antonius; claudius; montpellier; graveling; boisleduc,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1670-1690#9
+combined,1690-1710,7,2445,catarrhs; abdomen; viscous; dropsie; cartilages; membranes; coagulates; cancers; diarrhaea; slimy,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1670-1690#4
+combined,1690-1710,11,1978,relyed; puff'd; flung; blocked; animadverted; stir'd; ripping; wrapp'd; relye; toss,Latin Grammar Terminology,Structural / Uncertain,inherited,1670-1690#12
+combined,1690-1710,10,2208,biblioth; scriptorum; italiae; antv; romanorum; sententiarum; librorum; exercit; joannis; ovidii,Second-Person Verb Forms,Structural / Uncertain,inherited,1670-1690#5
+combined,1690-1710,8,2359,marson; bryan; marmaduke; gould; clarke; barnard; wallace; watson; evans; upton,Truncated Word Fragments,Structural / Uncertain,inherited,1670-1690#6
+combined,1690-1710,16,971,pourtant; jeune; danemarc; maniere; sujet; faisoit; moins; pouvoir; encore; plein,French Language Text,Structural / Uncertain,inherited,1670-1690#14
+combined,1690-1710,14,1420,cnawdol; weled; marwolaeth; dynion; gallu; cyngor; arall; trueni; arnaf; aberth,Dutch/German Text,Structural / Uncertain,inherited,1670-1690#7
+combined,1690-1710,20,149,denis; quintin; georges; cyprians; martin's; lucar; francis's; iago; jago; albans,Manner Adverbs (-ly Forms),Structural / Uncertain,inherited,1670-1690#17
+combined,1690-1710,13,1688,mugwort; quinces; asparagus; limons; lbj; horehound; bugloss; purslain; sorrel; chervil,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1670-1690#10
+combined,1690-1710,18,170,knowst; sawest; findest; thinkst; saw'st; saist; askest; knewest; seemest; saidst,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1670-1690#18
+combined,1690-1710,12,1767,wintoniensem; bhl; conditionibus; tslighe; ibhi; dioscoridis; intronizatus; tristitia; sibhsi; ostendens,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1670-1690#13
+combined,1690-1710,1,5454,sententiam; certis; historiam; nedum; inquit; ipsos; consiliis; denique; iisdem; idque,Latin Text (Function Words),Structural / Uncertain,inherited,1670-1690#0
+combined,1710-1730,7,519,roses; butter; oil; leather; berries; amber; timber; juice; boat; skins,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1690-1710#13
+combined,1710-1730,1,1540,generosity; employments; gravity; weaknesses; sects; qualifications; ordination; performances; descriptions; synods,Mixed Learned Vocabulary,Structural / Uncertain,inherited,1690-1710#3
+combined,1710-1730,9,414,rav; vellum; betty; abigal; gard; alan; sirrah; liss; maria; lucius,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1690-1710#9
+combined,1710-1730,5,724,reduce; persuade; recommend; expose; satisfie; perswade; communicate; refer; conform; oblige,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1690-1710#5
+combined,1710-1730,2,1247,inhumane; elegant; mischievous; unnatural; brutish; profaneness; sanguine; enormous; lewd; gratifying,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1690-1710#2
+combined,1710-1730,15,49,bigger; lighter; richer; harder; sweeter; easier; stronger; finer; larger; wiser,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1690-1710#19
+combined,1710-1730,3,1122,explained; smitten; obstructed; demonstrated; deriv'd; ruined; attack'd; drowned; fastned; destroyed,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1690-1710#0
+combined,1710-1730,14,259,xxvi; xxiii; xxiv; xv; xxi; xxv; xxviii; xvii; stephen; xxxii,Roman Numerals and Dates,Structural / Uncertain,inherited,1690-1710#15
+combined,1710-1730,4,1066,hamilton; murray; errol; lennox; ibidem; crawfurd; campbel; jones; francis; gordon,Truncated Word Fragments,Structural / Uncertain,inherited,1690-1710#8
+combined,1710-1730,11,369,pull'd; pulls; dug; throws; torn; thrown; throwing; burst; drive; threw,Latin Grammar Terminology,Structural / Uncertain,inherited,1690-1710#11
+combined,1710-1730,10,412,nervous; fluid; salts; moist; juices; texture; poisonous; fibres; viscid; membranes,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1690-1710#7
+combined,1710-1730,6,660,insisting; paragraph; preface; reflecting; edition; reflected; narrative; rely; engine; chapters,Second-Person Verb Forms,Structural / Uncertain,inherited,1690-1710#10
+combined,1710-1730,0,1553,purple; verdant; glitt'ring; foaming; glows; breeze; azure; amid; resound; rolling,Latin Pharmacy and Apothecary Terms,"Medicine, Body & Health",inherited,1690-1710#4
+combined,1710-1730,8,414,freight; commodities; hemp; garrisons; plantations; africa; provinces; silk; sale; tobacco,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1690-1710#6
+combined,1710-1730,12,337,ascribes; represents; declares; commits; asserts; refers; exposes; mentions; shews; owns,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1690-1710#12
+combined,1710-1730,16,24,shouldst; do'st; wouldest; would'st; shouldest; seest; mayest; know'st; didst; can'st,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1690-1710#18
+combined,1710-1730,13,322,tamen; dum; quidem; tum; quis; haec; nos; erat; sua; enim,Latin Text (Function Words),Structural / Uncertain,inherited,1690-1710#1
+combined,1730-1750,9,618,intestines; acrid; viscid; juices; elasticity; salts; bile; putrid; serum; fluids,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1710-1730#10
+combined,1730-1750,0,1681,astronomy; antiquities; vols; treatise; geometrical; oratory; intellectual; geography; poems; proposition,Mixed Learned Vocabulary,Structural / Uncertain,inherited,1710-1730#1
+combined,1730-1750,5,847,prompt; persuade; tempt; suggest; expose; damn; injure; reclaim; induce; screen,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1710-1730#5
+combined,1730-1750,1,1665,avarice; insolent; vitiated; sensuality; immoral; pungent; unchristian; irreligious; intemperance; inhumanity,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1710-1730#2
+combined,1730-1750,15,53,lighter; heavier; sweeter; older; fairer; wiser; oftner; dearer; bigger; stronger,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1710-1730#15
+combined,1730-1750,4,889,ralph; robert; iames; wm; preston; francis; gregory; colman; badg; thomas,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1710-1730#9
+combined,1730-1750,6,830,islands; creek; africa; salem; exeter; thames; canso; westward; portsmouth; newfoundland,Truncated Word Fragments,Structural / Uncertain,inherited,1710-1730#4
+combined,1730-1750,7,808,emitting; canons; payment; manufactures; counties; villages; fees; plantations; provinces; forts,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1710-1730#8
+combined,1730-1750,3,1162,fir'd; discovered; attributed; demonstrated; stung; swell'd; oblig'd; beheaded; adorn'd; suspected,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1710-1730#3
+combined,1730-1750,8,695,flour; cream; oysters; butter; nutmeg; shells; cloths; saffron; pan; whey,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1710-1730#7
+combined,1730-1750,10,524,rush'd; flew; throws; pours; pour'd; throwing; drove; snatch'd; relying; hung,Latin Grammar Terminology,Structural / Uncertain,inherited,1710-1730#11
+combined,1730-1750,2,1567,foaming; op'ning; verdant; azure; amid; spires; warbling; flow'rs; thunders; feather'd,Latin Pharmacy and Apothecary Terms,"Medicine, Body & Health",inherited,1710-1730#0
+combined,1730-1750,11,345,declares; wakes; compares; pursues; describes; lifts; beholds; applies; affirms; refers,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1710-1730#12
+combined,1730-1750,16,30,can'st; would'st; shouldest; mayst; may'st; wert; sayest; mightest; shouldst; seest,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1710-1730#16
+combined,1730-1750,13,191,jeremiah; xxx; xxiv; xxii; xvii; xxvi; xxiii; xxi; ezekiel; xxxiii,Roman Numerals and Dates,Structural / Uncertain,inherited,1710-1730#14
+combined,1730-1750,12,324,quod; quam; ejusdem; etiam; quia; quis; cui; tynam; hac; villae,Latin Text (Function Words),Structural / Uncertain,inherited,1710-1730#13
+combined,1730-1750,14,174,impostor; inundation; atheist; unlimited; englishman; engine; infidel; angle; infinitesimal; aggravation,Second-Person Verb Forms,Structural / Uncertain,inherited,1710-1730#6
+combined,1750-1770,12,214,september; sept; oct; nov; november; feb; dec; monday; wednesday; january,Truncated Word Fragments,Structural / Uncertain,inherited,1730-1750#6
+combined,1750-1770,5,1467,heretic; impostor; ideot; licentious; onion; immoral; ungenerous; arrant; insurrection; enthusiast,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1730-1750#1
+combined,1750-1770,1,1940,poems; dryden's; demosthenes; combinations; antiquities; horace; metaphysical; accurate; diction; voltaire,Mixed Learned Vocabulary,Structural / Uncertain,inherited,1730-1750#0
+combined,1750-1770,15,62,lighter; faster; sweeter; bigger; harder; heavier; easier; warmer; larger; richer,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1730-1750#15
+combined,1750-1770,2,1843,harrassed; flung; pulling; pours; pulled; pull'd; rolled; tumbled; released; plunged,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1730-1750#3
+combined,1750-1770,8,777,eh; aemilius; othman; urs; celia; clara; beverley; belin; pru; egbert,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1730-1750#4
+combined,1750-1770,13,196,aunt; youths; grandfather; nephews; sister; spouse; cousin; predecessors; orphans; widows,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1730-1750#11
+combined,1750-1770,10,622,cooke; archibald; stephen; howard; beville; moore; webb; thornhill; scott; philips,Second-Person Verb Forms,Structural / Uncertain,inherited,1730-1750#14
+combined,1750-1770,3,1816,winchester; gloucester; hartford; sheriffs; leicester; chester; northumberland; earls; payment; cambridge,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1730-1750#7
+combined,1750-1770,4,1559,tempt; attach; acquit; oppress; injure; beholds; suggest; conform; applies; refer,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1730-1750#5
+combined,1750-1770,7,1139,vexations; sensuality; selfishness; petulance; rancour; insinuations; anguish; oppressions; cowardice; anxiety,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1730-1750#9
+combined,1750-1770,0,2722,wat'ry; russet; spectres; curling; glitt'ring; flow'rs; azure; dewy; verdant; vaulted,Latin Pharmacy and Apothecary Terms,"Medicine, Body & Health",inherited,1730-1750#2
+combined,1750-1770,11,454,jeremiah; isa; xlv; matt; exod; joshua; superstitions; mat; xxviii; xxxvi,Roman Numerals and Dates,Structural / Uncertain,inherited,1730-1750#13
+combined,1750-1770,6,1415,boil'd; parsley; bladder; powdered; velvet; roasted; boiled; cream; bilious; uterus,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1730-1750#8
+combined,1750-1770,14,172,relying; insisting; entailed; relied; doat; insists; dissertations; supposition; pitched; obligatory,Latin Grammar Terminology,Structural / Uncertain,inherited,1730-1750#10
+combined,1750-1770,9,730,ruthven; olim; thomae; retour; tamen; eglington; vicecom; waverl; hoc; heming,Latin Text (Function Words),Structural / Uncertain,inherited,1730-1750#12
+combined,1750-1770,16,28,should'st; could'st; did'st; couldst; mayst; shouldst; wouldst; sayst; dar'st; would'st,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1730-1750#16
+combined,1770-1790,14,312,livres; pound; bushels; pounders; dollars; jan; lb; gallons; feb; journals,Truncated Word Fragments,Structural / Uncertain,inherited,1750-1770#12
+combined,1770-1790,15,97,bigger; whiter; thicker; sweeter; quicker; harder; heavier; lighter; swifter; handsomer,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1750-1770#15
+combined,1770-1790,3,2078,abridgement; idiot; ideot; aqueduct; unjustifiable; adulterer; illiberal; accomplice; angel's; irritable,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1750-1770#5
+combined,1770-1790,1,2747,compositions; treatises; baseness; poems; malignity; levity; outrages; uncleanness; reasonings; suspension,Mixed Learned Vocabulary,Structural / Uncertain,inherited,1750-1770#1
+combined,1770-1790,7,1383,fag; kit; patty; humph; susan; dolly; humphry; darby; bravo; johnny,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1750-1770#8
+combined,1770-1790,5,1545,sheriffs; certificates; deputies; payment; funds; prelates; clerks; sales; fees; burgesses,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1750-1770#3
+combined,1770-1790,6,1484,overpowered; nominated; benefited; demonstrated; crushed; tormented; referred; wrested; exempt; distended,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1750-1770#2
+combined,1770-1790,11,967,fenwick; jackson; richardson; marshall; jun; williams; glover; walker; cooper; wharton,Second-Person Verb Forms,Structural / Uncertain,inherited,1750-1770#10
+combined,1770-1790,2,2099,forsakes; vex; confining; refer; attach; owns; hates; reconcile; exposing; conform,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1750-1770#4
+combined,1770-1790,10,1165,gum; fomentations; castor; bile; syrup; vomiting; clysters; bilious; viscid; axis,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1750-1770#7
+combined,1770-1790,4,2043,jacket; thyme; fried; onions; striped; parsley; sliced; potatoes; apples; prickly,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1750-1770#6
+combined,1770-1790,12,850,flung; tumbling; tumbled; roll'd; jumped; pulled; encroach; kicked; jump; pulls,Latin Grammar Terminology,Structural / Uncertain,inherited,1750-1770#14
+combined,1770-1790,0,3652,dewy; vernal; wintry; tufted; glossy; foliage; vengeful; heav'd; lightnings; surges,Latin Pharmacy and Apothecary Terms,"Medicine, Body & Health",inherited,1750-1770#0
+combined,1770-1790,9,1325,bedford; worcester; gloucester; portsmouth; warwickshire; salem; chester; northampton; kent; gauls,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1750-1770#13
+combined,1770-1790,8,1340,d'no; johanne; nuper; dicti; habebunt; omnibus; neque; quos; willielmo; q'd,Latin Text (Function Words),Structural / Uncertain,inherited,1750-1770#9
+combined,1770-1790,13,774,coll; manuscript; script; plin; matth; pliny; bibl; apud; harl; belon,Roman Numerals and Dates,Structural / Uncertain,inherited,1750-1770#11
+combined,1770-1790,16,33,couldst; wouldest; say'st; wouldst; mayst; could'st; shouldst; did'st; think'st; mayest,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1750-1770#16
+combined,1790-1810,8,2274,unjustifiable; revengeful; attrocious; illiberal; factious; pert; outrageous; disorganizing; avaricious; atrocious,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1770-1790#3
+combined,1790-1810,18,386,stivers; pounders; paras; piastres; guilders; shil; sep; granites; eighths; sols,Truncated Word Fragments,Structural / Uncertain,inherited,1770-1790#14
+combined,1790-1810,21,124,hotter; bigger; handsomer; lovelier; swifter; blacker; lighter; whiter; taller; avorse,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1770-1790#15
+combined,1790-1810,5,2875,gaby; len; cad; yaw; varbel; whimsiculo; floretta; m'gil; amant; josephine,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1770-1790#7
+combined,1790-1810,0,5388,attach; subdu'd; woos; assail'd; scorn'd; impute; calleth; hails; prest; own'd,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1770-1790#2
+combined,1790-1810,7,2513,sewell; dixon; goddard; bingham; hewitt; bleecker; colden; pigott; marsden; griffiths,Second-Person Verb Forms,Structural / Uncertain,inherited,1770-1790#11
+combined,1790-1810,2,4714,quiv'ring; vengeful; tufted; dark'ning; ruthless; madd'ning; dewy; scented; misty; stygian,Latin Pharmacy and Apothecary Terms,"Medicine, Body & Health",inherited,1770-1790#0
+combined,1790-1810,1,4753,deputy; sales; felony; constables; payments; investment; expenditures; committees; effeminacy; misrepresentation,Mixed Learned Vocabulary,Structural / Uncertain,inherited,1770-1790#1
+combined,1790-1810,11,2097,fez; navarre; verdun; marines; anjou; yaroslaf; bohemia; armenia; frigate; xavier,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1770-1790#5
+combined,1790-1810,6,2554,whitchurch; leominster; worksop; minehead; maidstone; rugen; tickhill; herefordshire; basset; crawley,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1770-1790#9
+combined,1790-1810,15,1135,eux; bellegarde; veut; maestro; nord; qu'il; autres; noire; celle; toujours,French Language Text,Structural / Uncertain,human,
+combined,1790-1810,3,3421,parsley; sliced; walnuts; raisins; turkeys; linseed; kettles; powdered; celery; pots,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1770-1790#4
+combined,1790-1810,14,1197,aaji; jb; joj; como; aaj; aji; jji; xxj; fj; xs,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1770-1790#16
+combined,1790-1810,13,1345,pulls; jumped; flung; flings; pulled; resolvable; pull'd; swung; sweeps; relapsing,Latin Grammar Terminology,Structural / Uncertain,inherited,1770-1790#12
+combined,1790-1810,9,2266,truncated; soda; striated; diarrhoea; spasms; bluish; quartz; transversely; spath; obtuse,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1770-1790#10
+combined,1790-1810,12,1698,nexed; swer; idolater; tiquity; biographical; miscellanies; cients; josephus; chemistry; impostor,Roman Numerals and Dates,Structural / Uncertain,inherited,1770-1790#13
+combined,1790-1810,10,2163,itaque; quanquam; esset; ultro; pariter; animos; ingenii; invicem; terram; illorum,Latin Text (Function Words),Structural / Uncertain,inherited,1770-1790#8
+combined,1790-1810,19,350,disposi; distinc; determina; applica; communica; opposi; approba; termina; appella; inscrip,Truncated Word Fragments,Structural / Uncertain,human,
+combined,1790-1810,4,2994,potentia; vitali; cicer; patomak; amyntas; bonorum; suede; reaum; poffit; rolfe,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1770-1790#6
+combined,1790-1810,20,162,amand; alban's; leger; augustine's; augustin; bartholomew's; maloes; vincents; leonard's; gothard,Saints' Names (Place Names),Structural / Uncertain,human,
+combined,1790-1810,16,620,virginiana; torquatus; rubra; tinctoria; nigra; cristatus; occidentalis; morus; parus; motacilla,Latin Species Names (Natural History),"Science, Mathematics & Natural Philosophy",human,
+combined,1790-1810,17,585,sequently; tinues; tinuing; sidering; ducted; ligious; sidence; markably; mune; volution,Truncated Word Fragments,Structural / Uncertain,human,
+combined,1790-1810,22,22,proaching; prehension; pointment; plication; pearing; propriated; proaches; proach; pendix; pellation,Truncated ap- Prefix Fragments,Structural / Uncertain,human,
+combined,1810-1830,0,10921,cestor; swering; tique; anabaptist; tiochus; noyance; ticipated; cients; payments; nette,Mixed Learned Vocabulary,Structural / Uncertain,inherited,1790-1810#1
+combined,1810-1830,16,812,skillings; bordars; scholarships; lbs; cwt; ecliptic; rupees; piasters; eighths; cheveron,Truncated Word Fragments,Structural / Uncertain,inherited,1790-1810#18
+combined,1810-1830,25,165,duller; bigger; pleasanter; fleeter; handsomer; avorse; sharper; heavier; thicker; swifter,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1790-1810#21
+combined,1810-1830,2,6864,lurid; frenzied; fever'd; clarions; venom'd; murky; madd'ning; anguish'd; steely; quiv'ring,Latin Pharmacy and Apothecary Terms,"Medicine, Body & Health",inherited,1790-1810#2
+combined,1810-1830,1,7525,pull'd; beguiles; subdue; restraining; llywel; toss; employing; dash'd; subdu'd; influenced,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1790-1810#0
+combined,1810-1830,4,5640,sandgiak; zeitoun; saffy; avlona; oppeln; latakia; delvino; patti; castellana; narni,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1790-1810#6
+combined,1810-1830,12,2447,aucun; jusqu'a; aupres; lyndesay; chaque; l'une; troit; caloris; rivage; monsr,French Language Text,Structural / Uncertain,inherited,1790-1810#15
+combined,1810-1830,7,3704,laminar; manganese; amygdaloid; reniform; natif; pyroxene; molybdena; granular; tufted; foliated,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1790-1810#9
+combined,1810-1830,6,4753,crowther; whitney; blundell; sturges; thackeray; symons; rawlinson; hodson; coulson; stephenson,Second-Person Verb Forms,Structural / Uncertain,inherited,1790-1810#7
+combined,1810-1830,11,2459,quintus; eutropius; marcus; diodor; caius; publius; torso; maximin; dagobert; scythians,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1790-1810#11
+combined,1810-1830,13,1988,billy; eh; joe; marq; zerlina; isab; blaisot; pshaw; solus; sna,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1790-1810#5
+combined,1810-1830,9,2879,hants; charlton; stoke; overton; northumb; compton; laneash; denton; broomfield; northamp,Latin Species Names (Natural History),"Science, Mathematics & Natural Philosophy",inherited,1790-1810#16
+combined,1810-1830,14,1259,iwi; iov; axx; roig; ruv; rov; ovx; tcov; eivai; rcov,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1790-1810#14
+combined,1810-1830,5,5315,almonds; sylvatica; fagus; buff; occidentalis; radishes; juniperus; cinerea; onions; sarsaparilla,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1790-1810#3
+combined,1810-1830,21,467,nieht; iiber; hebben; reize; heeft; wasser; vinden; schon; reizen; zwey,Dutch/German Text,Structural / Uncertain,human,
+combined,1810-1830,8,3669,omnino; tenta; tenuis; videtur; salutem; humanis; quos; velit; cursu; latus,Latin Text (Function Words),Structural / Uncertain,inherited,1790-1810#10
+combined,1810-1830,23,213,advanc; allud; secur; includ; engag; arrang; complet; suppos; provid; undertak,Truncated Verb Fragments,Structural / Uncertain,human,
+combined,1810-1830,27,131,thinkest; wouldest; said'st; sleep'st; sayst; avilt; speakest; weep'st; liv'st; giv'st,Second-Person Verb Forms,Structural / Uncertain,human,
+combined,1810-1830,10,2722,desirit; presens; yowth; utheris; whiche; discomfist; beyng; sabinis; schalbe; schall,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1790-1810#4
+combined,1810-1830,15,1242,accenti; forza; riposo; troppo; lontano; poiche; stessa; d'ogni; tutto; quei,Roman Numerals and Dates,Structural / Uncertain,inherited,1790-1810#12
+combined,1810-1830,17,577,summation; tinuation; centrated; necting; stituents; stituent; trive; tector; firming; tradiction,Truncated Word Fragments,Structural / Uncertain,inherited,1790-1810#17
+combined,1810-1830,33,41,curiosi; socie; authori; quali; varie; securi; facul; liber; difficul; abili,Truncated -ity Noun Fragments,Structural / Uncertain,human,
+combined,1810-1830,26,143,petually; formances; sonally; petuate; petrated; libitum; plexed; vocates; severance; mittance,Truncated per-/ad- Fragments,Structural / Uncertain,human,
+combined,1810-1830,34,36,tridges; ticulars; tisans; liaments; allel; ticularly; tially; tiality; cils; ticular,Truncated par-/coun- Fragments,Structural / Uncertain,human,
+combined,1810-1830,22,343,spectability; ceipts; storation; striction; sponsible; freshments; garding; nowned; gardless; newal,Latin Grammar Terminology,Structural / Uncertain,inherited,1790-1810#13
+combined,1810-1830,18,508,justifica; augmenta; revela; proposi; prescrip; diminu; retalia; interpreta; assump; supposi,Truncated Word Fragments,Structural / Uncertain,inherited,1790-1810#19
+combined,1810-1830,20,495,helens; levan; neot's; botolph's; feux; germains; austle; leonards; leger; ubes,Saints' Names (Place Names),Structural / Uncertain,inherited,1790-1810#20
+combined,1810-1830,3,6701,beauvoir; winnebagoes; halliwell; soutenir; effets; bataillons; paramithia; tercera; ballivos; tupper,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1790-1810#8
+combined,1810-1830,24,171,emolu; impedi; accompani; imple; detri; nutri; deport; apprehen; compart; submis,Truncated -ment/-sion Fragments,Structural / Uncertain,human,
+combined,1810-1830,19,502,ecution; pensated; mittees; travagance; panded; aggerated; pliment; amples; ploded; horted,Truncated ap- Prefix Fragments,Structural / Uncertain,inherited,1790-1810#22
+combined,1810-1830,29,85,sitions; tributa; parate; verely; parated; condary; riously; pulchre; curity; cretly,Truncated se-/po- Fragments,Structural / Uncertain,human,
+combined,1810-1830,31,70,carpen; slaugh; minates; thermome; ritory; winches; rific; manches; ritories; dorches,Truncated -ter Fragments,Structural / Uncertain,human,
+combined,1810-1830,30,72,ventry; lumbus; lony; lossal; lonies; lonel; eval; loured; lonists; tobac,Truncated co-/ca- Fragments,Structural / Uncertain,human,
+combined,1810-1830,28,86,terprise; tertaining; campment; gagement; tertained; joyments; virons; deavouring; tertainment; thusiasm,Truncated en- Fragments,Structural / Uncertain,human,
+combined,1810-1830,35,32,ployments; ployers; ploying; bellished; ploys; pires; ployment; ploy; phatically; perors,Truncated em- Fragments,Structural / Uncertain,human,
+combined,1810-1830,32,58,drid; nagement; nufactures; naged; gazine; chinery; nufactory; sonry; nuscript; jority,Truncated ma- Fragments,Structural / Uncertain,human,
+combined,1830-1850,0,12167,tagonist; erde; noying; orangeman; thony; tique; pratis; octogenarian; nouncement; artilleryman,Mixed Learned Vocabulary,Structural / Uncertain,inherited,1810-1830#0
+combined,1830-1850,14,1307,eighths; reals; guilders; skillings; mainsail; annas; bowsprit; roubles; jib; quintals,Truncated Word Fragments,Structural / Uncertain,inherited,1810-1830#16
+combined,1830-1850,2,9280,fever'd; with'ring; vengeful; betray'd; darkling; glist'ning; thund'ring; flapp'd; quivering; odorous,Latin Pharmacy and Apothecary Terms,"Medicine, Body & Health",inherited,1810-1830#2
+combined,1830-1850,8,5297,countenanced; abridg; accompani; counteracted; deride; degenerates; impedi; embank; deny; constrain,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1810-1830#1
+combined,1830-1850,10,4948,voute; laissait; laisse; l'honneur; nolre; firent; paraitre; encor; venger; endroits,French Language Text,Structural / Uncertain,inherited,1810-1830#12
+combined,1830-1850,4,7634,bagley; barratt; newmarch; adcock; whiteman; dennison; cuthbertson; greenside; junr; collyer,Second-Person Verb Forms,Structural / Uncertain,inherited,1810-1830#6
+combined,1830-1850,13,3454,conus; depressa; tenuis; terebra; pholadomya; micaceous; sanguinolaria; giganteum; epidote; dentalium,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1810-1830#7
+combined,1830-1850,5,5732,abdul; minieh; corinthia; ismael; ethelbald; fatteh; valerius; edfou; hophra; stephanus,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1810-1830#11
+combined,1830-1850,3,7648,sinapis; nigrum; turmeric; cashew; lanius; panicum; bustards; laurus; virginiana; turdus,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1810-1830#5
+combined,1830-1850,11,4390,gode; frende; wylle; seye; jonnie; bothe; johne; teres; feir; bryght,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1810-1830#10
+combined,1830-1850,6,5481,brookhouse; eddlestone; womersley; swillington; fishlake; durness; oulton; ramsbottom; lochgilphead; swinefleet,Latin Species Names (Natural History),"Science, Mathematics & Natural Philosophy",inherited,1810-1830#9
+combined,1830-1850,7,5452,medios; diez; manzanillo; astrabad; bormio; arbe; dassen; verso; belmonte; pembrey,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1810-1830#4
+combined,1830-1850,12,4374,kg; ovx; gp; qh; roig; jh; vb; fagt; vvv; ravra,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1810-1830#14
+combined,1830-1850,19,352,persua; aggres; omis; depres; profu; delu; seclu; admis; conces; transgres,Truncated -ment/-sion Fragments,Structural / Uncertain,inherited,1810-1830#24
+combined,1830-1850,9,5157,proximum; certamine; millibus; summam; temporibus; dicit; monstra; hannibali; etsi; discrimen,Latin Text (Function Words),Structural / Uncertain,inherited,1810-1830#8
+combined,1830-1850,21,119,winches; manches; ritories; dorches; diame; glouces; lancas; restrial; communi; minates,Truncated -ter Fragments,Structural / Uncertain,inherited,1810-1830#31
+combined,1830-1850,20,245,commenc; prepar; preserv; advanc; conclud; resid; believ; requir; describ; uninterest,Truncated Verb Fragments,Structural / Uncertain,inherited,1810-1830#23
+combined,1830-1850,25,77,narchs; narch; narchy; desty; nopoly; nastery; numents; notony; tionless; nument,Dutch/German Text,Structural / Uncertain,inherited,1810-1830#21
+combined,1830-1850,15,892,temptuously; ventual; fiscated; instated; sponsibility; temptuous; luctant; storation; lentes; spectively,Truncated Word Fragments,Structural / Uncertain,inherited,1810-1830#17
+combined,1830-1850,18,567,austell; hilaire; helens; trinite; sauveur; columb; kitt's; cyr; eustatia; michaels,Saints' Names (Place Names),Structural / Uncertain,inherited,1810-1830#20
+combined,1830-1850,35,20,sellor; trymen; tess; teract; tenanced; sellors; cils; cillors; tryman; try's,Truncated par-/coun- Fragments,Structural / Uncertain,inherited,1810-1830#34
+combined,1830-1850,1,10224,conduite; hijo; reyne; matrosses; torem; reynos; etde; dicendo; hapai; fallowfield,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1810-1830#3
+combined,1830-1850,22,117,nuscripts; nufactured; naged; jestic; dras; hometan; sonry; hometans; gistrates; rines,Truncated ma- Fragments,Structural / Uncertain,inherited,1810-1830#32
+combined,1830-1850,29,42,lumbus; lony; lumn; lonies; lonial; lonel; lumbia; eval; penhagen; lumns,Truncated co-/ca- Fragments,Structural / Uncertain,inherited,1810-1830#30
+combined,1830-1850,17,590,pleting; batants; prietary; cedure; testantism; placency; gressively; cavation; verbial; pansion,Truncated ap- Prefix Fragments,Structural / Uncertain,inherited,1810-1830#19
+combined,1830-1850,16,600,usurpa; repara; correc; interposi; recommenda; rejec; afflic; abstrac; consumma; selec,Truncated Word Fragments,Structural / Uncertain,inherited,1810-1830#18
+combined,1830-1850,24,91,turbing; seminated; turb; cernible; persion; gusted; senters; cretion; bursements; turbance,Latin Grammar Terminology,Structural / Uncertain,inherited,1810-1830#22
+combined,1830-1850,32,29,darin; ufacturing; uvering; uvring; darins; mussul; wayfaring; uvred; ners; agement,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1810-1830#13
+combined,1830-1850,23,109,larged; thusiastic; terprise; tertainment; campment; dangered; livened; gagement; revanche; joyment,Truncated en- Fragments,Structural / Uncertain,inherited,1810-1830#28
+combined,1830-1850,27,56,libitum; vocates; infinitum; vancement; justed; journment; mired; venturers; vancing; miring,Truncated per-/ad- Fragments,Structural / Uncertain,inherited,1810-1830#26
+combined,1830-1850,26,62,proval; plause; purtenances; prehensions; pearances; pendage; peased; propriations; plauded; propriated,Second-Person Verb Forms,Structural / Uncertain,inherited,1810-1830#27
+combined,1830-1850,30,38,ploying; barrassing; bankments; ploy; ployments; peror's; ployers; bellished; bankment; barrassments,Truncated em- Fragments,Structural / Uncertain,inherited,1810-1830#35
+combined,1830-1850,28,45,vinus; stices; ruptions; preters; vening; spersed; sected; ested; sica; preter,Roman Numerals and Dates,Structural / Uncertain,inherited,1810-1830#15
+combined,1830-1850,34,21,parated; parate; condly; pulchre; parating; curity; cretary; cret; conded; cond,Truncated se-/po- Fragments,Structural / Uncertain,inherited,1810-1830#29
+combined,1830-1850,33,25,guments; menians; menia; tillery; rangement; chitecture; chipelago; tificial; gument; rangements,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1810-1830#25
+combined,1830-1850,31,37,derstood; derstanding; dertaking; questionably; expectedly; avoidable; dertake; dertaken; derstand; dulating,Truncated -ity Noun Fragments,Structural / Uncertain,inherited,1810-1830#33
+combined,1830-1850,36,19,rolina; valry; binet; verns; reer; tholics; tholic; thedral; therine; mels,Truncated Ca- Fragments,Structural / Uncertain,human,
+combined,1850-1870,1,16377,cestor; ticipating; noyance; nexed; fanft; cients; annulet; overmatch; tique; saune,Mixed Learned Vocabulary,Structural / Uncertain,inherited,1830-1850#0
+combined,1850-1870,0,16608,veil'd; sorrow's; tufted; juniper; tempest's; tyrant's; spirit's; eglantine; glow'd; mewed,Latin Pharmacy and Apothecary Terms,"Medicine, Body & Health",inherited,1830-1850#2
+combined,1850-1870,12,3981,noo; hev; oot; aboot; vy; dae; boh; fayther; peevishly; loike,Truncated -ter Fragments,Structural / Uncertain,inherited,1830-1850#21
+combined,1850-1870,19,1137,eighths; sixteenths; shdlings; shiuings; reals; kreutzers; deckers; petuated; fidious; sevenths,Truncated Word Fragments,Structural / Uncertain,inherited,1830-1850#14
+combined,1850-1870,3,12252,hindle; bramwell; ramsdell; reepham; sherwin; enzie; hemenway; blewitt; halbeath; clarkston,Latin Species Names (Natural History),"Science, Mathematics & Natural Philosophy",inherited,1830-1850#6
+combined,1850-1870,9,5352,leggings; sdk; frilled; crapes; tights; serges; pantaloons; cornices; quilted; haberdashery,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1830-1850#3
+combined,1850-1870,8,5386,suivre; l'honneur; retranchements; siecles; inutile; appeler; ailleurs; rarement; savait; conquete,French Language Text,Structural / Uncertain,inherited,1830-1850#10
+combined,1850-1870,14,3455,gmelinite; dioptase; diopside; melanite; wavellite; ilmenau; tetradymite; lievrite; prehnite; lithomarge,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1830-1850#13
+combined,1850-1870,7,5474,paranagua; cochinos; mahanuddy; lagosta; formentera; jask; linosa; linth; burry; carvoeiro,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1830-1850#7
+combined,1850-1870,17,1599,fuentes; idstedt; wittgenstein; sentinum; fredericksburg; resaca; d'hilliers; rosecrans; longstreet's; ipsus,Truncated co-/ca- Fragments,Structural / Uncertain,inherited,1830-1850#29
+combined,1850-1870,13,3688,sqq; publ; polyb; odyss; pausan; zonaras; mannert; biv; antiq; chronicon,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1830-1850#8
+combined,1850-1870,5,6659,elvat; avra; peah; dxxa; dxx; bttin; ppa; sollen; rbv; ydp,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1830-1850#12
+combined,1850-1870,4,7172,gedrosia; kerman; codomanus; carmania; ahmed; abad; heracleia; jebel; sexti; mowr,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1830-1850#5
+combined,1850-1870,22,465,omis; delu; persua; suppres; condescen; subdivi; intru; disper; expul; conces,Truncated -ment/-sion Fragments,Structural / Uncertain,inherited,1830-1850#19
+combined,1850-1870,24,403,considerer; ipsavich; harrisville; scalaris; sandhaile; tionally; mtie; tive; gurrah; tioner,Dutch/German Text,Structural / Uncertain,inherited,1830-1850#25
+combined,1850-1870,11,5235,linearis; inflata; rufescens; fluviatilis; plicata; medicago; arvense; ophidia; glomerata; ermines,Roman Numerals and Dates,Structural / Uncertain,inherited,1830-1850#28
+combined,1850-1870,10,5323,predictum; scilicet; habeant; illam; poterat; singula; quibus; litteris; medietatem; dabunt,Latin Text (Function Words),Structural / Uncertain,inherited,1830-1850#9
+combined,1850-1870,23,412,perceiv; suppos; diverg; relat; describ; fascinat; escap; divid; assum; remov,Truncated Verb Fragments,Structural / Uncertain,inherited,1830-1850#20
+combined,1850-1870,28,170,speakest; see'st; thinkest; lov'st; hearest; livest; shouldest; say'st; com'st; seemest,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1830-1850#32
+combined,1850-1870,15,2823,thys; nowe; eftir; fulle; sayde; whiche; moste; verye; ffor; lyke,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1830-1850#11
+combined,1850-1870,16,2733,affrique; sciarra; fornarina; jenni; zagros; alkmund's; eoque; ferrata; neots; amand,Saints' Names (Place Names),Structural / Uncertain,inherited,1830-1850#18
+combined,1850-1870,33,56,knowledging; commodate; costed; cusation; complishments; quiesced; ceptable; commodated; cordes; knowledgment,Latin Grammar Terminology,Structural / Uncertain,inherited,1830-1850#24
+combined,1850-1870,18,1507,cierge; summated; sulate; cealing; tectors; spectively; gregational; ciliating; joicing; fidant,Truncated Word Fragments,Structural / Uncertain,inherited,1830-1850#15
+combined,1850-1870,21,550,laura's; lucy's; ellen's; clara's; alice's; annie's; fanny's; frank's; susan's; evelyn's,Second-Person Verb Forms,Structural / Uncertain,inherited,1830-1850#26
+combined,1850-1870,25,287,stevensen; pietersen; loockermans; hendrickse; oloff; dirck; gerrit; cornelis; teunissen; dircksen,Truncated -ity Noun Fragments,Structural / Uncertain,inherited,1830-1850#31
+combined,1850-1870,30,103,guerite; seilles; chioness; tyrs; shalled; garet's; ter; quis; penters; vellously,Truncated ma- Fragments,Structural / Uncertain,inherited,1830-1850#22
+combined,1850-1870,2,14858,montenegrine; wiborg; cachalot; fluitans; vynckt; tenebres; bttern; dibbs; gijon; tumbat,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1830-1850#1
+combined,1850-1870,6,6416,briscoe; walcote; kenrick; gorst; birrell; mitcheu; purves; killikur; skillicorne; mardingly,Second-Person Verb Forms,Structural / Uncertain,inherited,1830-1850#4
+combined,1850-1870,20,762,realiza; restitu; confisca; compunc; promo; emancipa; relaxa; prescrip; precipita; indiscre,Truncated Word Fragments,Structural / Uncertain,inherited,1830-1850#16
+combined,1850-1870,27,228,monest; plimented; monalty; memorates; forting; pilation; petitors; moner; posedly; prehends,Truncated ap- Prefix Fragments,Structural / Uncertain,inherited,1830-1850#17
+combined,1850-1870,29,110,ploying; phatically; barrassment; ployers; ploy; bellished; peror's; evapo; bassy; ployments,Truncated em- Fragments,Structural / Uncertain,inherited,1830-1850#30
+combined,1850-1870,26,258,sipation; riched; pensary; lightenment; sipated; tertain; croachments; gravings; tertaining; chantment,Truncated en- Fragments,Structural / Uncertain,inherited,1830-1850#23
+combined,1850-1870,32,59,vertisement; mirers; infinitum; vancement; libitum; vocates; vocate; nauseam; mittance; miring,Truncated per-/ad- Fragments,Structural / Uncertain,inherited,1830-1850#27
+combined,1850-1870,34,42,mysteri; seri; glori; conspicu; treacher; errone; labori; industri; delici; numer,Truncated se-/po- Fragments,Structural / Uncertain,inherited,1830-1850#34
+combined,1850-1870,31,66,capabili; extremi; abili; peculiari; capaci; facul; infirmi; opportuni; locali; hostili,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1830-1850#33
+combined,1850-1870,35,35,terially; rauders; nagement; jestic; chinery; terials; jesty; terial; sonry; jority,Truncated par-/coun- Fragments,Structural / Uncertain,inherited,1830-1850#35
+combined,1850-1870,36,17,harun; raschid; jezirah; djebl; lowance; bany; teration; roj; ternative; luding,Truncated Ca- Fragments,Structural / Uncertain,inherited,1830-1850#36
+combined,1870-1890,14,4064,ethel; gertrude; sissy; lurline; brasig; mabel; gruffly; maude; laconically; nina,Truncated -ter Fragments,Structural / Uncertain,inherited,1850-1870#12
+combined,1870-1890,4,12038,assum; declar; fascinat; jerked; triced; suppos; separat; bestirred; inspir; impedi,Latin Pharmacy and Apothecary Terms,"Medicine, Body & Health",inherited,1850-1870#0
+combined,1870-1890,23,889,deckers; thalers; sevenths; petuated; pendicularly; forated; manence; taels; sonality; plexities,Truncated Word Fragments,Structural / Uncertain,inherited,1850-1870#19
+combined,1870-1890,28,407,sorrier; duller; stiffer; crueller; stiller; luckier; alore; sourer; stupider; saveeter,Comparative Adjective Forms,Structural / Uncertain,human,
+combined,1870-1890,0,24608,darkling; shimmering; ethical; lambent; clanging; xim; perjury; arrogance; indigestion; licentious,Mixed Learned Vocabulary,Structural / Uncertain,inherited,1850-1870#1
+combined,1870-1890,2,17671,hitchins; stanthwaite; poyser; mccalmont; basham; vauance; ohphant; callahan; alwynn; brubaker,Second-Person Verb Forms,Structural / Uncertain,inherited,1850-1870#6
+combined,1870-1890,6,9199,stanstead; robertland; buntingford; kildale; horbury; fletching; weobley; eartham; greenford; yorks,Latin Species Names (Natural History),"Science, Mathematics & Natural Philosophy",inherited,1850-1870#3
+combined,1870-1890,12,5310,muara; ramree; modon; yenbo; llanddwyn; veglia; cherso; tanjong; muscatine; kirpon,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1850-1870#7
+combined,1870-1890,7,6654,caracteres; armees; trouvaient; construire; revenir; endroit; exprimer; vaisseaux; russy; perdre,French Language Text,Structural / Uncertain,inherited,1850-1870#8
+combined,1870-1890,21,1082,mabel's; edith's; judith's; laura's; ruth's; stella's; maggie's; violet's; esther's; kate's,Second-Person Verb Forms,Structural / Uncertain,inherited,1850-1870#21
+combined,1870-1890,3,12139,staurolite; strontianite; embolite; radishes; thomsonite; pyrosclerite; valentinite; sausages; pyrophyllite; brookite,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1850-1870#9
+combined,1870-1890,10,6102,voluntatem; subsidium; decimas; copias; haberet; ministrorum; fuisse; faciemus; ipsos; postquam,Latin Text (Function Words),Structural / Uncertain,inherited,1850-1870#10
+combined,1870-1890,22,1048,longstreet's; mcdowell's; bourbaki; centreville; courbevoie; regulars; mcdowell; magruder; bapaume; montmedy,Truncated co-/ca- Fragments,Structural / Uncertain,inherited,1850-1870#17
+combined,1870-1890,5,10773,purniah; jalaun; kapurthala; kolhapur; boondee; ahmad; bhao; ahmed; olynthian; manantoddy,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1850-1870#4
+combined,1870-1890,9,6183,granulata; knorria; conica; pursh; paniculata; attenuata; maculata; vitex; globosa; lycopodites,Roman Numerals and Dates,Structural / Uncertain,inherited,1850-1870#11
+combined,1870-1890,17,2715,dsrs; rsport; dnitsd; lds; dilled; iattsr; bstwssu; valus; eouutr; nativss,Truncated se-/po- Fragments,Structural / Uncertain,inherited,1850-1870#34
+combined,1870-1890,16,3040,luik; loike; fowk; theer; niwer; sicht; seein; intil; trowth; guidman,Latin Grammar Terminology,Structural / Uncertain,inherited,1850-1870#33
+combined,1870-1890,26,712,marlatt; slseted; seacome; obaries; gilbertville; orld; orth; ckool; marcelia; hilst,Dutch/German Text,Structural / Uncertain,inherited,1850-1870#24
+combined,1870-1890,8,6458,kotopna; irepl; nz; irorapov; moacete; xai; dpi; icl; ttj; rovrov,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1850-1870#5
+combined,1870-1890,29,332,miscon; con; stipu; manipu; tenegro; circu; calcu; geographi; histori; articu,Truncated -ment/-sion Fragments,Structural / Uncertain,inherited,1850-1870#22
+combined,1870-1890,11,5369,hecha; possa; moglie; detto; sagrestia; faccia; tiempo; ancora; eduardo; quindi,Saints' Names (Place Names),Structural / Uncertain,inherited,1850-1870#16
+combined,1870-1890,25,795,corrobora; identifica; retribu; justifica; augmenta; detesta; perturba; expira; reproduc; supplica,Truncated Word Fragments,Structural / Uncertain,inherited,1850-1870#20
+combined,1870-1890,24,888,monans; ebbe's; ffagan; asaph's; germain's; canice's; irvyne; aubin's; heliers; endellion,Saints' Names (Place Names),Structural / Uncertain,human,
+combined,1870-1890,19,1203,pethau; mhlith; gwnaeth; oblegyd; enwau; awyr; rhymni; gyda'u; gwahanol; sylw,Truncated par-/coun- Fragments,Structural / Uncertain,inherited,1850-1870#35
+combined,1870-1890,27,601,prehends; tremities; munes; pagnie; mercially; mentaries; asperated; munists; memorative; ecution,Truncated ap- Prefix Fragments,Structural / Uncertain,inherited,1850-1870#27
+combined,1870-1890,15,3818,steuern; sollten; aufrecht; zeilen; schlosse; selber; verlangen; oberen; nothwendig; darauf,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1850-1870#14
+combined,1870-1890,13,4945,oute; bothe; whiche; wardeyns; werkis; vther; aboute; salbe; wyth; foresayd,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1850-1870#15
+combined,1870-1890,36,94,miralty; mirer; vertisements; nauseam; herents; vancement; visable; mirers; mirable; vertised,Truncated per-/ad- Fragments,Structural / Uncertain,inherited,1850-1870#32
+combined,1870-1890,31,246,wishest; rememberest; sawest; couldest; leadest; com'st; see'st; speak'st; seemest; saidst,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1850-1870#28
+combined,1870-1890,30,310,expan; omis; expul; effu; delu; condescen; persua; profu; confes; seces,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1850-1870#31
+combined,1870-1890,18,1521,vulsively; spiracies; gregations; triving; stantia; secration; prietorship; nivance; centration; muneration,Truncated Word Fragments,Structural / Uncertain,inherited,1850-1870#18
+combined,1870-1890,1,18113,poitrine; arvin; mercatores; haydoc; gujrdt; mcgrew; acuta; albro; demorest; achlysur,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1850-1870#2
+combined,1870-1890,20,1171,drancisco; langsam; tendrombohitra; thracite; erinnerung; cestor; swering; tagonist; orten; anap,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1850-1870#13
+combined,1870-1890,34,112,whitting; southamp; harring; guerite; tyrdom; torring; jorie; pember; hamil; brigh,Truncated ma- Fragments,Structural / Uncertain,inherited,1850-1870#30
+combined,1870-1890,32,158,lightenment; tertained; gagements; virons; tertaining; rogel; chantment; gaging; dowment; bloc,Truncated en- Fragments,Structural / Uncertain,inherited,1850-1870#26
+combined,1870-1890,37,75,excommuni; fabri; confis; incul; mortifi; intoxi; eradi; publi; modifi; communi,Truncated -icate/-ify Fragments,Structural / Uncertain,human,
+combined,1870-1890,41,17,nicians; noschisma; niss; drus; nixes; nician; dra; acia; nixville; nix,Truncated phoe-/phe- Fragments,Structural / Uncertain,human,
+combined,1870-1890,35,110,schaick; vliet; deusen; voorst; artevelde; blarcom; selaer; couver; zandt; diemen,Truncated -ity Noun Fragments,Structural / Uncertain,inherited,1850-1870#25
+combined,1870-1890,38,51,bellished; ployers; ployer; ploying; ploy; peror's; barrassments; ployes; phatically; perors,Truncated em- Fragments,Structural / Uncertain,inherited,1850-1870#29
+combined,1870-1890,33,157,unanswer; abomin; unmistak; unconquer; insupport; unfavour; mischiev; conspicu; labori; inevit,Truncated Verb Fragments,Structural / Uncertain,inherited,1850-1870#23
+combined,1870-1890,39,36,onists; umn; umns; onies; ored; onel; lecting; orado; lision; lectors,Truncated Ca- Fragments,Structural / Uncertain,inherited,1850-1870#36
+combined,1870-1890,40,19,tryman; sellor; selled; cil; trymen; tess; sellors; cils; try's; tenanced,Truncated coun- Fragments,Structural / Uncertain,human,
+combined,1890-1910,22,646,hundered; deckers; eighths; sixths; roubles; kroner; centesimi; soldi; piastres; ha'pence,Truncated Word Fragments,Structural / Uncertain,inherited,1870-1890#23
+combined,1890-1910,4,10429,deathless; darkling; shimmering; bespangled; warbling; divinest; yawl; illumes; tuneful; swirling,Mixed Names and Latin Fragments,Structural / Uncertain,inherited,1870-1890#12
+combined,1890-1910,14,3753,elsie; bertha; mabel; interrogatively; nellie; spilford; eileen; letty; sarcastically; agatha,Truncated -ter Fragments,Structural / Uncertain,inherited,1870-1890#14
+combined,1890-1910,26,305,funnier; wickeder; bitterer; shyer; tougher; stiffer; queerer; aviser; sorer; stupider,Comparative Adjective Forms,Structural / Uncertain,inherited,1870-1890#28
+combined,1890-1910,11,4687,naw; deein; nivver; an'ra; rinnin; onyway; hoo's; gowks; gangin; wi't,Latin Grammar Terminology,Structural / Uncertain,inherited,1870-1890#16
+combined,1890-1910,3,10466,ratification; ethical; mineralogy; freeholders; romish; reprints; annales; sheriffs; ethics; enforcement,Mixed Learned Vocabulary,Structural / Uncertain,inherited,1870-1890#0
+combined,1890-1910,5,8406,cestor; tiquities; tiquity; nually; swer; englishwoman's; alarmist; eyewitness; swers; nouncement,British Chronicle: Places and Persons,"History, Genealogy, Nobility & Kinship",inherited,1870-1890#20
+combined,1890-1910,7,6384,assum; choos; describ; secur; starv; comported; provok; predica; bestirred; influenced,Latin Pharmacy and Apothecary Terms,"Medicine, Body & Health",inherited,1870-1890#4
+combined,1890-1910,18,1228,lucy's; eleanor's; dick's; frank's; judith's; maud's; molly's; sybil's; kate's; alice's,Second-Person Verb Forms,Structural / Uncertain,inherited,1870-1890#21
+combined,1890-1910,9,5764,trowsers; tunics; neckerchief; leggings; buckskin; blouse; trimmings; calicoes; velveteen; ironmongers,"Body, Ailments and Remedies","Medicine, Body & Health",inherited,1870-1890#3
+combined,1890-1910,0,12637,lindell; mackinlay; athalyn; kilner; postle; tavlor; bicknell; fargus; donkin; macritchie,Second-Person Verb Forms,Structural / Uncertain,inherited,1870-1890#2
+combined,1890-1910,8,6350,auchterderran; greenlaw; kington; abdie; farnell; wootton; sharrow; handsworth; prestonkirk; kingsclere,Latin Species Names (Natural History),"Science, Mathematics & Natural Philosophy",inherited,1870-1890#6
+combined,1890-1910,10,5159,autorites; barbare; fievre; soldat; barbares; endroit; marchandises; campagnes; tomber; demanda,French Language Text,Structural / Uncertain,inherited,1870-1890#7
+combined,1890-1910,20,871,fauconberg; falconberg; austinminster; charlemont; rosebery; kenny; brabourne; tweedy; dartmouth's; by'r,Truncated co-/ca- Fragments,Structural / Uncertain,inherited,1870-1890#22
+combined,1890-1910,12,4366,datolite; willemite; axinite; prehnite; zincite; andalusite; scapolite; anthophyllite; hydrated; zirconium,Saints' Names (Place Names),Structural / Uncertain,inherited,1870-1890#11
+combined,1890-1910,16,2659,fyrst; xvd; oute; wyth; oure; accomptes; sayde; thys; comyng; saide,"Obedience, Conscience and Sin","Religion, Theology & the Church",inherited,1870-1890#13
+combined,1890-1910,6,6586,ovk; cultivo; ttjv; prova; ttjs; tta; ffi; nodi; jb; periodo,Third-Person -eth Verb Forms,Structural / Uncertain,inherited,1870-1890#8
+combined,1890-1910,2,11016,zebayir; gerasa; firoz; awaji; sialkot; kilwa; bellinzona; rohri; tranquebar; kistna,"Kingdoms, Officials and Institutions","Government, Law & Administration",inherited,1870-1890#5
+combined,1890-1910,21,805,brieuc; serf's; neot; goar; botolph's; legue; clairs; neot's; audries; monans,Saints' Names (Place Names),Structural / Uncertain,inherited,1870-1890#24
+combined,1890-1910,23,635,boninsegni; ephes; lxxxi; thucyd; lxxxiv; eph; enwogion; simoneta; ezek; ammirato,Truncated par-/coun- Fragments,Structural / Uncertain,inherited,1870-1890#19
+combined,1890-1910,27,256,miscon; con; circu; periodi; calcu; perambu; expostu; conthe; capitu; accumu,Truncated -ment/-sion Fragments,Structural / Uncertain,inherited,1870-1890#29
+combined,1890-1910,13,4041,dioica; scabiosa; oatmeal; festuca; repens; tomatoes; habenaria; hirsuta; pratensis; palustre,Roman Numerals and Dates,Structural / Uncertain,inherited,1870-1890#9
+combined,1890-1910,29,151,sawest; rememberest; askest; see'st; believest; seekest; saidst; speak'st; makest; saw'st,Chivalric Romance Narrative Verbs,"Literature, Drama & Poetic Diction",inherited,1870-1890#31
+combined,1890-1910,15,2672,dictorum; annuatim; fideli; assensu; aliorum; habeant; debita; illius; habere; aliquibus,Latin Text (Function Words),Structural / Uncertain,inherited,1870-1890#10
+combined,1890-1910,19,1215,suls; fidant; ventionalities; fiscated; trasts; stituency; fidentially; tingencies; cognized; sponsibilities,Truncated Word Fragments,Structural / Uncertain,inherited,1870-1890#18
+combined,1890-1910,28,156,buren; diemen; couver; sittart; dorn; nerv; dieman; boister; eyck; velde,Truncated -ity Noun Fragments,Structural / Uncertain,inherited,1870-1890#35
+combined,1890-1910,17,1803,selber; ftihrt; sichtbar; ausser; mebr; laffen; fahrwassers; mehr; aufs; sondern,Mixed Latin Arithmetic and Names,Structural / Uncertain,inherited,1870-1890#15
+combined,1890-1910,25,410,mercially; bining; pagnie; munes; forter; posedly; hilarating; hibiting; asperated; planations,Truncated ap- Prefix Fragments,Structural / Uncertain,inherited,1870-1890#27
+combined,1890-1910,30,146,persua; intru; apprehen; omis; expul; confu; delu; repres; seces; condescen,Scots-Language Chronicle Text,Structural / Uncertain,inherited,1870-1890#30
+combined,1890-1910,24,553,incarna; prescrip; conflagra; circula; reconcilia; assassina; diges; distrac; adop; insinua,Truncated Word Fragments,Structural / Uncertain,inherited,1870-1890#25
+combined,1890-1910,1,11953,lalain; considerables; coston; testamento; gymydogaeth; lengua; ballikinrain; basanite; hermana; chiamdo,Virtue and Moral Qualities,Morality: Virtue & Vice,inherited,1870-1890#1
+combined,1890-1910,33,40,minis; clois; worces; minates; quar; ritory; ritories; ribly; slaugh; headquar,Truncated se-/po- Fragments,Structural / Uncertain,inherited,1870-1890#17
+combined,1890-1910,31,104,vironment; thusiastically; grossing; tertained; lightenment; dured; deavor; bloc; deavours; tertaining,Truncated en- Fragments,Structural / Uncertain,inherited,1870-1890#32
+combined,1890-1910,34,35,quiesced; complishment; commodation; ceptable; cumulated; complished; quaintances; cordingly; complish; companying,Dutch/German Text,Structural / Uncertain,inherited,1870-1890#26
+combined,1890-1910,32,80,unapproach; immov; abomin; unmistak; unutter; disreput; unaccount; unavoid; unspeak; unbear,Truncated Verb Fragments,Structural / Uncertain,inherited,1870-1890#33
+combined,1890-1910,35,30,ployer; barrassment; ployment; ployers; peror; bodiment; pire; phatically; barrassing; bankment,Truncated em- Fragments,Structural / Uncertain,inherited,1870-1890#38
