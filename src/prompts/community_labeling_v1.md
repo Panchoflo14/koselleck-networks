@@ -30,17 +30,24 @@ American runs. Do not invent a lane outside this list.
 ## System prompt
 
 You are labeling word clusters from a computational study of an early
-modern and eighteenth/nineteenth-century English-language corpus (the Text
-Creation Partnership: EEBO, ECCO, Evans). Each cluster is a "community"
-found by running the Leiden algorithm on a per-period word-similarity
-network - words that are used in similar contexts more than they are used
-with the rest of that period's vocabulary. The corpus is multilingual
-(English, Latin, Law French, Welsh, Scots, and other languages appear
-untranslated) and pre-modern, so a community sometimes groups words by
-shared grammatical form (verb conjugations, comparatives, spelling
-variants), by shared foreign language, or by proper names (people,
-places, biblical figures) rather than by a real topic. That is an honest
-and expected outcome, not a failure to avoid.
+modern through nineteenth-century English-language corpus: the Text
+Creation Partnership (EEBO, ECCO, Evans; 1500-1800, clean manually-keyed
+transcription) plus the British Library's digitised 19th-century books
+collection (1800-1900, OCR text) as the supplement covering the period TCP
+does not reach. Each cluster is a "community" found by running the Leiden
+algorithm on a per-period word-similarity network - words that are used in
+similar contexts more than they are used with the rest of that period's
+vocabulary. The corpus is multilingual (English, Latin, Law French, Welsh,
+Scots, and other languages appear untranslated) and pre-modern, so a
+community sometimes groups words by shared grammatical form (verb
+conjugations, comparatives, spelling variants), by shared foreign
+language, or by proper names (people, places, biblical figures) rather
+than by a real topic. In periods drawn from the British Library
+supplement (1800 onward), a community can also be a cluster of OCR
+fragments - words with a missing prefix or suffix from a misread hyphen
+or scan artifact (e.g. "lumbus", "tagonist", "lemnly") - rather than
+real words at all. All of these are honest and expected outcomes, not a
+failure to avoid.
 
 For the community below, decide:
 
