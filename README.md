@@ -24,9 +24,11 @@ A fuller write-up of the method, aimed at both technical and non-technical reade
 
 ## Corpus
 
-Primary: the Text Creation Partnership (TCP) - EEBO-TCP (1500-1700, both released phases), ECCO-TCP (1700-1800), and Evans-TCP (1639-1800). Curated, double-keyed TEI/SGML transcription, no OCR noise. Planned supplement: Project Gutenberg for 1800-1900, since TCP ends at 1800 and the Sattelzeit runs to 1830 - **not yet implemented**, there is no ingestion script for it in `src/` yet, so the pipeline as it stands only covers 1500-1800.
+Primary: the Text Creation Partnership (TCP) - EEBO-TCP (1500-1700, both released phases), ECCO-TCP (1700-1800), and Evans-TCP (1639-1800). Curated, double-keyed TEI/SGML transcription, no OCR noise. Supplement: the British Library's digitised 19th-century books collection (1800-1900, public domain, OCR text with catalogue metadata already attached) - filed under the `british` region, since it's a continuation of the same British-print archive lineage as EEBO/ECCO, not a claim about British vs. American English being different languages. `american` (Evans-TCP) has no data past 1800, since the supplement is British-only. Project Gutenberg was considered first and dropped: its metadata carries only its own digitisation date, not the book's original publication year, which this project needs to bucket documents by period at all.
 
-**TCP is public domain.** All three components used here (EEBO-TCP phases 1 and 2, ECCO-TCP, and Evans-TCP) have concluded their period of exclusivity. In TCP's own words: "we impose no restrictions whatever, and... you may do anything with them that you like: you may translate them, edit them, revise them, illustrate them, perform them, or re-publish them, with or without attribution" ([licensing FAQ](https://www.textpartnership.net/pages/faq.html)).
+**TCP is public domain.** All three components used here (EEBO-TCP phases 1 and 2, ECCO-TCP, and Evans-TCP) have concluded their period of exclusivity. In TCP's own words: "we impose no restrictions whatever, and... you may do anything with them that you like: you may translate them, edit them, revise them, illustrate them, perform them, or re-publish them, with or without attribution" ([licensing FAQ](https://www.textpartnership.net/pages/faq.html)). The British Library supplement is also public domain (CC Public Domain Mark, official first-party download).
+
+**Known data-quality limitation, not yet fixed:** the British Library text is OCR-derived, unlike TCP. A line-break-hyphen artifact ("utrum- que" for "utrumque") was found and fixed in `parse_tcp.py`. A second, distinct artifact was not: OCR sometimes drops the hyphen entirely and leaves a bare space ("par ticulars" for "particulars"), which has no punctuation signal left to detect it by, and still produces whole word-fragment communities in the 1810-1830/1830-1850/1870-1890 periods. Labeling handles this honestly (routed to "Structural / Uncertain," not mislabeled), but the underlying vocabulary/network metrics for those periods are diluted by it.
 
 **The corpus and the trained embeddings/networks are still not included in this repository** - only the pipeline code that builds them. That's a size decision, not a rights one: the raw TCP zips and the derived per-period networks together run to many GB, and anyone can fetch the same public files directly (see Data below) rather than have this repo carry a copy.
 
@@ -61,6 +63,7 @@ Once the pipeline has run, a populated `data_root` looks like this:
     tcp/regions/<region>/<source>/*.zip   one tree for every source, TCP and otherwise (layout below) -
                                            where a source's raw files sit doesn't matter beyond this;
                                            parsing tags every record by region/source/year regardless
+    bl/*.tar.gz                           British Library decade archives, 1800-1900 supplement (region british)
   processed/
     all_docs.jsonl                        one JSON record per parsed document (region, source, doc_id, year, text)
     manifest.csv                          region,source,doc_id,year,chars - one row per document
@@ -100,9 +103,27 @@ corpus/tcp/regions/
 
 The top-level folder name under `regions/` (here `british`/`american`) becomes the region tag used throughout the pipeline and the webapp's region toggle (see below) - it can be anything, the code never assumes British/American specifically. The next level down (`eebo_phase1`, `evans`, ...) is just a label kept for the manifest/diagnostics and can also be named freely. If what you want to add is *not* a TCP shard, see [Adding a new corpus](#adding-a-new-corpus) below.
 
-Only "released" (quality-checked) shards are read; TCP's "unedited" variants are skipped on purpose (matched by filename, regardless of which region/source folder they're in). There is currently no Gutenberg ingestion step, so with TCP alone the pipeline covers 1500-1800; periods past that stay empty until that supplement is built.
+Only "released" (quality-checked) shards are read; TCP's "unedited" variants are skipped on purpose (matched by filename, regardless of which region/source folder they're in). TCP alone covers 1500-1800; the British Library supplement (see Corpus above) fills 1800-1900, read by `iter_bl_records` in the same `parse_tcp.py`, tagged region `british` regardless of where its raw files live on disk.
 
 Everything under `corpus/tcp/` outside `regions/` (older format variants, reference files) is ignored by the pipeline - safe to leave in place or delete, your call.
+
+#### Getting the British Library supplement
+
+Download from the official BL dataset page (public domain, CC0):
+
+- [Digitised Books, c.1510-c.1900, JSONL (OCR text + metadata)](https://bl.iro.bl.uk/concern/datasets/7bf6279d-b8b1-45f4-8fe4-a0c06fdba87c)
+
+Get only the decade files from `1800_1809.tar.gz` onward through `1890_1899.tar.gz` - the earlier `1510_1699.tar.gz`/`1700_1799.tar.gz` files duplicate what TCP already covers with cleaner (non-OCR) text, and `unk.tar.gz` (undated records) is dropped automatically since it can never be bucketed by period. Lay them out flat:
+
+```
+corpus/bl/
+  1800_1809.tar.gz
+  1810_1819.tar.gz
+  ...
+  1890_1899.tar.gz
+```
+
+`iter_bl_records` in `parse_tcp.py` reads each `.tar.gz` in place (never extracted to disk), keeps only English-language volumes, and tags every one `region=british` - it's a continuation of the same British-print archive lineage as EEBO/ECCO, not a claim about American vs. British English (see Corpus above). The `american` region has no data past 1800 as a result.
 
 #### Adding a new corpus
 

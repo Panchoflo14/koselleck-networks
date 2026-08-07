@@ -129,26 +129,51 @@ The contribution is the measurement, not the data.
 \section{Where it stands}
 \label{sec:status}
 
-Three limitations bound what can be claimed today. All three are stated
+Four limitations bound what can be claimed today. All four are stated
 in full in \code{docs/method.pdf} and surfaced inside the tool itself
 rather than hidden; they are summarised here without softening.
 
 \begin{claimbox}
 \claimlabel{Corpus coverage.} The corpus is the Text Creation
-Partnership: EEBO-TCP, ECCO-TCP, and Evans-TCP, curated and manually
-corrected, with no OCR noise, but ending in 1800. The Sattelzeit runs to
-1830. A Project Gutenberg supplement for 1800-1900 is planned and
-\emph{not yet implemented}: there is no ingestion script for it, so the
-pipeline as it stands covers 1500-1800 and later periods stay empty. The
-gap is worst exactly where it matters most. It also skews composition and
-not only volume: ECCO's public transcriptions thin out sharply after
-1780, so the 1780-1800 window holds more American documents (Evans-TCP,
-1681) than British ones (ECCO-TCP, 910). That is why the whole
-measurement is also rerun per region, so a shift can be checked against
-the possibility that it reflects a change in who was writing rather than
-a change in the language. The per-region rerun bounds the problem rather
-than solving it: each regional sub-corpus is thinner still than the
-combined one, so its results carry wider uncertainty.
+Partnership (EEBO-TCP, ECCO-TCP, Evans-TCP, curated and manually
+corrected, no OCR noise, 1500-1800), supplemented for 1800-1900 by the
+British Library's digitised 19th-century books collection (public
+domain, OCR-derived, catalogue metadata attached). A Project Gutenberg
+supplement was considered instead and dropped: its metadata carries only
+its own digitisation date, not the book's original publication date,
+which the method needs to bucket documents by period at all. The
+supplement is filed under the \code{british} region, alongside EEBO/ECCO
+- not because American and British English were different languages for
+most of this span (they were not, and treating the split as a dialect
+claim would not be defensible), but because it is a different,
+independently curated archive, so the region rerun tests whether the
+reorganization signal survives across two provenance sources rather than
+one, and the combined corpus stays the headline result. A direct
+consequence: the \code{american} region has no data past 1800 at all,
+since Evans-TCP stops there and the supplement is British-only. ECCO's
+own thinness after 1780 also still means the 1780-1810 window leans
+American-heavy even with the supplement in place. Per-region results
+carry wider uncertainty than the combined ones, and the American arm
+specifically cannot speak to anything after the Sattelzeit's closing
+edge.
+\end{claimbox}
+
+\begin{claimbox}
+\claimlabel{OCR artifacts.} Unlike TCP, the British Library supplement
+is OCR-derived, and OCR text carries its own artifacts. One class - an
+original line-break hyphen left sitting in the text (\emph{``utrum-
+que''} for \emph{utrumque}) - was found and fixed. A second, distinct
+class was not: the OCR sometimes drops the line-break hyphen entirely
+and leaves a bare space instead (\emph{``par ticulars''} for
+\emph{particulars}), with no punctuation signal left to detect it by.
+This produces whole communities that are nothing but word fragments
+rather than a real topic - confirmed directly in the 1810-1830 period,
+at least fifteen such communities, some several hundred words large. The
+labeling pass handles this honestly (routed to ``Structural /
+Uncertain,'' not mislabeled), but the underlying vocabulary and network
+metrics for 1810-1830, 1830-1850, and 1870-1890 are still diluted by it.
+A real fix, not yet built, most plausibly needs a dictionary check
+rather than a punctuation pattern.
 \end{claimbox}
 
 \begin{claimbox}
