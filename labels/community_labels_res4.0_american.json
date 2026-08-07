@@ -1009,22 +1009,25 @@
   },
   "1730-1750": {
     "23": {
-      "label": "Providence, Saints and Election",
+      "label": "Divine Grace and Atonement",
       "n_words": 151,
       "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#5"
+      "inherited_from": "1710-1730#5",
+      "reclassified": true
     },
     "39": {
-      "label": "Councils and Civil Administration",
+      "label": "Numbers and Time Units",
       "n_words": 89,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1710-1730#32"
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#32",
+      "reclassified": true
     },
     "13": {
-      "label": "Reasoning, Belief and Doubt",
+      "label": "Verbs of Reasoning and Assertion",
       "n_words": 185,
-      "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1710-1730#11"
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#11",
+      "reclassified": true
     },
     "15": {
       "label": "Censorious Moral Judgments",
@@ -1038,10 +1041,11 @@
       "inherited_from": "1710-1730#49"
     },
     "51": {
-      "label": "Comparative and Degree Adverbs",
+      "label": "Comparative and Superlative Forms",
       "n_words": 46,
       "lane": "Structural / Uncertain",
-      "inherited_from": "1710-1730#46"
+      "inherited_from": "1710-1730#46",
+      "reclassified": true
     },
     "16": {
       "label": "Divine Attributes and Majesty",
@@ -1050,10 +1054,11 @@
       "inherited_from": "1710-1730#41"
     },
     "21": {
-      "label": "Ministerial Qualifications and Gifts",
+      "label": "Authors, Texts and Writings",
       "n_words": 159,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#29"
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1710-1730#29",
+      "reclassified": true
     },
     "11": {
       "label": "Comets and Celestial Phenomena",
@@ -1062,28 +1067,32 @@
       "inherited_from": "1710-1730#3"
     },
     "20": {
-      "label": "Souls, Sin and Devotion",
+      "label": "Family and Kinship Terms",
       "n_words": 165,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#26"
+      "lane": "History, Genealogy, Nobility & Kinship",
+      "inherited_from": "1710-1730#26",
+      "reclassified": true
     },
     "42": {
-      "label": "Wilderness Journey and Wickedness",
+      "label": "Biblical Places and Objects",
       "n_words": 86,
       "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#43"
+      "inherited_from": "1710-1730#43",
+      "reclassified": true
     },
     "46": {
-      "label": "General Descriptive Adjectives",
+      "label": "Philosophical and Abstract Qualities",
       "n_words": 79,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1710-1730#38"
+      "lane": "Science, Mathematics & Natural Philosophy",
+      "inherited_from": "1710-1730#38",
+      "reclassified": true
     },
     "48": {
-      "label": "Directional Particles and Verbs",
+      "label": "Naval and Military Expeditions",
       "n_words": 73,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1710-1730#18"
+      "lane": "Military & Warfare",
+      "inherited_from": "1710-1730#18",
+      "reclassified": true
     },
     "17": {
       "label": "Royal Authority and Allegiance",
@@ -1092,10 +1101,11 @@
       "inherited_from": "1710-1730#36"
     },
     "40": {
-      "label": "Church and State Governance",
+      "label": "Divine Influence and Grace",
       "n_words": 89,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1710-1730#33"
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1710-1730#33",
+      "reclassified": true
     },
     "8": {
       "label": "Prayer, Fasting and Devotional Practice",
@@ -1104,28 +1114,32 @@
       "inherited_from": "1710-1730#44"
     },
     "0": {
-      "label": "Common Verbs in Bare Infinitive",
+      "label": "Verbs of Persuasion and Influence",
       "n_words": 300,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1710-1730#9"
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1710-1730#9",
+      "reclassified": true
     },
     "18": {
-      "label": "Election, Conversion and Synod Debate",
+      "label": "Months and Dateline Place Names",
       "n_words": 178,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#40"
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#40",
+      "reclassified": true
     },
     "27": {
-      "label": "Church Doctrine and Ordinances",
+      "label": "Virtues and Moral Qualities",
       "n_words": 140,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#19"
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1710-1730#19",
+      "reclassified": true
     },
     "28": {
-      "label": "Argument, Proof and Rebuttal",
+      "label": "Church Governance and Clergy",
       "n_words": 138,
-      "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1710-1730#14"
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1710-1730#14",
+      "reclassified": true
     },
     "41": {
       "label": "Predicate Adjectives of Feeling",
@@ -1134,10 +1148,11 @@
       "inherited_from": "1710-1730#34"
     },
     "9": {
-      "label": "Colonial New England Narrative",
+      "label": "Past-Tense Verbs of Motion",
       "n_words": 209,
-      "lane": "History, Genealogy, Nobility & Kinship",
-      "inherited_from": "1710-1730#4"
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#4",
+      "reclassified": true
     },
     "22": {
       "label": "Evidence, Belief and Demonstration",
@@ -1146,10 +1161,11 @@
       "inherited_from": "1710-1730#12"
     },
     "3": {
-      "label": "Magistrates and Legal Jurisdiction",
+      "label": "Government Offices and Proceedings",
       "n_words": 254,
       "lane": "Government, Law & Administration",
-      "inherited_from": "1710-1730#16"
+      "inherited_from": "1710-1730#16",
+      "reclassified": true
     },
     "1": {
       "label": "Sin, Vice and Corruption",
@@ -1182,16 +1198,18 @@
       "inherited_from": "1710-1730#27"
     },
     "7": {
-      "label": "Gentiles, Conversion and Prophets",
+      "label": "Colonies and World Territories",
       "n_words": 211,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#23"
+      "lane": "Geography & Territory",
+      "inherited_from": "1710-1730#23",
+      "reclassified": true
     },
     "30": {
-      "label": "Christ, Satan and Biblical Patriarchs",
+      "label": "Redemption and Spiritual Healing",
       "n_words": 130,
       "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#6"
+      "inherited_from": "1710-1730#6",
+      "reclassified": true
     },
     "29": {
       "label": "Colonies, Provinces and Territory",
@@ -1205,16 +1223,18 @@
       "lane": "Medicine, Body & Health"
     },
     "5": {
-      "label": "Apocalyptic and Cosmic Imagery",
+      "label": "Poetic Nature Imagery",
       "n_words": 229,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#1"
+      "lane": "Literature, Drama & Poetic Diction",
+      "inherited_from": "1710-1730#1",
+      "reclassified": true
     },
     "2": {
-      "label": "Legal Proceedings and Liberties",
+      "label": "Past-Tense Verbs of Argument",
       "n_words": 255,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1710-1730#0"
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#0",
+      "reclassified": true
     },
     "38": {
       "label": "Nature, Essence and Philosophical Form",
@@ -1241,28 +1261,32 @@
       "inherited_from": "1710-1730#7"
     },
     "36": {
-      "label": "Scripture Exegesis and Biblical Text",
+      "label": "Latin Citations and Scripture References",
       "n_words": 96,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#22"
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#22",
+      "reclassified": true
     },
     "43": {
-      "label": "Psalms of Praise and Worship",
+      "label": "Biblical Names",
       "n_words": 84,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#24"
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#24",
+      "reclassified": true
     },
     "49": {
-      "label": "Mortality and Religious Exhortation",
+      "label": "Base-Form Action Verbs",
       "n_words": 73,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#13"
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#13",
+      "reclassified": true
     },
     "10": {
-      "label": "Baptism, Posterity and Church Membership",
+      "label": "Vices and Moral Corruption",
       "n_words": 186,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#2"
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1710-1730#2",
+      "reclassified": true
     },
     "52": {
       "label": "Armies, Battles and Military Valor",
@@ -1276,16 +1300,18 @@
       "inherited_from": "1710-1730#35"
     },
     "31": {
-      "label": "Biblical Book Abbreviations",
+      "label": "Roman Numeral Scripture Citations",
       "n_words": 121,
       "lane": "Structural / Uncertain",
-      "inherited_from": "1710-1730#20"
+      "inherited_from": "1710-1730#20",
+      "reclassified": true
     },
     "53": {
-      "label": "Archaic Second-Person Verb Forms",
+      "label": "Second-Person Verb Forms",
       "n_words": 17,
       "lane": "Structural / Uncertain",
-      "inherited_from": "1710-1730#48"
+      "inherited_from": "1710-1730#48",
+      "reclassified": true
     },
     "14": {
       "label": "Goods, Wares and Trade Commodities",
@@ -1300,16 +1326,18 @@
       "inherited_from": "1710-1730#45"
     },
     "24": {
-      "label": "Lament and Deliverance",
+      "label": "Suffering and Affliction",
       "n_words": 147,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#37"
+      "lane": "Literature, Drama & Poetic Diction",
+      "inherited_from": "1710-1730#37",
+      "reclassified": true
     },
     "26": {
-      "label": "Plymouth and Massachusetts Colonial History",
+      "label": "Book Editions and Publishing",
       "n_words": 144,
-      "lane": "History, Genealogy, Nobility & Kinship",
-      "inherited_from": "1710-1730#17"
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1710-1730#17",
+      "reclassified": true
     },
     "12": {
       "label": "Cooking Recipes and Ingredients",
@@ -1317,10 +1345,11 @@
       "lane": "Domestic Life, Dress & Household"
     },
     "34": {
-      "label": "Grace, Righteousness and Repentance",
+      "label": "Miscellaneous Unrelated Terms",
       "n_words": 108,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1710-1730#39"
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#39",
+      "reclassified": true
     },
     "44": {
       "label": "Calamities and Divine Judgments",
@@ -1331,21 +1360,21 @@
   },
   "1750-1770": {
     "40": {
-      "label": "Councils and Civil Administration",
+      "label": "Numbers and Time Units",
       "n_words": 102,
-      "lane": "Government, Law & Administration",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#39"
     },
     "9": {
-      "label": "Providence, Saints and Election",
+      "label": "Divine Grace and Atonement",
       "n_words": 247,
       "lane": "Religion, Theology & the Church",
       "inherited_from": "1730-1750#23"
     },
     "32": {
-      "label": "Grace, Righteousness and Repentance",
+      "label": "Miscellaneous Unrelated Terms",
       "n_words": 126,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#34"
     },
     "2": {
@@ -1355,37 +1384,40 @@
       "inherited_from": "1730-1750#15"
     },
     "17": {
-      "label": "Evidence, Belief and Demonstration",
+      "label": "Argument and Proposition Vocabulary",
       "n_words": 178,
       "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1730-1750#22"
+      "inherited_from": "1730-1750#22",
+      "reclassified": true
     },
     "52": {
-      "label": "Comparative and Degree Adverbs",
+      "label": "Comparative and Superlative Forms",
       "n_words": 54,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#51"
     },
     "42": {
-      "label": "Predicate Adjectives of Feeling",
+      "label": "Past-Tense Narrative Verbs",
       "n_words": 88,
       "lane": "Structural / Uncertain",
-      "inherited_from": "1730-1750#41"
+      "inherited_from": "1730-1750#41",
+      "reclassified": true
     },
     "12": {
-      "label": "Comets and Celestial Phenomena",
+      "label": "Praiseworthy and Virtuous Qualities",
       "n_words": 205,
-      "lane": "Science, Mathematics & Natural Philosophy",
-      "inherited_from": "1730-1750#11"
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1730-1750#11",
+      "reclassified": true
     },
     "11": {
-      "label": "Argument, Proof and Rebuttal",
+      "label": "Church Governance and Clergy",
       "n_words": 224,
-      "lane": "Rhetoric & Persuasion",
+      "lane": "Religion, Theology & the Church",
       "inherited_from": "1730-1750#28"
     },
     "14": {
-      "label": "Wilderness Journey and Wickedness",
+      "label": "Biblical Places and Objects",
       "n_words": 199,
       "lane": "Religion, Theology & the Church",
       "inherited_from": "1730-1750#42"
@@ -1397,9 +1429,9 @@
       "inherited_from": "1730-1750#17"
     },
     "1": {
-      "label": "Legal Proceedings and Liberties",
+      "label": "Past-Tense Verbs of Argument",
       "n_words": 432,
-      "lane": "Government, Law & Administration",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#2"
     },
     "36": {
@@ -1409,123 +1441,131 @@
       "inherited_from": "1730-1750#8"
     },
     "35": {
-      "label": "Church and State Governance",
+      "label": "Divine Influence and Grace",
       "n_words": 118,
-      "lane": "Government, Law & Administration",
+      "lane": "Religion, Theology & the Church",
       "inherited_from": "1730-1750#40"
     },
     "45": {
-      "label": "Directional Particles and Verbs",
+      "label": "Naval and Military Expeditions",
       "n_words": 79,
-      "lane": "Structural / Uncertain",
+      "lane": "Military & Warfare",
       "inherited_from": "1730-1750#48"
     },
     "19": {
-      "label": "Ministerial Qualifications and Gifts",
+      "label": "Authors, Texts and Writings",
       "n_words": 176,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Books, Learning & Scholarship",
       "inherited_from": "1730-1750#21"
     },
     "5": {
-      "label": "Charters, Petitions and Government Documents",
+      "label": "Personal Names and Titles",
       "n_words": 272,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1730-1750#19"
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#19",
+      "reclassified": true
     },
     "0": {
-      "label": "Common Verbs in Bare Infinitive",
+      "label": "Verbs of Persuasion and Influence",
       "n_words": 520,
-      "lane": "Structural / Uncertain",
+      "lane": "Rhetoric & Persuasion",
       "inherited_from": "1730-1750#0"
     },
     "37": {
-      "label": "Election, Conversion and Synod Debate",
+      "label": "Months and Dateline Place Names",
       "n_words": 113,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#18"
     },
     "28": {
-      "label": "Divine Attributes and Majesty",
+      "label": "Celestial and Heavenly Imagery",
       "n_words": 137,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1730-1750#16"
+      "lane": "Literature, Drama & Poetic Diction",
+      "inherited_from": "1730-1750#16",
+      "reclassified": true
     },
     "22": {
-      "label": "Killing, Slaughter and Captivity",
+      "label": "Public Welfare and Administration",
       "n_words": 160,
-      "lane": "Military & Warfare",
-      "inherited_from": "1730-1750#47"
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1730-1750#47",
+      "reclassified": true
     },
     "34": {
-      "label": "Magistrates and Legal Jurisdiction",
+      "label": "Government Offices and Proceedings",
       "n_words": 118,
       "lane": "Government, Law & Administration",
       "inherited_from": "1730-1750#3"
     },
     "10": {
-      "label": "Gentiles, Conversion and Prophets",
+      "label": "Colonies and World Territories",
       "n_words": 246,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Geography & Territory",
       "inherited_from": "1730-1750#7"
     },
     "38": {
-      "label": "Frontier Warfare and Terrain",
+      "label": "Miscellaneous Concrete Nouns",
       "n_words": 109,
-      "lane": "Military & Warfare",
-      "inherited_from": "1730-1750#37"
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#37",
+      "reclassified": true
     },
     "25": {
-      "label": "General Descriptive Adjectives",
+      "label": "Philosophical and Abstract Qualities",
       "n_words": 154,
-      "lane": "Structural / Uncertain",
+      "lane": "Science, Mathematics & Natural Philosophy",
       "inherited_from": "1730-1750#46"
     },
     "7": {
-      "label": "Third-Person '-eth' Verb Forms",
+      "label": "Third-Person Verb Forms",
       "n_words": 265,
       "lane": "Structural / Uncertain",
-      "inherited_from": "1730-1750#4"
+      "inherited_from": "1730-1750#4",
+      "reclassified": true
     },
     "3": {
-      "label": "Colonial New England Narrative",
+      "label": "Past-Tense Verbs of Motion",
       "n_words": 314,
-      "lane": "History, Genealogy, Nobility & Kinship",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#9"
     },
     "18": {
-      "label": "Church Doctrine and Ordinances",
+      "label": "Virtues and Moral Qualities",
       "n_words": 177,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Morality: Virtue & Vice",
       "inherited_from": "1730-1750#27"
     },
     "4": {
-      "label": "Sin, Vice and Corruption",
+      "label": "Vices and Sinful Conduct",
       "n_words": 291,
       "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1730-1750#1"
+      "inherited_from": "1730-1750#1",
+      "reclassified": true
     },
     "39": {
-      "label": "Nature, Essence and Philosophical Form",
+      "label": "Institutional Governance and Elections",
       "n_words": 107,
-      "lane": "Science, Mathematics & Natural Philosophy",
-      "inherited_from": "1730-1750#38"
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1730-1750#38",
+      "reclassified": true
     },
     "20": {
-      "label": "Biblical Book Abbreviations",
+      "label": "Roman Numeral Scripture Citations",
       "n_words": 171,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#31"
     },
     "49": {
-      "label": "Body Parts",
+      "label": "Poetic Body Imagery",
       "n_words": 65,
-      "lane": "Medicine, Body & Health",
-      "inherited_from": "1730-1750#35"
+      "lane": "Literature, Drama & Poetic Diction",
+      "inherited_from": "1730-1750#35",
+      "reclassified": true
     },
     "16": {
-      "label": "Lament and Deliverance",
+      "label": "Suffering and Affliction",
       "n_words": 183,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Literature, Drama & Poetic Diction",
       "inherited_from": "1730-1750#24"
     },
     "8": {
@@ -1535,15 +1575,16 @@
       "inherited_from": "1730-1750#14"
     },
     "29": {
-      "label": "Prudence, Diligence and Personal Virtue",
+      "label": "Human Faculties and Passions",
       "n_words": 137,
       "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1730-1750#6"
+      "inherited_from": "1730-1750#6",
+      "reclassified": true
     },
     "41": {
-      "label": "Scripture Exegesis and Biblical Text",
+      "label": "Latin Citations and Scripture References",
       "n_words": 91,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#36"
     },
     "47": {
@@ -1553,27 +1594,29 @@
       "inherited_from": "1730-1750#52"
     },
     "50": {
-      "label": "Psalms of Praise and Worship",
+      "label": "Biblical Names",
       "n_words": 59,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#43"
     },
     "31": {
-      "label": "Generic Past-Participle Verbs",
+      "label": "Past-Participle Verb Forms",
       "n_words": 127,
       "lane": "Structural / Uncertain",
-      "inherited_from": "1730-1750#33"
+      "inherited_from": "1730-1750#33",
+      "reclassified": true
     },
     "44": {
-      "label": "Duty, Obligation and Reliance",
+      "label": "Verbs of Reliance and Insistence",
       "n_words": 83,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1730-1750#32"
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#32",
+      "reclassified": true
     },
     "33": {
-      "label": "Souls, Sin and Devotion",
+      "label": "Family and Kinship Terms",
       "n_words": 121,
-      "lane": "Religion, Theology & the Church",
+      "lane": "History, Genealogy, Nobility & Kinship",
       "inherited_from": "1730-1750#20"
     },
     "15": {
@@ -1589,22 +1632,23 @@
       "inherited_from": "1730-1750#44"
     },
     "6": {
-      "label": "Apocalyptic and Cosmic Imagery",
+      "label": "Poetic Nature Imagery",
       "n_words": 267,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Literature, Drama & Poetic Diction",
       "inherited_from": "1730-1750#5"
     },
     "46": {
-      "label": "Reasoning, Belief and Doubt",
+      "label": "Verbs of Reasoning and Assertion",
       "n_words": 78,
-      "lane": "Rhetoric & Persuasion",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#13"
     },
     "48": {
-      "label": "Apostasy and Religious Separation",
+      "label": "Verbs of Exclusion and Derivation",
       "n_words": 66,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1730-1750#50"
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#50",
+      "reclassified": true
     },
     "21": {
       "label": "Disease Symptoms and Illness",
@@ -1613,37 +1657,39 @@
       "inherited_from": "1730-1750#45"
     },
     "51": {
-      "label": "Baptism, Posterity and Church Membership",
+      "label": "Vices and Moral Corruption",
       "n_words": 55,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Morality: Virtue & Vice",
       "inherited_from": "1730-1750#10"
     },
     "43": {
-      "label": "Mortality and Religious Exhortation",
+      "label": "Base-Form Action Verbs",
       "n_words": 88,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#49"
     },
     "24": {
-      "label": "Colonies, Provinces and Territory",
+      "label": "Storms and Raging Forces",
       "n_words": 154,
-      "lane": "Geography & Territory",
-      "inherited_from": "1730-1750#29"
+      "lane": "Nature, Landscape & Weather",
+      "inherited_from": "1730-1750#29",
+      "reclassified": true
     },
     "30": {
-      "label": "Plymouth and Massachusetts Colonial History",
+      "label": "Book Editions and Publishing",
       "n_words": 132,
-      "lane": "History, Genealogy, Nobility & Kinship",
+      "lane": "Books, Learning & Scholarship",
       "inherited_from": "1730-1750#26"
     },
     "26": {
-      "label": "Battle, Bloodshed and Combat",
+      "label": "Colors and Natural Materials",
       "n_words": 147,
-      "lane": "Military & Warfare",
-      "inherited_from": "1730-1750#25"
+      "lane": "Nature, Landscape & Weather",
+      "inherited_from": "1730-1750#25",
+      "reclassified": true
     },
     "27": {
-      "label": "Christ, Satan and Biblical Patriarchs",
+      "label": "Redemption and Spiritual Healing",
       "n_words": 145,
       "lane": "Religion, Theology & the Church",
       "inherited_from": "1730-1750#30"
@@ -1656,31 +1702,32 @@
   },
   "1770-1790": {
     "36": {
-      "label": "Councils and Civil Administration",
+      "label": "Numbers and Time Units",
       "n_words": 148,
-      "lane": "Government, Law & Administration",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#40"
     },
     "19": {
-      "label": "Providence, Saints and Election",
+      "label": "Divine Grace and Atonement",
       "n_words": 282,
       "lane": "Religion, Theology & the Church",
       "inherited_from": "1750-1770#9"
     },
     "13": {
-      "label": "Royal Authority and Allegiance",
+      "label": "Adverbs and Abstract Qualifiers",
       "n_words": 324,
-      "lane": "Government, Law & Administration",
-      "inherited_from": "1750-1770#13"
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#13",
+      "reclassified": true
     },
     "17": {
-      "label": "Comets and Celestial Phenomena",
+      "label": "Praiseworthy and Virtuous Qualities",
       "n_words": 289,
-      "lane": "Science, Mathematics & Natural Philosophy",
+      "lane": "Morality: Virtue & Vice",
       "inherited_from": "1750-1770#12"
     },
     "51": {
-      "label": "Comparative and Degree Adverbs",
+      "label": "Comparative and Superlative Forms",
       "n_words": 54,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#52"
@@ -1692,123 +1739,123 @@
       "inherited_from": "1750-1770#2"
     },
     "46": {
-      "label": "Church and State Governance",
+      "label": "Divine Influence and Grace",
       "n_words": 98,
-      "lane": "Government, Law & Administration",
+      "lane": "Religion, Theology & the Church",
       "inherited_from": "1750-1770#35"
     },
     "38": {
-      "label": "Election, Conversion and Synod Debate",
+      "label": "Months and Dateline Place Names",
       "n_words": 130,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#37"
     },
     "21": {
-      "label": "Plymouth and Massachusetts Colonial History",
+      "label": "Book Editions and Publishing",
       "n_words": 267,
-      "lane": "History, Genealogy, Nobility & Kinship",
+      "lane": "Books, Learning & Scholarship",
       "inherited_from": "1750-1770#30"
     },
     "48": {
-      "label": "Body Parts",
+      "label": "Poetic Body Imagery",
       "n_words": 95,
-      "lane": "Medicine, Body & Health",
+      "lane": "Literature, Drama & Poetic Diction",
       "inherited_from": "1750-1770#49"
     },
     "33": {
-      "label": "Souls, Sin and Devotion",
+      "label": "Family and Kinship Terms",
       "n_words": 158,
-      "lane": "Religion, Theology & the Church",
+      "lane": "History, Genealogy, Nobility & Kinship",
       "inherited_from": "1750-1770#33"
     },
     "15": {
-      "label": "Frontier Warfare and Terrain",
+      "label": "Miscellaneous Concrete Nouns",
       "n_words": 310,
-      "lane": "Military & Warfare",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#38"
     },
     "3": {
-      "label": "Legal Proceedings and Liberties",
+      "label": "Past-Tense Verbs of Argument",
       "n_words": 415,
-      "lane": "Government, Law & Administration",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#1"
     },
     "35": {
-      "label": "Magistrates and Legal Jurisdiction",
+      "label": "Government Offices and Proceedings",
       "n_words": 149,
       "lane": "Government, Law & Administration",
       "inherited_from": "1750-1770#34"
     },
     "24": {
-      "label": "Nature, Essence and Philosophical Form",
+      "label": "Institutional Governance and Elections",
       "n_words": 245,
-      "lane": "Science, Mathematics & Natural Philosophy",
+      "lane": "Government, Law & Administration",
       "inherited_from": "1750-1770#39"
     },
     "0": {
-      "label": "Common Verbs in Bare Infinitive",
+      "label": "Verbs of Persuasion and Influence",
       "n_words": 674,
-      "lane": "Structural / Uncertain",
+      "lane": "Rhetoric & Persuasion",
       "inherited_from": "1750-1770#0"
     },
     "16": {
-      "label": "Evidence, Belief and Demonstration",
+      "label": "Argument and Proposition Vocabulary",
       "n_words": 298,
       "lane": "Rhetoric & Persuasion",
       "inherited_from": "1750-1770#17"
     },
     "32": {
-      "label": "Wilderness Journey and Wickedness",
+      "label": "Biblical Places and Objects",
       "n_words": 162,
       "lane": "Religion, Theology & the Church",
       "inherited_from": "1750-1770#14"
     },
     "5": {
-      "label": "Charters, Petitions and Government Documents",
+      "label": "Personal Names and Titles",
       "n_words": 399,
-      "lane": "Government, Law & Administration",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#5"
     },
     "20": {
-      "label": "Church Doctrine and Ordinances",
+      "label": "Virtues and Moral Qualities",
       "n_words": 276,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Morality: Virtue & Vice",
       "inherited_from": "1750-1770#18"
     },
     "23": {
-      "label": "Ministerial Qualifications and Gifts",
+      "label": "Authors, Texts and Writings",
       "n_words": 247,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Books, Learning & Scholarship",
       "inherited_from": "1750-1770#19"
     },
     "25": {
-      "label": "Prudence, Diligence and Personal Virtue",
+      "label": "Human Faculties and Passions",
       "n_words": 235,
       "lane": "Morality: Virtue & Vice",
       "inherited_from": "1750-1770#29"
     },
     "22": {
-      "label": "Argument, Proof and Rebuttal",
+      "label": "Church Governance and Clergy",
       "n_words": 252,
-      "lane": "Rhetoric & Persuasion",
+      "lane": "Religion, Theology & the Church",
       "inherited_from": "1750-1770#11"
     },
     "1": {
-      "label": "Colonial New England Narrative",
+      "label": "Past-Tense Verbs of Motion",
       "n_words": 462,
-      "lane": "History, Genealogy, Nobility & Kinship",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#3"
     },
     "41": {
-      "label": "Baptism, Posterity and Church Membership",
+      "label": "Vices and Moral Corruption",
       "n_words": 126,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Morality: Virtue & Vice",
       "inherited_from": "1750-1770#51"
     },
     "39": {
-      "label": "General Descriptive Adjectives",
+      "label": "Philosophical and Abstract Qualities",
       "n_words": 130,
-      "lane": "Structural / Uncertain",
+      "lane": "Science, Mathematics & Natural Philosophy",
       "inherited_from": "1750-1770#25"
     },
     "31": {
@@ -1818,67 +1865,68 @@
       "inherited_from": "1750-1770#47"
     },
     "12": {
-      "label": "Sin, Vice and Corruption",
+      "label": "Vices and Sinful Conduct",
       "n_words": 337,
       "lane": "Morality: Virtue & Vice",
       "inherited_from": "1750-1770#4"
     },
     "45": {
-      "label": "Psalms of Praise and Worship",
+      "label": "Biblical Names",
       "n_words": 105,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#50"
     },
     "37": {
-      "label": "Lament and Deliverance",
+      "label": "Suffering and Affliction",
       "n_words": 133,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Literature, Drama & Poetic Diction",
       "inherited_from": "1750-1770#16"
     },
     "11": {
-      "label": "Goods, Wares and Trade Commodities",
+      "label": "Trade, Commerce and Currency",
       "n_words": 345,
       "lane": "Trade, Finance & Commerce",
-      "inherited_from": "1750-1770#8"
+      "inherited_from": "1750-1770#8",
+      "reclassified": true
     },
     "10": {
-      "label": "Third-Person '-eth' Verb Forms",
+      "label": "Third-Person Verb Forms",
       "n_words": 347,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#7"
     },
     "26": {
-      "label": "Divine Attributes and Majesty",
+      "label": "Celestial and Heavenly Imagery",
       "n_words": 234,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Literature, Drama & Poetic Diction",
       "inherited_from": "1750-1770#28"
     },
     "44": {
-      "label": "Duty, Obligation and Reliance",
+      "label": "Verbs of Reliance and Insistence",
       "n_words": 106,
-      "lane": "Morality: Virtue & Vice",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#44"
     },
     "43": {
-      "label": "Apostasy and Religious Separation",
+      "label": "Verbs of Exclusion and Derivation",
       "n_words": 116,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#48"
     },
     "49": {
-      "label": "Reasoning, Belief and Doubt",
+      "label": "Verbs of Reasoning and Assertion",
       "n_words": 71,
-      "lane": "Rhetoric & Persuasion",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#46"
     },
     "53": {
-      "label": "Mortality and Religious Exhortation",
+      "label": "Base-Form Action Verbs",
       "n_words": 37,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#43"
     },
     "42": {
-      "label": "Generic Past-Participle Verbs",
+      "label": "Past-Participle Verb Forms",
       "n_words": 116,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#31"
@@ -1890,19 +1938,20 @@
       "inherited_from": "1750-1770#15"
     },
     "29": {
-      "label": "Gentiles, Conversion and Prophets",
+      "label": "Colonies and World Territories",
       "n_words": 223,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Geography & Territory",
       "inherited_from": "1750-1770#10"
     },
     "28": {
-      "label": "Calamities and Divine Judgments",
+      "label": "Tyranny and Wartime Atrocities",
       "n_words": 226,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1750-1770#23"
+      "lane": "Military & Warfare",
+      "inherited_from": "1750-1770#23",
+      "reclassified": true
     },
     "50": {
-      "label": "Predicate Adjectives of Feeling",
+      "label": "Past-Tense Narrative Verbs",
       "n_words": 60,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#42"
@@ -1914,45 +1963,46 @@
       "inherited_from": "1750-1770#53"
     },
     "34": {
-      "label": "Biblical Book Abbreviations",
+      "label": "Roman Numeral Scripture Citations",
       "n_words": 152,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#20"
     },
     "9": {
-      "label": "Directional Particles and Verbs",
+      "label": "Naval and Military Expeditions",
       "n_words": 355,
-      "lane": "Structural / Uncertain",
+      "lane": "Military & Warfare",
       "inherited_from": "1750-1770#45"
     },
     "27": {
-      "label": "Killing, Slaughter and Captivity",
+      "label": "Public Welfare and Administration",
       "n_words": 232,
-      "lane": "Military & Warfare",
+      "lane": "Government, Law & Administration",
       "inherited_from": "1750-1770#22"
     },
     "40": {
-      "label": "Prayer, Fasting and Devotional Practice",
+      "label": "Pastoral Poetry and Music",
       "n_words": 129,
-      "lane": "Religion, Theology & the Church",
-      "inherited_from": "1750-1770#36"
+      "lane": "Literature, Drama & Poetic Diction",
+      "inherited_from": "1750-1770#36",
+      "reclassified": true
     },
     "7": {
-      "label": "Apocalyptic and Cosmic Imagery",
+      "label": "Poetic Nature Imagery",
       "n_words": 384,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Literature, Drama & Poetic Diction",
       "inherited_from": "1750-1770#6"
     },
     "4": {
-      "label": "Christ, Satan and Biblical Patriarchs",
+      "label": "Redemption and Spiritual Healing",
       "n_words": 405,
       "lane": "Religion, Theology & the Church",
       "inherited_from": "1750-1770#27"
     },
     "30": {
-      "label": "Grace, Righteousness and Repentance",
+      "label": "Miscellaneous Unrelated Terms",
       "n_words": 191,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#32"
     },
     "8": {
@@ -1962,21 +2012,21 @@
       "inherited_from": "1750-1770#21"
     },
     "47": {
-      "label": "Scripture Exegesis and Biblical Text",
+      "label": "Latin Citations and Scripture References",
       "n_words": 96,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#41"
     },
     "18": {
-      "label": "Battle, Bloodshed and Combat",
+      "label": "Colors and Natural Materials",
       "n_words": 283,
-      "lane": "Military & Warfare",
+      "lane": "Nature, Landscape & Weather",
       "inherited_from": "1750-1770#26"
     },
     "14": {
-      "label": "Colonies, Provinces and Territory",
+      "label": "Storms and Raging Forces",
       "n_words": 321,
-      "lane": "Geography & Territory",
+      "lane": "Nature, Landscape & Weather",
       "inherited_from": "1750-1770#24"
     }
   },
@@ -1987,169 +2037,169 @@
       "lane": "Structural / Uncertain"
     },
     "49": {
-      "label": "Councils and Civil Administration",
+      "label": "Numbers and Time Units",
       "n_words": 177,
-      "lane": "Government, Law & Administration",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#36"
     },
     "56": {
-      "label": "Comparative and Degree Adverbs",
+      "label": "Comparative and Superlative Forms",
       "n_words": 81,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#51"
     },
     "14": {
-      "label": "Royal Authority and Allegiance",
+      "label": "Adverbs and Abstract Qualifiers",
       "n_words": 425,
-      "lane": "Government, Law & Administration",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#13"
     },
     "47": {
-      "label": "Providence, Saints and Election",
+      "label": "Divine Grace and Atonement",
       "n_words": 197,
       "lane": "Religion, Theology & the Church",
       "inherited_from": "1770-1790#19"
     },
     "9": {
-      "label": "Comets and Celestial Phenomena",
+      "label": "Praiseworthy and Virtuous Qualities",
       "n_words": 498,
-      "lane": "Science, Mathematics & Natural Philosophy",
+      "lane": "Morality: Virtue & Vice",
       "inherited_from": "1770-1790#17"
     },
     "36": {
-      "label": "Magistrates and Legal Jurisdiction",
+      "label": "Government Offices and Proceedings",
       "n_words": 248,
       "lane": "Government, Law & Administration",
       "inherited_from": "1770-1790#35"
     },
     "39": {
-      "label": "Election, Conversion and Synod Debate",
+      "label": "Months and Dateline Place Names",
       "n_words": 237,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#38"
     },
     "44": {
-      "label": "Baptism, Posterity and Church Membership",
+      "label": "Vices and Moral Corruption",
       "n_words": 232,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Morality: Virtue & Vice",
       "inherited_from": "1770-1790#41"
     },
     "7": {
-      "label": "Plymouth and Massachusetts Colonial History",
+      "label": "Book Editions and Publishing",
       "n_words": 521,
-      "lane": "History, Genealogy, Nobility & Kinship",
+      "lane": "Books, Learning & Scholarship",
       "inherited_from": "1770-1790#21"
     },
     "0": {
-      "label": "Legal Proceedings and Liberties",
+      "label": "Past-Tense Verbs of Argument",
       "n_words": 958,
-      "lane": "Government, Law & Administration",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#3"
     },
     "27": {
-      "label": "Lament and Deliverance",
+      "label": "Suffering and Affliction",
       "n_words": 323,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Literature, Drama & Poetic Diction",
       "inherited_from": "1770-1790#37"
     },
     "38": {
-      "label": "Church and State Governance",
+      "label": "Divine Influence and Grace",
       "n_words": 241,
-      "lane": "Government, Law & Administration",
+      "lane": "Religion, Theology & the Church",
       "inherited_from": "1770-1790#46"
     },
     "4": {
-      "label": "Church Doctrine and Ordinances",
+      "label": "Virtues and Moral Qualities",
       "n_words": 572,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Morality: Virtue & Vice",
       "inherited_from": "1770-1790#20"
     },
     "33": {
-      "label": "Souls, Sin and Devotion",
+      "label": "Family and Kinship Terms",
       "n_words": 288,
-      "lane": "Religion, Theology & the Church",
+      "lane": "History, Genealogy, Nobility & Kinship",
       "inherited_from": "1770-1790#33"
     },
     "19": {
-      "label": "Prudence, Diligence and Personal Virtue",
+      "label": "Human Faculties and Passions",
       "n_words": 406,
       "lane": "Morality: Virtue & Vice",
       "inherited_from": "1770-1790#25"
     },
     "11": {
-      "label": "Charters, Petitions and Government Documents",
+      "label": "Personal Names and Titles",
       "n_words": 455,
-      "lane": "Government, Law & Administration",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#5"
     },
     "1": {
-      "label": "Common Verbs in Bare Infinitive",
+      "label": "Verbs of Persuasion and Influence",
       "n_words": 853,
-      "lane": "Structural / Uncertain",
+      "lane": "Rhetoric & Persuasion",
       "inherited_from": "1770-1790#0"
     },
     "3": {
-      "label": "Third-Person '-eth' Verb Forms",
+      "label": "Third-Person Verb Forms",
       "n_words": 581,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#10"
     },
     "43": {
-      "label": "Gentiles, Conversion and Prophets",
+      "label": "Colonies and World Territories",
       "n_words": 233,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Geography & Territory",
       "inherited_from": "1770-1790#29"
     },
     "32": {
-      "label": "Evidence, Belief and Demonstration",
+      "label": "Argument and Proposition Vocabulary",
       "n_words": 294,
       "lane": "Rhetoric & Persuasion",
       "inherited_from": "1770-1790#16"
     },
     "2": {
-      "label": "Colonial New England Narrative",
+      "label": "Past-Tense Verbs of Motion",
       "n_words": 786,
-      "lane": "History, Genealogy, Nobility & Kinship",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#1"
     },
     "25": {
-      "label": "Body Parts",
+      "label": "Poetic Body Imagery",
       "n_words": 332,
-      "lane": "Medicine, Body & Health",
+      "lane": "Literature, Drama & Poetic Diction",
       "inherited_from": "1770-1790#48"
     },
     "31": {
-      "label": "Wilderness Journey and Wickedness",
+      "label": "Biblical Places and Objects",
       "n_words": 295,
       "lane": "Religion, Theology & the Church",
       "inherited_from": "1770-1790#32"
     },
     "8": {
-      "label": "Frontier Warfare and Terrain",
+      "label": "Miscellaneous Concrete Nouns",
       "n_words": 516,
-      "lane": "Military & Warfare",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#15"
     },
     "10": {
-      "label": "Ministerial Qualifications and Gifts",
+      "label": "Authors, Texts and Writings",
       "n_words": 486,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Books, Learning & Scholarship",
       "inherited_from": "1770-1790#23"
     },
     "26": {
-      "label": "Mortality and Religious Exhortation",
+      "label": "Base-Form Action Verbs",
       "n_words": 326,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#53"
     },
     "34": {
-      "label": "Grace, Righteousness and Repentance",
+      "label": "Miscellaneous Unrelated Terms",
       "n_words": 285,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#30"
     },
     "52": {
-      "label": "Predicate Adjectives of Feeling",
+      "label": "Past-Tense Narrative Verbs",
       "n_words": 155,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#50"
@@ -2161,39 +2211,39 @@
       "inherited_from": "1770-1790#6"
     },
     "18": {
-      "label": "Calamities and Divine Judgments",
+      "label": "Tyranny and Wartime Atrocities",
       "n_words": 410,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Military & Warfare",
       "inherited_from": "1770-1790#28"
     },
     "24": {
-      "label": "Divine Attributes and Majesty",
+      "label": "Celestial and Heavenly Imagery",
       "n_words": 347,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Literature, Drama & Poetic Diction",
       "inherited_from": "1770-1790#26"
     },
     "16": {
-      "label": "Argument, Proof and Rebuttal",
+      "label": "Church Governance and Clergy",
       "n_words": 421,
-      "lane": "Rhetoric & Persuasion",
+      "lane": "Religion, Theology & the Church",
       "inherited_from": "1770-1790#22"
     },
     "22": {
-      "label": "Goods, Wares and Trade Commodities",
+      "label": "Trade, Commerce and Currency",
       "n_words": 387,
       "lane": "Trade, Finance & Commerce",
       "inherited_from": "1770-1790#11"
     },
     "21": {
-      "label": "Psalms of Praise and Worship",
+      "label": "Biblical Names",
       "n_words": 388,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#45"
     },
     "54": {
-      "label": "Reasoning, Belief and Doubt",
+      "label": "Verbs of Reasoning and Assertion",
       "n_words": 118,
-      "lane": "Rhetoric & Persuasion",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#49"
     },
     "45": {
@@ -2202,15 +2252,15 @@
       "lane": "Literature, Drama & Poetic Diction"
     },
     "50": {
-      "label": "Apostasy and Religious Separation",
+      "label": "Verbs of Exclusion and Derivation",
       "n_words": 173,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#43"
     },
     "35": {
-      "label": "Nature, Essence and Philosophical Form",
+      "label": "Institutional Governance and Elections",
       "n_words": 250,
-      "lane": "Science, Mathematics & Natural Philosophy",
+      "lane": "Government, Law & Administration",
       "inherited_from": "1770-1790#24"
     },
     "13": {
@@ -2226,13 +2276,13 @@
       "inherited_from": "1770-1790#52"
     },
     "28": {
-      "label": "Directional Particles and Verbs",
+      "label": "Naval and Military Expeditions",
       "n_words": 322,
-      "lane": "Structural / Uncertain",
+      "lane": "Military & Warfare",
       "inherited_from": "1770-1790#9"
     },
     "17": {
-      "label": "Sin, Vice and Corruption",
+      "label": "Vices and Sinful Conduct",
       "n_words": 411,
       "lane": "Morality: Virtue & Vice",
       "inherited_from": "1770-1790#12"
@@ -2244,19 +2294,19 @@
       "inherited_from": "1770-1790#31"
     },
     "37": {
-      "label": "Prayer, Fasting and Devotional Practice",
+      "label": "Pastoral Poetry and Music",
       "n_words": 245,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Literature, Drama & Poetic Diction",
       "inherited_from": "1770-1790#40"
     },
     "40": {
-      "label": "Scripture Exegesis and Biblical Text",
+      "label": "Latin Citations and Scripture References",
       "n_words": 236,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#47"
     },
     "5": {
-      "label": "Christ, Satan and Biblical Patriarchs",
+      "label": "Redemption and Spiritual Healing",
       "n_words": 537,
       "lane": "Religion, Theology & the Church",
       "inherited_from": "1770-1790#4"
@@ -2267,33 +2317,33 @@
       "lane": "Structural / Uncertain"
     },
     "15": {
-      "label": "Killing, Slaughter and Captivity",
+      "label": "Public Welfare and Administration",
       "n_words": 421,
-      "lane": "Military & Warfare",
+      "lane": "Government, Law & Administration",
       "inherited_from": "1770-1790#27"
     },
     "29": {
-      "label": "Colonies, Provinces and Territory",
+      "label": "Storms and Raging Forces",
       "n_words": 315,
-      "lane": "Geography & Territory",
+      "lane": "Nature, Landscape & Weather",
       "inherited_from": "1770-1790#14"
     },
     "6": {
-      "label": "Apocalyptic and Cosmic Imagery",
+      "label": "Poetic Nature Imagery",
       "n_words": 523,
-      "lane": "Religion, Theology & the Church",
+      "lane": "Literature, Drama & Poetic Diction",
       "inherited_from": "1770-1790#7"
     },
     "41": {
-      "label": "General Descriptive Adjectives",
+      "label": "Philosophical and Abstract Qualities",
       "n_words": 235,
-      "lane": "Structural / Uncertain",
+      "lane": "Science, Mathematics & Natural Philosophy",
       "inherited_from": "1770-1790#39"
     },
     "53": {
-      "label": "Duty, Obligation and Reliance",
+      "label": "Verbs of Reliance and Insistence",
       "n_words": 131,
-      "lane": "Morality: Virtue & Vice",
+      "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#44"
     },
     "20": {
@@ -2303,21 +2353,21 @@
       "inherited_from": "1770-1790#2"
     },
     "48": {
-      "label": "Biblical Book Abbreviations",
+      "label": "Roman Numeral Scripture Citations",
       "n_words": 187,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#34"
     },
     "46": {
-      "label": "Generic Past-Participle Verbs",
+      "label": "Past-Participle Verb Forms",
       "n_words": 198,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#42"
     },
     "23": {
-      "label": "Battle, Bloodshed and Combat",
+      "label": "Colors and Natural Materials",
       "n_words": 374,
-      "lane": "Military & Warfare",
+      "lane": "Nature, Landscape & Weather",
       "inherited_from": "1770-1790#18"
     },
     "55": {
@@ -2335,16 +2385,16 @@
     "resolution": 4.0,
     "region": "american",
     "n_communities": 396,
-    "n_human_edited": 60,
-    "n_inherited": 336,
+    "n_human_edited": 110,
+    "n_inherited": 286,
     "method": "Generated by a single LLM read-through of each community's top words, not an empirically validated taxonomy - a reading aid, not a checked ground truth. Rerunning `generate` on an unchanged input is not guaranteed to reproduce the same label text or lane for every community, since LLM sampling is not bitwise-deterministic even against an unchanged prompt.",
-    "compiled_at": "2026-08-07T14:27:19+00:00",
+    "compiled_at": "2026-08-07T16:12:18+00:00",
     "model": "claude-haiku-4-5-20251001",
     "prompt_file": "src/prompts/community_labeling_v1.md",
     "prompt_version": "v1",
     "prompt_sha256_16": "94616a163691487b",
     "source_words_file": "community_words_res4.0_american.json",
     "source_words_sha256_16": "fead1c2388ea8ac3",
-    "generated_at": "2026-08-07T14:24:49+00:00"
+    "generated_at": "2026-08-07T16:06:53+00:00"
   }
 }
