@@ -743,12 +743,19 @@ holds. Only a minority of labels (roughly one in ten to one in six,
 depending on region) are an independent read for a given pipeline run.
 That independent read is still a single, unvalidated pass by a language
 model, not a checked ground truth: useful for orientation, not for
-citation. Inheritance carries its own, different cost. On the corpus's
-longest-running community lineages, a label can go up to fifteen periods
-(close to three hundred years) without being independently re-read, and
-the community's actual word composition can drift well past what the
-label still says by then, a staleness problem rather than a wrong-read
-one, and not yet addressed.
+citation. Inheritance used to carry a further, uncapped cost: on the
+corpus's longest-running lineages a label could go up to fifteen periods
+(close to three hundred years) without an independent re-read, letting
+the community's actual word composition drift well past what the label
+still said (Section~\ref{sec:webapp}'s ``Bounded reclassification'' paragraph
+walks through the Dutch/German case that surfaced this).
+\code{MAX\_INHERITANCE\_CHAIN} now bounds this to three consecutive
+periods: past the cap, a fresh read is forced while the
+structural ``stayed'' claim is left untouched, so the lineage tracking
+and the label text can no longer drift apart unnoticed. This does not
+make every fresh read reliable - it is still the same single,
+unvalidated language-model pass described above - only bounded, capping
+how far a specific label can lag behind the community it names.
 \end{claimbox}
 
 \begin{claimbox}
