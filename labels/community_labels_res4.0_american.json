@@ -26,7 +26,7 @@
       "lane": "Rhetoric & Persuasion"
     },
     "15": {
-      "label": "Directional Particles and Verbs (mixed)",
+      "label": "Directional Particles and Verbs",
       "n_words": 25,
       "lane": "Structural / Uncertain"
     },
@@ -41,7 +41,7 @@
       "lane": "History, Genealogy, Nobility & Kinship"
     },
     "20": {
-      "label": "Comparative and Degree Adverbs (mixed)",
+      "label": "Comparative and Degree Adverbs",
       "n_words": 23,
       "lane": "Structural / Uncertain"
     },
@@ -91,17 +91,17 @@
       "lane": "History, Genealogy, Nobility & Kinship"
     },
     "18": {
-      "label": "Archaic Second-Person Verb Forms (mixed)",
+      "label": "Archaic Second-Person Verb Forms",
       "n_words": 24,
       "lane": "Structural / Uncertain"
     },
     "23": {
-      "label": "Common Verbs in Bare Infinitive (mixed)",
+      "label": "Common Verbs in Bare Infinitive",
       "n_words": 22,
       "lane": "Structural / Uncertain"
     },
     "6": {
-      "label": "Biblical Book Abbreviations (mixed)",
+      "label": "Biblical Book Abbreviations",
       "n_words": 37,
       "lane": "Structural / Uncertain"
     },
@@ -116,7 +116,7 @@
       "lane": "Religion, Theology & the Church"
     },
     "24": {
-      "label": "General Descriptive Adjectives (mixed)",
+      "label": "General Descriptive Adjectives",
       "n_words": 21,
       "lane": "Structural / Uncertain"
     },
@@ -158,13 +158,13 @@
       "lane": "Science, Mathematics & Natural Philosophy"
     },
     "22": {
-      "label": "Biblical Book Abbreviations (mixed)",
+      "label": "Biblical Book Abbreviations",
       "n_words": 79,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#6"
     },
     "7": {
-      "label": "Predicate Adjectives of Feeling (mixed)",
+      "label": "Predicate Adjectives of Feeling",
       "n_words": 108,
       "lane": "Structural / Uncertain"
     },
@@ -193,13 +193,13 @@
       "inherited_from": "1650-1670#22"
     },
     "39": {
-      "label": "Comparative and Degree Adverbs (mixed)",
+      "label": "Comparative and Degree Adverbs",
       "n_words": 32,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#20"
     },
     "41": {
-      "label": "Directional Particles and Verbs (mixed)",
+      "label": "Directional Particles and Verbs",
       "n_words": 24,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#15"
@@ -256,7 +256,7 @@
       "lane": "Military & Warfare"
     },
     "0": {
-      "label": "Common Verbs in Bare Infinitive (mixed)",
+      "label": "Common Verbs in Bare Infinitive",
       "n_words": 178,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#23"
@@ -286,7 +286,7 @@
       "inherited_from": "1650-1670#0"
     },
     "20": {
-      "label": "Third-Person '-eth' Verb Forms (mixed)",
+      "label": "Third-Person '-eth' Verb Forms",
       "n_words": 80,
       "lane": "Structural / Uncertain"
     },
@@ -337,7 +337,7 @@
       "inherited_from": "1650-1670#12"
     },
     "11": {
-      "label": "General Descriptive Adjectives (mixed)",
+      "label": "General Descriptive Adjectives",
       "n_words": 99,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#24"
@@ -370,7 +370,7 @@
       "lane": "Geography & Territory"
     },
     "45": {
-      "label": "Archaic Second-Person Verb Forms (mixed)",
+      "label": "Archaic Second-Person Verb Forms",
       "n_words": 14,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#18"
@@ -402,7 +402,7 @@
       "lane": "Government, Law & Administration"
     },
     "44": {
-      "label": "Generic Past-Participle Verbs (mixed)",
+      "label": "Generic Past-Participle Verbs",
       "n_words": 15,
       "lane": "Structural / Uncertain"
     }
@@ -432,7 +432,7 @@
       "inherited_from": "1670-1690#23"
     },
     "18": {
-      "label": "Biblical Book Abbreviations (mixed)",
+      "label": "Biblical Book Abbreviations",
       "n_words": 115,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#22"
@@ -462,7 +462,7 @@
       "inherited_from": "1670-1690#14"
     },
     "47": {
-      "label": "Comparative and Degree Adverbs (mixed)",
+      "label": "Comparative and Degree Adverbs",
       "n_words": 22,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#39"
@@ -480,7 +480,7 @@
       "inherited_from": "1670-1690#33"
     },
     "45": {
-      "label": "Directional Particles and Verbs (mixed)",
+      "label": "Directional Particles and Verbs",
       "n_words": 46,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#41"
@@ -516,7 +516,7 @@
       "inherited_from": "1670-1690#16"
     },
     "0": {
-      "label": "Common Verbs in Bare Infinitive (mixed)",
+      "label": "Common Verbs in Bare Infinitive",
       "n_words": 245,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#0"
@@ -534,7 +534,7 @@
       "inherited_from": "1670-1690#19"
     },
     "5": {
-      "label": "Third-Person '-eth' Verb Forms (mixed)",
+      "label": "Third-Person '-eth' Verb Forms",
       "n_words": 158,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#20"
@@ -606,7 +606,7 @@
       "inherited_from": "1670-1690#34"
     },
     "31": {
-      "label": "General Descriptive Adjectives (mixed)",
+      "label": "General Descriptive Adjectives",
       "n_words": 92,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#11"
@@ -623,7 +623,7 @@
       "inherited_from": "1670-1690#6"
     },
     "16": {
-      "label": "Predicate Adjectives of Feeling (mixed)",
+      "label": "Predicate Adjectives of Feeling",
       "n_words": 120,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#7"
@@ -659,7 +659,7 @@
       "inherited_from": "1670-1690#24"
     },
     "40": {
-      "label": "Generic Past-Participle Verbs (mixed)",
+      "label": "Generic Past-Participle Verbs",
       "n_words": 62,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#44"
@@ -676,7 +676,7 @@
       "lane": "Religion, Theology & the Church"
     },
     "48": {
-      "label": "Archaic Second-Person Verb Forms (mixed)",
+      "label": "Archaic Second-Person Verb Forms",
       "n_words": 20,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#45"
@@ -737,7 +737,7 @@
       "inherited_from": "1690-1710#7"
     },
     "20": {
-      "label": "Biblical Book Abbreviations (mixed)",
+      "label": "Biblical Book Abbreviations",
       "n_words": 131,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#18"
@@ -749,7 +749,7 @@
       "inherited_from": "1690-1710#13"
     },
     "46": {
-      "label": "Comparative and Degree Adverbs (mixed)",
+      "label": "Comparative and Degree Adverbs",
       "n_words": 43,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#47"
@@ -773,7 +773,7 @@
       "inherited_from": "1690-1710#1"
     },
     "18": {
-      "label": "Directional Particles and Verbs (mixed)",
+      "label": "Directional Particles and Verbs",
       "n_words": 137,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#45"
@@ -797,7 +797,7 @@
       "inherited_from": "1690-1710#10"
     },
     "38": {
-      "label": "General Descriptive Adjectives (mixed)",
+      "label": "General Descriptive Adjectives",
       "n_words": 86,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#31"
@@ -815,7 +815,7 @@
       "inherited_from": "1690-1710#4"
     },
     "34": {
-      "label": "Predicate Adjectives of Feeling (mixed)",
+      "label": "Predicate Adjectives of Feeling",
       "n_words": 93,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#16"
@@ -887,7 +887,7 @@
       "inherited_from": "1690-1710#3"
     },
     "7": {
-      "label": "Third-Person '-eth' Verb Forms (mixed)",
+      "label": "Third-Person '-eth' Verb Forms",
       "n_words": 197,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#5"
@@ -905,7 +905,7 @@
       "inherited_from": "1690-1710#49"
     },
     "9": {
-      "label": "Common Verbs in Bare Infinitive (mixed)",
+      "label": "Common Verbs in Bare Infinitive",
       "n_words": 180,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#0"
@@ -959,7 +959,7 @@
       "inherited_from": "1690-1710#2"
     },
     "31": {
-      "label": "Generic Past-Participle Verbs (mixed)",
+      "label": "Generic Past-Participle Verbs",
       "n_words": 103,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#40"
@@ -977,7 +977,7 @@
       "inherited_from": "1690-1710#37"
     },
     "48": {
-      "label": "Archaic Second-Person Verb Forms (mixed)",
+      "label": "Archaic Second-Person Verb Forms",
       "n_words": 21,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#48"
@@ -1038,7 +1038,7 @@
       "inherited_from": "1710-1730#49"
     },
     "51": {
-      "label": "Comparative and Degree Adverbs (mixed)",
+      "label": "Comparative and Degree Adverbs",
       "n_words": 46,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#46"
@@ -1074,13 +1074,13 @@
       "inherited_from": "1710-1730#43"
     },
     "46": {
-      "label": "General Descriptive Adjectives (mixed)",
+      "label": "General Descriptive Adjectives",
       "n_words": 79,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#38"
     },
     "48": {
-      "label": "Directional Particles and Verbs (mixed)",
+      "label": "Directional Particles and Verbs",
       "n_words": 73,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#18"
@@ -1104,7 +1104,7 @@
       "inherited_from": "1710-1730#44"
     },
     "0": {
-      "label": "Common Verbs in Bare Infinitive (mixed)",
+      "label": "Common Verbs in Bare Infinitive",
       "n_words": 300,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#9"
@@ -1128,7 +1128,7 @@
       "inherited_from": "1710-1730#14"
     },
     "41": {
-      "label": "Predicate Adjectives of Feeling (mixed)",
+      "label": "Predicate Adjectives of Feeling",
       "n_words": 88,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#34"
@@ -1229,13 +1229,13 @@
       "inherited_from": "1710-1730#28"
     },
     "33": {
-      "label": "Generic Past-Participle Verbs (mixed)",
+      "label": "Generic Past-Participle Verbs",
       "n_words": 109,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#31"
     },
     "4": {
-      "label": "Third-Person '-eth' Verb Forms (mixed)",
+      "label": "Third-Person '-eth' Verb Forms",
       "n_words": 235,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#7"
@@ -1276,13 +1276,13 @@
       "inherited_from": "1710-1730#35"
     },
     "31": {
-      "label": "Biblical Book Abbreviations (mixed)",
+      "label": "Biblical Book Abbreviations",
       "n_words": 121,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#20"
     },
     "53": {
-      "label": "Archaic Second-Person Verb Forms (mixed)",
+      "label": "Archaic Second-Person Verb Forms",
       "n_words": 17,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#48"
@@ -1361,13 +1361,13 @@
       "inherited_from": "1730-1750#22"
     },
     "52": {
-      "label": "Comparative and Degree Adverbs (mixed)",
+      "label": "Comparative and Degree Adverbs",
       "n_words": 54,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#51"
     },
     "42": {
-      "label": "Predicate Adjectives of Feeling (mixed)",
+      "label": "Predicate Adjectives of Feeling",
       "n_words": 88,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#41"
@@ -1415,7 +1415,7 @@
       "inherited_from": "1730-1750#40"
     },
     "45": {
-      "label": "Directional Particles and Verbs (mixed)",
+      "label": "Directional Particles and Verbs",
       "n_words": 79,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#48"
@@ -1433,7 +1433,7 @@
       "inherited_from": "1730-1750#19"
     },
     "0": {
-      "label": "Common Verbs in Bare Infinitive (mixed)",
+      "label": "Common Verbs in Bare Infinitive",
       "n_words": 520,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#0"
@@ -1475,13 +1475,13 @@
       "inherited_from": "1730-1750#37"
     },
     "25": {
-      "label": "General Descriptive Adjectives (mixed)",
+      "label": "General Descriptive Adjectives",
       "n_words": 154,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#46"
     },
     "7": {
-      "label": "Third-Person '-eth' Verb Forms (mixed)",
+      "label": "Third-Person '-eth' Verb Forms",
       "n_words": 265,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#4"
@@ -1511,7 +1511,7 @@
       "inherited_from": "1730-1750#38"
     },
     "20": {
-      "label": "Biblical Book Abbreviations (mixed)",
+      "label": "Biblical Book Abbreviations",
       "n_words": 171,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#31"
@@ -1559,7 +1559,7 @@
       "inherited_from": "1730-1750#43"
     },
     "31": {
-      "label": "Generic Past-Participle Verbs (mixed)",
+      "label": "Generic Past-Participle Verbs",
       "n_words": 127,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#33"
@@ -1649,7 +1649,7 @@
       "inherited_from": "1730-1750#30"
     },
     "53": {
-      "label": "Archaic Spellings and Proper Names (mixed)",
+      "label": "Archaic Spellings and Proper Names",
       "n_words": 30,
       "lane": "Structural / Uncertain"
     }
@@ -1680,7 +1680,7 @@
       "inherited_from": "1750-1770#12"
     },
     "51": {
-      "label": "Comparative and Degree Adverbs (mixed)",
+      "label": "Comparative and Degree Adverbs",
       "n_words": 54,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#52"
@@ -1746,7 +1746,7 @@
       "inherited_from": "1750-1770#39"
     },
     "0": {
-      "label": "Common Verbs in Bare Infinitive (mixed)",
+      "label": "Common Verbs in Bare Infinitive",
       "n_words": 674,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#0"
@@ -1806,7 +1806,7 @@
       "inherited_from": "1750-1770#51"
     },
     "39": {
-      "label": "General Descriptive Adjectives (mixed)",
+      "label": "General Descriptive Adjectives",
       "n_words": 130,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#25"
@@ -1842,7 +1842,7 @@
       "inherited_from": "1750-1770#8"
     },
     "10": {
-      "label": "Third-Person '-eth' Verb Forms (mixed)",
+      "label": "Third-Person '-eth' Verb Forms",
       "n_words": 347,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#7"
@@ -1878,7 +1878,7 @@
       "inherited_from": "1750-1770#43"
     },
     "42": {
-      "label": "Generic Past-Participle Verbs (mixed)",
+      "label": "Generic Past-Participle Verbs",
       "n_words": 116,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#31"
@@ -1902,25 +1902,25 @@
       "inherited_from": "1750-1770#23"
     },
     "50": {
-      "label": "Predicate Adjectives of Feeling (mixed)",
+      "label": "Predicate Adjectives of Feeling",
       "n_words": 60,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#42"
     },
     "52": {
-      "label": "Archaic Spellings and Proper Names (mixed)",
+      "label": "Archaic Spellings and Proper Names",
       "n_words": 51,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#53"
     },
     "34": {
-      "label": "Biblical Book Abbreviations (mixed)",
+      "label": "Biblical Book Abbreviations",
       "n_words": 152,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#20"
     },
     "9": {
-      "label": "Directional Particles and Verbs (mixed)",
+      "label": "Directional Particles and Verbs",
       "n_words": 355,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#45"
@@ -1982,7 +1982,7 @@
   },
   "1790-1810": {
     "57": {
-      "label": "Cardinal Numbers (mixed)",
+      "label": "Cardinal Numbers",
       "n_words": 77,
       "lane": "Structural / Uncertain"
     },
@@ -1993,7 +1993,7 @@
       "inherited_from": "1770-1790#36"
     },
     "56": {
-      "label": "Comparative and Degree Adverbs (mixed)",
+      "label": "Comparative and Degree Adverbs",
       "n_words": 81,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#51"
@@ -2083,13 +2083,13 @@
       "inherited_from": "1770-1790#5"
     },
     "1": {
-      "label": "Common Verbs in Bare Infinitive (mixed)",
+      "label": "Common Verbs in Bare Infinitive",
       "n_words": 853,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#0"
     },
     "3": {
-      "label": "Third-Person '-eth' Verb Forms (mixed)",
+      "label": "Third-Person '-eth' Verb Forms",
       "n_words": 581,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#10"
@@ -2149,7 +2149,7 @@
       "inherited_from": "1770-1790#30"
     },
     "52": {
-      "label": "Predicate Adjectives of Feeling (mixed)",
+      "label": "Predicate Adjectives of Feeling",
       "n_words": 155,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#50"
@@ -2220,13 +2220,13 @@
       "inherited_from": "1770-1790#8"
     },
     "58": {
-      "label": "Archaic Spellings and Proper Names (mixed)",
+      "label": "Archaic Spellings and Proper Names",
       "n_words": 42,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#52"
     },
     "28": {
-      "label": "Directional Particles and Verbs (mixed)",
+      "label": "Directional Particles and Verbs",
       "n_words": 322,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#9"
@@ -2262,7 +2262,7 @@
       "inherited_from": "1770-1790#4"
     },
     "30": {
-      "label": "Proper Names (Surnames) (mixed)",
+      "label": "Proper Names (Surnames)",
       "n_words": 300,
       "lane": "Structural / Uncertain"
     },
@@ -2285,7 +2285,7 @@
       "inherited_from": "1770-1790#7"
     },
     "41": {
-      "label": "General Descriptive Adjectives (mixed)",
+      "label": "General Descriptive Adjectives",
       "n_words": 235,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#39"
@@ -2303,13 +2303,13 @@
       "inherited_from": "1770-1790#2"
     },
     "48": {
-      "label": "Biblical Book Abbreviations (mixed)",
+      "label": "Biblical Book Abbreviations",
       "n_words": 187,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#34"
     },
     "46": {
-      "label": "Generic Past-Participle Verbs (mixed)",
+      "label": "Generic Past-Participle Verbs",
       "n_words": 198,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#42"
@@ -2326,7 +2326,7 @@
       "lane": "Literature, Drama & Poetic Diction"
     },
     "51": {
-      "label": "Mixed Foreign Words and Proper Names (mixed)",
+      "label": "Mixed Foreign Words and Proper Names",
       "n_words": 170,
       "lane": "Structural / Uncertain"
     }
@@ -2338,7 +2338,7 @@
     "n_human_edited": 60,
     "n_inherited": 336,
     "method": "Generated by a single LLM read-through of each community's top words, not an empirically validated taxonomy - a reading aid, not a checked ground truth. Rerunning `generate` on an unchanged input is not guaranteed to reproduce the same label text or lane for every community, since LLM sampling is not bitwise-deterministic even against an unchanged prompt.",
-    "compiled_at": "2026-08-07T14:24:51+00:00",
+    "compiled_at": "2026-08-07T14:27:19+00:00",
     "model": "claude-haiku-4-5-20251001",
     "prompt_file": "src/prompts/community_labeling_v1.md",
     "prompt_version": "v1",

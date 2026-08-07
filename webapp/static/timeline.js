@@ -96,14 +96,16 @@ function groupName(p) {
 
 // Findings specific enough that stating them generically (e.g. "flag any
 // two words that always share a group") would be a bigger, unrequested
-// feature - see wiki/timeline-feature-plan.md: "system" was chosen as the
-// demo word *despite* sharing a group with "reason" at every one of the 7
-// swept resolutions, in every period both are present - a genuine, verified
-// property of this network, stated openly rather than picked around.
-// Extend this map if another such finding gets documented.
-const KNOWN_COLLISIONS = {
-  system: "“system” shares a group with “reason” at every resolution in the sweep (0.1–2.0), in every period both appear - a genuine property of this network, not a display artifact. Below, “system” moves into a group together with “reason”; it does not separate out on its own.",
-};
+// feature - see wiki/timeline-feature-plan.md. Originally held one entry:
+// "system" was chosen as the demo word despite sharing a group with
+// "reason" at every one of the 7 swept resolutions, in every period both
+// were present. Re-verified 2026-08-07 after the labeling-resolution
+// change (1.0->4.0) and the resolution_sweep extension (now 9 points,
+// 0.1-4.0): that claim no longer holds - "system" and "reason" now match
+// at every resolution in only 3 of 14 periods. Removed rather than
+// softened into something unverified; re-add here only once a genuinely
+// checked replacement finding exists.
+const KNOWN_COLLISIONS = {};
 
 function renderNotes(word) {
   notesEl.innerHTML = "";
@@ -514,7 +516,7 @@ function median(values) {
 // primary page instead of duplicating the science.
 const SATTELZEIT_CLOSE_FROM = "1790-1810";
 const SATTELZEIT_CLOSE_TO = "1810-1830";
-const HEADLINE_RESOLUTION = 1.0;
+const HEADLINE_RESOLUTION = 4.0; // mirrors config.yml's leiden.label_resolution (raised from 1.0, 2026-08-07)
 
 async function loadHeadlineFindings() {
   const res = await fetch("/api/transitions");
@@ -533,35 +535,38 @@ async function loadHeadlineFindings() {
       `<strong>${pct}%</strong> of the ${headline.n_shared_words.toLocaleString()} shared words moved to a different group ` +
       `(historical median across every other transition: ${medianPct}%).`;
     findingsCaveatTextEl.textContent =
-      `This transition shares only ${headline.n_shared_words.toLocaleString()} words with the period before it - the smallest ` +
-      `shared vocabulary in the whole timeline. A subsampling control (shrinking a known-stable pair, 1660-1680 to ` +
-      `1680-1700, down to the same token count) reproduced a very similar migration jump on periods with no real ` +
-      `reorganization - so on the current corpus this spike cannot yet be told apart from a small-sample artifact, at ` +
-      `any resolution. More corpus for 1800-1900 (Gutenberg) is the prerequisite for testing this honestly.`;
+      `This transition shares ${headline.n_shared_words.toLocaleString()} words with the period before it - no longer ` +
+      `the thinnest in the timeline, now that the British Library supplement (2026-08-06) has filled out 1800-1900. ` +
+      `The small-sample-artifact concern that used to attach specifically to this transition (its shared vocabulary used ` +
+      `to be the smallest in the timeline, and a subsampling control reproduced a similar migration jump on a ` +
+      `known-stable pair shrunk to the same size) is resolved by that added corpus. The current thinnest transition ` +
+      `sits elsewhere and has not itself been checked the same way yet.`;
     return;
   }
 
-  // The Sattelzeit-closing transition (SATTELZEIT_CLOSE_FROM -> _TO) has no
-  // data yet - period boundaries were shifted 2026-08-04 so 1770/1830 land
-  // exactly on a period edge, but that pushed the closing window to
-  // 1810-1830, past TCP's real coverage ceiling (~1800). Degrading to a
-  // blank block here would silently hide a real finding: the highest
-  // migration in the timeline right now happens *before* the Sattelzeit,
-  // not at its close - report that honestly instead of just disappearing.
+  // Fallback for a deployment that hasn't built the Sattelzeit-closing
+  // transition's data (e.g. only ran the pipeline on TCP, pre-British
+  // Library supplement) - period boundaries were shifted 2026-08-04 so
+  // 1770/1830 land exactly on a period edge, pushing the closing window to
+  // 1810-1830. Degrading to a blank block here would silently hide a real
+  // finding: the highest migration in the timeline would happen *before*
+  // the Sattelzeit, not at its close - report that honestly instead of
+  // just disappearing.
   const best = atHeadlineRes.reduce((a, b) => (b.migration_fraction > (a ? a.migration_fraction : -1) ? b : a), null);
   if (!best) return; // no transitions at all yet - genuinely nothing to show
 
   const pct = Math.round(best.migration_fraction * 100);
   findingsHeadlineEl.innerHTML =
     `The project's own result so far, combined corpus: ${escapeHtml(SATTELZEIT_CLOSE_FROM)} &rarr; ${escapeHtml(SATTELZEIT_CLOSE_TO)} ` +
-    `(the transition that would close the Sattelzeit window) has no data yet - TCP's coverage ends around 1800. The largest shift ` +
+    `(the transition that would close the Sattelzeit window) has no data in this deployment - the British Library supplement ` +
+    `that fills 1800-1900 (see docs/method.pdf) has not been built here. The largest shift ` +
     `currently measurable anywhere in the timeline is <strong>${escapeHtml(best.period_from)} &rarr; ${escapeHtml(best.period_to)}: ${pct}%</strong> ` +
     `of ${best.n_shared_words.toLocaleString()} shared words, <em>before</em> the Sattelzeit begins, not during or closing it ` +
     `(historical median across every transition: ${medianPct}%).`;
   findingsCaveatTextEl.textContent =
-    `This is not the finding this project set out to test for, and it is shown here rather than hidden. More corpus for ` +
-    `1800-1900 (Gutenberg) is the prerequisite for measuring the actual Sattelzeit-closing transition at all - until then, ` +
-    `whether reorganization really concentrates in 1770-1830 specifically, versus just being high in this general era, is open.`;
+    `This is not the finding this project set out to test for, and it is shown here rather than hidden. Building the ` +
+    `British Library supplement for 1800-1900 (see README's "Getting the British Library supplement") is the prerequisite ` +
+    `for measuring the actual Sattelzeit-closing transition in this deployment.`;
 }
 
 function escapeHtml(s) {

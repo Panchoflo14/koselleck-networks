@@ -80,7 +80,7 @@ let COMBINED_BUILT = true; // whether the combined (un-suffixed) network was eve
 let activeRegion = null; // null = combined; otherwise one of REGIONS
 let currentIndex = 0;
 let focusWord = SEED_WORD || "";
-const activeResolution = 1.0; // the only Leiden resolution this app displays, fixed project-wide
+const activeResolution = 4.0; // the only Leiden resolution this app displays, fixed project-wide (raised from 1.0, 2026-08-07, mirrors config.yml's leiden.label_resolution)
 const positions = new Map(); // word -> {x, y}, persists layout across periods
 const communityColorMap = new Map(); // community id -> color
 let currentNodesById = new Map();
@@ -707,12 +707,20 @@ function updateFindingsBanner(period, prevLabel) {
     `(historical median across every other transition: ${medianPct}%).`;
 
   const isSattelzeitClose = prevLabel === "1790-1810" && period.label === "1810-1830";
+  // This transition's caveat used to warn that its ~42k shared words were
+  // the smallest in the whole timeline, making its migration spike
+  // indistinguishable from a small-sample artifact (a subsampling control
+  // on a known-stable pair reproduced a similar jump). That was true when
+  // TCP alone covered this period; the British Library supplement (added
+  // 2026-08-06) grew both 1790-1810 and 1810-1830 enough that 42k words is
+  // now solidly mid-range - the smallest transition in the combined
+  // timeline is elsewhere (1510-1530->1530-1550, ~5.4k words) and has not
+  // itself been checked against a subsampling control yet.
   caveatText.textContent = isSattelzeitClose
-    ? `This transition shares only ${headline.n_shared_words.toLocaleString()} words with the period before it - the ` +
-      `smallest shared vocabulary in the whole timeline. A subsampling control (shrinking a known-stable pair, ` +
-      `1660-1680 to 1680-1700, down to the same token count) reproduced a very similar migration jump on periods ` +
-      `with no real reorganization - so on the current corpus this spike cannot yet be told apart from a small-sample ` +
-      `artifact, at any resolution. More corpus for 1800-1900 (Gutenberg) is the prerequisite for testing this honestly.`
+    ? `This transition shares ${headline.n_shared_words.toLocaleString()} words with the period before it - no longer ` +
+      `the thinnest in the timeline, now that the British Library supplement (2026-08-06) has filled out 1800-1900. ` +
+      `The small-sample-artifact concern that used to attach specifically to this transition is resolved by that added ` +
+      `corpus. The current thinnest transition sits elsewhere and has not yet been checked the same way.`
     : `Migration_fraction tends to run higher whenever shared vocabulary is small, independent of any real semantic ` +
       `reorganization - read this transition's ${pct}% together with its ${headline.n_shared_words.toLocaleString()} ` +
       `shared words, not on its own.`;

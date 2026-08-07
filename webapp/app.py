@@ -13,9 +13,11 @@
 # for migration_fraction) so node color is finally comparable across a
 # single transition instead of being reassigned arbitrarily every period.
 #
-# Periods with no network file show up as an explicit gap, which makes the
-# corpus coverage problem (TCP thins out after 1700, nothing yet for
-# 1830-1900) visible in the tool itself.
+# Periods with no network file show up as an explicit gap, which makes any
+# real corpus coverage problem (e.g. the american region having no data
+# past 1800, see README's Corpus section) visible in the tool itself
+# rather than hidden. 1800-1900 combined/british coverage came from the
+# British Library supplement, added 2026-08-06.
 #
 # A region query param (?region=british / ?region=american) switches most
 # endpoints from the combined network to a region-only one built from the
@@ -64,7 +66,7 @@ REGIONS = discover_built_regions(config)
 COMBINED_BUILT = combined_is_built(config)
 HEADLINE_RES = config["leiden"]["label_resolution"]  # resolution shown by default in the UI
 DEFAULT_K = 12  # words kept per community in "full network" mode
-SEED_PERIOD = "1790-1810"  # last real, populated period - 1810-1830 (the literal Sattelzeit-closing edge, after the 2026-08-04 boundary shift) has no data yet, would land /graph and /search on an empty coverage-gap by default
+SEED_PERIOD = "1810-1830"  # the literal Sattelzeit-closing edge (after the 2026-08-04 boundary shift) - was "1790-1810" while this period had no data (pre British Library supplement); now populated, so /graph and /search default onto the edge itself instead of just before it
 # One seed word everywhere (2026-08-04) - /graph and /search used to default
 # to "reason" while /timeline defaulted to "system"; Panch flagged that as
 # arbitrary and confusing across pages that are otherwise meant to feel like

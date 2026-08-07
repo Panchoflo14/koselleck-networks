@@ -11,12 +11,12 @@
       "lane": "Literature, Drama & Poetic Diction"
     },
     "5": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 235,
       "lane": "Structural / Uncertain"
     },
     "12": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 175,
       "lane": "Structural / Uncertain"
     },
@@ -36,12 +36,12 @@
       "lane": "Morality: Virtue & Vice"
     },
     "13": {
-      "label": "Law French Legal Text (mixed)",
+      "label": "Law French Legal Text",
       "n_words": 172,
       "lane": "Structural / Uncertain"
     },
     "18": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 151,
       "lane": "Structural / Uncertain"
     },
@@ -66,12 +66,12 @@
       "lane": "Literature, Drama & Poetic Diction"
     },
     "10": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 190,
       "lane": "Structural / Uncertain"
     },
     "14": {
-      "label": "Roman Numerals and Dates (mixed)",
+      "label": "Roman Numerals and Dates",
       "n_words": 168,
       "lane": "Structural / Uncertain"
     },
@@ -86,7 +86,7 @@
       "lane": "Military & Warfare"
     },
     "30": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 96,
       "lane": "Structural / Uncertain"
     },
@@ -106,7 +106,7 @@
       "lane": "Military & Warfare"
     },
     "2": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 268,
       "lane": "Structural / Uncertain"
     },
@@ -126,7 +126,7 @@
       "lane": "Books, Learning & Scholarship"
     },
     "45": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 39,
       "lane": "Structural / Uncertain"
     },
@@ -161,22 +161,22 @@
       "lane": "Science, Mathematics & Natural Philosophy"
     },
     "42": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Dutch and German Text",
       "n_words": 47,
       "lane": "Structural / Uncertain"
     },
     "41": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 47,
       "lane": "Structural / Uncertain"
     },
     "39": {
-      "label": "Word Fragments, Suffix Stems (mixed)",
+      "label": "Word Fragments, Suffix Stems",
       "n_words": 53,
       "lane": "Structural / Uncertain"
     },
     "35": {
-      "label": "Mixed Word Fragments (mixed)",
+      "label": "Mixed Word Fragments",
       "n_words": 68,
       "lane": "Structural / Uncertain"
     },
@@ -191,7 +191,7 @@
       "lane": "History, Genealogy, Nobility & Kinship"
     },
     "29": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 104,
       "lane": "Structural / Uncertain"
     },
@@ -201,12 +201,12 @@
       "lane": "Military & Warfare"
     },
     "19": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 139,
       "lane": "Structural / Uncertain"
     },
     "43": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 46,
       "lane": "Structural / Uncertain"
     },
@@ -216,7 +216,7 @@
       "lane": "Government, Law & Administration"
     },
     "40": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 47,
       "lane": "Structural / Uncertain"
     },
@@ -226,7 +226,7 @@
       "lane": "Science, Mathematics & Natural Philosophy"
     },
     "3": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 256,
       "lane": "Structural / Uncertain"
     }
@@ -245,19 +245,19 @@
       "inherited_from": "1510-1530#1"
     },
     "0": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 895,
       "lane": "Structural / Uncertain",
       "inherited_from": "1510-1530#5"
     },
     "46": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 134,
       "lane": "Structural / Uncertain",
       "inherited_from": "1510-1530#43"
     },
     "43": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 159,
       "lane": "Structural / Uncertain",
       "inherited_from": "1510-1530#19"
@@ -275,13 +275,13 @@
       "inherited_from": "1510-1530#22"
     },
     "24": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 319,
       "lane": "Structural / Uncertain",
       "inherited_from": "1510-1530#3"
     },
     "20": {
-      "label": "Law French Legal Text (mixed)",
+      "label": "Law French Legal Text",
       "n_words": 333,
       "lane": "Structural / Uncertain",
       "inherited_from": "1510-1530#13"
@@ -317,7 +317,7 @@
       "inherited_from": "1510-1530#6"
     },
     "31": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 282,
       "lane": "Structural / Uncertain",
       "inherited_from": "1510-1530#12"
@@ -335,7 +335,7 @@
       "inherited_from": "1510-1530#36"
     },
     "4": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 536,
       "lane": "Structural / Uncertain",
       "inherited_from": "1510-1530#30"
@@ -364,13 +364,12 @@
       "lane": "Religion, Theology & the Church"
     },
     "9": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Scots Legal and Administrative Terms",
       "n_words": 464,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1510-1530#42"
+      "lane": "Structural / Uncertain"
     },
     "8": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 484,
       "lane": "Structural / Uncertain",
       "inherited_from": "1510-1530#18"
@@ -400,7 +399,7 @@
       "inherited_from": "1510-1530#8"
     },
     "1": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 701,
       "lane": "Structural / Uncertain",
       "inherited_from": "1510-1530#10"
@@ -423,7 +422,7 @@
       "inherited_from": "1510-1530#21"
     },
     "17": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 379,
       "lane": "Structural / Uncertain",
       "inherited_from": "1510-1530#40"
@@ -434,7 +433,7 @@
       "lane": "Government, Law & Administration"
     },
     "29": {
-      "label": "Roman Numerals and Dates (mixed)",
+      "label": "Roman Numerals and Dates",
       "n_words": 288,
       "lane": "Structural / Uncertain",
       "inherited_from": "1510-1530#14"
@@ -451,7 +450,7 @@
       "lane": "Literature, Drama & Poetic Diction"
     },
     "50": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 114,
       "lane": "Structural / Uncertain",
       "inherited_from": "1510-1530#41"
@@ -468,23 +467,23 @@
       "lane": "Religion, Theology & the Church"
     },
     "23": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 319,
       "lane": "Structural / Uncertain",
       "inherited_from": "1510-1530#29"
     },
     "55": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 47,
       "lane": "Structural / Uncertain"
     },
     "56": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 17,
       "lane": "Structural / Uncertain"
     },
     "54": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 62,
       "lane": "Structural / Uncertain"
     },
@@ -495,12 +494,12 @@
       "inherited_from": "1510-1530#34"
     },
     "49": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 116,
       "lane": "Structural / Uncertain"
     },
     "48": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 120,
       "lane": "Structural / Uncertain"
     },
@@ -511,19 +510,19 @@
       "inherited_from": "1510-1530#32"
     },
     "52": {
-      "label": "Mixed Word Fragments (mixed)",
+      "label": "Mixed Word Fragments",
       "n_words": 79,
       "lane": "Structural / Uncertain",
       "inherited_from": "1510-1530#35"
     },
     "35": {
-      "label": "Word Fragments, Suffix Stems (mixed)",
+      "label": "Word Fragments, Suffix Stems",
       "n_words": 245,
       "lane": "Structural / Uncertain",
       "inherited_from": "1510-1530#39"
     },
     "25": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 316,
       "lane": "Structural / Uncertain",
       "inherited_from": "1510-1530#2"
@@ -547,7 +546,7 @@
       "inherited_from": "1510-1530#37"
     },
     "41": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 177,
       "lane": "Structural / Uncertain",
       "inherited_from": "1510-1530#45"
@@ -559,14 +558,14 @@
       "inherited_from": "1510-1530#27"
     },
     "3": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 582,
       "lane": "Structural / Uncertain"
     }
   },
   "1550-1570": {
     "51": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 151,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#43"
@@ -638,31 +637,31 @@
       "inherited_from": "1530-1550#19"
     },
     "35": {
-      "label": "Mixed Word Fragments (mixed)",
+      "label": "Mixed Word Fragments",
       "n_words": 290,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#52"
     },
     "0": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 1217,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#0"
     },
     "32": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 304,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#24"
     },
     "19": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 508,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#4"
     },
     "37": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 276,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#31"
@@ -674,7 +673,7 @@
       "inherited_from": "1530-1550#10"
     },
     "7": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 655,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#8"
@@ -716,7 +715,7 @@
       "inherited_from": "1530-1550#36"
     },
     "40": {
-      "label": "Roman Numerals and Dates (mixed)",
+      "label": "Roman Numerals and Dates",
       "n_words": 237,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#29"
@@ -734,7 +733,7 @@
       "inherited_from": "1530-1550#7"
     },
     "43": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 207,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#54"
@@ -752,19 +751,19 @@
       "inherited_from": "1530-1550#34"
     },
     "30": {
-      "label": "Law French Legal Text (mixed)",
+      "label": "Law French Legal Text",
       "n_words": 337,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#20"
     },
     "2": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 1145,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#1"
     },
     "13": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 554,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#25"
@@ -800,7 +799,7 @@
       "inherited_from": "1530-1550#12"
     },
     "53": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 120,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#50"
@@ -812,7 +811,7 @@
       "inherited_from": "1530-1550#21"
     },
     "47": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 174,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#48"
@@ -824,7 +823,7 @@
       "inherited_from": "1530-1550#37"
     },
     "55": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 41,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#46"
@@ -836,25 +835,24 @@
       "inherited_from": "1530-1550#16"
     },
     "18": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 517,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#23"
     },
     "8": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 651,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#17"
     },
     "3": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Scots Legal and Rhetorical Terms",
       "n_words": 971,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1530-1550#9"
+      "lane": "Structural / Uncertain"
     },
     "50": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 154,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#49"
@@ -866,7 +864,7 @@
       "inherited_from": "1530-1550#18"
     },
     "54": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 110,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#55"
@@ -878,19 +876,19 @@
       "inherited_from": "1530-1550#26"
     },
     "41": {
-      "label": "Word Fragments, Suffix Stems (mixed)",
+      "label": "Word Fragments, Suffix Stems",
       "n_words": 229,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#35"
     },
     "48": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 174,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#41"
     },
     "56": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 17,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#56"
@@ -902,7 +900,7 @@
       "inherited_from": "1530-1550#22"
     },
     "4": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 830,
       "lane": "Structural / Uncertain",
       "inherited_from": "1530-1550#3"
@@ -922,7 +920,7 @@
       "inherited_from": "1550-1570#28"
     },
     "27": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 629,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#51"
@@ -957,7 +955,7 @@
       "inherited_from": "1550-1570#25"
     },
     "1": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 1504,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#0"
@@ -969,13 +967,13 @@
       "inherited_from": "1550-1570#1"
     },
     "36": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 503,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#43"
     },
     "12": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 887,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#7"
@@ -987,7 +985,7 @@
       "inherited_from": "1550-1570#15"
     },
     "7": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 1072,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#19"
@@ -1035,7 +1033,7 @@
       "inherited_from": "1550-1570#20"
     },
     "39": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 480,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#37"
@@ -1047,13 +1045,13 @@
       "inherited_from": "1550-1570#26"
     },
     "44": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 353,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#54"
     },
     "57": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 184,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#48"
@@ -1065,7 +1063,7 @@
       "inherited_from": "1550-1570#33"
     },
     "10": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 920,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#13"
@@ -1112,13 +1110,13 @@
       "inherited_from": "1550-1570#5"
     },
     "51": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 251,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#50"
     },
     "30": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 565,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#8"
@@ -1130,13 +1128,13 @@
       "inherited_from": "1550-1570#14"
     },
     "26": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 685,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#2"
     },
     "46": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 340,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#47"
@@ -1160,19 +1158,19 @@
       "inherited_from": "1550-1570#10"
     },
     "49": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 269,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#55"
     },
     "24": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 697,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#18"
     },
     "59": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 165,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#53"
@@ -1184,7 +1182,7 @@
       "inherited_from": "1550-1570#27"
     },
     "13": {
-      "label": "Law French Legal Text (mixed)",
+      "label": "Law French Legal Text",
       "n_words": 883,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#30"
@@ -1196,7 +1194,7 @@
       "inherited_from": "1550-1570#16"
     },
     "52": {
-      "label": "Word Fragments, Suffix Stems (mixed)",
+      "label": "Word Fragments, Suffix Stems",
       "n_words": 249,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#41"
@@ -1208,12 +1206,12 @@
       "inherited_from": "1550-1570#21"
     },
     "54": {
-      "label": "Latin Poetic Text (mixed)",
+      "label": "Latin Poetic Text",
       "n_words": 232,
       "lane": "Structural / Uncertain"
     },
     "31": {
-      "label": "Mixed Word Fragments (mixed)",
+      "label": "Mixed Word Fragments",
       "n_words": 562,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#35"
@@ -1231,10 +1229,9 @@
       "inherited_from": "1550-1570#23"
     },
     "22": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Anglo-Scottish Border Warfare Narrative",
       "n_words": 721,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1550-1570#3"
+      "lane": "Military & Warfare"
     },
     "42": {
       "label": "Animals and Wildlife",
@@ -1252,25 +1249,25 @@
       "lane": "Medicine, Body & Health"
     },
     "55": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 202,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#32"
     },
     "66": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 20,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#56"
     },
     "3": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 1459,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#4"
     },
     "50": {
-      "label": "Latin Text (mixed)",
+      "label": "Latin Text",
       "n_words": 261,
       "lane": "Structural / Uncertain"
     },
@@ -1281,23 +1278,23 @@
       "inherited_from": "1550-1570#49"
     },
     "53": {
-      "label": "Latin Legal and Rhetorical Text (mixed)",
+      "label": "Latin Legal and Rhetorical Text",
       "n_words": 244,
       "lane": "Structural / Uncertain"
     },
     "56": {
-      "label": "Roman Numerals and Dates (mixed)",
+      "label": "Roman Numerals and Dates",
       "n_words": 201,
       "lane": "Structural / Uncertain",
       "inherited_from": "1550-1570#40"
     },
     "34": {
-      "label": "Welsh Text (mixed)",
+      "label": "Welsh Text",
       "n_words": 510,
       "lane": "Structural / Uncertain"
     },
     "64": {
-      "label": "Spelling Variants (mixed)",
+      "label": "Spelling Variants",
       "n_words": 28,
       "lane": "Structural / Uncertain"
     }
@@ -1310,7 +1307,7 @@
       "inherited_from": "1570-1590#48"
     },
     "3": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 1502,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#1"
@@ -1322,13 +1319,13 @@
       "inherited_from": "1570-1590#16"
     },
     "31": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 610,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#27"
     },
     "44": {
-      "label": "Welsh Text (mixed)",
+      "label": "Welsh Text",
       "n_words": 445,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#34"
@@ -1370,7 +1367,7 @@
       "inherited_from": "1570-1590#62"
     },
     "46": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 433,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#36"
@@ -1388,7 +1385,7 @@
       "inherited_from": "1570-1590#42"
     },
     "14": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 918,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#24"
@@ -1412,13 +1409,13 @@
       "inherited_from": "1570-1590#32"
     },
     "9": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 966,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#7"
     },
     "12": {
-      "label": "Latin Poetic Text (mixed)",
+      "label": "Latin Poetic Text",
       "n_words": 950,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#54"
@@ -1430,13 +1427,13 @@
       "inherited_from": "1570-1590#23"
     },
     "1": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 1531,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#12"
     },
     "18": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 877,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#39"
@@ -1448,7 +1445,7 @@
       "inherited_from": "1570-1590#18"
     },
     "20": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 806,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#30"
@@ -1490,7 +1487,7 @@
       "inherited_from": "1570-1590#15"
     },
     "25": {
-      "label": "Mixed Word Fragments (mixed)",
+      "label": "Mixed Word Fragments",
       "n_words": 749,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#31"
@@ -1502,7 +1499,7 @@
       "inherited_from": "1570-1590#11"
     },
     "36": {
-      "label": "Roman Numerals and Dates (mixed)",
+      "label": "Roman Numerals and Dates",
       "n_words": 555,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#56"
@@ -1520,7 +1517,7 @@
       "inherited_from": "1570-1590#29"
     },
     "4": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 1385,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#26"
@@ -1556,7 +1553,7 @@
       "inherited_from": "1570-1590#9"
     },
     "54": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 250,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#51"
@@ -1574,12 +1571,12 @@
       "inherited_from": "1570-1590#61"
     },
     "67": {
-      "label": "Verbs of Exceeding and Surpassing (mixed)",
+      "label": "Verbs of Exceeding and Surpassing",
       "n_words": 28,
       "lane": "Structural / Uncertain"
     },
     "59": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 162,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#59"
@@ -1591,7 +1588,7 @@
       "inherited_from": "1570-1590#38"
     },
     "51": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 287,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#55"
@@ -1603,7 +1600,7 @@
       "inherited_from": "1570-1590#25"
     },
     "7": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 1018,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#10"
@@ -1615,31 +1612,31 @@
       "inherited_from": "1570-1590#47"
     },
     "65": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 41,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#66"
     },
     "52": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 272,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#46"
     },
     "58": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 166,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#44"
     },
     "43": {
-      "label": "Law French Legal Text (mixed)",
+      "label": "Law French Legal Text",
       "n_words": 464,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#13"
     },
     "64": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 52,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#49"
@@ -1657,16 +1654,15 @@
       "inherited_from": "1570-1590#35"
     },
     "37": {
-      "label": "Latin Text (mixed)",
+      "label": "Latin Text",
       "n_words": 518,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#50"
     },
     "50": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Scots Rhetorical and Legal Terms",
       "n_words": 361,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1570-1590#22"
+      "lane": "Structural / Uncertain"
     },
     "5": {
       "label": "Combat and Action Narration",
@@ -1675,7 +1671,7 @@
       "inherited_from": "1570-1590#6"
     },
     "60": {
-      "label": "Word Fragments, Suffix Stems (mixed)",
+      "label": "Word Fragments, Suffix Stems",
       "n_words": 161,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#52"
@@ -1687,25 +1683,25 @@
       "inherited_from": "1570-1590#65"
     },
     "55": {
-      "label": "Latin Legal and Rhetorical Text (mixed)",
+      "label": "Latin Legal and Rhetorical Text",
       "n_words": 216,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#53"
     },
     "62": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 143,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#57"
     },
     "66": {
-      "label": "Spelling Variants (mixed)",
+      "label": "Spelling Variants",
       "n_words": 34,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#64"
     },
     "6": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 1134,
       "lane": "Structural / Uncertain",
       "inherited_from": "1570-1590#3"
@@ -1725,13 +1721,13 @@
       "inherited_from": "1590-1610#22"
     },
     "3": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 1543,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#3"
     },
     "57": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 291,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#31"
@@ -1743,7 +1739,7 @@
       "inherited_from": "1590-1610#40"
     },
     "17": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 948,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#14"
@@ -1761,7 +1757,7 @@
       "inherited_from": "1590-1610#57"
     },
     "44": {
-      "label": "Welsh Text (mixed)",
+      "label": "Welsh Text",
       "n_words": 447,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#44"
@@ -1785,7 +1781,7 @@
       "inherited_from": "1590-1610#33"
     },
     "49": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 328,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#46"
@@ -1827,13 +1823,13 @@
       "inherited_from": "1590-1610#13"
     },
     "26": {
-      "label": "Latin Poetic Text (mixed)",
+      "label": "Latin Poetic Text",
       "n_words": 748,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#12"
     },
     "13": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 1065,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#9"
@@ -1845,7 +1841,7 @@
       "inherited_from": "1590-1610#61"
     },
     "1": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 1615,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#1"
@@ -1863,7 +1859,7 @@
       "inherited_from": "1590-1610#26"
     },
     "12": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 1144,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#18"
@@ -1893,10 +1889,9 @@
       "inherited_from": "1590-1610#45"
     },
     "37": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Courtship and Romantic Verse",
       "n_words": 565,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1590-1610#50"
+      "lane": "Literature, Drama & Poetic Diction"
     },
     "22": {
       "label": "Anatomy and Bodily Ailments",
@@ -1929,13 +1924,13 @@
       "inherited_from": "1590-1610#16"
     },
     "4": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 1496,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#4"
     },
     "59": {
-      "label": "Spelling Variants (mixed)",
+      "label": "Spelling Variants",
       "n_words": 263,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#66"
@@ -1953,31 +1948,31 @@
       "inherited_from": "1590-1610#42"
     },
     "6": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 1349,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#7"
     },
     "65": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 106,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#65"
     },
     "52": {
-      "label": "Roman Numerals and Dates (mixed)",
+      "label": "Roman Numerals and Dates",
       "n_words": 314,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#36"
     },
     "36": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 573,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#64"
     },
     "61": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 236,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#59"
@@ -1989,19 +1984,19 @@
       "inherited_from": "1590-1610#8"
     },
     "48": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 331,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#20"
     },
     "54": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 306,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#51"
     },
     "55": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 297,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#54"
@@ -2013,7 +2008,7 @@
       "inherited_from": "1590-1610#48"
     },
     "58": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 287,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#52"
@@ -2037,7 +2032,7 @@
       "inherited_from": "1590-1610#11"
     },
     "53": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 307,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#62"
@@ -2061,13 +2056,13 @@
       "inherited_from": "1590-1610#32"
     },
     "31": {
-      "label": "Mixed Word Fragments (mixed)",
+      "label": "Mixed Word Fragments",
       "n_words": 657,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#25"
     },
     "38": {
-      "label": "Law French Legal Text (mixed)",
+      "label": "Law French Legal Text",
       "n_words": 559,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#43"
@@ -2079,13 +2074,13 @@
       "inherited_from": "1590-1610#19"
     },
     "41": {
-      "label": "Latin Legal and Rhetorical Text (mixed)",
+      "label": "Latin Legal and Rhetorical Text",
       "n_words": 492,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#55"
     },
     "60": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 258,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#58"
@@ -2097,25 +2092,25 @@
       "inherited_from": "1590-1610#5"
     },
     "64": {
-      "label": "Word Fragments, Suffix Stems (mixed)",
+      "label": "Word Fragments, Suffix Stems",
       "n_words": 107,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#60"
     },
     "0": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 1726,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#6"
     },
     "9": {
-      "label": "Latin Text (mixed)",
+      "label": "Latin Text",
       "n_words": 1254,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#37"
     },
     "67": {
-      "label": "Verbs of Exceeding and Surpassing (mixed)",
+      "label": "Verbs of Exceeding and Surpassing",
       "n_words": 35,
       "lane": "Structural / Uncertain",
       "inherited_from": "1590-1610#67"
@@ -2135,7 +2130,7 @@
       "inherited_from": "1610-1630#20"
     },
     "27": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 858,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#57"
@@ -2153,7 +2148,7 @@
       "inherited_from": "1610-1630#62"
     },
     "37": {
-      "label": "Welsh Text (mixed)",
+      "label": "Welsh Text",
       "n_words": 612,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#44"
@@ -2171,19 +2166,19 @@
       "inherited_from": "1610-1630#35"
     },
     "0": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 1885,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#3"
     },
     "45": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 538,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#49"
     },
     "13": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 1113,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#17"
@@ -2195,7 +2190,7 @@
       "inherited_from": "1610-1630#19"
     },
     "4": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 1623,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#1"
@@ -2225,7 +2220,7 @@
       "inherited_from": "1610-1630#30"
     },
     "15": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 1088,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#13"
@@ -2237,7 +2232,7 @@
       "inherited_from": "1610-1630#29"
     },
     "69": {
-      "label": "Contracted Verb Forms (mixed)",
+      "label": "Contracted Verb Forms",
       "n_words": 84,
       "lane": "Structural / Uncertain"
     },
@@ -2289,13 +2284,12 @@
       "inherited_from": "1610-1630#5"
     },
     "50": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Classical Mythology and Pastoral Poetry",
       "n_words": 414,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1610-1630#37"
+      "lane": "Literature, Drama & Poetic Diction"
     },
     "19": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 955,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#12"
@@ -2337,19 +2331,19 @@
       "inherited_from": "1610-1630#18"
     },
     "43": {
-      "label": "Spelling Variants (mixed)",
+      "label": "Spelling Variants",
       "n_words": 566,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#59"
     },
     "51": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 405,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#55"
     },
     "16": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 1066,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#4"
@@ -2367,7 +2361,7 @@
       "inherited_from": "1610-1630#8"
     },
     "52": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 356,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#54"
@@ -2379,19 +2373,19 @@
       "inherited_from": "1610-1630#10"
     },
     "63": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 237,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#61"
     },
     "62": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 241,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#48"
     },
     "56": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 305,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#58"
@@ -2426,7 +2420,7 @@
       "inherited_from": "1610-1630#39"
     },
     "12": {
-      "label": "Latin Poetic Text (mixed)",
+      "label": "Latin Poetic Text",
       "n_words": 1129,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#26"
@@ -2438,7 +2432,7 @@
       "inherited_from": "1610-1630#34"
     },
     "68": {
-      "label": "Roman Numerals and Dates (mixed)",
+      "label": "Roman Numerals and Dates",
       "n_words": 87,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#52"
@@ -2462,19 +2456,19 @@
       "inherited_from": "1610-1630#25"
     },
     "26": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 883,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#6"
     },
     "20": {
-      "label": "Latin Legal and Rhetorical Text (mixed)",
+      "label": "Latin Legal and Rhetorical Text",
       "n_words": 951,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#41"
     },
     "65": {
-      "label": "Verbs of Transformation and Infusion (mixed)",
+      "label": "Verbs of Transformation and Infusion",
       "n_words": 141,
       "lane": "Structural / Uncertain"
     },
@@ -2485,7 +2479,7 @@
       "inherited_from": "1610-1630#33"
     },
     "72": {
-      "label": "Word Fragments, Suffix Stems (mixed)",
+      "label": "Word Fragments, Suffix Stems",
       "n_words": 44,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#64"
@@ -2502,7 +2496,7 @@
       "lane": "Religion, Theology & the Church"
     },
     "75": {
-      "label": "Latin Text Fragments (mixed)",
+      "label": "Latin Text Fragments",
       "n_words": 18,
       "lane": "Structural / Uncertain"
     },
@@ -2512,60 +2506,60 @@
       "lane": "Government, Law & Administration"
     },
     "67": {
-      "label": "Mixed Word Fragments (mixed)",
+      "label": "Mixed Word Fragments",
       "n_words": 90,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#31"
     },
     "49": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 420,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#53"
     },
     "60": {
-      "label": "Law French Legal Text (mixed)",
+      "label": "Law French Legal Text",
       "n_words": 270,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#38"
     },
     "55": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 305,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#60"
     },
     "39": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 608,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#36"
     },
     "25": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 895,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#0"
     },
     "7": {
-      "label": "Latin Text (mixed)",
+      "label": "Latin Text",
       "n_words": 1394,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#9"
     },
     "74": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 22,
       "lane": "Structural / Uncertain"
     },
     "17": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 1051,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#65"
     },
     "71": {
-      "label": "Verbs of Exceeding and Surpassing (mixed)",
+      "label": "Verbs of Exceeding and Surpassing",
       "n_words": 61,
       "lane": "Structural / Uncertain",
       "inherited_from": "1610-1630#67"
@@ -2573,7 +2567,7 @@
   },
   "1650-1670": {
     "49": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 607,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#45"
@@ -2585,7 +2579,7 @@
       "inherited_from": "1630-1650#33"
     },
     "51": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 543,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#27"
@@ -2603,13 +2597,12 @@
       "inherited_from": "1630-1650#58"
     },
     "66": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Early Christian Figures and Scripture",
       "n_words": 190,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1630-1650#50"
+      "lane": "Religion, Theology & the Church"
     },
     "34": {
-      "label": "Welsh Text (mixed)",
+      "label": "Welsh Text",
       "n_words": 919,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#37"
@@ -2627,7 +2620,7 @@
       "inherited_from": "1630-1650#40"
     },
     "26": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 1185,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#13"
@@ -2651,7 +2644,7 @@
       "inherited_from": "1630-1650#46"
     },
     "0": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 2582,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#0"
@@ -2681,13 +2674,13 @@
       "inherited_from": "1630-1650#31"
     },
     "21": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 1300,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#15"
     },
     "69": {
-      "label": "Contracted Verb Forms (mixed)",
+      "label": "Contracted Verb Forms",
       "n_words": 96,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#69"
@@ -2705,7 +2698,7 @@
       "inherited_from": "1630-1650#32"
     },
     "9": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 1846,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#4"
@@ -2729,13 +2722,13 @@
       "inherited_from": "1630-1650#70"
     },
     "15": {
-      "label": "Latin Poetic Text (mixed)",
+      "label": "Latin Poetic Text",
       "n_words": 1423,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#12"
     },
     "20": {
-      "label": "Latin Legal and Rhetorical Text (mixed)",
+      "label": "Latin Legal and Rhetorical Text",
       "n_words": 1334,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#20"
@@ -2771,13 +2764,13 @@
       "inherited_from": "1630-1650#11"
     },
     "46": {
-      "label": "Spelling Variants (mixed)",
+      "label": "Spelling Variants",
       "n_words": 718,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#43"
     },
     "4": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 2060,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#16"
@@ -2825,7 +2818,7 @@
       "inherited_from": "1630-1650#61"
     },
     "58": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 344,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#63"
@@ -2837,7 +2830,7 @@
       "inherited_from": "1630-1650#66"
     },
     "57": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 395,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#56"
@@ -2855,7 +2848,7 @@
       "inherited_from": "1630-1650#35"
     },
     "52": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 505,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#51"
@@ -2873,13 +2866,13 @@
       "inherited_from": "1630-1650#3"
     },
     "23": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 1280,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#19"
     },
     "56": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 474,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#52"
@@ -2891,7 +2884,7 @@
       "inherited_from": "1630-1650#36"
     },
     "63": {
-      "label": "Verbs of Transformation and Infusion (mixed)",
+      "label": "Verbs of Transformation and Infusion",
       "n_words": 277,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#65"
@@ -2903,13 +2896,13 @@
       "inherited_from": "1630-1650#59"
     },
     "70": {
-      "label": "Roman Numerals and Dates (mixed)",
+      "label": "Roman Numerals and Dates",
       "n_words": 45,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#68"
     },
     "17": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 1350,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#26"
@@ -2927,7 +2920,7 @@
       "inherited_from": "1630-1650#9"
     },
     "5": {
-      "label": "Latin Text (mixed)",
+      "label": "Latin Text",
       "n_words": 1961,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#7"
@@ -2939,7 +2932,7 @@
       "inherited_from": "1630-1650#29"
     },
     "62": {
-      "label": "Latin Text Fragments (mixed)",
+      "label": "Latin Text Fragments",
       "n_words": 311,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#75"
@@ -2957,55 +2950,55 @@
       "inherited_from": "1630-1650#53"
     },
     "43": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 820,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#49"
     },
     "54": {
-      "label": "Law French Legal Text (mixed)",
+      "label": "Law French Legal Text",
       "n_words": 485,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#60"
     },
     "37": {
-      "label": "Mixed Word Fragments (mixed)",
+      "label": "Mixed Word Fragments",
       "n_words": 845,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#67"
     },
     "33": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 939,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#39"
     },
     "55": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 481,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#55"
     },
     "2": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 2331,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#25"
     },
     "65": {
-      "label": "Verbs of Exceeding and Surpassing (mixed)",
+      "label": "Verbs of Exceeding and Surpassing",
       "n_words": 198,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#71"
     },
     "1": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 2477,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#17"
     },
     "72": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 27,
       "lane": "Structural / Uncertain",
       "inherited_from": "1630-1650#62"
@@ -3013,7 +3006,7 @@
   },
   "1670-1690": {
     "56": {
-      "label": "Contracted Verb Forms (mixed)",
+      "label": "Contracted Verb Forms",
       "n_words": 350,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#69"
@@ -3025,7 +3018,7 @@
       "inherited_from": "1650-1670#71"
     },
     "26": {
-      "label": "Welsh Text (mixed)",
+      "label": "Welsh Text",
       "n_words": 1293,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#34"
@@ -3055,7 +3048,7 @@
       "inherited_from": "1650-1670#27"
     },
     "3": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 2218,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#0"
@@ -3103,13 +3096,13 @@
       "inherited_from": "1650-1670#6"
     },
     "32": {
-      "label": "Latin Legal and Rhetorical Text (mixed)",
+      "label": "Latin Legal and Rhetorical Text",
       "n_words": 1132,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#20"
     },
     "54": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 373,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#49"
@@ -3121,7 +3114,7 @@
       "inherited_from": "1650-1670#28"
     },
     "10": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 1711,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#21"
@@ -3139,7 +3132,7 @@
       "inherited_from": "1650-1670#50"
     },
     "28": {
-      "label": "Latin Poetic Text (mixed)",
+      "label": "Latin Poetic Text",
       "n_words": 1178,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#15"
@@ -3169,13 +3162,13 @@
       "inherited_from": "1650-1670#7"
     },
     "12": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 1596,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#9"
     },
     "9": {
-      "label": "Law French Legal Text (mixed)",
+      "label": "Law French Legal Text",
       "n_words": 1768,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#54"
@@ -3199,19 +3192,19 @@
       "inherited_from": "1650-1670#16"
     },
     "2": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 2417,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#17"
     },
     "49": {
-      "label": "Spelling Variants (mixed)",
+      "label": "Spelling Variants",
       "n_words": 499,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#46"
     },
     "21": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 1455,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#26"
@@ -3241,7 +3234,7 @@
       "inherited_from": "1650-1670#18"
     },
     "5": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 2171,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#4"
@@ -3253,7 +3246,7 @@
       "inherited_from": "1650-1670#59"
     },
     "7": {
-      "label": "Latin Text (mixed)",
+      "label": "Latin Text",
       "n_words": 1945,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#5"
@@ -3271,25 +3264,24 @@
       "inherited_from": "1650-1670#3"
     },
     "60": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 273,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#58"
     },
     "51": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 465,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#52"
     },
     "63": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Early Popes and Papal History",
       "n_words": 115,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1650-1670#66"
+      "lane": "Religion, Theology & the Church"
     },
     "55": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 362,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#57"
@@ -3301,7 +3293,7 @@
       "inherited_from": "1650-1670#48"
     },
     "53": {
-      "label": "Verbs of Transformation and Infusion (mixed)",
+      "label": "Verbs of Transformation and Infusion",
       "n_words": 404,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#63"
@@ -3319,7 +3311,7 @@
       "inherited_from": "1650-1670#29"
     },
     "35": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 969,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#23"
@@ -3337,7 +3329,7 @@
       "inherited_from": "1650-1670#45"
     },
     "39": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 866,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#33"
@@ -3349,7 +3341,7 @@
       "inherited_from": "1650-1670#35"
     },
     "0": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 2570,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#1"
@@ -3373,43 +3365,43 @@
       "inherited_from": "1650-1670#61"
     },
     "42": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 694,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#43"
     },
     "27": {
-      "label": "Mixed Word Fragments (mixed)",
+      "label": "Mixed Word Fragments",
       "n_words": 1223,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#37"
     },
     "50": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 488,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#55"
     },
     "66": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 33,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#56"
     },
     "29": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 1156,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#51"
     },
     "8": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 1842,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#2"
     },
     "62": {
-      "label": "Verbs of Exceeding and Surpassing (mixed)",
+      "label": "Verbs of Exceeding and Surpassing",
       "n_words": 156,
       "lane": "Structural / Uncertain",
       "inherited_from": "1650-1670#65"
@@ -3423,7 +3415,7 @@
       "inherited_from": "1670-1690#52"
     },
     "50": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 428,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#29"
@@ -3453,7 +3445,7 @@
       "inherited_from": "1670-1690#59"
     },
     "38": {
-      "label": "Welsh Text (mixed)",
+      "label": "Welsh Text",
       "n_words": 543,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#26"
@@ -3489,7 +3481,7 @@
       "inherited_from": "1670-1690#18"
     },
     "7": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 1278,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#3"
@@ -3501,13 +3493,13 @@
       "inherited_from": "1670-1690#14"
     },
     "23": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 896,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#21"
     },
     "32": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 707,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#39"
@@ -3531,19 +3523,19 @@
       "inherited_from": "1670-1690#25"
     },
     "60": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 223,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#54"
     },
     "26": {
-      "label": "Contracted Verb Forms (mixed)",
+      "label": "Contracted Verb Forms",
       "n_words": 823,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#56"
     },
     "8": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 1241,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#10"
@@ -3561,27 +3553,26 @@
       "inherited_from": "1670-1690#48"
     },
     "65": {
-      "label": "Contracted Verb Forms (mixed)",
+      "label": "Contracted Verb Forms",
       "n_words": 76,
       "lane": "Structural / Uncertain"
     },
     "6": {
-      "label": "Latin Poetic Text (mixed)",
+      "label": "Latin Poetic Text",
       "n_words": 1287,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#28"
     },
     "11": {
-      "label": "Mixed Word Fragments (mixed)",
+      "label": "Mixed Word Fragments",
       "n_words": 1166,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#27"
     },
     "43": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Anguish and Emotional Distress",
       "n_words": 477,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1670-1690#63"
+      "lane": "Morality: Virtue & Vice"
     },
     "16": {
       "label": "Leisure, Games and Entertainment",
@@ -3602,7 +3593,7 @@
       "inherited_from": "1670-1690#45"
     },
     "68": {
-      "label": "Welsh Text, Days and Body Parts (mixed)",
+      "label": "Welsh Text, Days and Body Parts",
       "n_words": 28,
       "lane": "Structural / Uncertain"
     },
@@ -3619,7 +3610,7 @@
       "inherited_from": "1670-1690#41"
     },
     "29": {
-      "label": "Verbs of Exceeding and Surpassing (mixed)",
+      "label": "Verbs of Exceeding and Surpassing",
       "n_words": 721,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#62"
@@ -3637,7 +3628,7 @@
       "inherited_from": "1670-1690#19"
     },
     "37": {
-      "label": "Spelling Variants (mixed)",
+      "label": "Spelling Variants",
       "n_words": 570,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#49"
@@ -3649,7 +3640,7 @@
       "inherited_from": "1670-1690#22"
     },
     "9": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 1203,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#12"
@@ -3667,7 +3658,7 @@
       "inherited_from": "1670-1690#13"
     },
     "53": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 370,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#51"
@@ -3685,7 +3676,7 @@
       "inherited_from": "1670-1690#17"
     },
     "5": {
-      "label": "Latin Text (mixed)",
+      "label": "Latin Text",
       "n_words": 1306,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#7"
@@ -3697,19 +3688,19 @@
       "inherited_from": "1670-1690#31"
     },
     "63": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 174,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#60"
     },
     "54": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 315,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#55"
     },
     "30": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 711,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#42"
@@ -3721,13 +3712,13 @@
       "inherited_from": "1670-1690#58"
     },
     "3": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 1377,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#2"
     },
     "0": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 2274,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#5"
@@ -3739,7 +3730,7 @@
       "inherited_from": "1670-1690#36"
     },
     "51": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 419,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#35"
@@ -3751,7 +3742,7 @@
       "inherited_from": "1670-1690#46"
     },
     "58": {
-      "label": "Verbs of Transformation and Infusion (mixed)",
+      "label": "Verbs of Transformation and Infusion",
       "n_words": 230,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#53"
@@ -3763,7 +3754,7 @@
       "inherited_from": "1670-1690#34"
     },
     "24": {
-      "label": "Law French Legal Text (mixed)",
+      "label": "Law French Legal Text",
       "n_words": 843,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#9"
@@ -3781,7 +3772,7 @@
       "inherited_from": "1670-1690#43"
     },
     "61": {
-      "label": "Latin Legal and Rhetorical Text (mixed)",
+      "label": "Latin Legal and Rhetorical Text",
       "n_words": 209,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#32"
@@ -3793,19 +3784,19 @@
       "inherited_from": "1670-1690#40"
     },
     "21": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 961,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#50"
     },
     "64": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 97,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#66"
     },
     "13": {
-      "label": "Mixed Names and Fragments (mixed)",
+      "label": "Mixed Names and Fragments",
       "n_words": 1113,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#8"
@@ -3817,7 +3808,7 @@
       "inherited_from": "1670-1690#64"
     },
     "2": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 1505,
       "lane": "Structural / Uncertain",
       "inherited_from": "1670-1690#0"
@@ -3831,19 +3822,19 @@
   },
   "1710-1730": {
     "35": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 134,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#60"
     },
     "31": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 150,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#50"
     },
     "28": {
-      "label": "Welsh Text (mixed)",
+      "label": "Welsh Text",
       "n_words": 172,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#38"
@@ -3897,7 +3888,7 @@
       "inherited_from": "1690-1710#18"
     },
     "0": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 630,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#7"
@@ -3915,7 +3906,7 @@
       "inherited_from": "1690-1710#56"
     },
     "12": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 304,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#8"
@@ -3927,13 +3918,13 @@
       "inherited_from": "1690-1710#19"
     },
     "15": {
-      "label": "Latin Poetic Text (mixed)",
+      "label": "Latin Poetic Text",
       "n_words": 265,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#6"
     },
     "23": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 215,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#51"
@@ -3993,7 +3984,7 @@
       "inherited_from": "1690-1710#25"
     },
     "11": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 305,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#9"
@@ -4017,31 +4008,31 @@
       "inherited_from": "1690-1710#52"
     },
     "40": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 122,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#32"
     },
     "30": {
-      "label": "Verbs of Exceeding and Surpassing (mixed)",
+      "label": "Verbs of Exceeding and Surpassing",
       "n_words": 167,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#29"
     },
     "44": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 93,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#54"
     },
     "37": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 127,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#53"
     },
     "49": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 25,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#63"
@@ -4053,13 +4044,13 @@
       "inherited_from": "1690-1710#33"
     },
     "22": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 220,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#0"
     },
     "24": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 207,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#23"
@@ -4083,13 +4074,12 @@
       "inherited_from": "1690-1710#41"
     },
     "39": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Anguish and Emotional Distress",
       "n_words": 127,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1690-1710#43"
+      "lane": "Morality: Virtue & Vice"
     },
     "36": {
-      "label": "Verbs of Transformation and Infusion (mixed)",
+      "label": "Verbs of Transformation and Infusion",
       "n_words": 130,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#58"
@@ -4101,13 +4091,13 @@
       "inherited_from": "1690-1710#45"
     },
     "47": {
-      "label": "Latin Text (mixed)",
+      "label": "Latin Text",
       "n_words": 69,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#5"
     },
     "21": {
-      "label": "Contracted Verb Forms (mixed)",
+      "label": "Contracted Verb Forms",
       "n_words": 227,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#26"
@@ -4119,13 +4109,13 @@
       "inherited_from": "1690-1710#48"
     },
     "41": {
-      "label": "Spelling Variants (mixed)",
+      "label": "Spelling Variants",
       "n_words": 109,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#37"
     },
     "46": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 83,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#3"
@@ -4151,7 +4141,7 @@
       "inherited_from": "1710-1730#18"
     },
     "38": {
-      "label": "Welsh Text (mixed)",
+      "label": "Welsh Text",
       "n_words": 162,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#28"
@@ -4193,13 +4183,13 @@
       "inherited_from": "1710-1730#29"
     },
     "36": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 173,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#31"
     },
     "24": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 228,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#24"
@@ -4222,13 +4212,13 @@
       "inherited_from": "1710-1730#8"
     },
     "47": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 91,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#35"
     },
     "1": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 652,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#0"
@@ -4246,19 +4236,19 @@
       "inherited_from": "1710-1730#20"
     },
     "26": {
-      "label": "Latin Poetic Text (mixed)",
+      "label": "Latin Poetic Text",
       "n_words": 218,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#15"
     },
     "19": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 244,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#23"
     },
     "4": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 379,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#12"
@@ -4282,7 +4272,7 @@
       "inherited_from": "1710-1730#43"
     },
     "13": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 285,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#11"
@@ -4318,7 +4308,7 @@
       "inherited_from": "1710-1730#34"
     },
     "43": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 115,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#37"
@@ -4342,25 +4332,24 @@
       "inherited_from": "1710-1730#25"
     },
     "16": {
-      "label": "Spelling Variants (mixed)",
+      "label": "Spelling Variants",
       "n_words": 261,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#41"
     },
     "40": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 138,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#46"
     },
     "44": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Anguish and Emotional Distress",
       "n_words": 113,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1710-1730#39"
+      "lane": "Morality: Virtue & Vice"
     },
     "53": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 31,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#49"
@@ -4372,13 +4361,13 @@
       "inherited_from": "1710-1730#13"
     },
     "48": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 89,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#44"
     },
     "28": {
-      "label": "Latin Text (mixed)",
+      "label": "Latin Text",
       "n_words": 208,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#47"
@@ -4390,12 +4379,12 @@
       "inherited_from": "1710-1730#19"
     },
     "41": {
-      "label": "Proper Names, Authors and Publishers (mixed)",
+      "label": "Proper Names, Authors and Publishers",
       "n_words": 134,
       "lane": "Structural / Uncertain"
     },
     "21": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 238,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#22"
@@ -4418,25 +4407,25 @@
       "inherited_from": "1710-1730#42"
     },
     "37": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 163,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#40"
     },
     "32": {
-      "label": "Verbs of Exceeding and Surpassing (mixed)",
+      "label": "Verbs of Exceeding and Surpassing",
       "n_words": 189,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#30"
     },
     "33": {
-      "label": "Verbs of Transformation and Infusion (mixed)",
+      "label": "Verbs of Transformation and Infusion",
       "n_words": 184,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#36"
     },
     "27": {
-      "label": "Contracted Verb Forms (mixed)",
+      "label": "Contracted Verb Forms",
       "n_words": 213,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#21"
@@ -4448,14 +4437,14 @@
       "inherited_from": "1710-1730#32"
     },
     "46": {
-      "label": "Mixed Proper Names (mixed)",
+      "label": "Mixed Proper Names",
       "n_words": 93,
       "lane": "Structural / Uncertain"
     }
   },
   "1750-1770": {
     "45": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 140,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#47"
@@ -4467,7 +4456,7 @@
       "inherited_from": "1730-1750#20"
     },
     "14": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 398,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#19"
@@ -4491,13 +4480,13 @@
       "inherited_from": "1730-1750#5"
     },
     "47": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 121,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#40"
     },
     "36": {
-      "label": "Welsh Text (mixed)",
+      "label": "Welsh Text",
       "n_words": 225,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#38"
@@ -4532,7 +4521,7 @@
       "inherited_from": "1730-1750#11"
     },
     "44": {
-      "label": "Spelling Variants (mixed)",
+      "label": "Spelling Variants",
       "n_words": 152,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#16"
@@ -4544,13 +4533,13 @@
       "inherited_from": "1730-1750#35"
     },
     "13": {
-      "label": "Latin Poetic Text (mixed)",
+      "label": "Latin Poetic Text",
       "n_words": 400,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#26"
     },
     "0": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 811,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#1"
@@ -4562,7 +4551,7 @@
       "inherited_from": "1730-1750#8"
     },
     "3": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 668,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#13"
@@ -4580,7 +4569,7 @@
       "inherited_from": "1730-1750#31"
     },
     "4": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 566,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#4"
@@ -4616,7 +4605,7 @@
       "inherited_from": "1730-1750#18"
     },
     "23": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 314,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#36"
@@ -4652,7 +4641,7 @@
       "inherited_from": "1730-1750#10"
     },
     "40": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 200,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#43"
@@ -4664,7 +4653,7 @@
       "inherited_from": "1730-1750#51"
     },
     "18": {
-      "label": "Verbs of Transformation and Infusion (mixed)",
+      "label": "Verbs of Transformation and Infusion",
       "n_words": 356,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#33"
@@ -4676,7 +4665,7 @@
       "inherited_from": "1730-1750#39"
     },
     "41": {
-      "label": "Verbs of Exceeding and Surpassing (mixed)",
+      "label": "Verbs of Exceeding and Surpassing",
       "n_words": 195,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#32"
@@ -4688,19 +4677,19 @@
       "inherited_from": "1730-1750#22"
     },
     "35": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 237,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#24"
     },
     "54": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 28,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#53"
     },
     "49": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 120,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#48"
@@ -4712,7 +4701,7 @@
       "inherited_from": "1730-1750#14"
     },
     "21": {
-      "label": "Contracted Verb Forms (mixed)",
+      "label": "Contracted Verb Forms",
       "n_words": 336,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#27"
@@ -4736,10 +4725,9 @@
       "inherited_from": "1730-1750#2"
     },
     "38": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Anguish and Emotional Distress",
       "n_words": 207,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1730-1750#44"
+      "lane": "Morality: Virtue & Vice"
     },
     "6": {
       "label": "Place Names and Geographic Terms",
@@ -4748,19 +4736,19 @@
       "inherited_from": "1730-1750#6"
     },
     "19": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 346,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#21"
     },
     "34": {
-      "label": "Mixed Proper Names (mixed)",
+      "label": "Mixed Proper Names",
       "n_words": 239,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#46"
     },
     "26": {
-      "label": "Proper Names, Authors and Publishers (mixed)",
+      "label": "Proper Names, Authors and Publishers",
       "n_words": 281,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#41"
@@ -4772,13 +4760,13 @@
       "inherited_from": "1730-1750#49"
     },
     "50": {
-      "label": "Latin Text (mixed)",
+      "label": "Latin Text",
       "n_words": 114,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#28"
     },
     "33": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 245,
       "lane": "Structural / Uncertain",
       "inherited_from": "1730-1750#37"
@@ -4791,7 +4779,7 @@
       "lane": "Rhetoric & Persuasion"
     },
     "49": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 182,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#45"
@@ -4827,7 +4815,7 @@
       "inherited_from": "1750-1770#16"
     },
     "47": {
-      "label": "Welsh Text (mixed)",
+      "label": "Welsh Text",
       "n_words": 211,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#36"
@@ -4875,19 +4863,19 @@
       "inherited_from": "1750-1770#37"
     },
     "1": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 996,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#0"
     },
     "5": {
-      "label": "Latin Poetic Text (mixed)",
+      "label": "Latin Poetic Text",
       "n_words": 649,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#13"
     },
     "62": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 33,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#47"
@@ -4903,7 +4891,7 @@
       "lane": "Domestic Life, Dress & Household"
     },
     "6": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 623,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#4"
@@ -4926,7 +4914,7 @@
       "inherited_from": "1750-1770#28"
     },
     "24": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 422,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#14"
@@ -4968,7 +4956,7 @@
       "inherited_from": "1750-1770#8"
     },
     "27": {
-      "label": "Mixed Proper Names (mixed)",
+      "label": "Mixed Proper Names",
       "n_words": 392,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#34"
@@ -4979,19 +4967,18 @@
       "lane": "Medicine, Body & Health"
     },
     "7": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 620,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#3"
     },
     "34": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Anguish and Civil Turmoil",
       "n_words": 323,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1750-1770#38"
+      "lane": "Morality: Virtue & Vice"
     },
     "50": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 179,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#40"
@@ -5009,7 +4996,7 @@
       "inherited_from": "1750-1770#6"
     },
     "33": {
-      "label": "Verbs of Transformation and Infusion (mixed)",
+      "label": "Verbs of Transformation and Infusion",
       "n_words": 325,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#18"
@@ -5027,7 +5014,7 @@
       "inherited_from": "1750-1770#52"
     },
     "51": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 177,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#35"
@@ -5045,25 +5032,25 @@
       "inherited_from": "1750-1770#32"
     },
     "55": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 114,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#49"
     },
     "11": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 560,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#19"
     },
     "61": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 33,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#54"
     },
     "28": {
-      "label": "Contracted Verb Forms (mixed)",
+      "label": "Contracted Verb Forms",
       "n_words": 387,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#21"
@@ -5075,7 +5062,7 @@
       "inherited_from": "1750-1770#7"
     },
     "26": {
-      "label": "Latin Text (mixed)",
+      "label": "Latin Text",
       "n_words": 396,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#50"
@@ -5087,7 +5074,7 @@
       "inherited_from": "1750-1770#43"
     },
     "22": {
-      "label": "Verbs of Exceeding and Surpassing (mixed)",
+      "label": "Verbs of Exceeding and Surpassing",
       "n_words": 437,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#41"
@@ -5104,13 +5091,13 @@
       "inherited_from": "1750-1770#31"
     },
     "30": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 345,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#23"
     },
     "4": {
-      "label": "Proper Names, Authors and Publishers (mixed)",
+      "label": "Proper Names, Authors and Publishers",
       "n_words": 669,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#26"
@@ -5122,7 +5109,7 @@
       "inherited_from": "1750-1770#39"
     },
     "45": {
-      "label": "Spelling Variants (mixed)",
+      "label": "Spelling Variants",
       "n_words": 234,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#44"
@@ -5134,7 +5121,7 @@
       "inherited_from": "1750-1770#9"
     },
     "58": {
-      "label": "Verbs of Transformation (mixed)",
+      "label": "Verbs of Transformation",
       "n_words": 59,
       "lane": "Structural / Uncertain"
     },
@@ -5150,7 +5137,7 @@
       "inherited_from": "1750-1770#48"
     },
     "19": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 486,
       "lane": "Structural / Uncertain",
       "inherited_from": "1750-1770#33"
@@ -5158,7 +5145,7 @@
   },
   "1790-1810": {
     "44": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 345,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#49"
@@ -5188,7 +5175,7 @@
       "inherited_from": "1770-1790#15"
     },
     "43": {
-      "label": "Welsh Text (mixed)",
+      "label": "Welsh Text",
       "n_words": 357,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#47"
@@ -5236,7 +5223,7 @@
       "inherited_from": "1770-1790#37"
     },
     "15": {
-      "label": "Latin Poetic Text (mixed)",
+      "label": "Latin Poetic Text",
       "n_words": 1024,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#5"
@@ -5248,7 +5235,7 @@
       "inherited_from": "1770-1790#21"
     },
     "6": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 1265,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#1"
@@ -5260,13 +5247,12 @@
       "inherited_from": "1770-1790#14"
     },
     "41": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Anguish and Emotional Distress",
       "n_words": 422,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1770-1790#34"
+      "lane": "Morality: Virtue & Vice"
     },
     "35": {
-      "label": "Verbs of Exceeding and Surpassing (mixed)",
+      "label": "Verbs of Exceeding and Surpassing",
       "n_words": 658,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#22"
@@ -5284,19 +5270,19 @@
       "inherited_from": "1770-1790#52"
     },
     "62": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 138,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#51"
     },
     "51": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 261,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#62"
     },
     "13": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 1063,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#6"
@@ -5367,13 +5353,13 @@
       "inherited_from": "1770-1790#56"
     },
     "28": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 753,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#7"
     },
     "3": {
-      "label": "Contracted Verb Forms (mixed)",
+      "label": "Contracted Verb Forms",
       "n_words": 1319,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#28"
@@ -5385,7 +5371,7 @@
       "inherited_from": "1770-1790#60"
     },
     "1": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 1861,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#11"
@@ -5421,7 +5407,7 @@
       "inherited_from": "1770-1790#3"
     },
     "68": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 76,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#61"
@@ -5433,12 +5419,12 @@
       "inherited_from": "1770-1790#12"
     },
     "66": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 95,
       "lane": "Structural / Uncertain"
     },
     "18": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 971,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#30"
@@ -5450,7 +5436,7 @@
       "inherited_from": "1770-1790#25"
     },
     "47": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 281,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#24"
@@ -5462,7 +5448,7 @@
       "inherited_from": "1770-1790#39"
     },
     "56": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 207,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#50"
@@ -5486,19 +5472,19 @@
       "inherited_from": "1770-1790#31"
     },
     "39": {
-      "label": "Mixed Proper Names (mixed)",
+      "label": "Mixed Proper Names",
       "n_words": 533,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#27"
     },
     "64": {
-      "label": "Verbs of Transformation (mixed)",
+      "label": "Verbs of Transformation",
       "n_words": 109,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#58"
     },
     "55": {
-      "label": "Spelling Variants (mixed)",
+      "label": "Spelling Variants",
       "n_words": 215,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#45"
@@ -5510,25 +5496,25 @@
       "inherited_from": "1770-1790#59"
     },
     "59": {
-      "label": "Verbs of Transformation and Infusion (mixed)",
+      "label": "Verbs of Transformation and Infusion",
       "n_words": 146,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#33"
     },
     "34": {
-      "label": "Latin Text (mixed)",
+      "label": "Latin Text",
       "n_words": 697,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#26"
     },
     "0": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 2126,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#19"
     },
     "19": {
-      "label": "Proper Names, Authors and Publishers (mixed)",
+      "label": "Proper Names, Authors and Publishers",
       "n_words": 936,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#4"
@@ -5540,43 +5526,43 @@
       "inherited_from": "1770-1790#48"
     },
     "65": {
-      "label": "Truncated Word Stems (mixed)",
+      "label": "Truncated Word Stems",
       "n_words": 106,
       "lane": "Structural / Uncertain"
     },
     "48": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 272,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#55"
     },
     "67": {
-      "label": "Word Fragments, -sion Stems (mixed)",
+      "label": "Word Fragments, -sion Stems",
       "n_words": 79,
       "lane": "Structural / Uncertain"
     },
     "60": {
-      "label": "Word Fragments, com-/ex- Stems (mixed)",
+      "label": "Word Fragments, com-/ex- Stems",
       "n_words": 143,
       "lane": "Structural / Uncertain"
     },
     "58": {
-      "label": "Word Fragments, re- Prefix Stems (mixed)",
+      "label": "Word Fragments, re- Prefix Stems",
       "n_words": 170,
       "lane": "Structural / Uncertain"
     },
     "70": {
-      "label": "Word Fragments, ap- Prefix Stems (mixed)",
+      "label": "Word Fragments, ap- Prefix Stems",
       "n_words": 24,
       "lane": "Structural / Uncertain"
     },
     "69": {
-      "label": "Word Fragments, en- Prefix Stems (mixed)",
+      "label": "Word Fragments, en- Prefix Stems",
       "n_words": 30,
       "lane": "Structural / Uncertain"
     },
     "71": {
-      "label": "Word Fragments, ad- Prefix Stems (mixed)",
+      "label": "Word Fragments, ad- Prefix Stems",
       "n_words": 22,
       "lane": "Structural / Uncertain"
     }
@@ -5589,7 +5575,7 @@
       "inherited_from": "1790-1810#24"
     },
     "46": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 520,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#44"
@@ -5613,7 +5599,7 @@
       "inherited_from": "1790-1810#49"
     },
     "17": {
-      "label": "Latin Poetic Text (mixed)",
+      "label": "Latin Poetic Text",
       "n_words": 1577,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#15"
@@ -5631,7 +5617,7 @@
       "inherited_from": "1790-1810#2"
     },
     "62": {
-      "label": "Verbs of Transformation and Infusion (mixed)",
+      "label": "Verbs of Transformation and Infusion",
       "n_words": 221,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#59"
@@ -5643,10 +5629,9 @@
       "inherited_from": "1790-1810#8"
     },
     "34": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Religion, Clergy and Church Governance",
       "n_words": 963,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1790-1810#41"
+      "lane": "Religion, Theology & the Church"
     },
     "3": {
       "label": "English Nobility and Earldoms",
@@ -5667,7 +5652,7 @@
       "inherited_from": "1790-1810#12"
     },
     "50": {
-      "label": "Welsh Text (mixed)",
+      "label": "Welsh Text",
       "n_words": 429,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#43"
@@ -5697,7 +5682,7 @@
       "inherited_from": "1790-1810#5"
     },
     "0": {
-      "label": "Contracted Verb Forms (mixed)",
+      "label": "Contracted Verb Forms",
       "n_words": 2891,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#3"
@@ -5709,7 +5694,7 @@
       "inherited_from": "1790-1810#40"
     },
     "18": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 1573,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#6"
@@ -5721,7 +5706,7 @@
       "inherited_from": "1790-1810#11"
     },
     "12": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 1763,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#28"
@@ -5751,12 +5736,12 @@
       "inherited_from": "1790-1810#4"
     },
     "63": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 213,
       "lane": "Structural / Uncertain"
     },
     "54": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 336,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#62"
@@ -5768,7 +5753,7 @@
       "inherited_from": "1790-1810#42"
     },
     "16": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 1620,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#13"
@@ -5780,7 +5765,7 @@
       "inherited_from": "1790-1810#36"
     },
     "68": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 145,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#66"
@@ -5792,7 +5777,7 @@
       "inherited_from": "1790-1810#14"
     },
     "58": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 257,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#68"
@@ -5804,7 +5789,7 @@
       "inherited_from": "1790-1810#26"
     },
     "71": {
-      "label": "Word Fragments, dis- Prefix Stems (mixed)",
+      "label": "Word Fragments, dis- Prefix Stems",
       "n_words": 104,
       "lane": "Structural / Uncertain"
     },
@@ -5815,7 +5800,7 @@
       "inherited_from": "1790-1810#46"
     },
     "9": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 1917,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#1"
@@ -5827,13 +5812,13 @@
       "inherited_from": "1790-1810#30"
     },
     "61": {
-      "label": "Truncated Word Stems (mixed)",
+      "label": "Truncated Word Stems",
       "n_words": 231,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#65"
     },
     "59": {
-      "label": "London Streets and Publishers (mixed)",
+      "label": "London Streets and Publishers",
       "n_words": 244,
       "lane": "Structural / Uncertain"
     },
@@ -5844,13 +5829,13 @@
       "inherited_from": "1790-1810#23"
     },
     "56": {
-      "label": "Spelling Variants (mixed)",
+      "label": "Spelling Variants",
       "n_words": 277,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#55"
     },
     "39": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 833,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#18"
@@ -5862,24 +5847,24 @@
       "inherited_from": "1790-1810#10"
     },
     "52": {
-      "label": "Verbs of Transformation (mixed)",
+      "label": "Verbs of Transformation",
       "n_words": 389,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#64"
     },
     "81": {
-      "label": "Word Fragments and Miscellany (mixed)",
+      "label": "Word Fragments and Miscellany",
       "n_words": 59,
       "lane": "Structural / Uncertain"
     },
     "40": {
-      "label": "Mixed Proper Names (mixed)",
+      "label": "Mixed Proper Names",
       "n_words": 754,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#39"
     },
     "31": {
-      "label": "Proper Names, Authors and Publishers (mixed)",
+      "label": "Proper Names, Authors and Publishers",
       "n_words": 1052,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#19"
@@ -5891,7 +5876,7 @@
       "inherited_from": "1790-1810#29"
     },
     "23": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 1211,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#56"
@@ -5909,13 +5894,13 @@
       "inherited_from": "1790-1810#50"
     },
     "53": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 370,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#48"
     },
     "74": {
-      "label": "Verbs of Exceeding and Surpassing (mixed)",
+      "label": "Verbs of Exceeding and Surpassing",
       "n_words": 74,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#35"
@@ -5927,23 +5912,23 @@
       "inherited_from": "1790-1810#9"
     },
     "70": {
-      "label": "Word Fragments, per- Prefix Stems (mixed)",
+      "label": "Word Fragments, per- Prefix Stems",
       "n_words": 109,
       "lane": "Structural / Uncertain"
     },
     "29": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 1089,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#47"
     },
     "76": {
-      "label": "Word Fragments, ar- Prefix Stems (mixed)",
+      "label": "Word Fragments, ar- Prefix Stems",
       "n_words": 66,
       "lane": "Structural / Uncertain"
     },
     "87": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 37,
       "lane": "Structural / Uncertain"
     },
@@ -5954,30 +5939,30 @@
       "inherited_from": "1790-1810#57"
     },
     "75": {
-      "label": "Word Fragments, ap- Prefix Stems (mixed)",
+      "label": "Word Fragments, ap- Prefix Stems",
       "n_words": 69,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#70"
     },
     "77": {
-      "label": "Word Fragments, ad- Prefix Stems (mixed)",
+      "label": "Word Fragments, ad- Prefix Stems",
       "n_words": 65,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#71"
     },
     "69": {
-      "label": "Word Fragments, -sion Stems (mixed)",
+      "label": "Word Fragments, -sion Stems",
       "n_words": 145,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#67"
     },
     "67": {
-      "label": "Word Fragments, com- Prefix Stems (mixed)",
+      "label": "Word Fragments, com- Prefix Stems",
       "n_words": 170,
       "lane": "Structural / Uncertain"
     },
     "64": {
-      "label": "Word Fragments, com-/ex- Stems (mixed)",
+      "label": "Word Fragments, com-/ex- Stems",
       "n_words": 206,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#60"
@@ -5989,38 +5974,38 @@
       "inherited_from": "1790-1810#52"
     },
     "92": {
-      "label": "Word Fragments, ne- Prefix Stems (mixed)",
+      "label": "Word Fragments, ne- Prefix Stems",
       "n_words": 16,
       "lane": "Structural / Uncertain"
     },
     "83": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 57,
       "lane": "Structural / Uncertain"
     },
     "84": {
-      "label": "Word Fragments and Miscellany (mixed)",
+      "label": "Word Fragments and Miscellany",
       "n_words": 46,
       "lane": "Structural / Uncertain"
     },
     "60": {
-      "label": "Word Fragments, re- Prefix Stems (mixed)",
+      "label": "Word Fragments, re- Prefix Stems",
       "n_words": 241,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#58"
     },
     "79": {
-      "label": "Word Fragments, English Place-Name Stems (mixed)",
+      "label": "Word Fragments, English Place-Name Stems",
       "n_words": 60,
       "lane": "Structural / Uncertain"
     },
     "66": {
-      "label": "Word Fragments, pro- Prefix Stems (mixed)",
+      "label": "Word Fragments, pro- Prefix Stems",
       "n_words": 183,
       "lane": "Structural / Uncertain"
     },
     "55": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 328,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#51"
@@ -6038,29 +6023,29 @@
       "inherited_from": "1790-1810#37"
     },
     "80": {
-      "label": "Word Fragments, ac- Prefix Stems (mixed)",
+      "label": "Word Fragments, ac- Prefix Stems",
       "n_words": 60,
       "lane": "Structural / Uncertain"
     },
     "72": {
-      "label": "Word Fragments, en- Prefix Stems (mixed)",
+      "label": "Word Fragments, en- Prefix Stems",
       "n_words": 99,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#69"
     },
     "38": {
-      "label": "Latin Text (mixed)",
+      "label": "Latin Text",
       "n_words": 887,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#34"
     },
     "86": {
-      "label": "Word Fragments, al- Prefix Stems (mixed)",
+      "label": "Word Fragments, al- Prefix Stems",
       "n_words": 41,
       "lane": "Structural / Uncertain"
     },
     "88": {
-      "label": "Word Fragments, em- Prefix Stems (mixed)",
+      "label": "Word Fragments, em- Prefix Stems",
       "n_words": 34,
       "lane": "Structural / Uncertain"
     },
@@ -6071,7 +6056,7 @@
       "inherited_from": "1790-1810#63"
     },
     "82": {
-      "label": "Word Fragments, ma- Prefix Stems (mixed)",
+      "label": "Word Fragments, ma- Prefix Stems",
       "n_words": 59,
       "lane": "Structural / Uncertain"
     },
@@ -6082,27 +6067,27 @@
       "inherited_from": "1790-1810#45"
     },
     "85": {
-      "label": "Word Fragments, -able Adjective Stems (mixed)",
+      "label": "Word Fragments, -able Adjective Stems",
       "n_words": 45,
       "lane": "Structural / Uncertain"
     },
     "89": {
-      "label": "Word Fragments, fa- Prefix Stems (mixed)",
+      "label": "Word Fragments, fa- Prefix Stems",
       "n_words": 29,
       "lane": "Structural / Uncertain"
     },
     "93": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 13,
       "lane": "Structural / Uncertain"
     },
     "78": {
-      "label": "Word Fragments, ca- Prefix Stems (mixed)",
+      "label": "Word Fragments, ca- Prefix Stems",
       "n_words": 63,
       "lane": "Structural / Uncertain"
     },
     "2": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 2716,
       "lane": "Structural / Uncertain",
       "inherited_from": "1790-1810#0"
@@ -6114,7 +6099,7 @@
       "inherited_from": "1790-1810#33"
     },
     "90": {
-      "label": "Word Fragments, -ous Adjective Stems (mixed)",
+      "label": "Word Fragments, -ous Adjective Stems",
       "n_words": 29,
       "lane": "Structural / Uncertain"
     },
@@ -6127,7 +6112,7 @@
   },
   "1830-1850": {
     "50": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 685,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#46"
@@ -6163,7 +6148,7 @@
       "inherited_from": "1810-1830#4"
     },
     "66": {
-      "label": "Word Fragments, al- Prefix Stems (mixed)",
+      "label": "Word Fragments, al- Prefix Stems",
       "n_words": 195,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#86"
@@ -6181,7 +6166,7 @@
       "inherited_from": "1810-1830#36"
     },
     "59": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 296,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#54"
@@ -6211,7 +6196,7 @@
       "inherited_from": "1810-1830#28"
     },
     "52": {
-      "label": "Welsh Text (mixed)",
+      "label": "Welsh Text",
       "n_words": 500,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#50"
@@ -6235,7 +6220,7 @@
       "inherited_from": "1810-1830#3"
     },
     "0": {
-      "label": "Contracted Verb Forms (mixed)",
+      "label": "Contracted Verb Forms",
       "n_words": 3691,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#0"
@@ -6247,19 +6232,19 @@
       "inherited_from": "1810-1830#42"
     },
     "30": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 1563,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#18"
     },
     "26": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 1674,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#29"
     },
     "24": {
-      "label": "Latin Poetic Text (mixed)",
+      "label": "Latin Poetic Text",
       "n_words": 1768,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#17"
@@ -6283,7 +6268,7 @@
       "inherited_from": "1810-1830#15"
     },
     "17": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 1848,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#16"
@@ -6301,25 +6286,25 @@
       "inherited_from": "1810-1830#1"
     },
     "29": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Religion, Clergy and Church Governance",
       "n_words": 1563,
-      "lane": "Structural / Uncertain",
+      "lane": "Religion, Theology & the Church",
       "inherited_from": "1810-1830#34"
     },
     "36": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 1386,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#39"
     },
     "56": {
-      "label": "Spelling Variants (mixed)",
+      "label": "Spelling Variants",
       "n_words": 453,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#56"
     },
     "63": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 238,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#63"
@@ -6331,13 +6316,13 @@
       "inherited_from": "1810-1830#20"
     },
     "37": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 1359,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#87"
     },
     "1": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 3239,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#9"
@@ -6349,25 +6334,25 @@
       "inherited_from": "1810-1830#7"
     },
     "61": {
-      "label": "London Streets and Publishers (mixed)",
+      "label": "London Streets and Publishers",
       "n_words": 247,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#59"
     },
     "69": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 161,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#68"
     },
     "22": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 1798,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#12"
     },
     "32": {
-      "label": "Verbs of Transformation and Infusion (mixed)",
+      "label": "Verbs of Transformation and Infusion",
       "n_words": 1418,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#62"
@@ -6379,13 +6364,13 @@
       "inherited_from": "1810-1830#19"
     },
     "79": {
-      "label": "Word Fragments, English Place-Name Stems (mixed)",
+      "label": "Word Fragments, English Place-Name Stems",
       "n_words": 99,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#79"
     },
     "58": {
-      "label": "Truncated Word Stems (mixed)",
+      "label": "Truncated Word Stems",
       "n_words": 317,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#61"
@@ -6397,25 +6382,25 @@
       "inherited_from": "1810-1830#49"
     },
     "81": {
-      "label": "Word Fragments, fa- Prefix Stems (mixed)",
+      "label": "Word Fragments, fa- Prefix Stems",
       "n_words": 81,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#89"
     },
     "21": {
-      "label": "Proper Names, Authors and Publishers (mixed)",
+      "label": "Proper Names, Authors and Publishers",
       "n_words": 1815,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#31"
     },
     "41": {
-      "label": "Mixed Proper Names (mixed)",
+      "label": "Mixed Proper Names",
       "n_words": 1046,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#40"
     },
     "71": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 140,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#58"
@@ -6427,7 +6412,7 @@
       "inherited_from": "1810-1830#21"
     },
     "72": {
-      "label": "Word Fragments and Miscellany (mixed)",
+      "label": "Word Fragments and Miscellany",
       "n_words": 139,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#81"
@@ -6439,7 +6424,7 @@
       "inherited_from": "1810-1830#27"
     },
     "34": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 1400,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#23"
@@ -6451,13 +6436,13 @@
       "inherited_from": "1810-1830#45"
     },
     "62": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 240,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#55"
     },
     "47": {
-      "label": "Latin Text (mixed)",
+      "label": "Latin Text",
       "n_words": 708,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#38"
@@ -6469,13 +6454,13 @@
       "inherited_from": "1810-1830#25"
     },
     "74": {
-      "label": "Verbs of Exceeding and Surpassing (mixed)",
+      "label": "Verbs of Exceeding and Surpassing",
       "n_words": 134,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#74"
     },
     "100": {
-      "label": "Spelling Variants of 'With' (mixed)",
+      "label": "Spelling Variants of 'With'",
       "n_words": 15,
       "lane": "Structural / Uncertain"
     },
@@ -6486,7 +6471,7 @@
       "inherited_from": "1810-1830#33"
     },
     "53": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 480,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#53"
@@ -6504,18 +6489,18 @@
       "inherited_from": "1810-1830#47"
     },
     "77": {
-      "label": "Word Fragments, per- Prefix Stems (mixed)",
+      "label": "Word Fragments, per- Prefix Stems",
       "n_words": 109,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#70"
     },
     "98": {
-      "label": "Word Fragments, coun- Prefix Stems (mixed)",
+      "label": "Word Fragments, coun- Prefix Stems",
       "n_words": 20,
       "lane": "Structural / Uncertain"
     },
     "97": {
-      "label": "Word Fragments, pa- Prefix Stems (mixed)",
+      "label": "Word Fragments, pa- Prefix Stems",
       "n_words": 24,
       "lane": "Structural / Uncertain"
     },
@@ -6532,19 +6517,19 @@
       "inherited_from": "1810-1830#5"
     },
     "67": {
-      "label": "Word Fragments, com- Prefix Stems (mixed)",
+      "label": "Word Fragments, com- Prefix Stems",
       "n_words": 192,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#67"
     },
     "68": {
-      "label": "Word Fragments, -sion Stems (mixed)",
+      "label": "Word Fragments, -sion Stems",
       "n_words": 163,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#69"
     },
     "39": {
-      "label": "Verbs of Transformation (mixed)",
+      "label": "Verbs of Transformation",
       "n_words": 1177,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#52"
@@ -6556,7 +6541,7 @@
       "inherited_from": "1810-1830#51"
     },
     "80": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 82,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#93"
@@ -6567,7 +6552,7 @@
       "lane": "History, Genealogy, Nobility & Kinship"
     },
     "57": {
-      "label": "Word Fragments, com-/ex- Stems (mixed)",
+      "label": "Word Fragments, com-/ex- Stems",
       "n_words": 416,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#64"
@@ -6579,36 +6564,36 @@
       "inherited_from": "1810-1830#37"
     },
     "85": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 65,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#83"
     },
     "60": {
-      "label": "Word Fragments, re- Prefix Stems (mixed)",
+      "label": "Word Fragments, re- Prefix Stems",
       "n_words": 253,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#60"
     },
     "78": {
-      "label": "Word Fragments, dis- Prefix Stems (mixed)",
+      "label": "Word Fragments, dis- Prefix Stems",
       "n_words": 103,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#71"
     },
     "94": {
-      "label": "Word Fragments and Miscellany (mixed)",
+      "label": "Word Fragments and Miscellany",
       "n_words": 31,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#84"
     },
     "82": {
-      "label": "Word Fragments and French Text (mixed)",
+      "label": "Word Fragments and French Text",
       "n_words": 72,
       "lane": "Structural / Uncertain"
     },
     "76": {
-      "label": "Word Fragments, en- Prefix Stems (mixed)",
+      "label": "Word Fragments, en- Prefix Stems",
       "n_words": 122,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#72"
@@ -6620,67 +6605,67 @@
       "inherited_from": "1810-1830#73"
     },
     "87": {
-      "label": "Word Fragments, ad- Prefix Stems (mixed)",
+      "label": "Word Fragments, ad- Prefix Stems",
       "n_words": 58,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#77"
     },
     "90": {
-      "label": "Word Fragments, ac- Prefix Stems (mixed)",
+      "label": "Word Fragments, ac- Prefix Stems",
       "n_words": 56,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#80"
     },
     "84": {
-      "label": "Word Fragments, ap- Prefix Stems (mixed)",
+      "label": "Word Fragments, ap- Prefix Stems",
       "n_words": 66,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#75"
     },
     "93": {
-      "label": "Word Fragments, em- Prefix Stems (mixed)",
+      "label": "Word Fragments, em- Prefix Stems",
       "n_words": 40,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#88"
     },
     "70": {
-      "label": "Word Fragments, -ous Adjective Stems (mixed)",
+      "label": "Word Fragments, -ous Adjective Stems",
       "n_words": 144,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#90"
     },
     "95": {
-      "label": "Word Fragments, ca- Prefix Stems (mixed)",
+      "label": "Word Fragments, ca- Prefix Stems",
       "n_words": 30,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#78"
     },
     "89": {
-      "label": "Word Fragments, -able Adjective Stems (mixed)",
+      "label": "Word Fragments, -able Adjective Stems",
       "n_words": 56,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#85"
     },
     "91": {
-      "label": "Word Fragments, pro- Prefix Stems (mixed)",
+      "label": "Word Fragments, pro- Prefix Stems",
       "n_words": 47,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#66"
     },
     "83": {
-      "label": "Word Fragments, ar- Prefix Stems (mixed)",
+      "label": "Word Fragments, ar- Prefix Stems",
       "n_words": 69,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#76"
     },
     "88": {
-      "label": "Word Fragments, ma- Prefix Stems (mixed)",
+      "label": "Word Fragments, ma- Prefix Stems",
       "n_words": 58,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#82"
     },
     "99": {
-      "label": "Word Fragments, ne- Prefix Stems (mixed)",
+      "label": "Word Fragments, ne- Prefix Stems",
       "n_words": 16,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#92"
@@ -6698,7 +6683,7 @@
       "inherited_from": "1810-1830#32"
     },
     "96": {
-      "label": "Word Fragments, au- Prefix Stems (mixed)",
+      "label": "Word Fragments, au- Prefix Stems",
       "n_words": 25,
       "lane": "Structural / Uncertain"
     },
@@ -6709,7 +6694,7 @@
       "inherited_from": "1810-1830#91"
     },
     "101": {
-      "label": "Word Fragments and Miscellany (mixed)",
+      "label": "Word Fragments and Miscellany",
       "n_words": 14,
       "lane": "Structural / Uncertain"
     },
@@ -6720,13 +6705,13 @@
       "inherited_from": "1810-1830#44"
     },
     "8": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 2398,
       "lane": "Structural / Uncertain",
       "inherited_from": "1810-1830#2"
     },
     "86": {
-      "label": "Mixed Place and Proper Names (mixed)",
+      "label": "Mixed Place and Proper Names",
       "n_words": 59,
       "lane": "Structural / Uncertain"
     }
@@ -6745,7 +6730,7 @@
       "inherited_from": "1830-1850#64"
     },
     "47": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 1001,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#50"
@@ -6793,7 +6778,7 @@
       "inherited_from": "1830-1850#55"
     },
     "29": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 1807,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#30"
@@ -6805,7 +6790,7 @@
       "inherited_from": "1830-1850#33"
     },
     "67": {
-      "label": "Word Fragments and Miscellany (mixed)",
+      "label": "Word Fragments and Miscellany",
       "n_words": 295,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#94"
@@ -6829,13 +6814,13 @@
       "inherited_from": "1830-1850#12"
     },
     "44": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 1155,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#36"
     },
     "45": {
-      "label": "Mixed Place and Proper Names (mixed)",
+      "label": "Mixed Place and Proper Names",
       "n_words": 1083,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#86"
@@ -6847,19 +6832,19 @@
       "inherited_from": "1830-1850#43"
     },
     "32": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 1735,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#37"
     },
     "61": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 420,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#59"
     },
     "59": {
-      "label": "Spelling Variants (mixed)",
+      "label": "Spelling Variants",
       "n_words": 442,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#56"
@@ -6883,13 +6868,13 @@
       "inherited_from": "1830-1850#65"
     },
     "22": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 2269,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#17"
     },
     "27": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 1937,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#26"
@@ -6907,7 +6892,7 @@
       "inherited_from": "1830-1850#16"
     },
     "82": {
-      "label": "Mixed Place Names and Fragments (mixed)",
+      "label": "Mixed Place Names and Fragments",
       "n_words": 156,
       "lane": "Structural / Uncertain"
     },
@@ -6930,19 +6915,19 @@
       "inherited_from": "1830-1850#44"
     },
     "26": {
-      "label": "Latin Poetic Text (mixed)",
+      "label": "Latin Poetic Text",
       "n_words": 1994,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#24"
     },
     "19": {
-      "label": "Contracted Verb Forms (mixed)",
+      "label": "Contracted Verb Forms",
       "n_words": 2702,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#0"
     },
     "60": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 429,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#63"
@@ -6960,13 +6945,13 @@
       "inherited_from": "1830-1850#5"
     },
     "65": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 326,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#69"
     },
     "34": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 1718,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#22"
@@ -6978,13 +6963,13 @@
       "inherited_from": "1830-1850#3"
     },
     "53": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Religion, Clergy and Church Governance",
       "n_words": 741,
-      "lane": "Structural / Uncertain",
+      "lane": "Religion, Theology & the Church",
       "inherited_from": "1830-1850#29"
     },
     "5": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 3996,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#1"
@@ -6996,18 +6981,18 @@
       "inherited_from": "1830-1850#23"
     },
     "89": {
-      "label": "Word Fragments, un-/under- Stems (mixed)",
+      "label": "Word Fragments, un-/under- Stems",
       "n_words": 111,
       "lane": "Structural / Uncertain"
     },
     "42": {
-      "label": "Mixed Proper Names (mixed)",
+      "label": "Mixed Proper Names",
       "n_words": 1198,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#41"
     },
     "54": {
-      "label": "London Streets and Publishers (mixed)",
+      "label": "London Streets and Publishers",
       "n_words": 665,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#61"
@@ -7019,13 +7004,13 @@
       "inherited_from": "1830-1850#48"
     },
     "81": {
-      "label": "Spelling Variants of 'With' (mixed)",
+      "label": "Spelling Variants of 'With'",
       "n_words": 159,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#100"
     },
     "25": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 2048,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#34"
@@ -7037,31 +7022,31 @@
       "inherited_from": "1830-1850#40"
     },
     "62": {
-      "label": "Truncated Word Stems (mixed)",
+      "label": "Truncated Word Stems",
       "n_words": 374,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#58"
     },
     "77": {
-      "label": "Word Fragments, fa- Prefix Stems (mixed)",
+      "label": "Word Fragments, fa- Prefix Stems",
       "n_words": 178,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#81"
     },
     "90": {
-      "label": "Word Fragments, English Place-Name Stems (mixed)",
+      "label": "Word Fragments, English Place-Name Stems",
       "n_words": 98,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#79"
     },
     "79": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 175,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#71"
     },
     "66": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 326,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#62"
@@ -7079,19 +7064,19 @@
       "inherited_from": "1830-1850#10"
     },
     "16": {
-      "label": "Latin Text (mixed)",
+      "label": "Latin Text",
       "n_words": 2849,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#47"
     },
     "100": {
-      "label": "Word Fragments, ac- Prefix Stems (mixed)",
+      "label": "Word Fragments, ac- Prefix Stems",
       "n_words": 57,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#90"
     },
     "109": {
-      "label": "Word Fragments, coun- Prefix Stems (mixed)",
+      "label": "Word Fragments, coun- Prefix Stems",
       "n_words": 23,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#98"
@@ -7102,7 +7087,7 @@
       "lane": "Geography & Territory"
     },
     "75": {
-      "label": "Word Fragments, ne- Prefix Stems (mixed)",
+      "label": "Word Fragments, ne- Prefix Stems",
       "n_words": 215,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#99"
@@ -7114,19 +7099,19 @@
       "inherited_from": "1830-1850#46"
     },
     "21": {
-      "label": "Verbs of Transformation (mixed)",
+      "label": "Verbs of Transformation",
       "n_words": 2480,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#39"
     },
     "52": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 795,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#53"
     },
     "101": {
-      "label": "Word Fragments, for- Prefix Stems (mixed)",
+      "label": "Word Fragments, for- Prefix Stems",
       "n_words": 54,
       "lane": "Structural / Uncertain"
     },
@@ -7137,49 +7122,49 @@
       "inherited_from": "1830-1850#45"
     },
     "74": {
-      "label": "Word Fragments, au- Prefix Stems (mixed)",
+      "label": "Word Fragments, au- Prefix Stems",
       "n_words": 218,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#96"
     },
     "87": {
-      "label": "Word Fragments, per- Prefix Stems (mixed)",
+      "label": "Word Fragments, per- Prefix Stems",
       "n_words": 115,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#77"
     },
     "57": {
-      "label": "Welsh Text (mixed)",
+      "label": "Welsh Text",
       "n_words": 554,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#52"
     },
     "76": {
-      "label": "Word Fragments, -sion Stems (mixed)",
+      "label": "Word Fragments, -sion Stems",
       "n_words": 193,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#68"
     },
     "86": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 123,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#80"
     },
     "106": {
-      "label": "Word Fragments and Miscellany (mixed)",
+      "label": "Word Fragments and Miscellany",
       "n_words": 28,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#72"
     },
     "92": {
-      "label": "Word Fragments, pro- Prefix Stems (mixed)",
+      "label": "Word Fragments, pro- Prefix Stems",
       "n_words": 81,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#91"
     },
     "71": {
-      "label": "Word Fragments, com- Prefix Stems (mixed)",
+      "label": "Word Fragments, com- Prefix Stems",
       "n_words": 238,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#67"
@@ -7191,7 +7176,7 @@
       "inherited_from": "1830-1850#73"
     },
     "78": {
-      "label": "Word Fragments and Miscellany (mixed)",
+      "label": "Word Fragments and Miscellany",
       "n_words": 176,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#101"
@@ -7203,7 +7188,7 @@
       "inherited_from": "1830-1850#25"
     },
     "84": {
-      "label": "Word Fragments, ap- Prefix Stems (mixed)",
+      "label": "Word Fragments, ap- Prefix Stems",
       "n_words": 143,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#84"
@@ -7215,54 +7200,54 @@
       "inherited_from": "1830-1850#51"
     },
     "1": {
-      "label": "Proper Names, Authors and Publishers (mixed)",
+      "label": "Proper Names, Authors and Publishers",
       "n_words": 4577,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#21"
     },
     "73": {
-      "label": "Word Fragments, em- Prefix Stems (mixed)",
+      "label": "Word Fragments, em- Prefix Stems",
       "n_words": 231,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#93"
     },
     "88": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 112,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#85"
     },
     "96": {
-      "label": "Word Fragments, ad- Prefix Stems (mixed)",
+      "label": "Word Fragments, ad- Prefix Stems",
       "n_words": 68,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#87"
     },
     "64": {
-      "label": "Word Fragments, re- Prefix Stems (mixed)",
+      "label": "Word Fragments, re- Prefix Stems",
       "n_words": 330,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#60"
     },
     "85": {
-      "label": "Word Fragments, en- Prefix Stems (mixed)",
+      "label": "Word Fragments, en- Prefix Stems",
       "n_words": 142,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#76"
     },
     "91": {
-      "label": "Word Fragments, -ous Adjective Stems (mixed)",
+      "label": "Word Fragments, -ous Adjective Stems",
       "n_words": 93,
       "lane": "Structural / Uncertain"
     },
     "83": {
-      "label": "Word Fragments, dis- Prefix Stems (mixed)",
+      "label": "Word Fragments, dis- Prefix Stems",
       "n_words": 151,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#78"
     },
     "69": {
-      "label": "Word Fragments, pa- Prefix Stems (mixed)",
+      "label": "Word Fragments, pa- Prefix Stems",
       "n_words": 258,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#97"
@@ -7274,35 +7259,35 @@
       "inherited_from": "1830-1850#75"
     },
     "68": {
-      "label": "Word Fragments, com-/ex- Stems (mixed)",
+      "label": "Word Fragments, com-/ex- Stems",
       "n_words": 264,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#57"
     },
     "110": {
-      "label": "Word Fragments, mag- Prefix Stems (mixed)",
+      "label": "Word Fragments, mag- Prefix Stems",
       "n_words": 21,
       "lane": "Structural / Uncertain"
     },
     "80": {
-      "label": "Word Fragments, -ous Adjective Stems (mixed)",
+      "label": "Word Fragments, -ous Adjective Stems",
       "n_words": 162,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#70"
     },
     "95": {
-      "label": "Word Fragments, al- Prefix Stems (mixed)",
+      "label": "Word Fragments, al- Prefix Stems",
       "n_words": 70,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#66"
     },
     "105": {
-      "label": "Word Fragments, English Place-Name Stems (mixed)",
+      "label": "Word Fragments, English Place-Name Stems",
       "n_words": 31,
       "lane": "Structural / Uncertain"
     },
     "94": {
-      "label": "Word Fragments and French Text (mixed)",
+      "label": "Word Fragments and French Text",
       "n_words": 79,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#82"
@@ -7314,12 +7299,12 @@
       "inherited_from": "1830-1850#28"
     },
     "97": {
-      "label": "Word Fragments, un-able Adjective Stems (mixed)",
+      "label": "Word Fragments, un-able Adjective Stems",
       "n_words": 65,
       "lane": "Structural / Uncertain"
     },
     "108": {
-      "label": "Word Fragments, ca- Prefix Stems (mixed)",
+      "label": "Word Fragments, ca- Prefix Stems",
       "n_words": 25,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#95"
@@ -7331,13 +7316,13 @@
       "inherited_from": "1830-1850#92"
     },
     "104": {
-      "label": "Word Fragments, ar- Prefix Stems (mixed)",
+      "label": "Word Fragments, ar- Prefix Stems",
       "n_words": 38,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#83"
     },
     "99": {
-      "label": "Word Fragments, -able Adjective Stems (mixed)",
+      "label": "Word Fragments, -able Adjective Stems",
       "n_words": 59,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#89"
@@ -7355,13 +7340,13 @@
       "inherited_from": "1830-1850#19"
     },
     "37": {
-      "label": "Verbs of Transformation and Infusion (mixed)",
+      "label": "Verbs of Transformation and Infusion",
       "n_words": 1471,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#32"
     },
     "4": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 4074,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#8"
@@ -7373,18 +7358,18 @@
       "inherited_from": "1830-1850#31"
     },
     "102": {
-      "label": "Verbs of Exceeding and Surpassing (mixed)",
+      "label": "Verbs of Exceeding and Surpassing",
       "n_words": 47,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#74"
     },
     "103": {
-      "label": "Miscellany and Fragments (mixed)",
+      "label": "Miscellany and Fragments",
       "n_words": 43,
       "lane": "Structural / Uncertain"
     },
     "98": {
-      "label": "Word Fragments, ma- Prefix Stems (mixed)",
+      "label": "Word Fragments, ma- Prefix Stems",
       "n_words": 60,
       "lane": "Structural / Uncertain",
       "inherited_from": "1830-1850#88"
@@ -7416,25 +7401,25 @@
       "inherited_from": "1850-1870#63"
     },
     "44": {
-      "label": "Mixed Place and Proper Names (mixed)",
+      "label": "Mixed Place and Proper Names",
       "n_words": 1614,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#45"
     },
     "7": {
-      "label": "Contracted Verb Forms (mixed)",
+      "label": "Contracted Verb Forms",
       "n_words": 4592,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#19"
     },
     "37": {
-      "label": "Word Fragments, pa- Prefix Stems (mixed)",
+      "label": "Word Fragments, pa- Prefix Stems",
       "n_words": 1941,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#69"
     },
     "55": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 988,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#47"
@@ -7452,13 +7437,13 @@
       "inherited_from": "1850-1870#43"
     },
     "39": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 1907,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#29"
     },
     "69": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 386,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#61"
@@ -7470,7 +7455,7 @@
       "inherited_from": "1850-1870#33"
     },
     "68": {
-      "label": "Word Fragments, ne- Prefix Stems (mixed)",
+      "label": "Word Fragments, ne- Prefix Stems",
       "n_words": 415,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#75"
@@ -7482,7 +7467,7 @@
       "inherited_from": "1850-1870#14"
     },
     "22": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 2837,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#22"
@@ -7506,7 +7491,7 @@
       "inherited_from": "1850-1870#58"
     },
     "54": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 1151,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#44"
@@ -7530,27 +7515,27 @@
       "inherited_from": "1850-1870#41"
     },
     "17": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 3221,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#34"
     },
     "43": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 1823,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#32"
     },
     "86": {
-      "label": "Mixed Place Names and Fragments (mixed)",
+      "label": "Mixed Place Names and Fragments",
       "n_words": 149,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#82"
     },
     "29": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Religion, Clergy and Church Governance",
       "n_words": 2194,
-      "lane": "Structural / Uncertain",
+      "lane": "Religion, Theology & the Church",
       "inherited_from": "1850-1870#53"
     },
     "27": {
@@ -7566,7 +7551,7 @@
       "inherited_from": "1850-1870#93"
     },
     "58": {
-      "label": "Word Fragments, ap- Prefix Stems (mixed)",
+      "label": "Word Fragments, ap- Prefix Stems",
       "n_words": 907,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#84"
@@ -7590,13 +7575,13 @@
       "inherited_from": "1850-1870#36"
     },
     "18": {
-      "label": "Latin Poetic Text (mixed)",
+      "label": "Latin Poetic Text",
       "n_words": 3162,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#26"
     },
     "72": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 315,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#65"
@@ -7620,7 +7605,7 @@
       "inherited_from": "1850-1870#0"
     },
     "74": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 308,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#60"
@@ -7644,7 +7629,7 @@
       "inherited_from": "1850-1870#49"
     },
     "79": {
-      "label": "Word Fragments and French Text (mixed)",
+      "label": "Word Fragments and French Text",
       "n_words": 242,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#94"
@@ -7662,13 +7647,13 @@
       "inherited_from": "1850-1870#8"
     },
     "90": {
-      "label": "Spelling Variants of 'With' (mixed)",
+      "label": "Spelling Variants of 'With'",
       "n_words": 137,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#81"
     },
     "6": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 4700,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#5"
@@ -7680,13 +7665,13 @@
       "inherited_from": "1850-1870#46"
     },
     "25": {
-      "label": "Mixed Proper Names (mixed)",
+      "label": "Mixed Proper Names",
       "n_words": 2415,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#42"
     },
     "63": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 590,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#79"
@@ -7704,13 +7689,13 @@
       "inherited_from": "1850-1870#70"
     },
     "65": {
-      "label": "Truncated Word Stems (mixed)",
+      "label": "Truncated Word Stems",
       "n_words": 532,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#62"
     },
     "93": {
-      "label": "Word Fragments, English Place-Name Stems (mixed)",
+      "label": "Word Fragments, English Place-Name Stems",
       "n_words": 94,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#90"
@@ -7728,7 +7713,7 @@
       "inherited_from": "1850-1870#13"
     },
     "71": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 315,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#66"
@@ -7752,13 +7737,13 @@
       "inherited_from": "1850-1870#51"
     },
     "53": {
-      "label": "London Streets and Publishers (mixed)",
+      "label": "London Streets and Publishers",
       "n_words": 1209,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#54"
     },
     "48": {
-      "label": "Word Fragments, au- Prefix Stems (mixed)",
+      "label": "Word Fragments, au- Prefix Stems",
       "n_words": 1484,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#74"
@@ -7770,49 +7755,49 @@
       "inherited_from": "1850-1870#39"
     },
     "32": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 2105,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#27"
     },
     "97": {
-      "label": "Word Fragments, ac- Prefix Stems (mixed)",
+      "label": "Word Fragments, ac- Prefix Stems",
       "n_words": 57,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#100"
     },
     "64": {
-      "label": "Welsh Text (mixed)",
+      "label": "Welsh Text",
       "n_words": 581,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#57"
     },
     "26": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 2321,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#25"
     },
     "47": {
-      "label": "Latin Text (mixed)",
+      "label": "Latin Text",
       "n_words": 1487,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#16"
     },
     "88": {
-      "label": "Word Fragments, per- Prefix Stems (mixed)",
+      "label": "Word Fragments, per- Prefix Stems",
       "n_words": 143,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#87"
     },
     "20": {
-      "label": "Verbs of Transformation (mixed)",
+      "label": "Verbs of Transformation",
       "n_words": 2949,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#21"
     },
     "41": {
-      "label": "Word Fragments and Miscellany (mixed)",
+      "label": "Word Fragments and Miscellany",
       "n_words": 1865,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#78"
@@ -7824,13 +7809,13 @@
       "inherited_from": "1850-1870#50"
     },
     "91": {
-      "label": "Word Fragments, al- Prefix Stems (mixed)",
+      "label": "Word Fragments, al- Prefix Stems",
       "n_words": 131,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#95"
     },
     "96": {
-      "label": "Word Fragments, -ous Adjective Stems (mixed)",
+      "label": "Word Fragments, -ous Adjective Stems",
       "n_words": 73,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#91"
@@ -7848,37 +7833,37 @@
       "inherited_from": "1850-1870#38"
     },
     "73": {
-      "label": "Word Fragments, com- Prefix Stems (mixed)",
+      "label": "Word Fragments, com- Prefix Stems",
       "n_words": 311,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#71"
     },
     "62": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 613,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#52"
     },
     "80": {
-      "label": "Word Fragments, -sion Stems (mixed)",
+      "label": "Word Fragments, -sion Stems",
       "n_words": 230,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#76"
     },
     "4": {
-      "label": "Proper Names, Authors and Publishers (mixed)",
+      "label": "Proper Names, Authors and Publishers",
       "n_words": 5070,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#1"
     },
     "67": {
-      "label": "Word Fragments and Miscellany (mixed)",
+      "label": "Word Fragments and Miscellany",
       "n_words": 443,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#67"
     },
     "0": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 6530,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#4"
@@ -7890,97 +7875,97 @@
       "inherited_from": "1850-1870#107"
     },
     "75": {
-      "label": "Spelling Variants (mixed)",
+      "label": "Spelling Variants",
       "n_words": 283,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#59"
     },
     "101": {
-      "label": "Word Fragments, fa- Prefix Stems (mixed)",
+      "label": "Word Fragments, fa- Prefix Stems",
       "n_words": 26,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#77"
     },
     "92": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 112,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#86"
     },
     "83": {
-      "label": "Word Fragments, -ous Adjective Stems (mixed)",
+      "label": "Word Fragments, -ous Adjective Stems",
       "n_words": 181,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#80"
     },
     "70": {
-      "label": "Word Fragments, re- Prefix Stems (mixed)",
+      "label": "Word Fragments, re- Prefix Stems",
       "n_words": 366,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#64"
     },
     "85": {
-      "label": "Word Fragments, en- Prefix Stems (mixed)",
+      "label": "Word Fragments, en- Prefix Stems",
       "n_words": 169,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#85"
     },
     "78": {
-      "label": "Word Fragments, em- Prefix Stems (mixed)",
+      "label": "Word Fragments, em- Prefix Stems",
       "n_words": 273,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#73"
     },
     "89": {
-      "label": "Word Fragments, dis- Prefix Stems (mixed)",
+      "label": "Word Fragments, dis- Prefix Stems",
       "n_words": 143,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#83"
     },
     "76": {
-      "label": "Word Fragments, com-/ex- Stems (mixed)",
+      "label": "Word Fragments, com-/ex- Stems",
       "n_words": 279,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#68"
     },
     "87": {
-      "label": "Verbs of Exceeding and Surpassing (mixed)",
+      "label": "Verbs of Exceeding and Surpassing",
       "n_words": 145,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#102"
     },
     "82": {
-      "label": "Word Fragments, mag- Prefix Stems (mixed)",
+      "label": "Word Fragments, mag- Prefix Stems",
       "n_words": 184,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#110"
     },
     "94": {
-      "label": "Word Fragments, un-/under- Stems (mixed)",
+      "label": "Word Fragments, un-/under- Stems",
       "n_words": 85,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#89"
     },
     "98": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 57,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#88"
     },
     "81": {
-      "label": "Word Fragments, un-able Adjective Stems (mixed)",
+      "label": "Word Fragments, un-able Adjective Stems",
       "n_words": 219,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#97"
     },
     "95": {
-      "label": "Word Fragments, ad- Prefix Stems (mixed)",
+      "label": "Word Fragments, ad- Prefix Stems",
       "n_words": 84,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#96"
     },
     "100": {
-      "label": "Word Fragments, ar- Prefix Stems (mixed)",
+      "label": "Word Fragments, ar- Prefix Stems",
       "n_words": 36,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#104"
@@ -7992,25 +7977,25 @@
       "inherited_from": "1850-1870#17"
     },
     "104": {
-      "label": "Word Fragments, pro- Prefix Stems (mixed)",
+      "label": "Word Fragments, pro- Prefix Stems",
       "n_words": 15,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#92"
     },
     "105": {
-      "label": "Word Fragments, -able Adjective Stems (mixed)",
+      "label": "Word Fragments, -able Adjective Stems",
       "n_words": 12,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#99"
     },
     "102": {
-      "label": "Word Fragments, ma- Prefix Stems (mixed)",
+      "label": "Word Fragments, ma- Prefix Stems",
       "n_words": 22,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#98"
     },
     "103": {
-      "label": "Word Fragments, coun- Prefix Stems (mixed)",
+      "label": "Word Fragments, coun- Prefix Stems",
       "n_words": 22,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#109"
@@ -8022,7 +8007,7 @@
       "inherited_from": "1850-1870#20"
     },
     "46": {
-      "label": "Verbs of Transformation and Infusion (mixed)",
+      "label": "Verbs of Transformation and Infusion",
       "n_words": 1535,
       "lane": "Structural / Uncertain",
       "inherited_from": "1850-1870#37"
@@ -8030,13 +8015,13 @@
   },
   "1890-1910": {
     "47": {
-      "label": "Word Fragments, -ous Adjective Stems (mixed)",
+      "label": "Word Fragments, -ous Adjective Stems",
       "n_words": 986,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#96"
     },
     "73": {
-      "label": "Word Fragments, -ous Adjective Stems (mixed)",
+      "label": "Word Fragments, -ous Adjective Stems",
       "n_words": 238,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#83"
@@ -8054,13 +8039,13 @@
       "inherited_from": "1870-1890#66"
     },
     "53": {
-      "label": "Verbs of Remaining and Enduring (mixed)",
+      "label": "Verbs of Remaining and Enduring",
       "n_words": 643,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#55"
     },
     "25": {
-      "label": "Infinitive Verb Forms (mixed)",
+      "label": "Infinitive Verb Forms",
       "n_words": 1936,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#39"
@@ -8102,7 +8087,7 @@
       "inherited_from": "1870-1890#2"
     },
     "14": {
-      "label": "Base-Form Verbs (mixed)",
+      "label": "Base-Form Verbs",
       "n_words": 2430,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#22"
@@ -8120,7 +8105,7 @@
       "inherited_from": "1870-1890#33"
     },
     "38": {
-      "label": "Mixed Place and Proper Names (mixed)",
+      "label": "Mixed Place and Proper Names",
       "n_words": 1473,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#44"
@@ -8150,25 +8135,25 @@
       "inherited_from": "1870-1890#27"
     },
     "56": {
-      "label": "Word Fragments and Miscellany (mixed)",
+      "label": "Word Fragments and Miscellany",
       "n_words": 571,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#67"
     },
     "19": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 2126,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#43"
     },
     "26": {
-      "label": "Word Fragments, au- Prefix Stems (mixed)",
+      "label": "Word Fragments, au- Prefix Stems",
       "n_words": 1913,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#48"
     },
     "63": {
-      "label": "Roman Numerals (mixed)",
+      "label": "Roman Numerals",
       "n_words": 373,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#69"
@@ -8180,7 +8165,7 @@
       "inherited_from": "1870-1890#45"
     },
     "4": {
-      "label": "Latin Poetic Text (mixed)",
+      "label": "Latin Poetic Text",
       "n_words": 4290,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#18"
@@ -8192,7 +8177,7 @@
       "inherited_from": "1870-1890#24"
     },
     "24": {
-      "label": "Contracted Verb Forms (mixed)",
+      "label": "Contracted Verb Forms",
       "n_words": 1988,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#7"
@@ -8210,7 +8195,7 @@
       "inherited_from": "1870-1890#38"
     },
     "20": {
-      "label": "Verbs of Thinking and Perceiving (mixed)",
+      "label": "Verbs of Thinking and Perceiving",
       "n_words": 2079,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#32"
@@ -8222,9 +8207,9 @@
       "inherited_from": "1870-1890#3"
     },
     "34": {
-      "label": "Dutch and German Text (mixed)",
+      "label": "Religion, Clergy and Church Governance",
       "n_words": 1588,
-      "lane": "Structural / Uncertain",
+      "lane": "Religion, Theology & the Church",
       "inherited_from": "1870-1890#29"
     },
     "18": {
@@ -8234,7 +8219,7 @@
       "inherited_from": "1870-1890#16"
     },
     "45": {
-      "label": "Mixed Verb Forms (mixed)",
+      "label": "Mixed Verb Forms",
       "n_words": 1097,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#54"
@@ -8246,13 +8231,13 @@
       "inherited_from": "1870-1890#60"
     },
     "66": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 311,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#74"
     },
     "10": {
-      "label": "Word Fragments, pa- Prefix Stems (mixed)",
+      "label": "Word Fragments, pa- Prefix Stems",
       "n_words": 2778,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#37"
@@ -8270,7 +8255,7 @@
       "inherited_from": "1870-1890#10"
     },
     "80": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 128,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#72"
@@ -8294,7 +8279,7 @@
       "inherited_from": "1870-1890#28"
     },
     "77": {
-      "label": "Second-Person Verb Forms (mixed)",
+      "label": "Second-Person Verb Forms",
       "n_words": 156,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#63"
@@ -8306,7 +8291,7 @@
       "inherited_from": "1870-1890#77"
     },
     "12": {
-      "label": "Latin Religious Text (mixed)",
+      "label": "Latin Religious Text",
       "n_words": 2595,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#6"
@@ -8318,13 +8303,13 @@
       "inherited_from": "1870-1890#42"
     },
     "72": {
-      "label": "Word Fragments, com- Prefix Stems (mixed)",
+      "label": "Word Fragments, com- Prefix Stems",
       "n_words": 241,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#73"
     },
     "43": {
-      "label": "London Streets and Publishers (mixed)",
+      "label": "London Streets and Publishers",
       "n_words": 1172,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#53"
@@ -8336,7 +8321,7 @@
       "inherited_from": "1870-1890#13"
     },
     "65": {
-      "label": "Truncated Word Stems (mixed)",
+      "label": "Truncated Word Stems",
       "n_words": 344,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#65"
@@ -8348,7 +8333,7 @@
       "inherited_from": "1870-1890#8"
     },
     "67": {
-      "label": "Latin Ecclesiastical Text (mixed)",
+      "label": "Latin Ecclesiastical Text",
       "n_words": 302,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#71"
@@ -8360,7 +8345,7 @@
       "inherited_from": "1870-1890#35"
     },
     "71": {
-      "label": "Word Fragments, ap- Prefix Stems (mixed)",
+      "label": "Word Fragments, ap- Prefix Stems",
       "n_words": 242,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#58"
@@ -8372,13 +8357,13 @@
       "inherited_from": "1870-1890#21"
     },
     "23": {
-      "label": "Third-Person -eth Verb Forms (mixed)",
+      "label": "Third-Person -eth Verb Forms",
       "n_words": 1989,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#17"
     },
     "39": {
-      "label": "Mixed Proper Names (mixed)",
+      "label": "Mixed Proper Names",
       "n_words": 1412,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#25"
@@ -8396,7 +8381,7 @@
       "inherited_from": "1870-1890#57"
     },
     "83": {
-      "label": "Word Fragments, per- Prefix Stems (mixed)",
+      "label": "Word Fragments, per- Prefix Stems",
       "n_words": 106,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#88"
@@ -8414,13 +8399,13 @@
       "inherited_from": "1870-1890#11"
     },
     "81": {
-      "label": "Word Fragments and French Text (mixed)",
+      "label": "Word Fragments and French Text",
       "n_words": 107,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#79"
     },
     "30": {
-      "label": "Miscellaneous Word Fragments (mixed)",
+      "label": "Miscellaneous Word Fragments",
       "n_words": 1826,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#26"
@@ -8432,25 +8417,25 @@
       "inherited_from": "1870-1890#51"
     },
     "69": {
-      "label": "Verbs of Transformation and Infusion (mixed)",
+      "label": "Verbs of Transformation and Infusion",
       "n_words": 293,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#46"
     },
     "1": {
-      "label": "Proper Names, Authors and Publishers (mixed)",
+      "label": "Proper Names, Authors and Publishers",
       "n_words": 5161,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#4"
     },
     "88": {
-      "label": "Welsh Text (mixed)",
+      "label": "Welsh Text",
       "n_words": 78,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#64"
     },
     "48": {
-      "label": "Word Fragments and Miscellany (mixed)",
+      "label": "Word Fragments and Miscellany",
       "n_words": 887,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#41"
@@ -8462,13 +8447,13 @@
       "inherited_from": "1870-1890#59"
     },
     "29": {
-      "label": "Verbs of Transformation (mixed)",
+      "label": "Verbs of Transformation",
       "n_words": 1828,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#20"
     },
     "78": {
-      "label": "Word Fragments, -sion Stems (mixed)",
+      "label": "Word Fragments, -sion Stems",
       "n_words": 151,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#80"
@@ -8480,25 +8465,25 @@
       "inherited_from": "1870-1890#5"
     },
     "79": {
-      "label": "Word Fragments, English Place-Name Stems (mixed)",
+      "label": "Word Fragments, English Place-Name Stems",
       "n_words": 144,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#93"
     },
     "76": {
-      "label": "Spelling Variants of 'With' (mixed)",
+      "label": "Spelling Variants of 'With'",
       "n_words": 174,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#90"
     },
     "68": {
-      "label": "Word Fragments, em- Prefix Stems (mixed)",
+      "label": "Word Fragments, em- Prefix Stems",
       "n_words": 295,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#78"
     },
     "59": {
-      "label": "Verbs of Separation and Withdrawal (mixed)",
+      "label": "Verbs of Separation and Withdrawal",
       "n_words": 507,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#62"
@@ -8510,7 +8495,7 @@
       "inherited_from": "1870-1890#61"
     },
     "60": {
-      "label": "Latin Text (mixed)",
+      "label": "Latin Text",
       "n_words": 507,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#47"
@@ -8522,31 +8507,31 @@
       "inherited_from": "1870-1890#84"
     },
     "75": {
-      "label": "Word Fragments, re- Prefix Stems (mixed)",
+      "label": "Word Fragments, re- Prefix Stems",
       "n_words": 228,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#70"
     },
     "74": {
-      "label": "Word Fragments, com-/ex- Stems (mixed)",
+      "label": "Word Fragments, com-/ex- Stems",
       "n_words": 230,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#76"
     },
     "84": {
-      "label": "Word Fragments, dis- Prefix Stems (mixed)",
+      "label": "Word Fragments, dis- Prefix Stems",
       "n_words": 106,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#89"
     },
     "82": {
-      "label": "Word Fragments, en- Prefix Stems (mixed)",
+      "label": "Word Fragments, en- Prefix Stems",
       "n_words": 107,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#85"
     },
     "93": {
-      "label": "Mixed Place Names and Fragments (mixed)",
+      "label": "Mixed Place Names and Fragments",
       "n_words": 52,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#86"
@@ -8558,85 +8543,85 @@
       "inherited_from": "1870-1890#99"
     },
     "86": {
-      "label": "Word Fragments, al- Prefix Stems (mixed)",
+      "label": "Word Fragments, al- Prefix Stems",
       "n_words": 84,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#91"
     },
     "96": {
-      "label": "Word Fragments, ac- Prefix Stems (mixed)",
+      "label": "Word Fragments, ac- Prefix Stems",
       "n_words": 36,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#97"
     },
     "92": {
-      "label": "Word Fragments, ne- Prefix Stems (mixed)",
+      "label": "Word Fragments, ne- Prefix Stems",
       "n_words": 55,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#68"
     },
     "89": {
-      "label": "Word Fragments, mag- Prefix Stems (mixed)",
+      "label": "Word Fragments, mag- Prefix Stems",
       "n_words": 73,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#82"
     },
     "91": {
-      "label": "Word Fragments, ad- Prefix Stems (mixed)",
+      "label": "Word Fragments, ad- Prefix Stems",
       "n_words": 55,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#95"
     },
     "85": {
-      "label": "Word Fragments, un-able Adjective Stems (mixed)",
+      "label": "Word Fragments, un-able Adjective Stems",
       "n_words": 99,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#81"
     },
     "100": {
-      "label": "Word Fragments, ar- Prefix Stems (mixed)",
+      "label": "Word Fragments, ar- Prefix Stems",
       "n_words": 20,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#100"
     },
     "101": {
-      "label": "Word Fragments, coun- Prefix Stems (mixed)",
+      "label": "Word Fragments, coun- Prefix Stems",
       "n_words": 14,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#103"
     },
     "87": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 81,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#92"
     },
     "94": {
-      "label": "Spelling Variants (mixed)",
+      "label": "Spelling Variants",
       "n_words": 48,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#75"
     },
     "90": {
-      "label": "Word Fragments, un-/under- Stems (mixed)",
+      "label": "Word Fragments, un-/under- Stems",
       "n_words": 59,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#94"
     },
     "0": {
-      "label": "Miscellaneous Narrative Fragments (mixed)",
+      "label": "Miscellaneous Narrative Fragments",
       "n_words": 5970,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#0"
     },
     "97": {
-      "label": "Word Fragments (mixed)",
+      "label": "Word Fragments",
       "n_words": 31,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#98"
     },
     "98": {
-      "label": "Verbs of Exceeding and Surpassing (mixed)",
+      "label": "Verbs of Exceeding and Surpassing",
       "n_words": 26,
       "lane": "Structural / Uncertain",
       "inherited_from": "1870-1890#87"
@@ -8646,16 +8631,16 @@
     "resolution": 4.0,
     "region": "combined",
     "n_communities": 1457,
-    "n_human_edited": 139,
-    "n_inherited": 1318,
+    "n_human_edited": 154,
+    "n_inherited": 1303,
     "method": "Generated by a single LLM read-through of each community's top words, not an empirically validated taxonomy - a reading aid, not a checked ground truth. Rerunning `generate` on an unchanged input is not guaranteed to reproduce the same label text or lane for every community, since LLM sampling is not bitwise-deterministic even against an unchanged prompt.",
-    "compiled_at": "2026-08-07T14:24:48+00:00",
+    "compiled_at": "2026-08-07T14:54:49+00:00",
     "model": "claude-haiku-4-5-20251001",
     "prompt_file": "src/prompts/community_labeling_v1.md",
     "prompt_version": "v1",
     "prompt_sha256_16": "94616a163691487b",
     "source_words_file": "community_words_res4.0.json",
     "source_words_sha256_16": "2502ee27015ef124",
-    "generated_at": "2026-08-07T14:24:47+00:00"
+    "generated_at": "2026-08-07T14:54:48+00:00"
   }
 }
