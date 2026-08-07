@@ -558,18 +558,65 @@ per community and the columns \code{region}, \code{period},
 walks periods in chronological order and, for each community, first asks
 whether the Hungarian alignment that \code{metrics.py} already uses for
 the migration fraction maps it back to a predecessor community that
-already has a label. If so, the label and lane are inherited verbatim
-(\code{origin=inherited}: free, deterministic, no model call). Only a
-genesis community, a region's first labeled period or the moved-into side
-of a real reorganization, needs a fresh read. Genesis rows are either
-left blank for a human or an agent to fill in by hand
+already has a label. If so, and the inheritance chain is still short
+enough (see ``Bounded reclassification'' below), the label and lane are
+inherited verbatim (\code{origin=inherited}: free, deterministic, no
+model call). A community needs a fresh read for one of two reasons: it
+is a genuine genesis (a region's first labeled period, or the
+moved-into side of a real reorganization, \code{inherited\_from} left
+empty), or it is a continuing lineage whose inheritance chain just hit
+the cap (\code{inherited\_from} stays populated). Either way the row is
+either left blank for a human or an agent to fill in by hand
 (\code{{\dd}fill blank}, the default, and this project's actual practice)
 or filled by one API call each (\code{{\dd}fill llm}). Rows whose
 \code{origin} is \code{human} are never overwritten; \code{{\dd}overwrite}
-re-fills only the blank and model-generated genesis rows. In the normal
+re-fills only the blank and model-generated rows. In the normal
 flow \code{generate} is run twice: once to see which rows come back
-blank, then again after the genesis rows are filled, which resolves every
+blank, then again after they are filled, which resolves every
 inheriting row downstream of them for free.
+
+\paragraph{Bounded reclassification.} Verbatim inheritance solved the
+problem it was built for (Section~3.1, ``Label continuity across
+periods''), but introduced a different one: nothing ever forced a label
+to be checked against current content again, so a chain could inherit
+unbroken for as long as the underlying community kept structurally
+matching a predecessor. Found in practice, 2026-08-07, while
+investigating a collaborator's report that a community's name ``made no
+sense'': a community genuinely Dutch/German text at 1510-1530
+(\emph{godt, niet, christus, gott}) was still labeled ``Dutch and
+German Text'' fifteen periods later, at 1810-1830, by which point its
+top words were about church governance (\emph{romish, deacons,
+clergymen, doctrines}). Walking the chain back turned up seven further,
+completely unrelated themes in between - Scots legal prose, an
+Anglo-Scottish border-warfare narrative, romantic verse, classical
+mythology, early Christian figures, early Popes, and emotional-distress
+vocabulary - none of it ever re-read. The structural signal was never
+wrong: that community's best-matching predecessor really was the same
+community, every single step. Only the label, carried forward
+unexamined, was.
+
+\code{generate} now caps how many consecutive periods a label may be
+inherited before forcing a fresh read
+(\code{label\_communities.MAX\_INHERITANCE\_CHAIN}, currently 3, chosen
+by judgement rather than measured: short enough that a fifteen-period
+chain could not recur unnoticed, long enough that a genuinely
+slow-changing lineage is not re-read for no reason). When the cap is
+hit, \code{inherited\_from} stays populated - the row is still visibly a
+continuation of the same tracked lineage, not a new entity - but the
+label and lane are re-derived from that period's own current top words,
+exactly as a genesis community would be. This does not touch
+\code{align\_communities} or the migration fraction at all: ``stayed''
+still means exactly what it always meant, structurally, and the
+resolution sweep behind every quantitative claim is completely
+unaffected. Only how long a \emph{label} may go without being
+re-examined is bounded now, the same way a museum periodically
+re-examines, and occasionally reclassifies, a specimen without disputing
+its provenance - the metaphor this project's own visual design already
+uses. The interactive explorer's own ``stayed'' arrow gained a third,
+narrower case for exactly this: still ``stayed'' (the structural claim is
+unchanged), but its tooltip now says the description was just
+re-examined against current words rather than carried forward unread,
+distinct from the ordinary case where nothing changed at all.
 
 \code{compile} turns the CSV, including any hand edits, into
 \pathref{communities/community_labels_res4.0[_<region>].json}, which is
