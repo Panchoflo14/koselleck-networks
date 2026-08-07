@@ -365,19 +365,21 @@ established, its label is inherited unchanged from that predecessor, and
 a fresh read only happens for a community with no such predecessor: the
 first period a region's data begins, or the side of a genuine
 reorganization that a word moved into. In the combined corpus, roughly
-seven in eight community labels are inherited this way rather than
+nine in ten community labels are inherited this way rather than
 independently generated for a given pipeline run; the per-region runs
 behave similarly. This keeps a community's displayed name consistent with
 whether the tool has actually flagged it as having moved or stayed,
 rather than the two being computed separately and occasionally
-disagreeing, which an early version of the tool did. Roughly 60-70\% of
-communities are honestly flagged, by the same process, as
-\term{``mixed''}: the corpus is multilingual (English, Latin, Law French,
-Welsh, Scots, and more) and early modern, and a community detected by
-this method sometimes groups words by shared grammar (verb conjugations,
-comparative forms, spelling variants) rather than by shared topic. Every
-view surfaces this caveat directly next to the labels, rather than
-presenting every label as equally reliable.
+disagreeing, which an early version of the tool did. Roughly half of
+communities are sorted, by the same process, into the
+\term{``Structural / Uncertain''} lane rather than a topical one (down
+from 70\% before the labeling resolution was raised, see below): the
+corpus is multilingual (English, Latin, Law French, Welsh, Scots, and
+more) and early modern, and a community detected by this method
+sometimes groups words by shared grammar (verb conjugations, comparative
+forms, spelling variants) rather than by shared topic. Every view
+surfaces this lane directly next to the labels, rather than presenting
+every label as equally reliable.
 
 Each community is additionally sorted into one \term{lane}: a small,
 fixed list of fifteen broad domains (government and law, religion,
@@ -402,6 +404,45 @@ model was asked to do and reproduce or replace it. Labeling is an
 optional, clearly separable stage: every quantitative result in this
 document is produced by \code{src/metrics.py} and needs no labels at all.
 
+\subsubsection{Choosing the labeling resolution}
+
+Community detection produces a partition at every resolution in the
+sweep; the webapp displays and labels only one of them, a choice
+separate from the sweep itself and revisited once already. It was
+originally 1.0. Adding the British Library supplement grew some
+periods' vocabularies past 170{,}000 words, and at 1.0 the largest
+community in the latest periods had grown with them to 24{,}608 words
+(14\% of that period's vocabulary) - a size at which no label, model or
+human, can describe what is actually inside it. This was not a new
+failure mode introduced by the supplement, only a more visible one: the
+largest community was already a stable 12-15\% of the vocabulary at
+every period size tested, small and unremarkable at 70{,}000 words,
+absurd at 170{,}000.
+
+Modularity falls off smoothly as resolution rises, with no sharp elbow
+in the tested range, so there is no purely statistical answer for the
+right resolution - the real ceiling is practical, how many communities
+per period stay browsable, not mathematical. The choice was settled by a
+concrete before/after check rather than a formula. Take the community
+containing the word ``system'' in 1870-1890, the single worst offender:
+at resolution 1.0 its top words read as an unstructured mix (\emph{
+perjury, arrogance, indigestion, sensuality, bronchitis, extortions,
+dyspepsia}); at 2.0 and 3.0 the same words are still there, effectively
+unchanged; only at \textbf{4.0} does the community actually split, and
+the half that keeps ``system'' becomes a real, nameable theme
+(\emph{arrable, assessments, registration, payment, loans, forfeitures,
+coroners, judiciary, treasurers, sheriffs, freehold, manors, copyhold}) -
+civil administration and property law. The same check on two other
+periods at 4.0 (one small, one mid-sized) produced equally coherent
+results (philosophy/rhetoric/mathematics; church governance and clergy),
+so the resolution was raised project-wide rather than only for the
+largest periods. \code{config.yml}'s \code{leiden.label\_resolution} now
+reads 4.0; \code{leiden.resolution\_sweep}, the range every quantitative
+claim is actually tested across, was extended to match (up to 4.0, from
+2.0), so the display choice and the tested range stay aligned. Growing
+the corpus further should be expected to call for raising this again -
+the right resolution scales with vocabulary size, it is not a constant.
+
 \subsubsection{The prompt}
 
 The prompt lives in the repository as a single Markdown file,
@@ -410,7 +451,8 @@ by \code{src/label\_communities.py} rather than duplicated as a string
 constant in code, so the file stays the one place the instructions and
 the lane list are edited. It has three sections: the fixed lane list, the
 system prompt, and the user message template. One model call is made per
-Leiden community, at resolution 1.0.
+Leiden community, at the resolution set in \code{config.yml} (4.0, see
+above).
 
 The system prompt, quoted from that file, tells the model:
 
@@ -502,9 +544,9 @@ Labeling runs as two scripts and three subcommands, after
 \end{dobox}
 
 \code{extract\_community\_words.py} writes, for each populated period at
-resolution 1.0, every community's size and its top 25 highest-degree
-member words to
-\pathref{communities/community_words_res1.0[_<region>].json}. It runs once
+the configured label resolution, every community's size and its top 25
+highest-degree member words to
+\pathref{communities/community_words_res4.0[_<region>].json}. It runs once
 for the combined corpus and once per region discovered on disk, because a
 region's own Leiden run has its own community numbering and therefore
 needs its own words file and its own labels file.
@@ -530,12 +572,19 @@ blank, then again after the genesis rows are filled, which resolves every
 inheriting row downstream of them for free.
 
 \code{compile} turns the CSV, including any hand edits, into
-\pathref{communities/community_labels_res1.0[_<region>].json}, which is
+\pathref{communities/community_labels_res4.0[_<region>].json}, which is
 the exact file \code{webapp/app.py} reads. It also stamps a
 \code{\_meta} block into that JSON recording the resolution, the region,
 the number of communities, how many were human-edited, how many were
 inherited, and a standing caveat that the labels are a single model
-read-through and not an empirically validated taxonomy.
+read-through and not an empirically validated taxonomy. Compiling used
+to append a literal ``(mixed)'' to the label text of every
+\code{Structural / Uncertain} community; that is no longer done. The
+\code{lane} field already carries the ``this is not a real topic''
+signal on its own, and stacking the word ``mixed'' onto an
+already-decisive reading (``Second-Person Verb Forms'', ``Biblical Book
+Abbreviations'') made even a clear description look like the model
+could not settle on one.
 
 \code{publish} copies the CSV and the compiled JSON for a region out of
 the data directory and into this repository. \code{{\dd}region} also
@@ -567,7 +616,7 @@ snapshot is reviewed by hand before it is added to version control.
 
 \section{Current limitations}
 
-Four limitations shape what can be claimed right now, and all four are
+Five limitations shape what can be claimed right now, and all five are
 visible in the tool itself rather than hidden.
 
 \begin{claimbox}
@@ -604,6 +653,21 @@ fix needs something more than pattern matching on punctuation - most
 plausibly, checking whether an adjacent pair of short, otherwise-unusual
 tokens concatenates into a real English word - and has not been built
 yet.
+\end{claimbox}
+
+\begin{claimbox}
+\claimlabel{A separate, unconfirmed TCP transcription artifact.} Raising
+the labeling resolution (below) surfaced a third, distinct word-splitting
+pattern in a handful of communities in TCP-covered periods (1510-1650),
+which is \emph{not} the British Library issue above - TCP is manually
+keyed, not scanned. The pattern is specific: a ``con-''/``com-'' prefix
+is missing from otherwise-recognizable words (\emph{mytted} for
+\emph{committed}, \emph{uersation} for \emph{conversation},
+\emph{monwealth} for \emph{commonwealth}). The most likely cause is
+TCP's own markup for a scribal abbreviation or suspension mark, common
+for exactly this prefix in early modern print, being mishandled during
+text extraction - but this has not been confirmed against the raw XML,
+and no fix has been attempted. Flagged here rather than fixed blindly.
 \end{claimbox}
 
 \begin{claimbox}

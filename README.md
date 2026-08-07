@@ -165,11 +165,11 @@ python src/metrics.py
 The webapp shows a plain-English name next to each community (e.g. "Government & Law") instead of a bare Leiden id. That's a separate, optional step - `metrics.py` above is enough to reproduce every quantitative result, labels are a reading aid layered on top:
 
 ```
-python src/extract_community_words.py          # top-25 words per community -> communities/community_words_res1.0[_region].json
+python src/extract_community_words.py          # top-25 words per community -> communities/community_words_res<X>[_region].json, X = config.yml's leiden.label_resolution
 python src/label_communities.py generate --region combined   # -> a CSV, blank rows for communities with no inheritable predecessor
 # fill in the blank rows by hand (or via an LLM/agent reading the same CSV) - see the CSV's "label"/"lane" columns
 python src/label_communities.py generate --region combined   # rerun once genesis rows are filled - resolves everything else for free
-python src/label_communities.py compile --region combined    # CSV -> communities/community_labels_res1.0[_region].json, what the webapp reads
+python src/label_communities.py compile --region combined    # CSV -> communities/community_labels_res<X>[_region].json, what the webapp reads
 python src/label_communities.py publish --region combined    # copies CSV + JSON into this repo's labels/ - review before committing
 ```
 
