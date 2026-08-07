@@ -383,12 +383,19 @@ function renderTimeline(data) {
       card.innerHTML = `<span class="timeline-card-note">not in these texts</span>`;
     } else {
       card.className = "timeline-card timeline-found";
-      // Same fact the arrow-between-columns already carries
-      // (p.changed_from_prev), restated on the card itself as a
-      // specimen-reclassification stamp - see the CSS comment on
-      // .timeline-reclassified-stamp for why this is label-and-color,
-      // not color alone.
-      const reclassified = p.changed_from_prev === true;
+      // Deliberately NOT tied to p.changed_from_prev - a "moved" card needs
+      // no stamp, since the arrow above it already says "moved" and that by
+      // itself explains why the label was written fresh (Panch, 2026-08-07:
+      // stamping every moved card too was pure noise - moved always implies
+      // a fresh read, so it told the reader nothing they didn't already
+      // know from the arrow). p.reclassified is the interesting, rarer case
+      // this stamp exists for: the group stayed (arrow says "stayed") but
+      // MAX_INHERITANCE_CHAIN forced a fresh read anyway - see the CSS
+      // comment on .timeline-reclassified-stamp for why this is
+      // label-and-color, not color alone. The backend guarantees this is
+      // never true when changed_from_prev is true (webapp/app.py), so no
+      // extra check against "moved" is needed here.
+      const reclassified = p.reclassified === true;
       if (reclassified) card.classList.add("timeline-reclassified");
       const subject = subjectShort(p);
       const name = groupName(p) || "unlabeled";

@@ -1292,15 +1292,18 @@ h1 {
   border-width: 2px;
 }
 
-/* Reclassified stamp: the same fact the "moved" arrow between columns
-   already states, restated on the card itself so it reads even at a
-   glance across the whole strip, not only when comparing two columns
-   side by side. Text-labelled, not color-only (Sam/accessibility
-   persona: meaning by color alone fails a screen-reader user and a
-   deuteranope both), and the mounting strip above also turns iron-red
-   in lockstep, so a color-vision-deficient reader still gets a second,
-   non-hue cue (shape/position) rather than depending on the label text
-   alone. */
+/* Reclassified stamp: fires only on a "stayed" card whose label was
+   forced through a fresh read by label_communities.py's inheritance-chain
+   cap (p.reclassified) - never on a "moved" card, since a moved card's
+   fresh label is already explained by the "moved" arrow above it and a
+   second stamp there would just be noise (Panch, 2026-08-07). Restated on
+   the card itself so it reads even at a glance across the whole strip,
+   not only for whoever hovers the arrow's tooltip. Text-labelled, not
+   color-only (Sam/accessibility persona: meaning by color alone fails a
+   screen-reader user and a deuteranope both), and the mounting strip
+   above also turns iron-red in lockstep, so a color-vision-deficient
+   reader still gets a second, non-hue cue (shape/position) rather than
+   depending on the label text alone. */
 .timeline-card.timeline-found.timeline-reclassified {
   border-top-color: var(--accent-hist);
 }
