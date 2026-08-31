@@ -39,11 +39,13 @@ import json
 import re
 import tarfile
 import zipfile
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 from lxml import etree
 
+import ocr_refinement
+from bucket_periods import period_for_year
 from pipeline_config import load_config
 
 YEAR_RE = re.compile(r"(1[4-9]\d{2})")
@@ -71,13 +73,10 @@ BL_REQUIRED_LANGUAGE = "English"
 # A real ~28% of pages sampled from one decade archive have at least one
 # instance. Unlike TCP (whose transcribers already resolved this into a
 # dedicated marker, see embeddings.py's LINEBREAK_HYPHEN), BL's raw OCR text
-# has no separate marker - a literal hyphen is genuinely ambiguous with a
-# real hyphenated compound ("well-known"), but a real compound never has
-# whitespace between the hyphen and the next letter, so "letter-<space>letter"
-# is safe to rejoin without a marker: at worst it merges a genuine
-# space-hyphenated compound ("co- operation") into a still-real word
-# ("cooperation"), never into a new fragment.
-BL_LINEBREAK_HYPHEN_RE = re.compile(r"([A-Za-z])-\s+([A-Za-z])")
+# has no separate marker. This is now handled generically, for BL and any
+# future OCR'd source, by ocr_refinement.py (see main()'s ocr_sources
+# routing below, sourced from config.yml's ocr_sources) rather than a
+# BL-specific regex living here.
 
 # Report every N files instead of a per-file tqdm bar - a zip can hold tens
 # of thousands of XML members, and a per-file progress tick produces far more
@@ -211,7 +210,8 @@ def iter_bl_records(bl_root):
                     continue
                 text_parts = [p["text"] for p in sorted(pages, key=lambda p: p.get("pg", 0)) if p.get("text")]
                 text = re.sub(r"\s+", " ", " ".join(text_parts)).strip()
-                text = BL_LINEBREAK_HYPHEN_RE.sub(r"\1\2", text)
+                # OCR refinement (spacing-split repair, lexicon correction)
+                # happens centrally in main(), not here - see ocr_sources.
                 if not text:
                     continue
                 yield pages[0]["record_id"], year, text
@@ -232,6 +232,14 @@ def main():
     skipped_empty_text = 0
     parse_errors = 0
     n_zips = 0
+
+    periods = config["periods"]
+    ocr_sources = {tuple(pair) for pair in config.get("ocr_sources", [])}
+    # Built incrementally from TCP documents as they're extracted below
+    # (rather than collecting all TCP text and tokenizing it afterward, which
+    # would hold every document's text in memory twice) - only needed at all
+    # if some source is actually flagged for OCR refinement.
+    tcp_wordlists = {label: Counter() for _, _, label in periods} if ocr_sources else None
 
     with open(docs_path, "w", encoding="utf-8") as docs_f, \
          open(manifest_path, "w", encoding="utf-8") as manifest_f:
@@ -256,6 +264,11 @@ def main():
                     skipped_empty_text += 1
                     continue
 
+                if tcp_wordlists is not None:
+                    label = period_for_year(year, periods)
+                    if label is not None:
+                        tcp_wordlists[label].update(ocr_refinement.tokenize(text))
+
                 doc_id = Path(member_name).stem
                 docs_f.write(json.dumps({
                     "region": region,
@@ -275,7 +288,27 @@ def main():
         # documented "Case B" contract in README.md, but still lands in the
         # exact same all_docs.jsonl/manifest.csv.
         bl_root = data_root / config["paths"].get("corpus_bl", "corpus/bl")
+        bl_needs_ocr = ("british", "bl_19c") in ocr_sources
         for doc_id, year, text in iter_bl_records(bl_root):
+            if bl_needs_ocr:
+                label = period_for_year(year, periods)
+                wordlist = tcp_wordlists.get(label) if tcp_wordlists and label else None
+                # variant_model intentionally omitted (refine()'s default,
+                # None, skips Layer 2 lexicon correction entirely) - Layer 2
+                # stays off per the 2026-08-27 verdict, reconfirmed and
+                # strengthened 2026-08-28 (see wiki/ocr-refinement.md): even
+                # with the affix-aware bypass, analiticcl still corrupts real
+                # proper nouns/technical vocabulary in every non-fiction-
+                # adjacent genre tested, because no reference wordlist
+                # available (ncf or TCP) has broad enough coverage yet. This
+                # used to build a real variant_model here and pass it to
+                # refine() whenever a period had TCP overlap (mainly the
+                # 1790-1810 bucket) - a real bug, since it meant Layer 2 was
+                # silently live in production for those periods despite every
+                # doc/memory saying "off by default". Caught before the
+                # pending full-BL-corpus run ever executed it for real; only
+                # Layers 1a+1b (spacing repair) run below.
+                text = ocr_refinement.refine(text, wordlist)
             docs_f.write(json.dumps({
                 "region": "british",
                 "source": "bl_19c",
