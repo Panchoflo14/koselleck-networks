@@ -80,7 +80,7 @@ let COMBINED_BUILT = true; // whether the combined (un-suffixed) network was eve
 let activeRegion = null; // null = combined; otherwise one of REGIONS
 let currentIndex = 0;
 let focusWord = SEED_WORD || "";
-const activeResolution = 4.0; // the only Leiden resolution this app displays, fixed project-wide (raised from 1.0, 2026-08-07, mirrors config.yml's leiden.label_resolution)
+const activeResolution = parseFloat(document.body.dataset.labelResolution); // the only Leiden resolution this app displays, fixed project-wide - auto-picked by community.py (see config.yml's leiden.max_community_size), served via app.py's HEADLINE_RES
 const positions = new Map(); // word -> {x, y}, persists layout across periods
 const communityColorMap = new Map(); // community id -> color
 let currentNodesById = new Map();

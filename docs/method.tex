@@ -455,12 +455,22 @@ civil administration and property law. The same check on two other
 periods at 4.0 (one small, one mid-sized) produced equally coherent
 results (philosophy/rhetoric/mathematics; church governance and clergy),
 so the resolution was raised project-wide rather than only for the
-largest periods. \code{config.yml}'s \code{leiden.label\_resolution} now
-reads 4.0; \code{leiden.resolution\_sweep}, the range every quantitative
-claim is actually tested across, was extended to match (up to 4.0, from
-2.0), so the display choice and the tested range stay aligned. Growing
-the corpus further should be expected to call for raising this again -
-the right resolution scales with vocabulary size, it is not a constant.
+largest periods. \code{leiden.resolution\_sweep}, the range every
+quantitative claim is actually tested across, was extended to match (up
+to 4.0, from 2.0), so the display choice and the tested range stay
+aligned. Growing the corpus further should be expected to call for
+raising this again - the right resolution scales with vocabulary size,
+it is not a constant.
+
+This manual check was later turned into an automatic rule rather than
+repeated by hand each time the corpus grows: \code{src/community.py}
+now picks the lowest swept resolution at which no period's largest
+community exceeds \code{leiden.max\_community\_size} (a flat word-count
+cap, \code{config.yml}), writing the result to
+\code{communities/label\_resolution.json} for every downstream stage to
+read. This is exactly the same criterion applied by hand above (does
+the worst-case community actually become readable), just re-checked on
+every run instead of needing a fresh manual pass like this one.
 
 \subsubsection{The prompt}
 
@@ -470,8 +480,7 @@ by \code{src/label\_communities.py} rather than duplicated as a string
 constant in code, so the file stays the one place the instructions and
 the lane list are edited. It has three sections: the fixed lane list, the
 system prompt, and the user message template. One model call is made per
-Leiden community, at the resolution set in \code{config.yml} (4.0, see
-above).
+Leiden community, at the auto-picked display resolution described above.
 
 The system prompt, quoted from that file, tells the model:
 

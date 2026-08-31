@@ -535,7 +535,7 @@ function median(values) {
 // primary page instead of duplicating the science.
 const SATTELZEIT_CLOSE_FROM = "1790-1810";
 const SATTELZEIT_CLOSE_TO = "1810-1830";
-const HEADLINE_RESOLUTION = 4.0; // mirrors config.yml's leiden.label_resolution (raised from 1.0, 2026-08-07)
+const HEADLINE_RESOLUTION = parseFloat(document.body.dataset.labelResolution); // auto-picked by community.py (see config.yml's leiden.max_community_size), served via app.py's HEADLINE_RES
 
 async function loadHeadlineFindings() {
   const res = await fetch("/api/transitions");

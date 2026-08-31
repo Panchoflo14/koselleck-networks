@@ -41,7 +41,13 @@ import pandas as pd
 from flask import Flask, jsonify, render_template, request
 
 from metrics import align_communities
-from pipeline_config import combined_is_built, discover_built_regions, load_config, variant_label
+from pipeline_config import (
+    combined_is_built,
+    discover_built_regions,
+    load_config,
+    resolve_label_resolution,
+    variant_label,
+)
 
 app = Flask(__name__)
 
@@ -64,9 +70,22 @@ REGIONS = discover_built_regions(config)
 # used to still default every page to a "Combined" tab that silently showed
 # every period as a coverage gap. See resolve_region and /api/regions below.
 COMBINED_BUILT = combined_is_built(config)
-HEADLINE_RES = config["leiden"]["label_resolution"]  # resolution shown by default in the UI
 DEFAULT_K = 12  # words kept per community in "full network" mode
 SEED_PERIOD = "1810-1830"  # the literal Sattelzeit-closing edge (after the 2026-08-04 boundary shift) - was "1790-1810" while this period had no data (pre British Library supplement); now populated, so /graph and /search default onto the edge itself instead of just before it
+# HEADLINE_RES: the resolution shown by default before a user has picked a
+# specific period - anchored to SEED_PERIOD's own auto-picked resolution
+# (Combined region) since 2026-08-28's rework made display resolution a
+# per-variant value, not one global number (see pipeline_config's
+# resolve_label_resolution docstring for the real bug this fixes: this call
+# used to be resolve_label_resolution(config) with no variant arg at all,
+# which KeyErrors against the current label_resolution.json shape).
+# A real, acknowledged simplification, not a full fix: routes that already
+# know which period/region they're serving still fall back to this one
+# site-wide default (via resolve_resolution() below) rather than looking up
+# that specific variant's own resolution - doing that properly would mean
+# touching every route that takes a period/region param, out of scope for
+# "make the config reader work with the new JSON shape" alone.
+HEADLINE_RES = resolve_label_resolution(config, variant_label(SEED_PERIOD, None))
 # One seed word everywhere (2026-08-04) - /graph and /search used to default
 # to "reason" while /timeline defaulted to "system"; Panch flagged that as
 # arbitrary and confusing across pages that are otherwise meant to feel like
@@ -83,7 +102,7 @@ _community_df_cache = {}
 _community_cache = {}
 _transitions_cache = None
 _labels_cache = {}  # keyed by region (None = combined)
-LABELS_RESOLUTION = config["leiden"]["label_resolution"]  # community_labels_res<X>.json only covers this resolution
+LABELS_RESOLUTION = HEADLINE_RES  # community_labels_res<X>.json only covers this resolution
 
 
 def resolve_resolution(value):
@@ -330,7 +349,8 @@ def home():
 
 @app.route("/graph")
 def graph_page():
-    return render_template("graph.html", seed_period=SEED_PERIOD, seed_word=SEED_WORD, active="graph")
+    return render_template("graph.html", seed_period=SEED_PERIOD, seed_word=SEED_WORD,
+                            label_resolution=HEADLINE_RES, active="graph")
 
 
 @app.route("/search")
@@ -340,7 +360,8 @@ def search_page():
 
 @app.route("/timeline")
 def timeline_page():
-    return render_template("timeline.html", seed_word=TIMELINE_SEED_WORD, active="timeline")
+    return render_template("timeline.html", seed_word=TIMELINE_SEED_WORD,
+                            label_resolution=HEADLINE_RES, active="timeline")
 
 
 @app.route("/api/periods")
