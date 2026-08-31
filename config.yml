@@ -27,9 +27,21 @@ paths:
   extracted:       processed             # flat per-document extraction (parse_tcp.py)
   processed:       processed/periods     # per-period bucketed text (bucket_periods.py)
   vocab:           processed/vocab
+  pos_tables:      pos_tables             # per-period {word: category} cache from src/build_pos_tables.py, consumed by network.py's pos_filter
   embeddings:      embeddings
   networks:        networks
   communities:     communities
+
+# [region, source] pairs (matching parse_tcp.py's per-document "region"/
+# "source" tags) that get routed through src/ocr_refinement.py before
+# bucketing - i.e. sources whose raw text came from OCR, not hand
+# transcription. TCP itself is never listed here and never needs to be:
+# adding a future OCR'd source (a Gutenberg supplement, ECCO once its
+# metadata question is resolved) means adding one entry here, not a code
+# change - see ocr_refinement.py's module docstring for what the three-step
+# repair actually does.
+ocr_sources:
+  - [british, bl_19c]
 
 # Time slices (start_year, end_year, label)
 # Uniform 20-year windows across the whole range, not just around the
@@ -100,6 +112,23 @@ word2vec:
 network:
   similarity_threshold: 0.3   # unused while top_k is set; kept as a documented fallback
   top_k: 15                   # keep only the k nearest neighbours per word
+  # GPU offload for the cosine-similarity matmul only (src/network.py's
+  # build_graph, via cupy) - off by default since this stage isn't the
+  # pipeline's bottleneck at today's corpus size (see meeting-2026-08-21.md),
+  # but built and validated 2026-08-28 ahead of ECCO's expected vocab growth.
+  # Requires an NVIDIA GPU + cupy-cuda12x installed; silently falls back to
+  # CPU otherwise.
+  use_gpu: false
+  # Jamie's Stage 5 proposal (meeting-2026-08-21.md): only words tagged with
+  # one of these coarse categories ("noun"/"adj") form edges - off (null) by
+  # default. Built and real-data-validated 2026-08-30 (see wiki/pos-filter.md):
+  # a real before/after community comparison on production data showed this
+  # eliminates purely-grammatical verb-conjugation communities. Needs a
+  # per-period {word: category} table cached under pos_tables_dir by
+  # src/build_pos_tables.py before this can be turned on for a given period -
+  # main() skips (falls back to unfiltered) any period with no cached table,
+  # rather than failing the whole run.
+  pos_filter: null   # e.g. [noun, adj] to enable - table path is paths.pos_tables
 
 # Community detection (Leiden)
 leiden:
@@ -113,14 +142,77 @@ leiden:
   # community (1870-1890, containing "system") actually split into a real,
   # nameable theme (civil administration/property law) instead of staying a
   # perjury/indigestion/loans grab-bag - verified directly, not assumed.
-  resolution_sweep: [0.1, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0, 4.0]
-  # The one resolution the webapp displays and label_communities.py labels
-  # at - a display/legibility choice, separate from the resolution_sweep
-  # above, which is what every quantitative reorganization claim is
-  # actually tested against (see CLAUDE.md's hard rule). Was 1.0; raised to
-  # 4.0 for the reason above. Growing the corpus further may call for
-  # raising this again - the right resolution scales with vocabulary size,
-  # not a fixed constant for all time.
-  label_resolution: 4.0
+  # Extended 2026-08-27: the automatic display-resolution rule below (see
+  # max_community_size) found that even 4.0 leaves a 7,985-word largest
+  # community (1870-1890, British) - nowhere near a legibly labelable size.
+  # Added higher test points so the rule has real headroom to search, rather
+  # than always falling back to the old ceiling. Every one of these also
+  # becomes part of the robustness check every reorganization claim must
+  # survive (CLAUDE.md's hard rule) - same "tested range stays aligned with
+  # the display choice" principle used when this was extended to 4.0 on
+  # 2026-08-07.
+  resolution_sweep: [0.1, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0, 6.0, 8.0, 10.0, 13.0, 16.0]
+  # Replaces the old hand-picked label_resolution constant (was 4.0, manually
+  # raised from 1.0 on 2026-08-07 for the reason above). Picked automatically
+  # now: community.py scans resolution_sweep in ascending order and picks the
+  # lowest resolution where no single period's largest community exceeds this
+  # many words - a flat cap, not a percentage of vocabulary, since a fixed
+  # word count is what actually determines whether a human or LLM can read
+  # through a community's word list. This is a display/legibility choice
+  # only, separate from resolution_sweep above, which is what every
+  # quantitative reorganization claim is actually tested against (see
+  # CLAUDE.md's hard rule) - it re-adjusts on its own as the corpus grows
+  # instead of needing another manual fix like the 2026-08-07 one. The
+  # resolved value is written to <communities>/label_resolution.json by
+  # community.py; see pipeline_config.resolve_label_resolution.
+  # 2026-08-27: 1000 (the original target) turned out unreachable within a
+  # sane resolution range - even at 16.0 the largest community is 2,212
+  # words, and modularity is already declining by then (roughly 0.75 at low
+  # resolutions down to ~0.58 by 16.0). 2500 is the largest value that's
+  # both genuinely satisfied by the current sweep (not a fallback) and
+  # still within the range this cap was originally meant to enforce.
+  max_community_size: 2500
   n_iterations: 10
   seed: 42
+
+  # Display resolution, proposed 2026-08-28 (see wiki/meeting-2026-08-21.md's
+  # "multi-corpus transparency" proposal): picked per variant (period x
+  # region), not once globally across all of them, since each variant is
+  # now its own fully independent trained corpus (embeddings.py trains one
+  # Word2Vec per variant already) and the project's own stated principle is
+  # not to merge separately-trained results. A single global pick (the old
+  # rule) forced every variant to the worst variant's number - real early
+  # periods that would have been fine at 0.5 got dragged up to whatever the
+  # hardest late period needed.
+  #
+  # Found via real experiments against the isolated test data in
+  # koselleck-data-new-architecture (2026-08-28, see the vault's
+  # wiki/resolution-sweep.md "Superseded 2026-08-28" entry for the full numbers):
+  # scanning resolution_sweep ascending to find the display resolution costs
+  # up to len(resolution_sweep) Leiden runs per variant (14 runs / 258s for
+  # the hardest real case, 1870-1890 British). Bisection does much better,
+  # but two design questions had real, tested answers:
+  #
+  # 1. What tolerance to bisect to? A resolution-axis epsilon (e.g. "stop
+  #    once the bracket is under 0.25") doesn't mean the same thing in every
+  #    period - 1510-1530's largest community drops from 4758 to 2111 words
+  #    between res 0.25 and 0.5 alone, while other periods change smoothly.
+  #    Answer: stop on a word-count band instead (band_width below), since
+  #    that's the quantity the cap actually means to control.
+  # 2. What's the resolution ceiling? Hardcoding one (this project's own
+  #    history: 1.0 -> 4.0 -> 16.0 as the corpus grew) means someone has to
+  #    notice it broke and raise it by hand again once a bigger corpus (e.g.
+  #    ECCO) needs more. Answer: no ceiling in config at all - double the
+  #    seed_resolution until a passing value is found (or halve, if the
+  #    seed already passes), same technique as exponential/galloping search
+  #    for an unbounded upper bound. Confirmed against the hardest real case:
+  #    doubling from seed_resolution=1.0 alone (1, 2, 4, 8, 16) found the
+  #    same bracket the hardcoded-ceiling version assumed, for 2 extra runs
+  #    (134s vs 95s) - cheap insurance against a future corpus needing
+  #    resolution 40 or 100, with zero manual re-tuning.
+  display_resolution:
+    seed_resolution: 1.0   # doubling/halving start point, not a ceiling - see above
+    band_width: 300        # accept the first passing resolution within [cap - band_width, cap] words
+    bisection_floor: 0.05  # safety floor on the resolution-axis bracket width, not the primary stop rule
+    max_doublings: 25      # safety guard against runaway doubling if a graph can never satisfy the cap
+    min_resolution: 0.01   # safety floor on halving, same reason
