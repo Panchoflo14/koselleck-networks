@@ -155,6 +155,17 @@ def pick_variant_display_resolution(g, resolutions, sizes, memberships, cap, dis
         # silently picking something that doesn't actually work.
         display_res = lo
         satisfied = False
+    elif lo is None:
+        # cap satisfied at every resolution probed all the way down to
+        # min_resolution (a variant whose total vocabulary never exceeds
+        # cap - e.g. a thin region split like 1650-1670_american, 840 words
+        # total against a 2500-word cap) - hi is already the lowest
+        # resolution tested, nothing left to bisect against. Found running
+        # against the real full corpus 2026-08-31; never hit by the
+        # 2026-08-28 validation, which only tested combined/british variants
+        # with vocabularies well above the cap.
+        display_res = hi
+        satisfied = True
     else:
         display_res = band_bisect_display_resolution(
             g, lo, hi, cap, disp_cfg["band_width"], n_iterations, seed, known, disp_cfg["bisection_floor"],
