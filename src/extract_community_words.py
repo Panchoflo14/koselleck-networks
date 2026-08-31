@@ -12,8 +12,13 @@
 # downstream, its own labels file. See webapp/app.py:label_of for why a
 # region can never reuse the combined labels directly.
 #
-# Output: <communities>/community_words_res<resolution>[_<region>].json
+# Output: <communities>/community_words_display[_<region>].json
 #   { period: { community_id_str: {n_words, top_words: [...]} } }
+# Filename dropped its embedded resolution number 2026-08-30: display
+# resolution is picked per (period, region) variant since 2026-08-28's
+# rework, not one shared global number, so a single value in the filename
+# no longer means anything - reads community.py's own res_display column
+# per row instead of looking one resolution up and reusing it everywhere.
 
 import json
 import sys
@@ -34,7 +39,6 @@ def extract(config, region):
     data_root = Path(config["data_root"])
     networks_dir = data_root / config["paths"]["networks"]
     communities_dir = data_root / config["paths"]["communities"]
-    resolution = config["leiden"]["label_resolution"]
 
     out = {}
     for _, _, label in config["periods"]:
@@ -46,10 +50,16 @@ def extract(config, region):
 
         g = ig.Graph.Read_GraphML(str(graph_path))
         df = pd.read_csv(comm_path, keep_default_na=False, na_values=[])
-        col = f"res_{resolution}"
-        if col not in df.columns:
+        # res_display (2026-08-30 fix): each variant's own already-correct
+        # display-resolution membership, written directly by community.py -
+        # no separate resolution lookup needed at all now that display
+        # resolution is picked per variant, not one shared global number
+        # (see pipeline_config.resolve_label_resolution's docstring for the
+        # bug this replaces: this file used to call that with no variant
+        # arg, which would KeyError against the current label_resolution.json).
+        if "res_display" not in df.columns:
             continue
-        comm_map = df.set_index("word")[col].to_dict()
+        comm_map = df.set_index("word")["res_display"].to_dict()
 
         degrees = g.degree()
         by_community = defaultdict(list)
@@ -70,7 +80,7 @@ def extract(config, region):
         print(f"{stem}: {len(period_out)} communities")
 
     suffix = "" if region is None else f"_{region}"
-    out_path = communities_dir / f"community_words_res{resolution}{suffix}.json"
+    out_path = communities_dir / f"community_words_display{suffix}.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(out, f, indent=2)
     print(f"written -> {out_path}")
