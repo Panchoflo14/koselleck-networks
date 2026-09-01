@@ -2,6 +2,7 @@
   <a href="{{ url_for('home') }}" class="wordmark">Koselleck Machine</a>
   <nav class="tabs">
     <a href="{{ url_for('home') }}" class="tab{{ ' active' if active == 'home' else '' }}">Home</a>
+    <a href="{{ url_for('chat_page') }}" class="tab{{ ' active' if active == 'chat' else '' }}">Ask</a>
     <a href="{{ url_for('timeline_page') }}" class="tab{{ ' active' if active == 'timeline' else '' }}">Timeline</a>
     <a href="{{ url_for('search_page') }}" class="tab{{ ' active' if active == 'search' else '' }}">Word search</a>
     <a href="{{ url_for('graph_page') }}" class="tab{{ ' active' if active == 'graph' else '' }}">Graph explorer</a>

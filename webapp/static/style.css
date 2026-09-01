@@ -1441,3 +1441,98 @@ h1 {
   display: inline-flex;
   align-items: center;
 }
+
+/* ---- Ask / chat (grounded discovery engine) ----------------------------
+   Reuses the specimen tokens above. Reliability tiers get their own colour so
+   the receipts read at a glance: measured = the network green (real evidence),
+   inferred = an amber "reading" hue, unreliable = the historical-claim red
+   already used elsewhere for caution. */
+.chat-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.chat-log { display: flex; flex-direction: column; gap: 0.75rem; max-height: 60vh; overflow-y: auto; }
+.chat-log:empty { display: none; }
+.chat-msg { display: flex; }
+.chat-msg-user { justify-content: flex-end; }
+.chat-msg-bot { justify-content: flex-start; }
+.chat-bubble {
+  max-width: 46rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+.chat-msg-user .chat-bubble { background: var(--accent-net); color: #F4F5F0; }
+.chat-msg-bot .chat-bubble { background: var(--bg); border: 1px solid var(--line); color: var(--ink); }
+.chat-msg-error .chat-bubble { border-color: var(--accent-hist); color: var(--accent-hist); }
+.chat-provider { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); margin-top: 0.2rem; }
+
+.chat-form { display: flex; gap: 0.5rem; margin-top: 0.85rem; }
+.chat-input {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  color: var(--ink);
+  resize: vertical;
+}
+#chat-send {
+  align-self: stretch;
+  padding: 0 1.1rem;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--accent-hist);
+  color: #F4F5F0;
+  font-family: var(--font-label);
+  font-weight: 600;
+  cursor: pointer;
+}
+#chat-send:disabled { opacity: 0.55; cursor: default; }
+
+.chat-examples { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin-top: 0.75rem; }
+.chat-examples-label { font-family: var(--font-label); font-size: 0.75rem; color: var(--muted); }
+.chat-example {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  padding: 0.3rem 0.6rem;
+  border: 1px dashed var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+.chat-example:hover { color: var(--ink); border-color: var(--ink); }
+
+/* Evidence panel + chips */
+.ev-panel { border-left: 3px solid var(--line); padding: 0.35rem 0 0.35rem 0.75rem; margin: 0.1rem 0 0.4rem; }
+.ev-panel-title { font-family: var(--font-label); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.35rem; }
+.ev-list { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.ev-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--bg);
+  cursor: help;
+}
+.ev-tier { font-family: var(--font-label); font-size: 0.62rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
+.ev-cite { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink); }
+.ev-measured { border-color: var(--accent-net); }
+.ev-measured .ev-tier { color: var(--accent-net); }
+.ev-inferred { border-color: #9A6B1E; }
+.ev-inferred .ev-tier { color: #9A6B1E; }
+.ev-unreliable { border-color: var(--accent-hist); background: #F3E7E3; }
+.ev-unreliable .ev-tier { color: var(--accent-hist); }
+
+.chat-footnote { font-family: var(--font-body); font-size: 0.78rem; color: var(--muted); margin-top: 0.85rem; }
+.chat-footnote strong { color: var(--ink); font-weight: 600; }
