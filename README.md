@@ -34,8 +34,8 @@ Primary: the Text Creation Partnership (TCP) - EEBO-TCP (1500-1700, both release
 
 ## Repo layout
 
-- `src/` - the pipeline: `parse_tcp.py` -> `bucket_periods.py` -> `embeddings.py` -> `network.py` -> `community.py` -> `metrics.py`, plus `pipeline_config.py` (shared config loader), `label_communities.py`/`extract_community_words.py` (see [Labeling communities](#labeling-communities)), and a one-off analysis script (`subsample_control.py`).
-- `webapp/` - the Koselleck Machine, a Flask app for exploring the results interactively: a timeline view (`/timeline`), a graph explorer (`/graph`), and a plain word-search tool (`/search`), all reading the same pre-built per-period networks.
+- `src/` - the pipeline: `parse_tcp.py` -> `bucket_periods.py` -> `embeddings.py` -> `network.py` -> `community.py` -> `metrics.py`, plus `pipeline_config.py` (shared config loader), `label_communities.py`/`extract_community_words.py` (see [Labeling communities](#labeling-communities)), `label_judge.py` (see [Auditing labels](#auditing-labels)), the `rag/` grounded-chatbot layer (see [Ask](#ask-the-discovery-chatbot)), and a one-off analysis script (`subsample_control.py`).
+- `webapp/` - the Koselleck Machine, a Flask app for exploring the results interactively: an **Ask** chatbot (`/chat`), a timeline view (`/timeline`), a graph explorer (`/graph`), and a plain word-search tool (`/search`), all reading the same pre-built per-period networks.
 - `docs/` - `method.tex`/`method.pdf`, a plain-language method write-up for a mixed technical/non-technical audience.
 - `labels/` - a small, citable snapshot of the current community labels (CSV + compiled JSON, per region) - copied here by `label_communities.py publish` so they travel with the repo instead of living only in the (gitignored) data directory.
 - `config.yml` - shared, versioned settings (period slices, word2vec/Leiden hyperparameters).
@@ -175,17 +175,57 @@ python src/label_communities.py publish --region combined    # copies CSV + JSON
 
 A community's label is inherited from its predecessor whenever the same Hungarian alignment `metrics.py` uses for `migration_fraction` says one exists (free, deterministic - most communities in most periods) and only needs a fresh read when a community is genuinely new (a region's first period, or the moved-into side of a real reorganization). `--region` also accepts `american`/`british`/`all` for the region-split variants, if built. See `src/label_communities.py`'s own module docstring for the full design.
 
+### Auditing labels
+
+Labeling is a single model read-through with no built-in validation, so `src/label_judge.py` adds an optional second opinion - an LLM-as-judge that checks each label against its community's own top words:
+
+```
+python src/label_judge.py audit --region combined            # flag labels that don't fit, wrong lane, or should be "Structural / Uncertain"
+python src/label_judge.py audit --region combined --out flags.csv --limit 100
+```
+
+It only ever **produces flags for a human** - it never rewrites a label and never touches `metrics.py`. It reads the freshest labels CSV in the data dir, falling back to this repo's `labels/` snapshot, so it runs from a bare clone. The module also exposes `label_still_fits()`, a content-drift check meant as a more principled re-read trigger than `label_communities.py`'s fixed inheritance-chain cap (wiring that in is left opt-in). Runs on the same model backend as Ask (below) - a local Llama by default, so no API credits.
+
 ## Running the webapp locally
 
 ```
 python webapp/app.py
 ```
 
-Then open http://127.0.0.1:5000. Four pages: a landing page, `/timeline` (the primary view - track one word's group across every period in a single strip), `/graph` (D3 graph explorer - pick a period and a word, see its neighbourhood; toggle a full-network sampled view), and `/search` (plain word-lookup table: nearest neighbours, community, whether the word's community changed since the previous period).
+Then open http://127.0.0.1:5000. Five pages: a landing page, `/chat` (**Ask** - the discovery chatbot, see below), `/timeline` (the primary view - track one word's group across every period in a single strip), `/graph` (D3 graph explorer - pick a period and a word, see its neighbourhood; toggle a full-network sampled view), and `/search` (plain word-lookup table: nearest neighbours, community, whether the word's community changed since the previous period).
 
 Wherever a word is drilled into (`/search`'s own results, `/timeline`'s per-period drill-in), a Neighbours/Journey toggle switches between that same neighbour table and a chart of the word's path through the fixed lane list (see Labeling communities below) across every period - a coarser, single-word view of the same underlying data, not a second computation.
 
 If the pipeline was run for region-split data too (see Data above), every page also exposes a region toggle (combined / one option per region built) - it only appears for regions this deployment actually has built network files for, read off the data itself, never hardcoded. This adapts both ways: a deployment that only ever ran the pipeline on one or more region-split variants and never on the combined corpus does not get a "Combined" option either, and lands on a region that actually has data instead.
+
+## Ask (the discovery chatbot)
+
+`/chat` is a conversational front-end to the *measured* results - a research instrument for asking historical questions of the corpus, not a general chatbot. It exists to make the network/metrics findings queryable in plain language while staying honest about what the data does and doesn't show. The design lives in [`docs/implementation_plan.md`](docs/implementation_plan.md); the code is in `src/rag/`.
+
+How it stays trustworthy:
+
+- **Grounded.** A model answers only by calling a fixed set of tools (`src/rag/tools.py`) that read the built networks, communities, and transition metrics. It never sees raw tables - only evidence records - so it can only cite what a tool actually returned. A question the data can't answer gets a plain "the structure doesn't show that", not a guess.
+- **Tiered.** Every fact is tagged `measured` (a computed metric or Leiden assignment - the real evidence), `inferred` (an embedding-neighbour reading - suggestive, not causal), or `unreliable` (an OCR-diluted British Library period, or a "Structural / Uncertain" community). The answer must respect the tier and surface caveats; the UI shows each answer's evidence as chips coloured by tier.
+- **Never re-graded.** The chatbot only *retrieves* the quantitative findings - `migration_fraction`, NMI, ARI and community membership stay the sole product of `metrics.py`/`community.py`. No LLM scores or overrides them.
+
+Two things back it up: a grounding/honesty eval (`src/rag/eval/`) that checks answers don't invent statistics, refuse when they should, and flag unreliable material; and the label audit ([above](#auditing-labels)).
+
+**Model backend.** Runs on a local [Ollama](https://ollama.com) model by default, so it needs **no API credits**:
+
+```
+ollama serve
+ollama pull llama3.1        # or any tool-capable model
+python webapp/app.py        # then open /chat
+# or from the CLI:
+python src/rag/engine.py "Did reorganization peak around 1770-1830, and does it survive the sweep?"
+python src/rag/eval/run.py --judge        # run the grounding eval
+```
+
+Use a tool-capable model - small models call tools less reliably, which weakens grounding. To use Claude instead, set `rag.provider: anthropic` (and optionally `rag.model`) in `config.yml`/`config.local.yml`, or pass `--provider anthropic`, with `ANTHROPIC_API_KEY` set.
+
+The chat layer reads a small DuckDB store built from the pipeline's existing outputs; build/refresh it with `python src/rag/build_store.py` (it's appendable - re-run after adding a period or region without a full rebuild). If the store isn't built or the model backend is unreachable, `/chat` reports why rather than failing the rest of the app.
+
+**Status: not yet run live.** The plumbing is verified offline (evidence tiering, the tools, the grounding checks, the label audit), but the feature has not yet been exercised end-to-end against a live model and the full corpus - see the tracking pull request.
 
 ## Deployment
 

@@ -124,3 +124,17 @@ leiden:
   label_resolution: 4.0
   n_iterations: 10
   seed: 42
+
+# The Ask chatbot (src/rag/) and the label auditor (src/label_judge.py). Both
+# call a model through the same provider abstraction; this block is optional and
+# these are the defaults, so an absent `rag` block behaves exactly as below.
+rag:
+  # "ollama" runs a local model (no API credits, needs `ollama serve` and a
+  # tool-capable model pulled, e.g. `ollama pull llama3.1`). "anthropic" uses
+  # Claude and needs ANTHROPIC_API_KEY. Override per-run with --provider.
+  provider: ollama
+  # Model name for the chosen provider. Leave unset to take the provider's own
+  # default (llama3.1 for ollama, a current Sonnet for anthropic). A
+  # tool-capable model is required - small models call tools less reliably,
+  # which directly weakens answer grounding.
+  # model: llama3.1
