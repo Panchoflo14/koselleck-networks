@@ -212,13 +212,15 @@ class OllamaProvider:
                 msgs.append({"role": "tool", "name": e["name"], "content": e["content"]})
         return msgs
 
-    def complete(self, system, transcript, model=None):
-        body = json.dumps({
+    def complete(self, system, transcript, model=None, use_tools=True):
+        payload = {
             "model": model or self.model,
             "messages": self._wire(system, transcript),
-            "tools": self._tools(),
             "stream": False,
-        }).encode()
+        }
+        if use_tools:
+            payload["tools"] = self._tools()
+        body = json.dumps(payload).encode()
         req = urllib.request.Request(
             f"{self.host}/api/chat", data=body,
             headers={"Content-Type": "application/json"})
@@ -289,10 +291,11 @@ class AnthropicProvider:
         flush_results()
         return msgs
 
-    def complete(self, system, transcript, model=None):
+    def complete(self, system, transcript, model=None, use_tools=True):
+        kwargs = {"tools": self._tools()} if use_tools else {}
         resp = self.client.messages.create(
             model=model or self.model, max_tokens=2000, system=system,
-            tools=self._tools(), messages=self._wire(transcript))
+            messages=self._wire(transcript), **kwargs)
         text = "".join(b.text for b in resp.content if b.type == "text")
         calls = [{"id": b.id, "name": b.name, "args": b.input or {}}
                  for b in resp.content if b.type == "tool_use"]
