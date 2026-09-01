@@ -133,10 +133,10 @@ from pipeline_config import REPO_ROOT, discover_built_regions, load_config, vari
 # the exact same current top words, both agree the label still fits? Only
 # unanimous "yes" skips a fresh read - any "no", or any disagreement,
 # forces one immediately, rather than waiting out a fixed chain length.
-PROMPT_PATH = Path(__file__).resolve().parent / "prompts" / "community_labeling_v1.md"
-PROMPT_VERSION = "v1"
-FIT_CHECK_PROMPT_PATH = Path(__file__).resolve().parent / "prompts" / "label_fit_check_v1.md"
-FIT_CHECK_PROMPT_VERSION = "v1"
+PROMPT_PATH = Path(__file__).resolve().parent / "prompts" / "community_labeling_v2.md"
+PROMPT_VERSION = "v2"
+FIT_CHECK_PROMPT_PATH = Path(__file__).resolve().parent / "prompts" / "label_fit_check_v2.md"
+FIT_CHECK_PROMPT_VERSION = "v2"
 DEFAULT_MODEL = "claude-haiku-4-5-20251001"
 CSV_FIELDS = ["region", "period", "community_id", "n_words", "top_words_preview",
               "label", "lane", "origin", "inherited_from", "fit_check_rationale"]
@@ -349,10 +349,36 @@ def fit_check_key(period, cid):
     return f"{period}#{cid}"
 
 
-def fit_check_user_message(fit_user_template, region, period, label, n_words, top_words):
+def format_word_tiers(info):
+    """Renders a community's degree-stratified word sample (see
+    extract_community_words.py: core_words/mid_words/peripheral_words,
+    sampled by network-degree rank) into the text that fills a prompt's
+    {top_words} placeholder - one flat comma-joined list for a small
+    community shown in full (mid/peripheral empty), or three labeled tiers
+    for a larger one. `info` (or a pending_checks entry, same field names)
+    is expected to carry core_words/mid_words/peripheral_words; falls back
+    to a bare "top_words" list for any old-format input."""
+    core = info.get("core_words", info.get("top_words", []))
+    mid = info.get("mid_words", [])
+    peripheral = info.get("peripheral_words", [])
+    if not mid and not peripheral:
+        return ", ".join(core)
+    return (
+        f"Core (most connected) [{len(core)}]: {', '.join(core)}\n"
+        f"Mid-rank [{len(mid)}]: {', '.join(mid)}\n"
+        f"Peripheral (least connected) [{len(peripheral)}]: {', '.join(peripheral)}"
+    )
+
+
+def n_words_shown(info):
+    return len(info.get("core_words", info.get("top_words", []))) + len(info.get("mid_words", [])) \
+        + len(info.get("peripheral_words", []))
+
+
+def fit_check_user_message(fit_user_template, region, period, label, n_words, info):
     return fit_user_template.format(
         region=region_label(region), period=period, label=label,
-        n_words=n_words, n_shown=len(top_words), top_words=", ".join(top_words),
+        n_words=n_words, n_shown=n_words_shown(info), top_words=format_word_tiers(info),
     )
 
 
@@ -488,7 +514,7 @@ def build_region_rows(config, region, words_data, base_labels, existing, fit_ans
 
     Returns (rows, pending_checks, counters). pending_checks entries:
     {"key", "period", "community_id", "region", "label", "lane", "n_words",
-    "top_words"}."""
+    "core_words", "mid_words", "peripheral_words"}."""
     rows = []
     pending_checks = []
     counters = {"inherited": 0, "reclassify_needed": 0, "pending": 0, "called": 0, "blank": 0, "kept": 0}
@@ -516,7 +542,7 @@ def build_region_rows(config, region, words_data, base_labels, existing, fit_ans
                 "period": period,
                 "community_id": cid,
                 "n_words": info["n_words"],
-                "top_words_preview": "; ".join(info["top_words"][:10]),
+                "top_words_preview": "; ".join(info["core_words"][:10]),
             }
 
             if prior is not None and prior.get("origin") == "human":
@@ -546,7 +572,8 @@ def build_region_rows(config, region, words_data, base_labels, existing, fit_ans
                             "key": fck, "period": period, "community_id": cid,
                             "region": region_label(region),
                             "label": predecessor_entry["label"], "lane": predecessor_entry["lane"],
-                            "n_words": info["n_words"], "top_words": info["top_words"],
+                            "n_words": info["n_words"], "core_words": info["core_words"],
+                            "mid_words": info["mid_words"], "peripheral_words": info["peripheral_words"],
                         })
                         counters["pending"] += 1
                         continue
@@ -585,7 +612,7 @@ def build_region_rows(config, region, words_data, base_labels, existing, fit_ans
                     if args.fill == "llm":
                         user_message = user_template.format(
                             region=region_label(region), period=period, n_words=info["n_words"],
-                            n_shown=len(info["top_words"]), top_words=", ".join(info["top_words"]),
+                            n_shown=n_words_shown(info), top_words=format_word_tiers(info),
                         )
                         label, lane = call_llm(get_client(), args.model, lanes, system_prompt, user_message)
                         row = {**base_row, "label": label, "lane": lane, "origin": "llm",
@@ -640,8 +667,8 @@ def build_region_rows(config, region, words_data, base_labels, existing, fit_ans
                     region=region_label(region),
                     period=period,
                     n_words=info["n_words"],
-                    n_shown=len(info["top_words"]),
-                    top_words=", ".join(info["top_words"]),
+                    n_shown=n_words_shown(info),
+                    top_words=format_word_tiers(info),
                 )
                 label, lane = call_llm(get_client(), args.model, lanes, system_prompt, user_message)
                 row = {**base_row, "label": label, "lane": lane, "origin": "llm", "inherited_from": ""}
@@ -713,7 +740,7 @@ def cmd_generate(args):
                 break
             to_resolve = {
                 p["key"]: fit_check_user_message(fit_user_template, region, p["period"], p["label"],
-                                                  p["n_words"], p["top_words"])
+                                                  p["n_words"], p)
                 for p in pending
             }
             fit_answers.update(run_batch_fit_check(get_client(), args.model, fit_system_prompt, to_resolve))

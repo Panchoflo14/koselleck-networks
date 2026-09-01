@@ -13,12 +13,25 @@
 # region can never reuse the combined labels directly.
 #
 # Output: <communities>/community_words_display[_<region>].json
-#   { period: { community_id_str: {n_words, top_words: [...]} } }
+#   { period: { community_id_str: {n_words, core_words, mid_words, peripheral_words} } }
 # Filename dropped its embedded resolution number 2026-08-30: display
 # resolution is picked per (period, region) variant since 2026-08-28's
 # rework, not one shared global number, so a single value in the filename
 # no longer means anything - reads community.py's own res_display column
 # per row instead of looking one resolution up and reusing it everywhere.
+#
+# Stratified degree sampling, 2026-08-31 (replaces a flat top-25-by-degree
+# list): a pure top-K sample only ever shows a community's most
+# structurally central words, which systematically hides heterogeneity - a
+# community can have a tight, coherent-looking core while its low-degree
+# tail actually belongs to a different topic entirely, and a labeler that
+# never sees that tail has no way to notice. Splitting the degree-sorted
+# member list into three rank-based tiers (core/mid/peripheral) instead
+# lets a labeler see whether the community stays coherent end to end or is
+# really a loose grab-bag - directly useful given roughly a third to two-
+# thirds of communities already land in "Structural / Uncertain". A
+# community small enough that TIER_SIZE*3 already covers it is shown in
+# full as core_words instead (nothing left to reveal by splitting it).
 
 import json
 import sys
@@ -32,7 +45,8 @@ import pandas as pd
 
 from pipeline_config import discover_built_regions, load_config, variant_label
 
-TOP_K = 25  # words per community - enough to judge a theme confidently
+TIER_SIZE = 9  # words per degree tier (core/mid/peripheral) - ~25 total, same order as the old flat top-25
+STRATIFY_MIN = TIER_SIZE * 3  # communities at or below this size are shown whole instead of split into tiers
 
 
 def extract(config, region):
@@ -71,10 +85,21 @@ def extract(config, region):
 
         period_out = {}
         for cid, members in by_community.items():
-            members.sort(reverse=True)
+            members.sort(reverse=True)  # descending by network degree
+            words = [w for _, w in members]
+            n = len(words)
+            if n <= STRATIFY_MIN:
+                core, mid, peripheral = words, [], []
+            else:
+                mid_start = n // 2 - TIER_SIZE // 2
+                core = words[:TIER_SIZE]
+                mid = words[mid_start:mid_start + TIER_SIZE]
+                peripheral = words[-TIER_SIZE:]
             period_out[str(cid)] = {
-                "n_words": len(members),
-                "top_words": [w for _, w in members[:TOP_K]],
+                "n_words": n,
+                "core_words": core,
+                "mid_words": mid,
+                "peripheral_words": peripheral,
             }
         out[label] = period_out
         print(f"{stem}: {len(period_out)} communities")
