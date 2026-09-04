@@ -102,7 +102,7 @@ _community_df_cache = {}
 _community_cache = {}
 _transitions_cache = None
 _labels_cache = {}  # keyed by region (None = combined)
-LABELS_RESOLUTION = HEADLINE_RES  # community_labels_res<X>.json only covers this resolution
+LABELS_RESOLUTION = HEADLINE_RES  # the resolution community_labels_display.json's labels were generated at
 
 
 def resolve_resolution(value):
@@ -265,10 +265,10 @@ def get_transitions(region=None):
 
 
 def get_labels(region=None):
-    """community_labels_res<LABELS_RESOLUTION>[_<region>].json, cached per
-    region - {period: {raw community id (str): {label, n_words}}},
-    Claude-assigned plain-English themes from each community's top-degree
-    words (src/extract_community_words.py + a manual read-through, not
+    """community_labels_display[_<region>].json, cached per region -
+    {period: {raw community id (str): {label, n_words}}}, Claude-assigned
+    plain-English themes from each community's top-degree words
+    (src/extract_community_words.py + a manual read-through, not
     empirically derived). Keyed by the *raw* Leiden community id for that
     period, not the align_to-remapped id used for cross-period color
     continuity - a label describes what a period's community actually
@@ -276,14 +276,16 @@ def get_labels(region=None):
     purposes. Each region has its own file because a region's own Leiden run
     assigns different ids to different word groups than the combined run -
     reusing the combined file for a region would attach a confidently wrong
-    name. Missing file (not generated yet for that region, or a resolution
-    other than LABELS_RESOLUTION) degrades to no labels, not an error -
-    labels are a reading aid layered on top of a fully working tool, never a
-    dependency for it."""
+    name. The filename carries no resolution number: the display resolution
+    (LABELS_RESOLUTION) is picked per period/variant by community.py, not
+    globally, so a single number in the filename would be meaningless (see
+    resolve_label_resolution). Missing file (not generated yet for that
+    region) degrades to no labels, not an error - labels are a reading aid
+    layered on top of a fully working tool, never a dependency for it."""
     global _labels_cache
     if region not in _labels_cache:
         suffix = "" if region is None else f"_{region}"
-        path = communities_dir / f"community_labels_res{LABELS_RESOLUTION}{suffix}.json"
+        path = communities_dir / f"community_labels_display{suffix}.json"
         if path.exists():
             with open(path, encoding="utf-8") as f:
                 _labels_cache[region] = json.load(f)
@@ -314,7 +316,7 @@ _label_caveat_cache = None
 
 
 def get_label_caveat():
-    """Derived once from community_labels_res<LABELS_RESOLUTION>.json's own
+    """Derived once from community_labels_display.json's own
     entries, not hardcoded, so this stays accurate if the labels are ever
     regenerated: what fraction of communities landed in the "Structural /
     Uncertain" lane - i.e. probably clustered by shared grammatical form

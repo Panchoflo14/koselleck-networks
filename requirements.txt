@@ -16,4 +16,5 @@ flask>=3.0
 gunicorn>=22.0
 anthropic>=0.86
 analiticcl>=0.4.9  # OCR lexicon correction (src/ocr_refinement.py) - prebuilt wheels, no Rust toolchain needed
+langdetect>=1.0.9  # foreign-language paragraph filter (src/parse_tcp.py's extract_text)
 cupy-cuda12x>=14.0  # optional: GPU offload for network.py's similarity matmul (config.yml's network.use_gpu). Requires an NVIDIA GPU; not needed to run the rest of the pipeline.

@@ -42,11 +42,14 @@ import zipfile
 from collections import Counter, defaultdict
 from pathlib import Path
 
+from langdetect import DetectorFactory, LangDetectException, detect_langs
 from lxml import etree
 
 import ocr_refinement
 from bucket_periods import period_for_year
 from pipeline_config import load_config
+
+DetectorFactory.seed = 0  # deterministic across runs, same corpus should give the same filter decisions
 
 YEAR_RE = re.compile(r"(1[4-9]\d{2})")
 
@@ -166,12 +169,55 @@ def _collect_text(el, parts):
     return parts
 
 
+# Below this many words, langdetect's own statistical basis is too thin to
+# trust - a short document gets kept rather than risk a wrong call on too
+# little evidence.
+MIN_WORDS_FOR_LANGID = 8
+
+# How confident langdetect has to be that a document is NOT English before
+# it gets dropped whole. Classifying per paragraph (tried first, 2026-09-01)
+# was real but impractical: profiled at 180ms/document (97% of total parse
+# time, docs averaging 194 paragraphs each) - roughly 5 hours for the full
+# corpus - to catch a measured 0.09% of paragraphs (36 of 38,833 sampled).
+# Classifying the whole document instead is ~130x fewer langdetect calls
+# (one per document, not one per paragraph) and catches the clearer, more
+# common real case: a document that's wholly in another language (a real
+# Welsh proverb collection, found the same day) rather than a short foreign
+# quotation embedded in an otherwise-English text (Law French case citations
+# in an English legal treatise, also found the same day) - the latter no
+# longer gets caught at all, since a few non-English sentences don't shift a
+# whole document's classification. That gap is accepted: it's the same
+# "isolated foreign token/phrase inside English narrative" problem the
+# roman-numeral fix and the (still-blocked) POS filter already own, not a
+# new one - a targeted fix if it turns out to matter, not a blanket
+# per-paragraph scan of the whole corpus. Threshold value from real
+# measurement: genuinely non-English text tested (the Welsh proverb book,
+# real Law French/Latin legal text) scored 0.53-1.00 confidence, genuine
+# English control text 0.857-1.00 confidence *for English* - no threshold
+# guarantees zero mistakes either way, so this errs toward keeping a
+# document when unsure.
+FOREIGN_CONFIDENCE_THRESHOLD = 0.90
+
+
+def is_foreign_document(text):
+    """True only when langdetect is confident (>= FOREIGN_CONFIDENCE_THRESHOLD)
+    that this whole document is not English. Too short to judge, or a
+    detector error (e.g. no alphabetic content) -> not foreign, keep it."""
+    if len(text.split()) < MIN_WORDS_FOR_LANGID:
+        return False
+    try:
+        top = detect_langs(text)[0]
+    except LangDetectException:
+        return False
+    return top.lang != "en" and top.prob >= FOREIGN_CONFIDENCE_THRESHOLD
+
+
 def extract_text(root):
     body = root.find(".//TEXT//BODY")
     if body is None:
         return ""
-    text = "".join(_collect_text(body, []))
-    return re.sub(r"\s+", " ", text).strip()
+    text = re.sub(r"\s+", " ", "".join(_collect_text(body, []))).strip()
+    return "" if is_foreign_document(text) else text
 
 
 def discover_bl_archives(bl_root):

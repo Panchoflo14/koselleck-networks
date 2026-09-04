@@ -133,8 +133,8 @@ from pipeline_config import REPO_ROOT, discover_built_regions, load_config, vari
 # the exact same current top words, both agree the label still fits? Only
 # unanimous "yes" skips a fresh read - any "no", or any disagreement,
 # forces one immediately, rather than waiting out a fixed chain length.
-PROMPT_PATH = Path(__file__).resolve().parent / "prompts" / "community_labeling_v2.md"
-PROMPT_VERSION = "v2"
+PROMPT_PATH = Path(__file__).resolve().parent / "prompts" / "community_labeling_v3.md"
+PROMPT_VERSION = "v3"
 FIT_CHECK_PROMPT_PATH = Path(__file__).resolve().parent / "prompts" / "label_fit_check_v2.md"
 FIT_CHECK_PROMPT_VERSION = "v2"
 DEFAULT_MODEL = "claude-haiku-4-5-20251001"
@@ -291,16 +291,30 @@ def write_csv(path, rows):
 
 
 def call_llm(client, model, lanes, system_prompt, user_message, max_attempts=3):
+    # `reasoning` is required and listed first in `properties` - JSON schema
+    # itself doesn't guarantee field generation order, but Claude's tool-use
+    # generation fills a required object's fields in the order they're
+    # declared, so this reliably gets the model to work through Core/Mid/
+    # Peripheral (see the v3 prompt's instructions) before it commits to
+    # label/lane, the same effect a free-text "think step by step" turn
+    # would have - without giving up tool_choice forcing a parseable
+    # response on every call. Added 2026-09-02 after real user feedback that
+    # v2 was reaching for easy grammatical labels ("Base-Form Verbs") without
+    # clear evidence of weighing the Mid-rank/Peripheral tiers first.
     tool = {
         "name": "assign_label",
         "description": "Assign a plain-English label and lane to this community.",
         "input_schema": {
             "type": "object",
             "properties": {
+                "reasoning": {"type": "string", "description": "Work through Core, then whether "
+                              "Mid-rank/Peripheral support or undercut it (name a specific word from "
+                              "each), then whether a genuine topic survives all three tiers - per the "
+                              "system prompt's numbered steps. 2-4 sentences."},
                 "label": {"type": "string", "description": "Two to five word plain-English label."},
                 "lane": {"type": "string", "enum": lanes},
             },
-            "required": ["label", "lane"],
+            "required": ["reasoning", "label", "lane"],
         },
     }
     last_error = None
@@ -308,7 +322,7 @@ def call_llm(client, model, lanes, system_prompt, user_message, max_attempts=3):
         try:
             response = client.messages.create(
                 model=model,
-                max_tokens=300,
+                max_tokens=500,
                 system=system_prompt,
                 tools=[tool],
                 tool_choice={"type": "tool", "name": "assign_label"},
@@ -777,10 +791,44 @@ def cmd_generate(args):
                   f"'inherited') in {csv_path} by hand or via an agent, then rerun generate and compile.")
         if pending:
             print(f"{region_label(region)}: {len(pending)} communities need a fit check before they can "
-                  f"resolve - queued to {queue_path}. Answer each entry (does 'label' still fit 'top_words'?) "
-                  f"and write {{key: {{\"fits\": true/false, \"rationale\": \"...\"}}}} to {answers_path}, "
-                  f"then rerun generate. A Claude Code session can do this directly at no API cost; pass "
+                  f"resolve - queued to {queue_path}. Answer each entry (does 'label' still fit 'top_words'?), "
+                  f"write your batch as {{key: {{\"fits\": true/false, \"rationale\": \"...\"}}}} to a scratch "
+                  f"file, and run `python label_communities.py record-fit-checks --region {region_label(region)} "
+                  f"--batch <scratch file>` to merge it into {answers_path} safely - never edit that file "
+                  f"directly, a batch that only has this round's answers would silently erase earlier ones. "
+                  f"Then rerun generate. A Claude Code session can do this directly at no API cost; pass "
                   f"--fit-check llm to resolve it automatically via the Batch API instead.")
+
+
+def cmd_record_fit_checks(args):
+    """Safely merge a batch of newly-answered fit checks into the real
+    fit_check_answers file - load what's already on disk, update with the
+    batch, save the merged result, never a blind overwrite. Exists because
+    an agent hand-editing fit_check_answers_display.json directly got this
+    wrong once for real (2026-08-31 corpus-rebuild session): it wrote only
+    its current round's answers instead of the accumulated set, silently
+    erasing earlier progress and making the pending count oscillate instead
+    of shrink. Self-corrected that same session by switching to
+    load-merge-save, but that discipline lived only in the agent's own
+    judgment, not in the tool - one distracted round was all it took to
+    lose work. This subcommand puts the merge in code instead: the agent
+    writes its batch (any subset of {key: {"fits": bool, "rationale": str}}
+    entries) to its own scratch file and calls this command, which is the
+    only thing that ever touches the real answers file, so the failure mode
+    above can't happen again regardless of what the agent's batch file
+    contains."""
+    config = load_config()
+    with open(args.batch, encoding="utf-8") as f:
+        batch = json.load(f)
+
+    for region in resolve_regions(config, args.region):
+        path = fit_check_answers_path_for(config, region)
+        answers = load_fit_check_answers(path)
+        before = len(answers)
+        answers.update({key: (entry["fits"], entry["rationale"]) for key, entry in batch.items()})
+        save_fit_check_answers(answers, path)
+        print(f"{region_label(region)}: {before} existing + {len(answers) - before} new/updated "
+              f"= {len(answers)} total -> {path}")
 
 
 def cmd_compile(args):
@@ -910,9 +958,20 @@ def main():
                              "a fit_check_queue JSON for a human or Claude Code session to answer by hand "
                              "into a fit_check_answers JSON (see the printed instructions), matching this "
                              "user's default no-personal-API-key labeling workflow; 'llm' resolves them "
-                             "automatically via the Anthropic Batch API (real cost, ~50% off standard "
+                             "automatically via the Anthropic Batch API (real cost, ~50%% off standard "
                              "pricing - needs ANTHROPIC_API_KEY)")
     p_gen.set_defaults(func=cmd_generate)
+
+    p_record = sub.add_parser("record-fit-checks",
+                               help="Safely merge a batch of fit-check answers into fit_check_answers_display"
+                                    "[_<region>].json - load-merge-save, never a blind overwrite. Use this "
+                                    "instead of hand-editing that file directly.")
+    p_record.add_argument("--region", default="combined", help="'combined', a region name, or 'all'")
+    p_record.add_argument("--batch", required=True,
+                           help="Path to a JSON file: {key: {\"fits\": bool, \"rationale\": str}, ...} "
+                                "for this round's newly-answered entries only - does not need to include "
+                                "answers already recorded.")
+    p_record.set_defaults(func=cmd_record_fit_checks)
 
     p_compile = sub.add_parser("compile", help="CSV (with any human edits) -> community_labels JSON")
     p_compile.add_argument("--region", default="combined", help="'combined', a region name, or 'all'")

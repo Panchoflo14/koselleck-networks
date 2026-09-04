@@ -45,7 +45,12 @@ import pandas as pd
 
 from pipeline_config import discover_built_regions, load_config, variant_label
 
-TIER_SIZE = 9  # words per degree tier (core/mid/peripheral) - ~25 total, same order as the old flat top-25
+TIER_SIZE = 15  # words per degree tier (core/mid/peripheral) - 45 total. Raised from 9 on 2026-09-02
+                # at Panch's request for more margin on genuinely ambiguous communities - kept symmetric
+                # across all three tiers on purpose, not weighted toward Core: the failure mode found that
+                # day (settling for "Structural / Uncertain" without real evidence) traced to the model not
+                # weighing Mid/Peripheral, not to Core having too little signal, and giving Core more text
+                # than the other tiers would risk re-introducing that same bias by sheer word-count share.
 STRATIFY_MIN = TIER_SIZE * 3  # communities at or below this size are shown whole instead of split into tiers
 
 
