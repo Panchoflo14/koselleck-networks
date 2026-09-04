@@ -39,6 +39,7 @@ from pipeline_config import (  # noqa: E402
     REPO_ROOT,
     discover_built_regions,
     load_config,
+    resolve_label_resolution,
     variant_label,
 )
 from rag.evidence import OCR_CORPUS_START_YEAR  # noqa: E402
@@ -208,7 +209,13 @@ def ingest_membership(con, config, variants, resolutions, pd):
         path = communities_dir / f"{variant}.csv"
         if not path.exists():
             continue
-        wide = pd.read_csv(path, dtype={"word": str})
+        # keep_default_na=False: real vocabulary words like "nan" and "null"
+        # (found in the 1590-1610+ periods) would otherwise be silently
+        # parsed as missing values by pandas' default NA-sentinel list, not
+        # just mistyped - the words column has no missing values by
+        # construction (community.py never writes a blank word), so nothing
+        # legitimate is lost by disabling NA parsing here.
+        wide = pd.read_csv(path, dtype={"word": str}, keep_default_na=False)
         frames = []
         for res, col in res_cols.items():
             if col not in wide.columns:
@@ -311,33 +318,51 @@ def ingest_transitions(con, config, regions, pd):
 # labels (the repo's citable snapshot)
 # ---------------------------------------------------------------------------
 
-def ingest_labels(con, label_res, pd):
-    """Labels live in the repo's labels/ dir (published snapshot), keyed by the
-    label_resolution. Each CSV already carries its own region column, so we
-    read that rather than infer region from the filename."""
+def ingest_labels(con, config, pd):
+    """Labels live in the repo's labels/ dir (published snapshot). Filenames
+    no longer embed a resolution number (2026-08-30+: display resolution is
+    picked per (region, period) variant, not once globally), so each row's
+    own resolution is looked up via resolve_label_resolution() instead of
+    being one constant applied to every row. A variant with no entry in
+    label_resolution.json's per_variant map (e.g. one that never satisfied
+    the size cap) is dropped rather than aborting the whole ingest. Each CSV
+    already carries its own region column, so we read that rather than infer
+    region from the filename."""
     labels_dir = REPO_ROOT / "labels"
     cols = ["region", "period", "community_id", "resolution",
             "label", "lane", "origin", "inherited_from"]
     n_rows = 0
     seen_regions = set()
-    for path in sorted(labels_dir.glob(f"community_labels_res{label_res:g}*.csv")):
+    res_cache = {}
+    for path in sorted(labels_dir.glob("community_labels_display*.csv")):
         raw = pd.read_csv(path, dtype=str).fillna("")
         if "region" not in raw.columns:
             continue
+        resolutions = []
+        for region, period in zip(raw["region"], raw["period"]):
+            key = (region, period)
+            if key not in res_cache:
+                lookup_region = None if region == COMBINED else region
+                try:
+                    res_cache[key] = resolve_label_resolution(
+                        config, variant_label(period, lookup_region))
+                except (FileNotFoundError, KeyError):
+                    res_cache[key] = None
+            resolutions.append(res_cache[key])
         df = pd.DataFrame({
             "region": raw["region"],
             "period": raw["period"],
             "community_id": raw["community_id"].astype("int64"),
-            "resolution": float(label_res),
+            "resolution": resolutions,
             "label": raw["label"],
             "lane": raw["lane"],
             "origin": raw.get("origin", ""),
             "inherited_from": raw.get("inherited_from", ""),
         })[cols]
+        df = df.dropna(subset=["resolution"])
         for region in df["region"].unique():
             _insert_df(con, "labels", df[df.region == region],
-                       replace_where=f"region = '{region}' "
-                                     f"AND resolution = {float(label_res)}")
+                       replace_where=f"region = '{region}'")
             seen_regions.add(region)
         n_rows += len(df)
     return n_rows, seen_regions
@@ -372,7 +397,6 @@ def build(db_path=None, only_region=None, note=None):
 
     config = load_config()
     resolutions = config["leiden"]["resolution_sweep"]
-    label_res = config["leiden"]["label_resolution"]
 
     if db_path is None:
         db_path = Path(config["data_root"]) / "koselleck.duckdb"
@@ -399,7 +423,7 @@ def build(db_path=None, only_region=None, note=None):
     counts["membership"] = ingest_membership(con, config, variants, resolutions, pd)
     counts["edges"] = ingest_edges(con, config, variants, pd, ig) if ig else 0
     counts["transitions"] = ingest_transitions(con, config, regions, pd)
-    n_labels, _label_regions = ingest_labels(con, label_res, pd)
+    n_labels, _label_regions = ingest_labels(con, config, pd)
     counts["labels"] = n_labels
     # provenance is derived from what membership/labels actually cover, so it
     # must run after both are ingested

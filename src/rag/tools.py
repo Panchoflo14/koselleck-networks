@@ -31,7 +31,7 @@ from typing import List, Optional
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from metrics import MIN_SHARED_WORDS, align_communities  # noqa: E402
-from pipeline_config import load_config  # noqa: E402
+from pipeline_config import load_config, resolve_label_resolution, variant_label  # noqa: E402
 from rag.evidence import Evidence, Tier, apply_reliability  # noqa: E402
 
 
@@ -46,7 +46,7 @@ class Store:
     def __init__(self, db_path=None, config=None):
         import duckdb
         self.config = config or load_config()
-        self.label_res = float(self.config["leiden"]["label_resolution"])
+        self._res_cache = {}
         self.default_k = int(self.config.get("network", {}).get("top_k") or 15)
         if db_path is None:
             db_path = Path(self.config["data_root"]) / "koselleck.duckdb"
@@ -69,23 +69,48 @@ class Store:
         ).fetchone()
         return int(row[0]) if row else None
 
+    def _resolution(self, region, period) -> Optional[float]:
+        """The display/label resolution this (region, period) variant's
+        labels and membership rows were computed at - looked up per variant
+        (community.py's 2026-08-28 rework picks this per period x region, not
+        once project-wide) and cached, since the same pair is looked up
+        repeatedly across a tool call. None if this variant has no entry in
+        label_resolution.json's per_variant map (e.g. it never satisfied the
+        size cap) - callers treat that the same as no data, never falling
+        back to an unrelated variant's number."""
+        key = (region, period)
+        if key not in self._res_cache:
+            lookup_region = None if region == "combined" else region
+            try:
+                self._res_cache[key] = resolve_label_resolution(
+                    self.config, variant_label(period, lookup_region))
+            except (FileNotFoundError, KeyError):
+                self._res_cache[key] = None
+        return self._res_cache[key]
+
     def _lane(self, region, period, community_id) -> Optional[str]:
         if community_id is None:
+            return None
+        res = self._resolution(region, period)
+        if res is None:
             return None
         row = self.con.execute(
             "SELECT lane FROM labels WHERE region=? AND period=? "
             "AND community_id=? AND resolution=?",
-            [region, period, int(community_id), self.label_res],
+            [region, period, int(community_id), res],
         ).fetchone()
         return row[0] if row else None
 
     def _label(self, region, period, community_id) -> Optional[str]:
         if community_id is None:
             return None
+        res = self._resolution(region, period)
+        if res is None:
+            return None
         row = self.con.execute(
             "SELECT label FROM labels WHERE region=? AND period=? "
             "AND community_id=? AND resolution=?",
-            [region, period, int(community_id), self.label_res],
+            [region, period, int(community_id), res],
         ).fetchone()
         return row[0] if row else None
 
@@ -169,7 +194,8 @@ class Store:
         ).fetchall()
         if not rows:
             return [self._no_data(f"neighbours of '{word}'", region, period)]
-        cid = self._membership(region, period, self.label_res).get(word)
+        res = self._resolution(region, period)
+        cid = self._membership(region, period, res).get(word) if res is not None else None
         label = self._label(region, period, cid)
         nb = ", ".join(f"{d} ({w:.2f})" for d, w in rows)
         loc = f" It sits in the '{label}' community." if label else ""
@@ -186,15 +212,18 @@ class Store:
         word = word.strip().lower()
         out = []
         for period in self._periods_with_data(region):
-            cid = self._membership(region, period, self.label_res).get(word)
+            res = self._resolution(region, period)
+            if res is None:
+                continue
+            cid = self._membership(region, period, res).get(word)
             if cid is None:
                 continue
             label = self._label(region, period, cid) or f"community {cid}"
             ev = Evidence(
                 claim=f"In {period}, '{word}' is in the '{label}' community "
-                      f"(id {cid}, resolution {self.label_res:g}).",
+                      f"(id {cid}, resolution {res:g}).",
                 tier=Tier.MEASURED, region=region, period=period,
-                resolution=self.label_res, source="membership",
+                resolution=res, source="membership",
             )
             out.append(self._reliab(ev, region, period, cid))
         if not out:
@@ -212,8 +241,13 @@ class Store:
         if prev is None:
             return [self._no_data(f"movers into {period} (no prior period)",
                                   region, period)]
-        comm_prev = self._membership(region, prev, self.label_res)
-        comm_curr = self._membership(region, period, self.label_res)
+        res_prev = self._resolution(region, prev)
+        res_curr = self._resolution(region, period)
+        if res_prev is None or res_curr is None:
+            return [self._no_data(f"movers into {period} (no display resolution)",
+                                  region, period)]
+        comm_prev = self._membership(region, prev, res_prev)
+        comm_curr = self._membership(region, period, res_curr)
         shared = sorted(set(comm_prev) & set(comm_curr))
         if len(shared) < MIN_SHARED_WORDS:
             return [self._no_data(f"movers into {period} (too few shared words)",
@@ -225,7 +259,7 @@ class Store:
                  f"shared words changed community. Examples: "
                  f"{', '.join(movers[:top_n]) or '(none)'}.")
         ev = Evidence(claim=claim, tier=Tier.MEASURED, region=region,
-                      period=f"{prev}→{period}", resolution=self.label_res,
+                      period=f"{prev}→{period}", resolution=res_curr,
                       metric="n_moved", value=len(movers), source="membership")
         ev = self._reliab(ev, region, period)
         return [self._reliab(ev, region, prev)]
@@ -277,7 +311,7 @@ class Store:
             claim=f"In {period}, community {community_id} is labelled "
                   f"'{label}' (lane: {lane}).",
             tier=Tier.INFERRED, region=region, period=period,
-            resolution=self.label_res, source="labels",
+            resolution=self._resolution(region, period), source="labels",
         )
         return [self._reliab(ev, region, period, community_id)]
 

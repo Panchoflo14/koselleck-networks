@@ -38,7 +38,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from label_communities import RESOLUTION, csv_path_for, parse_prompt_template  # noqa: E402
+from label_communities import csv_path_for, parse_prompt_template  # noqa: E402
 from pipeline_config import REPO_ROOT, load_config  # noqa: E402
 from rag.engine import DEFAULT_PROVIDER, make_provider  # noqa: E402
 
@@ -54,7 +54,7 @@ def find_labels_csv(config, region_arg):
     if data_path.exists():
         return data_path
     suffix = "" if region_arg is None else f"_{region_arg}"
-    return REPO_ROOT / "labels" / f"community_labels_res{RESOLUTION}{suffix}.csv"
+    return REPO_ROOT / "labels" / f"community_labels_display{suffix}.csv"
 
 
 def _section(text, heading):
