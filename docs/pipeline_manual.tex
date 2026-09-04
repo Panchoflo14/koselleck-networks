@@ -43,21 +43,19 @@ document is that walkthrough, stage by stage, in run order: parse,
 repair OCR, bucket into periods, train embeddings, build the network,
 detect communities, label communities, measure change.
 
-Two things apply across several stages, worth stating once instead of
-eight times. Every stage is a standalone script under \code{src/} that
+Two things apply across several stages. Every stage is a standalone
+script under \code{src/} that
 reads its input from the previous stage's output directory. Two of them,
 training embeddings and building the network, skip a variant whose
-output file already exists instead of overwriting it \claimlabel{a
-script has to be told to delete the file before it will redo the work:
+output file already exists instead of overwriting it: a script has to
+be told to delete the file before it will redo the work, since
 retraining a period's embeddings or rebuilding its network is expensive,
-and an accidental rerun should not throw that away for free}. The other
+and an accidental rerun should not throw that away for free. The other
 five stages always overwrite. Second, most stages loop not only over the
 twenty period slices but over every \term{variant}: the combined corpus,
 plus one independently trained pass per region (American, British) found
 on disk. \S\ref{sec:regions} explains what a region contains and why the
 project keeps them apart.
-
-Where a stage still has an open problem, this document says so.
 
 \section{Stage 1: Parse}
 
@@ -101,6 +99,30 @@ transcribers resolved most OCR-class problems by hand, which is why
 Stage 2 barely touches TCP text; the Library's scanned pages carry
 uncorrected OCR damage that Stage 2 exists to address.
 
+A third source of noise sits inside otherwise well-formed documents:
+non-English text mixed into what is nominally an English corpus, found
+as an entire community of French words
+(\code{mort}, \code{ilz}, \code{eux}, \code{prendre}, \code{estre}) and a
+separate one of Welsh (\code{nefoedd}, \code{ddim}, \code{iddo})
+surfacing in the trained networks. A first attempt ran \code{langdetect}
+per paragraph. Profiling killed it: the check alone cost 180
+milliseconds per document, ninety-seven percent of this stage's total
+running time, roughly five hours across the full corpus, to catch a
+measured 0.09 percent of paragraphs. The shipped version instead
+classifies a whole document once, dropping it outright only above 90
+percent confidence that it is not English, bringing the cost down to
+about 27 minutes for the full corpus. Whole-document classification also
+resolved the French case more thoroughly than expected: what looked like
+a short quotation embedded in an English document turned out, on
+inspection, to be an entire Year Book law report, written wholly in Law
+French as English case law was until 1731, which the coarser
+per-document check caught cleanly where a per-paragraph check would have
+had to catch every paragraph separately. A short foreign phrase inside
+an otherwise English document is caught by neither version; that is
+treated as the same class of problem as the citation-abbreviation tokens
+still passing through into the network (\S\ref{sec:network}), word-level
+noise this stage does not try to solve.
+
 A corpus in neither format can still be added without touching anything
 downstream of this stage. Already-valid TCP P4 XML needs no code change
 at all: drop the zip files under
@@ -127,7 +149,7 @@ that list, not general membership in it: adding a new OCR'd TCP-format
 source to \code{ocr\_sources} would not by itself route it through this
 stage, contrary to what \code{config.yml}'s own comment implies. TCP is
 hand-transcribed and never reaches this stage regardless. The module
-runs four repair steps in a fixed order.
+runs three repair steps in a fixed order.
 
 \runin{Layer 1a, line-break hyphen repair,} rejoins a page's line-break
 hyphen where it survived into the plain text as a literal \code{-}
@@ -172,44 +194,6 @@ the real text for no benefit. The function stays in place so a future
 pre-1800 OCR'd source only needs it filled in, not the pipeline rewired
 around it.
 
-\runin{Layer 2, lexicon correction via \code{analiticcl},} is built,
-tested, and shipped off. It replaces a garbled token with the closest
-match in a reference lexicon, within an edit-distance and confidence
-threshold, and testing found two independent reasons not to turn it on.
-No confidence-score threshold separates a correct fix, such as
-\code{NOVEMRER} to \code{november}, from a wrong one, such as
-\code{ungodliness} to \code{godliness}, which reverses the word's
-meaning: the score ranges for correct and incorrect fixes fully overlap.
-An affix-aware bypass narrowed this without solving it, fixing five of
-six documented wrong corrections of that shape while losing none of five
-documented correct ones, but a larger problem surfaced alongside it. The
-reference lexicon, MorphAdorner's nineteenth-century fiction corpus, has
-close to no coverage of proper nouns, technical vocabulary, or legal and
-civic terms, so it wrongly corrects such words in every non-fiction
-genre tested: a natural-history text lost \emph{Sciurus} to
-\emph{Scaurus}, a sermon lost \emph{Shuhite} to \emph{Shute}, and
-Coleridge's \emph{Christabel} lost its own title character's name,
-\emph{Leoline}, to \emph{Leonine}, three times in one document. Across
-twenty-five documents, even with the affix bypass on, the model fired
-14{,}038 corrections, about one every forty to fifty words, far too
-dense to be OCR damage. Layer 2 stays in the code, reachable only by
-constructing a variant model and passing it to \code{refine()}, since
-there is no \code{config.yml} flag for it, because a project with a
-broader or genre-matched lexicon could reasonably turn it on; nothing in
-this pipeline does.
-
-\code{parse\_tcp.py}'s \code{main()} used to do exactly that,
-unintentionally: it built a Layer 2 variant model and passed it into
-\code{refine()} for any British Library period overlapping a TCP source
-in time, keeping Layer 2 live for those periods against every piece of
-documentation saying it shipped off. The bug was found the same day
-Layer 2 was decided against for a second time, while checking the code
-against the letter of that decision. No production run had executed the
-path when it was found, so nothing was corrupted, but the next full
-corpus rebuild would have run it. \code{main()} now only calls
-\code{refine(text, wordlist)}, relying on the function's own
-\code{variant\_model=None} default instead of constructing one.
-
 \section{Stage 3: Bucket into Periods}
 
 \code{src/bucket\_periods.py} sorts every extracted document into a
@@ -226,15 +210,22 @@ period boundary instead of in the middle of one, so the transitions that
 open and close the Sattelzeit are each a literal edge between two
 periods, not an approximation.
 
-This stage's own width, twenty years, has never been stress-tested the
-way Stage 4's hyperparameters and Stage 5's \code{top\_k} have been
-(\S\ref{sec:embeddings}, \S\ref{sec:network}). It is one of several
-settings in this pipeline still resting on a first guess rather than a
-robustness check, alongside \code{ocr\_refinement.py}'s
-\code{min\_merged\_frequency}, \code{score\_threshold}, and
-\code{freq\_weight}, and Stage 6's \code{max\_community\_size} and
-\code{band\_width}. Nothing currently points to any of them being a real
-problem.
+Twenty years is a default, not a swept parameter: \code{config.yml}'s
+\code{periods} table is a plain, user-editable list, so any width, or
+non-uniform widths, is a configuration change. Twenty is a legibility
+default, chosen as roughly one literary generation rather than measured
+against this project's own data; unlike
+Stage 4's hyperparameters and Stage 5's \code{top\_k}
+(\S\ref{sec:embeddings}, \S\ref{sec:network}), it was never tuned
+against this project's own data, and it is exposed as a knob so a
+different research question, or a different view of how fast a
+generation turns over, can pick a different width without touching the
+pipeline. A handful of other settings in this pipeline rest on the same
+kind of untested first guess -
+\code{ocr\_refinement.py}'s \code{min\_merged\_frequency},
+\code{score\_threshold}, and \code{freq\_weight}, and Stage 6's
+\code{max\_community\_size} and \code{band\_width}: none of them has
+been tested, so there is no evidence either way.
 
 \section{Stage 4: Train Embeddings}
 \label{sec:embeddings}
@@ -246,6 +237,18 @@ near each other end up positioned near each other. Current settings are
 \code{window=5}, \code{min\_count=50}, \code{vector\_size=200},
 \code{epochs=10}. A variant with fewer than twenty documents is skipped
 outright; a handful of idiosyncratic books is not a period-level signal.
+
+Its tokenizer also excludes roman numerals (\code{xxiiij}, \code{xxvij})
+before a word ever reaches the vocabulary this stage trains on, a fix
+shipped 2026-09-01 after these numerals turned up clustering tightly
+enough by co-occurrence to form their own communities downstream. The
+check validates a token positionally against how a real roman numeral is
+built, rather than pattern-matching letters, so it does not also catch
+real English words built entirely from roman-numeral letters
+(\code{civil}, \code{mill}, \code{vivid}). Latin citation-apparatus
+abbreviations are a related but distinct case, untouched by this fix;
+\S\ref{sec:network} covers what they are and why they still reach the
+network.
 
 These two headline parameters, \code{min\_count} and \code{window}, went
 unvalidated until a 2026-08-28 robustness sweep tested four alternative
@@ -296,10 +299,12 @@ nodes at all: function words and early-modern grammatical variants
 \code{STOPWORDS} set, and any single-letter token, which in this corpus
 is always either a stopword already, a Latin citation abbreviation, an
 interjection, or an OCR artifact. Neither carries the conceptual content
-this project measures. This exclusion is incomplete. Roman numerals
-(\code{xxiiij}, \code{xxvij}) and Latin citation-apparatus abbreviations
-(\code{capvt}, \code{deute}, \code{regu}) still pass through into the
-network from early-modern, hand-transcribed periods, correctly
+this project measures. This exclusion is still incomplete, though
+narrower than it was: roman numerals no longer reach this stage at all,
+excluded upstream during Stage 4's tokenization (\S\ref{sec:embeddings}),
+but Latin citation-apparatus abbreviations that are not themselves roman
+numerals (\code{capvt}, \code{deute}, \code{regu}) still pass through
+into the network from early-modern, hand-transcribed periods, correctly
 transcribed originals, not OCR damage, and cluster tightly enough by
 co-occurrence to form their own communities. The labeling stage
 (\S\ref{sec:labeling}) already names these accurately, as
@@ -378,6 +383,11 @@ that was never going to exist. The fix: when no resolution ever fails
 the cap, the lowest resolution actually tested is used directly, with no
 bisection needed.
 
+This mechanism, bug fix included, has since run against the full
+rebuilt corpus, 2026-09-02, alongside the roman-numeral exclusion and the
+foreign-language filter above, producing the community structure every
+later stage in this document now describes.
+
 \section{Stage 7: Label Communities}
 \label{sec:labeling}
 
@@ -396,7 +406,7 @@ that already has a label; that check is free, since the alignment
 itself needs no model call. Whether the inherited label is then actually
 reused is not free. An earlier version generated each period's label
 independently from just that period's own top words, and produced a
-real, publicly visible contradiction: the word \emph{system} was
+publicly visible contradiction: the word \emph{system} was
 flagged as having \emph{stayed} in the same community between two
 consecutive periods, correctly, by the same alignment \code{metrics.py}
 already trusted, while the community's displayed label changed anyway,
@@ -421,10 +431,9 @@ German. The current mechanism, and the actual cost this stage pays, is
 two model reads every time a label would otherwise inherit: both given
 the same inherited label and the same current word sample, both asked
 the identical plain yes-or-no question, does this label still fit,
-independently of each other so that agreement is a real redundancy
-check and not a comparison between two different questions. Only
-unanimous agreement skips a fresh read; either reader saying no, or the
-two disagreeing, forces one immediately.
+independently of each other, so agreement is a genuine redundancy
+check. Only unanimous agreement skips a fresh read; either reader
+saying no, or the two disagreeing, forces one immediately.
 
 The word sample a community shows, to both the fresh-labeling prompt and
 the fit-check prompt, changed on 2026-08-31. It used to be a flat list
@@ -434,12 +443,17 @@ tightly bound to the community's core, which hides the opposite case: a
 community with a coherent-looking core can still have a drifting
 low-degree tail belonging to a different topic, and a reader who never
 sees that tail has no way to notice. The word list shown is now a
-stratified sample by degree rank, not a flat top slice: roughly nine
-words from the top of the ranked list, nine from around its midpoint,
-and nine from its bottom, drawn from a membership list that can hold up
-to 2{,}500 words, not an exhaustive split of it. A community small
-enough that this would show nothing new, twenty-seven words or fewer,
-is shown whole instead.
+stratified sample by degree rank, not a flat top slice: up to fifteen
+words from the top of the ranked list, fifteen from around its midpoint,
+and fifteen from its bottom, forty-five in total, drawn from a
+membership list that can hold up to 2{,}500 words, not an exhaustive
+split of it. The tier size was raised from nine to fifteen per tier on
+2026-09-02, kept symmetric across all three on purpose: the failure this
+sampling change fixed was under-weighing the mid-rank and peripheral
+tiers in the decision itself, not insufficient signal from the top tier,
+so giving the top tier more text share would risk reintroducing the same
+bias by sheer volume. A community small enough that this would show
+nothing new, forty-five words or fewer, is shown whole instead.
 
 The redo this change required, run across all three regions, caught
 drift the flat list had been hiding. One community's label, \emph{Latin
@@ -448,13 +462,16 @@ had drifted to English virtue-adjectives. A different community kept an
 OCR-fragment label naming the wrong stripped prefix after its dominant
 fragment pattern had itself shifted. A third, \emph{Church Fathers \&
 Ecclesiastical History}, had drifted into ordinary English clergy
-surnames. The aggregate fit-check failure rate did not move the same
-way in every region: roughly eight percent for Combined against six
-before the change, sixteen for British against seventeen, and forty for
-American against fifty, the last on a sample of only 42 checks, too
-small to read much into on its own. Combined's rise, on 1{,}310 checks,
-is not a small-sample artifact, and the project's own working log treats
-it as evidence that the tiered view catches drift the flat list missed.
+surnames. Those three named cases are the direct evidence that the
+tiered sample catches drift the flat list missed. The aggregate
+fit-check failure rate is weaker, mixed evidence rather than confirming:
+roughly eight percent for Combined against six before the change (on
+1{,}310 checks, not a small-sample move), but British fell slightly
+(sixteen against seventeen) and American fell more (forty against fifty,
+though on only 42 checks, too small to weigh heavily). Only one of the
+three regions' aggregate rate moved in the expected direction; the case
+for the change rests on the three named communities, not the aggregate
+numbers.
 
 Every fresh label names exactly one lane from a fixed list of fifteen,
 decided 2026-08-03 from 707 labels already produced across earlier runs,
@@ -471,6 +488,40 @@ comparable label, not the same label token-for-token, since a model call
 is not bitwise-deterministic even against an unchanged prompt. It does
 not claim Tier 3, exact reproducibility.
 
+The prompt each fresh read is given changed again on 2026-09-02,
+independently of the word-sample change above. Reviewing labels at scale
+surfaced a milder but related failure: a fresh read defaulting to
+\emph{Structural / Uncertain} without clear evidence the stratified
+sample's lower two tiers had actually been weighed, reaching for the
+easiest reading from the top tier alone. The tool schema
+\code{call\_llm} sends now requires a \code{reasoning} field ordered
+before \code{label} and \code{lane}, so the model's own generation works
+through the core, mid-rank, and peripheral tiers, naming a specific word
+from each, before it commits to a label. A blind test on two
+communities, run twice each through a fresh no-context agent with the
+old and new wording, found the old prompt defaulting to \emph{Structural
+/ Uncertain} both times despite its own draft label already naming a
+real theme, and the new prompt reaching a concrete, evidence-grounded
+lane both times instead.
+
+A full relabel followed, all three regions, against the fresh community
+structure the 2026-09-02 rebuild produced: 59 communities in American,
+43 read fresh and 16 inherited; 1{,}617 in British, 596 fresh and
+1{,}021 inherited, 833 landing in \emph{Structural / Uncertain}; 1{,}598
+in Combined, 673 fresh and 925 inherited, 791 in \emph{Structural /
+Uncertain}. Roughly half of British and Combined landing in the
+fifteenth lane is not a new problem this relabel introduced; it sits
+inside the range this stage's own documentation already expected, and it
+does not weaken the reorganization measurement in \S\ref{sec:metrics},
+since that measurement runs on the community partition directly and
+never reads label text, and a stable, grammar-bound community is more
+likely to dilute a detected reorganization signal than inflate one. A
+separate safety fix, \code{record-fit-checks}, now merges each batch of
+fit-check answers into the saved file rather than replacing it outright,
+after an unrelated test script's cleanup step deleted 1{,}310 prior
+answers by reusing one path variable for both a scratch file and the
+production one.
+
 \section{Stage 8: Measure Change}
 \label{sec:metrics}
 
@@ -486,11 +537,31 @@ a different community even after the best possible one-to-one
 relabeling between the two periods, found by the Hungarian algorithm on
 the word-overlap contingency table between every pair of communities.
 This is the same alignment mechanism Stage 7 uses to decide whether a
-label inherits, applied here to a different question: not \emph{what
-this community should be called}, but \emph{how much of the vocabulary
-structure reorganized}. A pair of periods sharing fewer than twenty
+label inherits, applied here to a different question: \emph{how much
+of the vocabulary structure reorganized}. A pair of periods sharing
+fewer than twenty
 words is skipped; a metric computed over that few words would not mean
 anything.
+
+Run against the full rebuilt and relabeled corpus, 2026-09-04, this
+produces the same qualitative picture \S\ref{sec:embeddings}'s sweep
+already found at three of the fifteen resolutions, now visible across
+all fifteen: \code{migration\_fraction} rises gradually across the whole
+1510-1910 span rather than spiking inside the Sattelzeit window. In the
+Combined variant, the 1790-1810-to-1810-1830 transition averages 0.5163
+across resolutions, a real rise from the prior transition's 0.4477, but
+only the second-highest transition in the entire series; the highest,
+0.5549, falls earlier, at 1690-1710 to 1710-1730, and coincides with a
+real drop in shared vocabulary between those two periods, to 10{,}834
+words from 43{,}021 the transition before, a pattern not repeated
+anywhere else outside the small-vocabulary noise expected at the very
+first transition in the series. That coincidence has not been
+investigated further; a sharp shared-vocabulary shock between two
+periods is the same class of confound \S\ref{sec:embeddings} already
+names for the British Library's late-period entry into the corpus
+(which cannot itself explain this particular, much earlier transition),
+now visible directly in this stage's own numbers rather than only
+inferred from vocabulary growth.
 
 \section{Region split: Combined, American, and British}
 \label{sec:regions}

@@ -8,17 +8,17 @@ Reinhart Koselleck argued that this period was a collective turning point in pol
 
 This project extends that test to the network level: build a word-similarity network per period, run community detection on it, and measure whether the *cluster structure itself* reorganizes around the Sattelzeit - something a one-word-at-a-time method can't see.
 
-What this repository ships is the method, not a dataset: the pipeline that turns a period-sliced corpus into per-period networks, communities, and reorganization measurements, plus the **Koselleck Machine** - a small web tool for inspecting the result. The corpus is public and fetched separately (see [Data](#data)), and every trained model here is rebuildable from it - the contribution is the measurement, not the data.
+This repository ships the method: the pipeline that turns a period-sliced corpus into per-period networks, communities, and reorganization measurements, plus the **Koselleck Machine** - a small web tool for inspecting the result. The corpus is public and fetched separately (see [Data](#data)); every trained model here is rebuildable from it, though not bit-identical run to run (parallel training isn't fully deterministic - see `docs/method.pdf`'s Reproducibility limitation).
 
 ## Method, in short
 
-1. Split the corpus into uniform 20-year windows - currently 1500-1900, set by the `periods` list in `config.yml`. That range matches the corpus assembled so far, not a limit of the method: the same pipeline runs unchanged over any other span or window size, given a period-dated corpus to feed it.
+1. Split the corpus into uniform 20-year windows - currently 1510-1910 (the 1510 start, not 1500, puts both 1770 and 1830 exactly on a period boundary), set by the `periods` list in `config.yml`. That range matches the corpus assembled so far, not a limit of the method: the same pipeline runs unchanged over any other span or window size, given a period-dated corpus to feed it.
 2. Train a separate word embedding on each window (mirrors Heuser, keeps results comparable).
 3. Build a word-similarity network per window - each word linked to its 15 closest neighbours by cosine similarity.
-4. Run community detection (Leiden) on each network, at seven levels of clustering detail.
+4. Run community detection (Leiden) on each network, at fifteen levels of clustering detail (a resolution sweep, 0.1 to 16.0 - every reorganization claim has to hold across all fifteen, not just one).
 5. Measure how much the cluster structure changes between consecutive periods (migration fraction, NMI, adjusted Rand).
 6. Test whether that reorganization peaks in 1770-1830, and whether it survives the resolution sweep - not just one cherry-picked setting.
-7. Cross-check words that changed cluster at the pivot against dated dictionary senses (OED etc.) as a second, independent line of evidence.
+7. Cross-check words that changed cluster at the pivot against dated dictionary senses (OED etc.) as a second, independent line of evidence - planned, not yet implemented (see `docs/method.pdf`).
 
 A fuller write-up of the method, aimed at both technical and non-technical readers, is in [`docs/method.pdf`](docs/method.pdf) (source in `docs/method.tex`).
 
@@ -28,7 +28,7 @@ Primary: the Text Creation Partnership (TCP) - EEBO-TCP (1500-1700, both release
 
 **TCP is public domain.** All three components used here (EEBO-TCP phases 1 and 2, ECCO-TCP, and Evans-TCP) have concluded their period of exclusivity. In TCP's own words: "we impose no restrictions whatever, and... you may do anything with them that you like: you may translate them, edit them, revise them, illustrate them, perform them, or re-publish them, with or without attribution" ([licensing FAQ](https://www.textpartnership.net/pages/faq.html)). The British Library supplement is also public domain (CC Public Domain Mark, official first-party download).
 
-**Known data-quality limitation, not yet fixed:** the British Library text is OCR-derived, unlike TCP. A line-break-hyphen artifact ("utrum- que" for "utrumque") was found and fixed in `parse_tcp.py`. A second, distinct artifact was not: OCR sometimes drops the hyphen entirely and leaves a bare space ("par ticulars" for "particulars"), which has no punctuation signal left to detect it by, and still produces whole word-fragment communities in the 1810-1830/1830-1850/1870-1890 periods. Labeling handles this honestly (routed to "Structural / Uncertain," not mislabeled), but the underlying vocabulary/network metrics for those periods are diluted by it.
+**Known data-quality fixes:** the British Library text is OCR-derived, unlike TCP, and OCR introduces its own artifacts. `parse_tcp.py` repairs a line-break-hyphen artifact ("utrum- que" for "utrumque"). A harder case - OCR dropping the hyphen entirely and leaving a bare space ("par ticulars" for "particulars"), with no punctuation signal left to detect it by - is also repaired, by merging two adjacent words only when the merged form is real and at least one half isn't independently real on its own; validated by hand (142 correct merges in the first 120 changed documents of the one period tested). French and Welsh text separately surfaced as its own network community; `parse_tcp.py` now drops a document once a language classifier is at least 90% confident it isn't English.
 
 **The corpus and the trained embeddings/networks are still not included in this repository** - only the pipeline code that builds them. That's a size decision, not a rights one: the raw TCP zips and the derived per-period networks together run to many GB, and anyone can fetch the same public files directly (see Data below) rather than have this repo carry a copy.
 
@@ -36,7 +36,7 @@ Primary: the Text Creation Partnership (TCP) - EEBO-TCP (1500-1700, both release
 
 - `src/` - the pipeline: `parse_tcp.py` -> `bucket_periods.py` -> `embeddings.py` -> `network.py` -> `community.py` -> `metrics.py`, plus `pipeline_config.py` (shared config loader), `label_communities.py`/`extract_community_words.py` (see [Labeling communities](#labeling-communities)), and a one-off analysis script (`subsample_control.py`).
 - `webapp/` - the Koselleck Machine, a Flask app for exploring the results interactively: a timeline view (`/timeline`), a graph explorer (`/graph`), and a plain word-search tool (`/search`), all reading the same pre-built per-period networks.
-- `docs/` - `method.tex`/`method.pdf`, a plain-language method write-up for a mixed technical/non-technical audience.
+- `docs/` - `method.tex`/`method.pdf` (the scientific case: why network-level reorganization, the resolution sweep, the labeling prompt in full, for a mixed technical/non-technical audience), `pipeline_manual.tex`/`.pdf` (a stage-by-stage internals walkthrough for a technical reader), `overview.tex`/`.pdf` (project intro and setup).
 - `labels/` - a small, citable snapshot of the current community labels (CSV + compiled JSON, per region) - copied here by `label_communities.py publish` so they travel with the repo instead of living only in the (gitignored) data directory.
 - `config.yml` - shared, versioned settings (period slices, word2vec/Leiden hyperparameters).
 
@@ -165,15 +165,17 @@ python src/metrics.py
 The webapp shows a plain-English name next to each community (e.g. "Government & Law") instead of a bare Leiden id. That's a separate, optional step - `metrics.py` above is enough to reproduce every quantitative result, labels are a reading aid layered on top:
 
 ```
-python src/extract_community_words.py          # top-25 words per community -> communities/community_words_res<X>[_region].json, X = the auto-picked display resolution (community.py, see config.yml's leiden.max_community_size)
+python src/extract_community_words.py          # stratified Core/Mid-rank/Peripheral word sample per community -> communities/community_words_display[_region].json, at the auto-picked per-variant display resolution (community.py, see config.yml's leiden.max_community_size)
 python src/label_communities.py generate --region combined   # -> a CSV, blank rows for communities with no inheritable predecessor
 # fill in the blank rows by hand (or via an LLM/agent reading the same CSV) - see the CSV's "label"/"lane" columns
 python src/label_communities.py generate --region combined   # rerun once genesis rows are filled - resolves everything else for free
-python src/label_communities.py compile --region combined    # CSV -> communities/community_labels_res<X>[_region].json, what the webapp reads
+python src/label_communities.py compile --region combined    # CSV -> communities/community_labels_display[_region].json, what the webapp reads
 python src/label_communities.py publish --region combined    # copies CSV + JSON into this repo's labels/ - review before committing
 ```
 
-A community's label is inherited from its predecessor whenever the same Hungarian alignment `metrics.py` uses for `migration_fraction` says one exists (free, deterministic - most communities in most periods) and only needs a fresh read when a community is genuinely new (a region's first period, or the moved-into side of a real reorganization). `--region` also accepts `american`/`british`/`all` for the region-split variants, if built. See `src/label_communities.py`'s own module docstring for the full design.
+Filenames no longer embed a resolution number: the display resolution is picked independently per period and per region-split variant (not once globally), so a single number in the filename would be meaningless once different periods in the same run can land on different resolutions.
+
+A community's label is inherited from its predecessor whenever the same Hungarian alignment `metrics.py` uses for `migration_fraction` says one exists (free, deterministic - most communities in most periods) and only needs a fresh read when a community is genuinely new (a region's first period, or the moved-into side of a reorganization). `--region` also accepts `american`/`british`/`all` for the region-split variants, if built. See `src/label_communities.py`'s own module docstring for the full design.
 
 ## Running the webapp locally
 
@@ -208,4 +210,4 @@ For a free/cheap host (e.g. [Render](https://render.com)):
 
 ## License
 
-MIT for the code in this repository (see `LICENSE`). The TCP corpus itself is public domain (see Corpus above) and not affected by this repo's license either way. Trained embeddings and networks are not included here at all, for size reasons, not rights ones.
+MIT for the code in this repository (see `LICENSE`). The TCP corpus itself is public domain (see Corpus above) and not affected by this repo's license either way. Trained embeddings and networks are not included here at all (see Corpus above for why).
