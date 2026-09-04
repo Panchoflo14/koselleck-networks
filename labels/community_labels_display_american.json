@@ -1,94 +1,94 @@
 {
   "1650-1670": {
     "0": {
-      "label": "General Religious & Civic Vocabulary",
+      "label": "Religious Argument & Church Authority",
       "n_words": 840,
-      "lane": "Structural / Uncertain"
+      "lane": "Religion, Theology & the Church"
     }
   },
   "1670-1690": {
     "0": {
-      "label": "General Religious & Civic Vocabulary",
-      "n_words": 1717,
-      "lane": "Structural / Uncertain",
+      "label": "Colonial Government & Civil Officers",
+      "n_words": 1612,
+      "lane": "Government, Law & Administration",
       "inherited_from": "1650-1670#0",
-      "fit_check_rationale": "Still a mixed civic-administrative and religious-toned vocabulary (secretary, commissioners, deputies, territories, fines / infallible, imputed, humiliation), consistent with the deliberately generic label."
+      "reclassified": true
     },
     "1": {
-      "label": "Geography, Seas & Military Movement",
-      "n_words": 1335,
-      "lane": "Structural / Uncertain"
+      "label": "New England Landscape & Colonial Voyages",
+      "n_words": 1137,
+      "lane": "Geography & Territory"
     },
     "2": {
-      "label": "Infinitive Verb Forms",
-      "n_words": 545,
+      "label": "Common Verbs of Action & Exhortation",
+      "n_words": 843,
       "lane": "Structural / Uncertain"
     }
   },
   "1690-1710": {
+    "1": {
+      "label": "Salvation, Atonement & Christian Doctrine",
+      "n_words": 1476,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1670-1690#0",
+      "reclassified": true
+    },
+    "3": {
+      "label": "Colonial Taxation & Administration",
+      "n_words": 898,
+      "lane": "Government, Law & Administration"
+    },
     "0": {
-      "label": "Religious & Natural Imagery (Mixed)",
-      "n_words": 2250,
+      "label": "Common Verbs of Action & Exhortation",
+      "n_words": 1520,
       "lane": "Structural / Uncertain",
+      "inherited_from": "1670-1690#2",
+      "fit_check_rationale": "Still a broad mix of common verb forms of action and exhortation (throw, expose, advise, conform, saith, repent, refer, promised) across all tiers, same grammatical character as before."
+    },
+    "2": {
+      "label": "Wilderness Affliction & Providential Trial",
+      "n_words": 1174,
+      "lane": "Religion, Theology & the Church",
       "inherited_from": "1670-1690#1",
       "reclassified": true
     },
-    "2": {
-      "label": "General Religious & Civic Vocabulary",
-      "n_words": 938,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1670-1690#0",
-      "fit_check_rationale": "Cluster remains squarely administrative/fiscal/civic (commissioners, rates, assessments, sheriffs, colonies, authority), which the label's civic component still covers accurately even without a religious admixture."
-    },
-    "1": {
-      "label": "Infinitive Verb Forms",
-      "n_words": 1387,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1670-1690#2",
-      "fit_check_rationale": "Still overwhelmingly verb-form vocabulary (propose, throw, advise, expose, oblige, reap, reach, quench, publish, pray dominate core/mid), consistent with the label despite a few past-tense forms."
-    },
     "4": {
-      "label": "Calendar Months & Meeting Dates",
-      "n_words": 142,
-      "lane": "Structural / Uncertain"
-    },
-    "3": {
-      "label": "Personal Names & Titles",
-      "n_words": 492,
+      "label": "Latin Text & Biblical Citations",
+      "n_words": 131,
       "lane": "Structural / Uncertain"
     }
   },
   "1710-1730": {
     "0": {
-      "label": "Vice, Intemperance & Moral Admonition",
-      "n_words": 2310,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1690-1710#0",
-      "reclassified": true
-    },
-    "1": {
-      "label": "Past-Tense & Participial Verb Forms",
-      "n_words": 1912,
-      "lane": "Structural / Uncertain",
+      "label": "Piety, Church Office & Religious Improvement",
+      "n_words": 2161,
+      "lane": "Religion, Theology & the Church",
       "inherited_from": "1690-1710#1",
       "reclassified": true
     },
-    "2": {
-      "label": "Maritime & Colonial Geography (Mixed)",
-      "n_words": 1587,
+    "1": {
+      "label": "Common Verbs of Action & Exhortation",
+      "n_words": 1855,
       "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#0",
+      "fit_check_rationale": "Still a broad mix of common verbs of action across grammatical forms (oblige, recommend, conform, expose, examined, apprehended, explained), consistent with the label's structural character."
+    },
+    "3": {
+      "label": "Vice, Corruption & Spiritual Backsliding",
+      "n_words": 771,
+      "lane": "Morality: Virtue & Vice",
       "inherited_from": "1690-1710#2",
       "reclassified": true
     },
-    "3": {
-      "label": "Latin Citations & Bibliographic References",
-      "n_words": 627,
-      "lane": "Books, Learning & Scholarship",
+    "2": {
+      "label": "Colonial Conquest & Territorial Dispute",
+      "n_words": 1624,
+      "lane": "Military & Warfare",
       "inherited_from": "1690-1710#3",
       "reclassified": true
     },
     "4": {
-      "label": "Second-Person Verb Forms (Archaic 'Thou')",
+      "label": "Second-Person Verb Forms",
       "n_words": 19,
       "lane": "Structural / Uncertain",
       "inherited_from": "1690-1710#4",
@@ -96,332 +96,315 @@
     }
   },
   "1730-1750": {
-    "1": {
-      "label": "Vice, Intemperance & Moral Admonition",
-      "n_words": 2236,
+    "0": {
+      "label": "Vice, Irreligion & Moral Corruption",
+      "n_words": 2462,
       "lane": "Morality: Virtue & Vice",
       "inherited_from": "1710-1730#0",
-      "fit_check_rationale": "Still strongly vice/virtue/moral vocabulary throughout (unnatural, stupid, intemperance, extravagance, avarice, irreligion, malice / pious, piety, perverted / abuse, abominations, abasement), a clean match to the label."
+      "reclassified": true
     },
-    "0": {
-      "label": "Governance, Succession & Colonial Affairs (Mixed)",
-      "n_words": 2282,
+    "6": {
+      "label": "Cardinal Numbers & Quantities",
+      "n_words": 87,
+      "lane": "Structural / Uncertain"
+    },
+    "4": {
+      "label": "Common Verbs of Persuasion & Exhortation",
+      "n_words": 937,
       "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#4",
+      "reclassified": true
+    },
+    "5": {
+      "label": "Old Testament Prophets & Kings",
+      "n_words": 134,
+      "lane": "Religion, Theology & the Church"
+    },
+    "1": {
+      "label": "Colonial Trade, Plantations & Overseas Geography",
+      "n_words": 1777,
+      "lane": "Trade, Finance & Commerce",
       "inherited_from": "1710-1730#2",
       "reclassified": true
     },
-    "2": {
-      "label": "Past-Tense & Participial Verb Forms",
-      "n_words": 1948,
+    "3": {
+      "label": "Common Verbs of Action & Exhortation",
+      "n_words": 1092,
       "lane": "Structural / Uncertain",
       "inherited_from": "1710-1730#1",
-      "fit_check_rationale": "Past-tense/participial forms remain well represented throughout (drove, thrown, open'd, noted, maintained, adopted, address'd, acted, abounded) alongside some infinitives, so the label remains a reasonable, non-misleading description of this general verb-form cluster."
+      "fit_check_rationale": "Still a broad mix of common physical-action verbs across forms (drove, thrown, pull, broke, driven, casting) plus common past-tense verbs (began, called, asked), consistent with the label's structural character."
     },
-    "4": {
-      "label": "Latin Citations & Bibliographic References",
-      "n_words": 163,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1710-1730#3",
-      "fit_check_rationale": "Still overwhelmingly citation/reference abbreviations (roman numeral chapter numbers, book abbreviations like joh, heb, chron, tit, ps, cor, acts), consistent with the label even though the register has narrowed to biblical scripture references specifically."
-    },
-    "3": {
-      "label": "Food, Cloth & Domestic Goods",
-      "n_words": 1072,
-      "lane": "Structural / Uncertain"
-    },
-    "5": {
-      "label": "Second-Person Verb Forms (Archaic 'Thou')",
-      "n_words": 16,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1710-1730#4",
-      "fit_check_rationale": "Still overwhelmingly archaic second-person verb forms (gavest, canst, knowest, didst, wouldst, hast, hadst), a clean match to the label."
-    }
-  },
-  "1750-1770": {
     "2": {
-      "label": "Vice, Intemperance & Moral Admonition",
-      "n_words": 1196,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1730-1750#1",
-      "fit_check_rationale": "Still strongly vice/moral vocabulary throughout (inhuman, fury, intemperance, avarice, licentious, irreligious, sensual, lawless, invidious, unholy, unbelieving, badness), a clean match to the label."
-    },
-    "0": {
-      "label": "Finance, Fees & Literary Miscellany (Mixed)",
-      "n_words": 2376,
+      "label": "Poetic Imagery, Goods & Combat Vocabulary",
+      "n_words": 1108,
       "lane": "Structural / Uncertain",
-      "inherited_from": "1730-1750#0",
-      "reclassified": true
-    },
-    "1": {
-      "label": "Past-Tense & Participial Verb Forms",
-      "n_words": 1981,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1730-1750#2",
-      "fit_check_rationale": "Past-tense/participial forms remain well represented throughout (blown, threw, pulled, ran, omitted, obtained, mentioned, managed, adjusted, adhered, acted, accepting, abusing) alongside some infinitives, consistent with the label."
-    },
-    "5": {
-      "label": "Military Campaigns & Colonial Geography",
-      "n_words": 731,
-      "lane": "Military & Warfare",
-      "inherited_from": "1730-1750#5",
-      "reclassified": true
-    },
-    "4": {
-      "label": "Personal Names in Legal & Probate Records",
-      "n_words": 820,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1730-1750#4",
-      "reclassified": true
-    },
-    "6": {
-      "label": "Herbal Remedies & Pharmacy",
-      "n_words": 704,
-      "lane": "Medicine, Body & Health"
-    },
-    "3": {
-      "label": "Poetic & Dramatic Diction",
-      "n_words": 1044,
-      "lane": "Literature, Drama & Poetic Diction",
-      "inherited_from": "1730-1750#3",
+      "inherited_from": "1710-1730#3",
       "reclassified": true
     },
     "7": {
-      "label": "Reliance & Argumentative Reasoning",
-      "n_words": 65,
+      "label": "Reasoning, Dependence & Reflection",
+      "n_words": 86,
       "lane": "Rhetoric & Persuasion"
     }
   },
-  "1770-1790": {
-    "2": {
-      "label": "Vice, Intemperance & Moral Admonition",
-      "n_words": 1949,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1750-1770#2",
-      "fit_check_rationale": "Still dominated by morally-charged negative vocabulary (relentless, merciless, atrocious, insolent, infringement, insult, injury, accursed, abortive), consistent with the vice/moral-admonition label."
+  "1750-1770": {
+    "6": {
+      "label": "North American Geography & Territory",
+      "n_words": 645,
+      "lane": "Geography & Territory",
+      "inherited_from": "1730-1750#6",
+      "reclassified": true
+    },
+    "1": {
+      "label": "Literary & Scholarly Works: Poems, Histories & Memoirs",
+      "n_words": 1961,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1730-1750#0",
+      "reclassified": true
     },
     "0": {
-      "label": "Finance, Fees & Literary Miscellany (Mixed)",
-      "n_words": 2393,
+      "label": "Common Verbs of Action & Exhortation",
+      "n_words": 2011,
       "lane": "Structural / Uncertain",
-      "inherited_from": "1750-1770#0",
-      "fit_check_rationale": "Core retains strong financial/civic-administrative vocabulary (shipping, commodities, funds, deputies, specie, surplus, counties, payment, farmers), consistent with the Finance half of the label; the abstract admixture in mid/peripheral matches the label's acknowledged Mixed/Miscellany framing."
+      "inherited_from": "1730-1750#3",
+      "fit_check_rationale": "Still a broad mix of common verbs of action across grammatical forms and tenses (prompt, expose, conform, prove, prosper, preserve, plead, planted, persecute), consistent with the label's structural character."
+    },
+    "2": {
+      "label": "Vice, Cruelty & Moral Corruption",
+      "n_words": 1230,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1730-1750#4",
+      "reclassified": true
+    },
+    "5": {
+      "label": "Herbal Remedies & Bodily Ailments",
+      "n_words": 875,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1730-1750#5",
+      "reclassified": true
     },
     "3": {
-      "label": "Herbal Remedies & Pharmacy",
-      "n_words": 1449,
-      "lane": "Medicine, Body & Health",
-      "inherited_from": "1750-1770#6",
-      "fit_check_rationale": "Core and periphery both retain herbal, culinary, and pharmacological vocabulary (nutmeg, parsley, alkalescent, ague, acescency), consistent with the label."
+      "label": "Colonial Gentry, Courts & Legal Proceedings",
+      "n_words": 1168,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1730-1750#1",
+      "reclassified": true
     },
-    "11": {
-      "label": "Comparative Adjective Forms",
-      "n_words": 56,
-      "lane": "Structural / Uncertain"
+    "4": {
+      "label": "Sublime & Dramatic Poetic Imagery",
+      "n_words": 918,
+      "lane": "Literature, Drama & Poetic Diction",
+      "inherited_from": "1730-1750#2",
+      "reclassified": true
+    },
+    "7": {
+      "label": "Reasoning, Dependence & Reflection",
+      "n_words": 76,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1730-1750#7",
+      "fit_check_rationale": "Still consistently about reliance, dependence, and reflection (rely, depend, reflect, insist, impose, discourse, confer, grounded, foresight) across all tiers."
+    }
+  },
+  "1770-1790": {
+    "7": {
+      "label": "North American Geography & Territory",
+      "n_words": 1004,
+      "lane": "Geography & Territory",
+      "inherited_from": "1750-1770#6",
+      "fit_check_rationale": "Still dominated by specific place names (salem, missisippi, huron, cambridge, worcester, portsmouth, savannah, michillimackinac, baltimore) alongside trade vocabulary, consistent with the geography label."
+    },
+    "2": {
+      "label": "Legislative Politics & Constitutional Debate",
+      "n_words": 1889,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1750-1770#1",
+      "reclassified": true
+    },
+    "5": {
+      "label": "Coercion, Appeal & Persuasion",
+      "n_words": 1349,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1750-1770#7",
+      "reclassified": true
+    },
+    "0": {
+      "label": "Vice, Cruelty & Moral Corruption",
+      "n_words": 2137,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1750-1770#2",
+      "fit_check_rationale": "Still strongly moral vice/cruelty vocabulary (illiberal, merciless, insolent, rapine, unrelenting, rapacious, selfishness, misconduct, abominations), consistent with the label."
     },
     "9": {
-      "label": "Calendar Days & Months",
-      "n_words": 165,
+      "label": "Comparative Adjectives & Adverbs",
+      "n_words": 53,
       "lane": "Structural / Uncertain"
     },
     "8": {
-      "label": "Character Names in Fiction/Drama",
-      "n_words": 358,
-      "lane": "Structural / Uncertain"
-    },
-    "5": {
-      "label": "Infinitive Verb Forms",
-      "n_words": 1287,
-      "lane": "Structural / Uncertain"
-    },
-    "1": {
-      "label": "Poetic & Dramatic Diction",
-      "n_words": 1984,
-      "lane": "Literature, Drama & Poetic Diction",
-      "inherited_from": "1750-1770#3",
-      "fit_check_rationale": "Still strongly pastoral/poetic diction (flow'rs, billows, sportive, vales, radiant, vernal, groves, verdure, paradise), a clean match to the label."
-    },
-    "4": {
-      "label": "Past-Tense & Participial Verb Forms",
-      "n_words": 1384,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1750-1770#1",
-      "fit_check_rationale": "Still strongly past-tense/participial verb forms throughout (benefited, demonstrated, crushed, extinguished, explained, overpowered, augmented, proposed, produced, procured, premised, practised, performed, omitted), a clean match to the label."
-    },
-    "7": {
-      "label": "Latin & Biblical Citation Abbreviations",
-      "n_words": 427,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1750-1770#4",
-      "reclassified": true
+      "label": "Legislative Calendar & Sessions",
+      "n_words": 105,
+      "lane": "Government, Law & Administration"
     },
     "6": {
-      "label": "Personal Names & Titles (Revolutionary Era)",
-      "n_words": 1039,
+      "label": "Colonial Gentry & Biblical Names",
+      "n_words": 1191,
+      "lane": "History, Genealogy, Nobility & Kinship",
+      "inherited_from": "1750-1770#3",
+      "reclassified": true
+    },
+    "4": {
+      "label": "Common Verbs of Action & Exhortation",
+      "n_words": 1435,
       "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#0",
+      "fit_check_rationale": "Still a broad mix of common verbs of action across tenses and forms (throwing, crushed, referred, undergone, retired, restored, refused, recommended, pleaded), consistent with the label's structural character."
+    },
+    "3": {
+      "label": "Household Goods, Food & Domestic Life",
+      "n_words": 1484,
+      "lane": "Domestic Life, Dress & Household",
       "inherited_from": "1750-1770#5",
       "reclassified": true
     },
-    "12": {
-      "label": "Cardinal Number Words",
-      "n_words": 44,
-      "lane": "Structural / Uncertain"
-    },
-    "13": {
-      "label": "Second-Person Verb Forms (Archaic 'Thou')",
-      "n_words": 18,
-      "lane": "Structural / Uncertain"
+    "1": {
+      "label": "Sublime & Dramatic Poetic Imagery",
+      "n_words": 1914,
+      "lane": "Literature, Drama & Poetic Diction",
+      "inherited_from": "1750-1770#4",
+      "fit_check_rationale": "Still strongly poetic/dramatic diction (flow'rs, purple, charm'd, vernal, pensive, tuneful, starry, radiant, romantic) with dramatic/combat elements (shield, serpent, armour, advancing), consistent with the label."
     },
     "10": {
-      "label": "Reliance & Argumentative Reasoning",
-      "n_words": 68,
-      "lane": "Rhetoric & Persuasion",
-      "inherited_from": "1750-1770#7",
-      "fit_check_rationale": "Vocabulary remains centered on reliance, dependence, and reasoned argument/discourse (insisting, rely, dependence, founded, discoursing), consistent with the label despite a couple of outlier words."
+      "label": "Second-Person Verb Forms",
+      "n_words": 17,
+      "lane": "Structural / Uncertain"
     }
   },
   "1790-1810": {
-    "17": {
-      "label": "Cardinal Number Words",
+    "15": {
+      "label": "Calendar Dates & Temporal Markers",
+      "n_words": 222,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#8",
+      "reclassified": true
+    },
+    "4": {
+      "label": "Public Finance & Government Administration",
+      "n_words": 1543,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1770-1790#7",
+      "reclassified": true
+    },
+    "16": {
+      "label": "Comparative Adjectives & Adverbs",
       "n_words": 76,
       "lane": "Structural / Uncertain",
-      "inherited_from": "1770-1790#12",
-      "fit_check_rationale": "Still overwhelmingly built around numbers and quantity words (core cardinal numbers; mid/peripheral quantity terms like numerous, multiplicity, hundreds), consistent with the label."
-    },
-    "1": {
-      "label": "Household Goods, Farm Produce & Kitchen",
-      "n_words": 2218,
-      "lane": "Domestic Life, Dress & Household",
-      "inherited_from": "1770-1790#3",
-      "reclassified": true
-    },
-    "18": {
-      "label": "Comparative Adjective Forms",
-      "n_words": 75,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1770-1790#11",
-      "fit_check_rationale": "Core, mid, and peripheral tiers are all comparative adjectives (hotter, shorter, bolder, farther); a strong, clean match to the label."
-    },
-    "5": {
-      "label": "Vice, Intemperance & Moral Admonition",
-      "n_words": 1540,
-      "lane": "Morality: Virtue & Vice",
-      "inherited_from": "1770-1790#2",
-      "fit_check_rationale": "Core and periphery retain vice/moral-character vocabulary (arrogant, lawless, sanguinary, revengeful, immoral, accursed, abortive) even as mid-rank drifts toward neutral intensifying adjectives, consistent with the label."
-    },
-    "2": {
-      "label": "Books, Essays & Literary Scholarship",
-      "n_words": 1590,
-      "lane": "Books, Learning & Scholarship",
       "inherited_from": "1770-1790#9",
-      "reclassified": true
+      "fit_check_rationale": "Still clearly comparative adjectives and adverbs (hotter, quicker, firmer, plainer, wiser, milder) across all tiers."
+    },
+    "3": {
+      "label": "Vice, Cruelty & Moral Corruption",
+      "n_words": 1601,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1770-1790#0",
+      "fit_check_rationale": "Still substantially vice/corruption vocabulary (atrocious, turbulent, infraction, impostor, unbridled, unprincipled, dishonorable, detested, deceitful), consistent with the label despite some drift into adjectives/adverbs."
     },
     "6": {
-      "label": "Finance, Fees & Literary Miscellany (Mixed)",
-      "n_words": 1213,
+      "label": "French & Latin Text Fragments",
+      "n_words": 1391,
       "lane": "Structural / Uncertain",
-      "inherited_from": "1770-1790#0",
-      "fit_check_rationale": "Still strongly financial/administrative vocabulary (surplus, judiciary, appropriation, payments, sales, certificates, treasurer, exchequer, advances, accession), consistent with the Finance half of the label."
-    },
-    "7": {
-      "label": "Geographic Place Names",
-      "n_words": 1021,
-      "lane": "Geography & Territory",
-      "inherited_from": "1770-1790#6",
+      "inherited_from": "1770-1790#2",
       "reclassified": true
     },
     "10": {
-      "label": "Personal Names in Legal/Administrative Records",
-      "n_words": 952,
-      "lane": "Structural / Uncertain"
+      "label": "Theatrical Dialogue & Character Names",
+      "n_words": 1012,
+      "lane": "Literature, Drama & Poetic Diction"
     },
-    "13": {
-      "label": "Character Names in Fiction/Drama",
-      "n_words": 772,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1770-1790#8",
-      "fit_check_rationale": "Still strongly character names and dramatic dialogue vocabulary (lucy, floretta, valmont, theodore, antonia, adieu, soliloquy, traitor), consistent with the label."
-    },
-    "4": {
-      "label": "Past-Tense & Participial Verb Forms",
-      "n_words": 1550,
+    "5": {
+      "label": "Common Verbs of Action & Exhortation",
+      "n_words": 1507,
       "lane": "Structural / Uncertain",
       "inherited_from": "1770-1790#4",
-      "fit_check_rationale": "Still overwhelmingly past-tense/participial verb forms throughout (moistened, vindicated, characterized, soothed, suppressed, massacred, qualified, purged, protected, performed, overrun, acted, abased), a clean match to the label."
+      "fit_check_rationale": "Still a broad mix of common verbs across tenses and forms (asserted, characterized, counteracted, benefited, misled, demonstrated, referred, stimulated, justified, joined, injured, indulged, incurred, included, impeded, imitated), consistent with the label's structural character."
     },
-    "14": {
-      "label": "Armies, Fleets & Military Forces",
-      "n_words": 669,
-      "lane": "Military & Warfare"
+    "1": {
+      "label": "Household Goods, Food & Domestic Life",
+      "n_words": 1901,
+      "lane": "Domestic Life, Dress & Household",
+      "inherited_from": "1770-1790#3",
+      "fit_check_rationale": "Still strongly food and household vocabulary (almonds, lemon, turkeys, ducks, cakes, cabbage, cinnamon, culinary, crops, batter) despite a few chemical/mechanical outliers, consistent with the label."
     },
-    "3": {
-      "label": "Vice, Virtue & Moral Character",
-      "n_words": 1574,
+    "7": {
+      "label": "Ancient Empires, Kings & Religious Sects",
+      "n_words": 1241,
+      "lane": "History, Genealogy, Nobility & Kinship"
+    },
+    "2": {
+      "label": "Moral Vices & Character Flaws",
+      "n_words": 1664,
       "lane": "Morality: Virtue & Vice"
     },
-    "9": {
-      "label": "Infinitive Verb Forms",
-      "n_words": 1002,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1770-1790#5",
-      "fit_check_rationale": "Core, mid, and peripheral tiers remain dominated by infinitive verb forms (attach, oblige, expose, testify, tell, apologize, allude), consistent with the label."
-    },
-    "11": {
-      "label": "Third-Person Verb Forms",
-      "n_words": 950,
-      "lane": "Structural / Uncertain"
-    },
-    "0": {
-      "label": "Poetic & Dramatic Diction",
-      "n_words": 2279,
-      "lane": "Literature, Drama & Poetic Diction",
-      "inherited_from": "1770-1790#1",
-      "fit_check_rationale": "Still strongly pastoral/poetic diction (dewy, verdant, drear, flow'ry, bow'rs, meads, chariot, chant, blushing, anon, anew, aloof), a clean match to the label."
-    },
     "12": {
-      "label": "Physical Action Verbs",
-      "n_words": 933,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1770-1790#10",
+      "label": "Colonial Gentry & Legal Figures",
+      "n_words": 928,
+      "lane": "History, Genealogy, Nobility & Kinship",
+      "inherited_from": "1770-1790#6",
       "reclassified": true
     },
-    "8": {
-      "label": "Bodily Disorders & Medical Symptoms",
-      "n_words": 1019,
-      "lane": "Medicine, Body & Health"
+    "11": {
+      "label": "Coercion, Appeal & Persuasion",
+      "n_words": 977,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1770-1790#5",
+      "fit_check_rationale": "Still clearly about coercion (repress, compel, violate, tempt, entice) and appeal/persuasion (appeal, apologize, attribute, calumniate), consistent with the label."
     },
-    "19": {
-      "label": "Second-Person Verb Forms (Archaic 'Thou')",
-      "n_words": 38,
-      "lane": "Structural / Uncertain",
-      "inherited_from": "1770-1790#13",
-      "fit_check_rationale": "Still overwhelmingly archaic second-person verb forms (shouldst, mightest, doest, wouldest, canst, hast) across all tiers, consistent with the label."
+    "0": {
+      "label": "Sublime & Dramatic Poetic Imagery",
+      "n_words": 2404,
+      "lane": "Literature, Drama & Poetic Diction",
+      "inherited_from": "1770-1790#1",
+      "fit_check_rationale": "Still pastoral-sublime diction (curling, dewy, meads, flow'rs, verdant, warbling, bow'rs) combined with gothic-dramatic elements (thunderbolt, spectre, stab, archangel), consistent with the label."
     },
-    "15": {
-      "label": "French Text & Foreign Names",
-      "n_words": 409,
+    "13": {
+      "label": "Physical Action Verbs (Motion)",
+      "n_words": 784,
       "lane": "Structural / Uncertain"
     },
-    "16": {
-      "label": "Latin & Biblical Citation Abbreviations",
-      "n_words": 179,
-      "lane": "Books, Learning & Scholarship",
-      "inherited_from": "1770-1790#7",
-      "fit_check_rationale": "Still overwhelmingly biblical citation abbreviations (isaiah, exodus, ezekiel, jeremiah, matthew, chronicles, philippians, leviticus, genesis, evangelist, chapter/section numbers), a clean match to the label."
+    "9": {
+      "label": "World Geography & Landmarks",
+      "n_words": 1070,
+      "lane": "Geography & Territory"
+    },
+    "8": {
+      "label": "Symptoms & Bodily Disorders",
+      "n_words": 1096,
+      "lane": "Medicine, Body & Health"
+    },
+    "14": {
+      "label": "Third-Person Verb Forms (Archaic & Modern)",
+      "n_words": 539,
+      "lane": "Structural / Uncertain"
+    },
+    "17": {
+      "label": "Second-Person Verb Forms",
+      "n_words": 37,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#10",
+      "fit_check_rationale": "Still clearly archaic second-person verb forms (mightest, couldst, sayest, wouldest, believest) consistent with the label."
     }
   },
   "_meta": {
     "region": "american",
-    "n_communities": 62,
-    "n_human_edited": 37,
-    "n_inherited": 25,
+    "n_communities": 59,
+    "n_human_edited": 43,
+    "n_inherited": 16,
     "method": "Generated by a single LLM read-through of each community's top words, not an empirically validated taxonomy - a reading aid, not a checked ground truth. Rerunning `generate` on an unchanged input is not guaranteed to reproduce the same label text or lane for every community, since LLM sampling is not bitwise-deterministic even against an unchanged prompt.",
-    "compiled_at": "2026-09-01T05:03:56+00:00",
+    "compiled_at": "2026-09-02T21:51:18+00:00",
     "model": "claude-haiku-4-5-20251001",
-    "prompt_file": "src/prompts/community_labeling_v2.md",
-    "prompt_version": "v2",
-    "prompt_sha256_16": "fe51a90d43af69c8",
+    "prompt_file": "src/prompts/community_labeling_v3.md",
+    "prompt_version": "v3",
+    "prompt_sha256_16": "75905e00b4a8621e",
     "source_words_file": "community_words_display_american.json",
-    "source_words_sha256_16": "7b16242d5f12e041",
-    "generated_at": "2026-09-01T05:03:47+00:00"
+    "source_words_sha256_16": "a92a527ed3735a6d",
+    "generated_at": "2026-09-02T21:51:00+00:00"
   }
 }
