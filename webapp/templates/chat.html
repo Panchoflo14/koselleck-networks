@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koselleck Machine &middot; ask</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="page">
+    {% include "_nav.html" %}
+    <header>
+      <h1>Ask the corpus a historical question.</h1>
+      <p class="subtitle">A grounded assistant that answers only from the built networks, communities, and
+      reorganization metrics &mdash; every claim carries its citation and a reliability tier, and it says so
+      when the structure doesn&rsquo;t show something rather than guessing.</p>
+    </header>
+
+    <div class="chat-card">
+      <div id="chat-log" class="chat-log"></div>
+
+      <form id="chat-form" class="chat-form">
+        <textarea id="chat-input" class="chat-input" rows="2" autocomplete="off"
+          placeholder="e.g. Did word meaning reorganize most around the Sattelzeit? How did &lsquo;revolution&rsquo; shift?"></textarea>
+        <button type="submit" id="chat-send">Ask</button>
+      </form>
+
+      <div class="chat-examples">
+        <span class="chat-examples-label">Try:</span>
+        <button class="chat-example" type="button">Did reorganization peak around 1770&ndash;1830, and does it survive the resolution sweep?</button>
+        <button class="chat-example" type="button">How did &lsquo;revolution&rsquo; change community over time?</button>
+        <button class="chat-example" type="button">Which words moved into a new cluster at 1770&ndash;1790?</button>
+      </div>
+    </div>
+
+    <p class="chat-footnote">
+      <strong>measured</strong> = a computed metric or Leiden assignment &middot;
+      <strong>inferred</strong> = an embedding-neighbour reading (suggestive, not causal) &middot;
+      <strong>unreliable</strong> = OCR-diluted period or a &ldquo;Structural / Uncertain&rdquo; community.
+    </p>
+  </div>
+  <script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body>
+</html>

@@ -104,6 +104,26 @@ _transitions_cache = None
 _labels_cache = {}  # keyed by region (None = combined)
 LABELS_RESOLUTION = HEADLINE_RES  # the resolution community_labels_display.json's labels were generated at
 
+# The grounded discovery chatbot (src/rag/engine.py) is constructed lazily and
+# once: it needs the DuckDB store built and an Anthropic key present, neither of
+# which a bare clone or a data-less deployment has. Any failure is remembered as
+# a message (not re-raised) so the rest of the webapp keeps working and /api/chat
+# can report the reason instead of 500-ing the whole app on import.
+_engine = None
+_engine_error = None
+
+
+def get_engine():
+    global _engine, _engine_error
+    if _engine is not None or _engine_error is not None:
+        return _engine
+    try:
+        from rag.engine import Engine
+        _engine = Engine(config=config)
+    except Exception as e:  # StoreUnavailable, missing key, etc.
+        _engine_error = str(e)
+    return _engine
+
 
 def resolve_resolution(value):
     """Snap a client-supplied resolution to the exact float from config.yml's
@@ -364,6 +384,35 @@ def search_page():
 def timeline_page():
     return render_template("timeline.html", seed_word=TIMELINE_SEED_WORD,
                             label_resolution=HEADLINE_RES, active="timeline")
+
+
+@app.route("/chat")
+def chat_page():
+    return render_template("chat.html", active="chat")
+
+
+@app.route("/api/chat", methods=["POST"])
+def api_chat():
+    """Ask the grounded discovery engine one question. Non-streaming JSON: the
+    engine runs its whole tool-calling loop server-side and returns the final
+    answer plus every Evidence record it was given (each already tagged with a
+    reliability tier and citation), so the frontend can show the receipts.
+    Streaming (SSE) is a later enhancement - correctness and honesty first."""
+    data = request.get_json(silent=True) or {}
+    question = (data.get("question") or "").strip()
+    if not question:
+        return jsonify({"error": "empty question"}), 400
+    engine = get_engine()
+    if engine is None:
+        # store not built, or model provider unavailable - report why rather
+        # than pretend. See get_engine / _engine_error.
+        return jsonify({"error": _engine_error or "chat is unavailable",
+                        "unavailable": True}), 503
+    try:
+        result = engine.run(question)
+    except Exception as e:
+        return jsonify({"error": f"the model backend failed: {e}"}), 502
+    return jsonify(result)
 
 
 @app.route("/api/periods")
