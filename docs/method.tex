@@ -21,12 +21,11 @@
   \coverfield{Repository}{koselleck-networks}
   \coverfield{Document}{docs/method.tex $\rightarrow$ docs/method.pdf}
   \coverfield{Corpus span}{1510-1910, uniform 20-year windows}
-  \coverfield{Display resolution}{per-variant, auto-picked (2{,}500-word cap); sweep: 15 settings}
+  \coverfield{Display resolution}{per-variant, auto-picked (1{,}500-word cap); sweep: 15 settings}
   \coverfield{Compiled}{\today}
   }
 
-{\hypersetup{linkcolor=accentnet}
-\tableofcontents}
+\tableofcontents
 
 \newpage
 
@@ -164,7 +163,7 @@ layer on top that a word-by-word approach cannot produce.
     convenience, with no bearing on which finding gets reported. It is
     picked per period and per region automatically, from the same swept
     values, as the lowest one at which no community grows past a
-    2{,}500-word cap; \S\ref{sec:webapp} covers the mechanism and why it
+    1{,}500-word cap; \S\ref{sec:webapp} covers the mechanism and why it
     replaced an earlier fixed choice.
 
   \item \term{Compare consecutive periods.} For each pair of
@@ -425,7 +424,7 @@ it is not a constant.
 This manual check was later turned into an automatic rule, picked
 separately for every period and region-split variant against the same
 criterion (does the worst-case community actually stay readable, now a
-2{,}500-word cap) rather than once for the whole corpus.
+1{,}500-word cap) rather than once for the whole corpus.
 \code{docs/pipeline\_manual.pdf}'s Stage 6 section covers the search
 mechanism and the one edge case it took a full production run to
 surface.

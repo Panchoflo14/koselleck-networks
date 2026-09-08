@@ -21,12 +21,10 @@
   \coverfield{Repository}{koselleck-networks}
   \coverfield{Document}{docs/pipeline\_manual.tex $\rightarrow$ docs/pipeline\_manual.pdf}
   \coverfield{Companion}{docs/overview.pdf (setup and run commands), docs/method.pdf (the scientific argument)}
-  \coverfield{Branch}{corpus-rebuild}
   \coverfield{Compiled}{\today}
   }
 
-{\hypersetup{linkcolor=accentnet}
-\tableofcontents}
+\tableofcontents
 
 \newpage
 
@@ -366,7 +364,7 @@ per-variant band-bisection, since forcing every variant to one shared
 value carried the same problem the hand-picked constant had, only
 automated. It works by starting from a seed resolution and doubling or
 halving until it brackets the lowest resolution at which no community
-exceeds a fixed 2{,}500-word cap, then bisecting within that bracket
+exceeds a fixed 1{,}500-word cap, then bisecting within that bracket
 until a passing value lands within 300 words of the cap or the bracket
 narrows past a safety floor. There is no hardcoded ceiling; the doubling
 search finds its own upper bound, so a larger future corpus needing
@@ -376,7 +374,7 @@ a constant by hand.
 This mechanism shipped with a bug, caught only once it ran against the
 full rebuilt corpus rather than the smaller test set it was checked
 against in 2026-08-28. \code{1650-1670\_american}, 840 words total,
-never exceeds the 2{,}500-word cap even at the lowest resolution tested,
+never exceeds the 1{,}500-word cap even at the lowest resolution tested,
 so the bisection routine's search for a resolution that fails the cap
 never found one, and the code crashed expecting a failing lower bound
 that was never going to exist. The fix: when no resolution ever fails
@@ -446,7 +444,7 @@ sees that tail has no way to notice. The word list shown is now a
 stratified sample by degree rank, not a flat top slice: up to fifteen
 words from the top of the ranked list, fifteen from around its midpoint,
 and fifteen from its bottom, forty-five in total, drawn from a
-membership list that can hold up to 2{,}500 words, not an exhaustive
+membership list that can hold up to 1{,}500 words, not an exhaustive
 split of it. The tier size was raised from nine to fifteen per tier on
 2026-09-02, kept symmetric across all three on purpose: the failure this
 sampling change fixed was under-weighing the mid-rank and peripheral
@@ -505,18 +503,20 @@ real theme, and the new prompt reaching a concrete, evidence-grounded
 lane both times instead.
 
 A full relabel followed, all three regions, against the fresh community
-structure the 2026-09-02 rebuild produced: 59 communities in American,
-43 read fresh and 16 inherited; 1{,}617 in British, 596 fresh and
-1{,}021 inherited, 833 landing in \emph{Structural / Uncertain}; 1{,}598
-in Combined, 673 fresh and 925 inherited, 791 in \emph{Structural /
-Uncertain}. Roughly half of British and Combined landing in the
-fifteenth lane is not a new problem this relabel introduced; it sits
-inside the range this stage's own documentation already expected, and it
-does not weaken the reorganization measurement in \S\ref{sec:metrics},
-since that measurement runs on the community partition directly and
-never reads label text, and a stable, grammar-bound community is more
-likely to dilute a detected reorganization signal than inflate one. A
-separate safety fix, \code{record-fit-checks}, now merges each batch of
+structure the 2026-09-08 rebuild produced (the display-resolution cap
+lowered to 1{,}500 words, \S\ref{sec:webapp} again): 100 communities in
+American, 47 read fresh and 53 inherited, 32 in \emph{Structural /
+Uncertain}; 3{,}099 in British, 1{,}319 fresh and 1{,}780 inherited,
+1{,}227 in \emph{Structural / Uncertain}; 2{,}981 in Combined, 1{,}091
+fresh and 1{,}890 inherited, 1{,}256 in \emph{Structural / Uncertain}.
+Two-fifths to a third of every region landing in the fifteenth lane is
+not a new problem this relabel introduced; it sits inside the range this
+stage's own documentation already expected, and it does not weaken the
+reorganization measurement in \S\ref{sec:metrics}, since that
+measurement runs on the community partition directly and never reads
+label text, and a stable, grammar-bound community is more likely to
+dilute a detected reorganization signal than inflate one. A separate
+safety fix, \code{record-fit-checks}, now merges each batch of
 fit-check answers into the saved file rather than replacing it outright,
 after an unrelated test script's cleanup step deleted 1{,}310 prior
 answers by reusing one path variable for both a scratch file and the
