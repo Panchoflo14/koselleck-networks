@@ -55,16 +55,32 @@ TOOL_SCHEMAS = [
     {
         "name": "reorganization_metrics",
         "description": "MEASURED cluster-reorganization metrics (NMI, ARI, "
-                       "migration_fraction) between consecutive periods, across "
-                       "the full resolution sweep. Use for 'did the structure "
-                       "reorganize / peak in the Sattelzeit' questions.",
+                       "migration_fraction) across the full resolution sweep. "
+                       "The ONLY tool that takes period_from/period_to or "
+                       "window_from/window_to - community_trajectory does not, "
+                       "see below. Three ways to call it: (1) one exact "
+                       "period_from+period_to pair for a single transition; "
+                       "(2) window_from+window_to for a vague window ('did it "
+                       "peak around 1770-1830') - resolves the whole comparison "
+                       "in this ONE call: every transition inside/closing the "
+                       "window plus baseline transitions from well outside it, "
+                       "each already reduced to a summary row (median + range) "
+                       "before its detailed rows. Always prefer this over "
+                       "calling the tool once per transition yourself - reading "
+                       "several separate tool results in one answer is "
+                       "unreliable, this call has none of that risk. (3) no "
+                       "period/window args at all - every transition in the "
+                       "region, for a genuinely open-ended question.",
         "input_schema": {
             "type": "object",
             "properties": {
                 "region": {"type": "string", "description": "combined, british, or american"},
                 "period_from": {"type": "string", "description": "optional, e.g. 1750-1770"},
                 "period_to": {"type": "string", "description": "optional, e.g. 1770-1790"},
+                "window_from": {"type": "string", "description": "optional, start of a vague window, e.g. 1750-1770"},
+                "window_to": {"type": "string", "description": "optional, end of a vague window, e.g. 1810-1830"},
             },
+            "additionalProperties": False,
         },
     },
     {
@@ -80,17 +96,23 @@ TOOL_SCHEMAS = [
                 "k": {"type": "integer"},
             },
             "required": ["word", "period"],
+            "additionalProperties": False,
         },
     },
     {
         "name": "community_trajectory",
-        "description": "MEASURED community placement of a word in every period "
-                       "it appears, with each community's reading-aid label. Use "
-                       "to trace how a word's cluster membership shifts over time.",
+        "description": "MEASURED community placement of a word in EVERY period "
+                       "it appears (not just two you name), with each community's "
+                       "reading-aid label. Use to trace how a word's cluster "
+                       "membership shifts over time. Takes only word/region - it "
+                       "has no period_from/period_to (that's reorganization_metrics); "
+                       "it already returns every period, so just read the two rows "
+                       "you care about out of its result.",
         "input_schema": {
             "type": "object",
             "properties": {"word": {"type": "string"}, "region": {"type": "string"}},
             "required": ["word"],
+            "additionalProperties": False,
         },
     },
     {
@@ -105,6 +127,7 @@ TOOL_SCHEMAS = [
                 "period": {"type": "string", "description": "required target period"},
             },
             "required": ["period"],
+            "additionalProperties": False,
         },
     },
     {
@@ -121,6 +144,7 @@ TOOL_SCHEMAS = [
                 "k": {"type": "integer"},
             },
             "required": ["word", "period_a", "period_b"],
+            "additionalProperties": False,
         },
     },
     {
@@ -135,11 +159,13 @@ TOOL_SCHEMAS = [
                 "community_id": {"type": "integer"},
             },
             "required": ["period", "community_id"],
+            "additionalProperties": False,
         },
     },
 ]
 
 _ALLOWED = {s["name"] for s in TOOL_SCHEMAS}
+_SCHEMA_BY_NAME = {s["name"]: s for s in TOOL_SCHEMAS}
 
 
 def load_system_prompt(store):
@@ -157,12 +183,52 @@ def dispatch(store, tool_name, args):
     """Map one tool call onto its Store method and return a list of Evidence
     dicts. Pure and offline-testable - no model involved. An unknown tool or
     bad argument is reported as an error dict the model can recover from, never
-    raised into the loop."""
+    raised into the loop.
+
+    2026-09-08: validates args against the tool's own schema before calling
+    the method, instead of letting a bad call surface as a raw Python
+    TypeError. Found for real testing qwen2.5:14b against llama3.1:8b: it
+    called community_trajectory with period_from/period_to (parameters that
+    belong to reorganization_metrics, not this tool), got back Python's own
+    "unexpected keyword argument" message, and rather than retrying with the
+    right shape it abandoned community_trajectory entirely for word_neighbors
+    - a weaker, INFERRED-tier tool - and built the whole answer on that. The
+    schema and description already said community_trajectory takes only
+    word/region, but a model has to parse an exception string to work that
+    out; naming the actual valid parameters (and, for an unknown one, which
+    other tool it belongs to) turns a dead end into a fixable one."""
     if tool_name not in _ALLOWED:
-        return {"error": f"unknown tool '{tool_name}'"}
+        return {"error": f"unknown tool '{tool_name}' - valid tools: {sorted(_ALLOWED)}"}
+    schema = _SCHEMA_BY_NAME[tool_name]["input_schema"]
+    args = args or {}
+    valid_keys = set(schema["properties"])
+    unknown = sorted(set(args) - valid_keys)
+    if unknown:
+        owners = sorted(
+            other for other, s in _SCHEMA_BY_NAME.items()
+            if other != tool_name and set(unknown) & set(s["input_schema"]["properties"])
+        )
+        hint = f" - {', '.join(unknown)} belong(s) to {owners}" if owners else ""
+        return {"error": f"{tool_name} does not accept {unknown}{hint}. "
+                          f"{tool_name}'s only parameters are {sorted(valid_keys)}."}
+    missing = sorted(set(schema.get("required", [])) - set(args))
+    if missing:
+        return {"error": f"{tool_name} is missing required parameter(s) {missing}"}
+    # Coerce a numeric-string integer arg (e.g. k="10", seen for real from
+    # llama3.1:8b) rather than let it reach the Store method and raise deep
+    # inside a slice/LIMIT as an opaque "must be integers or ... __index__"
+    # TypeError - the model can't recover from an error that doesn't name
+    # which argument or tool it came from.
+    args = dict(args)
+    for key, prop in schema["properties"].items():
+        if key in args and prop.get("type") == "integer" and isinstance(args[key], str):
+            try:
+                args[key] = int(args[key])
+            except ValueError:
+                return {"error": f"{tool_name}'s '{key}' must be an integer, got {args[key]!r}"}
     method = getattr(store, tool_name)
     try:
-        evidence = method(**(args or {}))
+        evidence = method(**args)
     except TypeError as e:
         return {"error": f"bad arguments for {tool_name}: {e}"}
     return [ev.to_dict() for ev in evidence]
@@ -256,8 +322,13 @@ class AnthropicProvider:
         self.client = anthropic.Anthropic()
 
     def _tools(self):
+        # strict: true (Anthropic-only - Ollama's function-calling doesn't
+        # support it) makes the API itself reject a call with an unknown or
+        # missing argument before it ever reaches dispatch(), on top of
+        # dispatch()'s own schema check below (which still runs for every
+        # provider, since Ollama has no equivalent guarantee).
         return [{"name": s["name"], "description": s["description"],
-                 "input_schema": s["input_schema"]} for s in TOOL_SCHEMAS]
+                 "input_schema": s["input_schema"], "strict": True} for s in TOOL_SCHEMAS]
 
     def _wire(self, transcript):
         msgs = []

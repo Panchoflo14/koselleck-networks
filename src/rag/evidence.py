@@ -142,15 +142,15 @@ def apply_reliability(
     if lane == STRUCTURAL_LANE:
         ev = mark_unreliable(
             ev,
-            "This community was routed to 'Structural / Uncertain' - grouped by "
-            "grammar, a shared language, proper names, or OCR fragments rather "
-            "than a genuine topic.",
+            "This group of words was flagged as having no clear subject - the "
+            "words share a grammatical pattern, a language, or look like "
+            "scanning errors, rather than a real topic.",
         )
     if period_is_ocr(start_year):
         ev = mark_unreliable(
             ev,
-            "This period draws on the OCR-derived British Library supplement, "
-            "which carries a known word-fragment artifact; its vocabulary and "
-            "network metrics are diluted.",
+            "This period's text comes from scanned pages (OCR), which "
+            "sometimes splits words incorrectly, so the numbers here are "
+            "noisier than usual.",
         )
     return ev

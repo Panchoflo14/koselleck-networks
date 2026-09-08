@@ -24,7 +24,9 @@
 
 from __future__ import annotations
 
+import statistics
 import sys
+from collections import defaultdict
 from pathlib import Path
 from typing import List, Optional
 
@@ -146,36 +148,122 @@ class Store:
     # -- tools ---------------------------------------------------------------
 
     def reorganization_metrics(self, region="combined", period_from=None,
-                               period_to=None) -> List[Evidence]:
+                               period_to=None, window_from=None,
+                               window_to=None) -> List[Evidence]:
         """MEASURED. The cluster-reorganization metrics between consecutive
         periods (NMI, ARI, migration_fraction) across the full resolution
         sweep - the project's actual finding, and the sweep is returned in
         full so the model can check a peak *survives* it, not just holds at one
-        resolution."""
+        resolution.
+
+        window_from/window_to (period labels marking a span, e.g. a vague
+        "around 1770-1830" question -> window_from="1750-1770",
+        window_to="1810-1830"): resolves the whole "did it peak in this
+        window" comparison in ONE call - every transition landing inside or
+        closing out the window, plus two baseline transitions from early in
+        the region's timeline, well outside any Sattelzeit-era window. Added
+        2026-09-08 after a real failure mode: the system prompt used to ask
+        the model to reconstruct this same selection itself across 5 separate
+        tool calls (one per transition), but a 14B model's final answer only
+        ever engaged with the LAST call's result no matter how the prompt or
+        the evidence volume was tuned - it wasn't a volume problem, it
+        genuinely never used anything but the most recent tool result across
+        several turns. A single call covering every needed transition has no
+        "last call" for the rest to get lost behind.
+
+        2026-09-08, same fix: prepends one summary Evidence per transition
+        (median + range of migration_fraction across the sweep) before that
+        transition's full per-resolution rows - still a MEASURED,
+        deterministically-computed quantity, never an LLM judgment - so even
+        a model that only reads summary rows has a correct, complete basis
+        for comparing several transitions at once."""
+        periods = self._periods_with_data(region)
+        all_pairs = list(zip(periods, periods[1:]))
+
+        pairs = None
+        if period_from and period_to:
+            pairs = [(period_from, period_to)]
+        elif window_from and window_to:
+            lo, hi = self._start_year(region, window_from), self._start_year(region, window_to)
+            if lo is None or hi is None:
+                return [self._no_data("reorganization metrics", region,
+                                      f"{window_from}-{window_to}")]
+            # Half-open on the FROM period's own start year: a transition
+            # "is in the window" if the period it starts from does - this is
+            # what keeps window_from itself as the first included transition
+            # (the one entering the window) rather than off by one, since
+            # comparing the TO period's start year instead would also catch
+            # the transition landing on window_from's start year, one
+            # transition too early.
+            in_window = [(a, b) for a, b in all_pairs
+                         if self._start_year(region, a) is not None
+                         and lo <= self._start_year(region, a) < hi]
+            baseline = [ab for ab in all_pairs if ab not in in_window][:2]
+            pairs = in_window + baseline
+            if not pairs:
+                return [self._no_data("reorganization metrics", region,
+                                      f"{window_from}-{window_to}")]
+
         sql = ("SELECT period_from, period_to, resolution, n_shared_words, "
                "nmi, ari, migration_fraction FROM transitions WHERE region=?")
         params = [region]
-        if period_from and period_to:
-            sql += " AND period_from=? AND period_to=?"
-            params += [period_from, period_to]
+        if pairs is not None:
+            sql += " AND (" + " OR ".join("(period_from=? AND period_to=?)" for _ in pairs) + ")"
+            for a, b in pairs:
+                params += [a, b]
         sql += " ORDER BY period_from, resolution"
         rows = self.con.execute(sql, params).fetchall()
         if not rows:
             return [self._no_data("reorganization metrics", region,
                                   period_to or period_from)]
+
+        by_transition = defaultdict(list)
+        for row in rows:
+            by_transition[(row[0], row[1])].append(row)
+
+        # Detailed per-resolution rows only when a single transition was
+        # asked about - real testing 2026-09-08 showed a 14B model, handed
+        # multiple transitions' worth of detail rows in one tool result
+        # (summary + 15 detail rows each, ~96 evidence items for 6
+        # transitions), still only ever engaged with whichever transition's
+        # rows happened to sort last - a position/recency bias inside a
+        # single result, not just across separate tool calls. Comparing
+        # several transitions only ever needs the summary rows anyway
+        # (that's the whole point of computing one) - keep the full sweep
+        # breakdown for the one-transition case, where there's nothing to
+        # get lost behind.
+        multi = len(by_transition) > 1
+
         out = []
-        for pf, pt, res, nsh, nmi, ari, mf in rows:
-            claim = (f"Between {pf} and {pt}, {mf:.0%} of shared words changed "
-                     f"community (migration_fraction={mf:.3f}; NMI={nmi:.3f}, "
-                     f"ARI={ari:.3f}, over {nsh} shared words) at resolution {res:g}.")
-            ev = Evidence(claim=claim, tier=Tier.MEASURED, region=region,
-                          period=f"{pf}→{pt}", resolution=float(res),
-                          metric="migration_fraction", value=float(mf),
-                          source="transitions")
-            # a transition is OCR-diluted if either endpoint is
-            ev = self._reliab(ev, region, pt)
-            ev = self._reliab(ev, region, pf)
-            out.append(ev)
+        for (pf, pt), group in by_transition.items():
+            mfs = [g[6] for g in group]
+            lo, hi, med = min(mfs), max(mfs), statistics.median(mfs)
+            summary = Evidence(
+                claim=(f"Between {pf} and {pt}, about {med:.0%} of shared words "
+                       f"moved to a different group (this stays between "
+                       f"{lo:.0%} and {hi:.0%} however coarse or fine-grained "
+                       f"the grouping is set), out of {group[0][3]} shared words."),
+                tier=Tier.MEASURED, region=region, period=f"{pf}→{pt}",
+                metric="migration_fraction_median", value=float(med),
+                source="transitions")
+            summary = self._reliab(summary, region, pt)
+            summary = self._reliab(summary, region, pf)
+            out.append(summary)
+
+            if multi:
+                continue
+
+            for pf, pt, res, nsh, nmi, ari, mf in group:
+                claim = (f"Between {pf} and {pt}, {mf:.0%} of shared words moved "
+                         f"to a different group, out of {nsh} shared words.")
+                ev = Evidence(claim=claim, tier=Tier.MEASURED, region=region,
+                              period=f"{pf}→{pt}", resolution=float(res),
+                              metric="migration_fraction", value=float(mf),
+                              source="transitions")
+                # a transition is OCR-diluted if either endpoint is
+                ev = self._reliab(ev, region, pt)
+                ev = self._reliab(ev, region, pf)
+                out.append(ev)
         return out
 
     def word_neighbors(self, word, region="combined", period=None, k=None) -> List[Evidence]:
@@ -198,7 +286,7 @@ class Store:
         cid = self._membership(region, period, res).get(word) if res is not None else None
         label = self._label(region, period, cid)
         nb = ", ".join(f"{d} ({w:.2f})" for d, w in rows)
-        loc = f" It sits in the '{label}' community." if label else ""
+        loc = f" It's part of the '{label}' group." if label else ""
         ev = Evidence(
             claim=f"In {period}, the nearest neighbours of '{word}' are: {nb}.{loc}",
             tier=Tier.INFERRED, region=region, period=period, source="edges",
@@ -218,10 +306,9 @@ class Store:
             cid = self._membership(region, period, res).get(word)
             if cid is None:
                 continue
-            label = self._label(region, period, cid) or f"community {cid}"
+            label = self._label(region, period, cid) or "an unlabeled group"
             ev = Evidence(
-                claim=f"In {period}, '{word}' is in the '{label}' community "
-                      f"(id {cid}, resolution {res:g}).",
+                claim=f"In {period}, '{word}' is part of the '{label}' group.",
                 tier=Tier.MEASURED, region=region, period=period,
                 resolution=res, source="membership",
             )
@@ -256,7 +343,7 @@ class Store:
                                      [comm_curr[w] for w in shared])
         movers = [w for w, m in zip(shared, moved) if m]
         claim = (f"Between {prev} and {period}, {len(movers)} of {len(shared)} "
-                 f"shared words changed community. Examples: "
+                 f"shared words moved to a different group. Examples: "
                  f"{', '.join(movers[:top_n]) or '(none)'}.")
         ev = Evidence(claim=claim, tier=Tier.MEASURED, region=region,
                       period=f"{prev}→{period}", resolution=res_curr,
@@ -308,8 +395,8 @@ class Store:
         if label is None:
             return [self._no_data(f"label for community {community_id}", region, period)]
         ev = Evidence(
-            claim=f"In {period}, community {community_id} is labelled "
-                  f"'{label}' (lane: {lane}).",
+            claim=f"In {period}, the group named '{label}' covers the "
+                  f"subject area: {lane}.",
             tier=Tier.INFERRED, region=region, period=period,
             resolution=self._resolution(region, period), source="labels",
         )

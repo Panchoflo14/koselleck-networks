@@ -228,6 +228,33 @@ def ingest_membership(con, config, variants, resolutions, pd):
                 "community_id": wide[col].astype("int64"),
             })
             frames.append(long)
+        # Also ingest res_display under its own real, per-variant resolution
+        # number (2026-09-08 fix) - community.py auto-picks that resolution
+        # independently per (period, region) and it is frequently NOT one of
+        # the swept values above (e.g. 12.0 for 1810-1830, or 24.0/28.0 for
+        # some later, higher-cap periods - all outside the sweep's own
+        # 0.1-16.0 range). ingest_labels already looks up this same number
+        # per row via resolve_label_resolution; without also storing
+        # membership at it, every tool that reads membership at that number
+        # (word_neighbors, community_trajectory, words_that_moved,
+        # compare_neighbors - see src/rag/tools.py's _resolution()) silently
+        # found no rows for most periods, even though the labels table had
+        # real entries at that exact resolution - a mismatch a historian
+        # would see directly: the chat saying nothing about a word the
+        # webapp's own graph shows in a clearly labeled community.
+        if "res_display" in wide.columns:
+            try:
+                display_res = resolve_label_resolution(config, variant)
+            except (FileNotFoundError, KeyError):
+                display_res = None
+            if display_res is not None and display_res not in res_cols:
+                frames.append(pd.DataFrame({
+                    "region": region_str(region),
+                    "period": label,
+                    "word": wide["word"],
+                    "resolution": display_res,
+                    "community_id": wide["res_display"].astype("int64"),
+                }))
         if not frames:
             continue
         df = pd.concat(frames, ignore_index=True)
@@ -291,24 +318,47 @@ def ingest_edges(con, config, variants, pd, ig):
 # ---------------------------------------------------------------------------
 
 def ingest_transitions(con, config, regions, pd):
-    """transitions.csv is written per region by metrics.py. In a region-split
-    build each region gets its own file suffix; the combined run writes the
-    unsuffixed one. Read whichever exist and tag rows by region."""
+    """transitions.csv is written ONCE by metrics.py, covering every region
+    together in a single file - period_from/period_to carry a region's own
+    "_<region>" suffix (from variant_label) rather than each region getting
+    its own transitions_<region>.csv. This function used to assume the
+    latter: it looked for transitions_british.csv/transitions_american.csv
+    (which never existed), so british/american transitions were silently
+    never ingested at all, AND it tagged every row it did read from the one
+    real (unsuffixed) transitions.csv as region='combined' regardless of
+    whether that row's period_from actually carried a _british/_american
+    suffix - so a reorganization_metrics(region='combined') call with no
+    period_from/period_to given (the exact case the system prompt's own
+    worked example uses for "did it peak") got flooded with irrelevant
+    british/american rows on top of the real combined ones, while
+    region='british'/'american' calls found nothing at all. Fixed 2026-09-08
+    by reading the one real file and re-deriving each region's own rows via
+    the same (label, variant_label) period-pair mapping metrics.py used to
+    write them - see webapp/app.py's get_transitions() for the identical
+    pattern - storing plain (unsuffixed) period labels tagged with the
+    correct region, same shape ingest_labels/ingest_membership already use."""
     communities_dir = Path(config["data_root"]) / config["paths"]["communities"]
+    path = communities_dir / "transitions.csv"
+    if not path.exists():
+        return 0
+    raw = pd.read_csv(path)
     cols = ["period_from", "period_to", "resolution", "n_shared_words",
             "nmi", "ari", "migration_fraction"]
+    base_labels = [label for _, _, label in config["periods"]]
     n_rows = 0
     for region in regions:
-        suffix = "" if region == COMBINED else f"_{region}"
-        path = communities_dir / f"transitions{suffix}.csv"
-        if not path.exists():
+        lookup_region = None if region == COMBINED else region
+        variants = [variant_label(label, lookup_region) for label in base_labels]
+        plain_of = dict(zip(variants, base_labels))
+        pairs = set(zip(variants, variants[1:]))
+        mask = list(zip(raw["period_from"], raw["period_to"]))
+        sub = raw[[p in pairs for p in mask]]
+        if sub.empty:
             continue
-        raw = pd.read_csv(path)
-        keep = [c for c in cols if c in raw.columns]
-        df = raw[keep].copy()
+        df = sub[cols].copy()
+        df["period_from"] = df["period_from"].map(plain_of)
+        df["period_to"] = df["period_to"].map(plain_of)
         df.insert(0, "region", region)
-        # reorder to match table
-        df = df[["region"] + cols]
         _insert_df(con, "transitions", df, replace_where=f"region = '{region}'")
         n_rows += len(df)
     return n_rows
