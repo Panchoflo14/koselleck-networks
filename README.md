@@ -8,17 +8,17 @@ Reinhart Koselleck argued that this period was a collective turning point in pol
 
 This project extends that test to the network level: build a word-similarity network per period, run community detection on it, and measure whether the *cluster structure itself* reorganizes around the Sattelzeit - something a one-word-at-a-time method can't see.
 
-What this repository ships is the method, not a dataset: the pipeline that turns a period-sliced corpus into per-period networks, communities, and reorganization measurements, plus the **Koselleck Machine** - a small web tool for inspecting the result. The corpus is public and fetched separately (see [Data](#data)), and every trained model here is rebuildable from it - the contribution is the measurement, not the data.
+This repository ships the method: the pipeline that turns a period-sliced corpus into per-period networks, communities, and reorganization measurements, plus the **Koselleck Machine** - a small web tool for inspecting the result. The corpus is public and fetched separately (see [Data](#data)); every trained model here is rebuildable from it, though not bit-identical run to run (parallel training isn't fully deterministic - see `docs/method.pdf`'s Reproducibility limitation).
 
 ## Method, in short
 
-1. Split the corpus into uniform 20-year windows - currently 1500-1900, set by the `periods` list in `config.yml`. That range matches the corpus assembled so far, not a limit of the method: the same pipeline runs unchanged over any other span or window size, given a period-dated corpus to feed it.
+1. Split the corpus into uniform 20-year windows - currently 1510-1910 (the 1510 start, not 1500, puts both 1770 and 1830 exactly on a period boundary), set by the `periods` list in `config.yml`. That range matches the corpus assembled so far, not a limit of the method: the same pipeline runs unchanged over any other span or window size, given a period-dated corpus to feed it.
 2. Train a separate word embedding on each window (mirrors Heuser, keeps results comparable).
 3. Build a word-similarity network per window - each word linked to its 15 closest neighbours by cosine similarity.
-4. Run community detection (Leiden) on each network, at seven levels of clustering detail.
+4. Run community detection (Leiden) on each network, at fifteen levels of clustering detail (a resolution sweep, 0.1 to 16.0 - every reorganization claim has to hold across all fifteen, not just one).
 5. Measure how much the cluster structure changes between consecutive periods (migration fraction, NMI, adjusted Rand).
 6. Test whether that reorganization peaks in 1770-1830, and whether it survives the resolution sweep - not just one cherry-picked setting.
-7. Cross-check words that changed cluster at the pivot against dated dictionary senses (OED etc.) as a second, independent line of evidence.
+7. Cross-check words that changed cluster at the pivot against dated dictionary senses (OED etc.) as a second, independent line of evidence - planned, not yet implemented (see `docs/method.pdf`).
 
 A fuller write-up of the method, aimed at both technical and non-technical readers, is in [`docs/method.pdf`](docs/method.pdf) (source in `docs/method.tex`).
 
@@ -28,15 +28,15 @@ Primary: the Text Creation Partnership (TCP) - EEBO-TCP (1500-1700, both release
 
 **TCP is public domain.** All three components used here (EEBO-TCP phases 1 and 2, ECCO-TCP, and Evans-TCP) have concluded their period of exclusivity. In TCP's own words: "we impose no restrictions whatever, and... you may do anything with them that you like: you may translate them, edit them, revise them, illustrate them, perform them, or re-publish them, with or without attribution" ([licensing FAQ](https://www.textpartnership.net/pages/faq.html)). The British Library supplement is also public domain (CC Public Domain Mark, official first-party download).
 
-**Known data-quality limitation, not yet fixed:** the British Library text is OCR-derived, unlike TCP. A line-break-hyphen artifact ("utrum- que" for "utrumque") was found and fixed in `parse_tcp.py`. A second, distinct artifact was not: OCR sometimes drops the hyphen entirely and leaves a bare space ("par ticulars" for "particulars"), which has no punctuation signal left to detect it by, and still produces whole word-fragment communities in the 1810-1830/1830-1850/1870-1890 periods. Labeling handles this honestly (routed to "Structural / Uncertain," not mislabeled), but the underlying vocabulary/network metrics for those periods are diluted by it.
+**Known data-quality fixes:** the British Library text is OCR-derived, unlike TCP, and OCR introduces its own artifacts. `parse_tcp.py` repairs a line-break-hyphen artifact ("utrum- que" for "utrumque"). A harder case - OCR dropping the hyphen entirely and leaving a bare space ("par ticulars" for "particulars"), with no punctuation signal left to detect it by - is also repaired, by merging two adjacent words only when the merged form is real and at least one half isn't independently real on its own; validated by hand (142 correct merges in the first 120 changed documents of the one period tested). French and Welsh text separately surfaced as its own network community; `parse_tcp.py` now drops a document once a language classifier is at least 90% confident it isn't English.
 
 **The corpus and the trained embeddings/networks are still not included in this repository** - only the pipeline code that builds them. That's a size decision, not a rights one: the raw TCP zips and the derived per-period networks together run to many GB, and anyone can fetch the same public files directly (see Data below) rather than have this repo carry a copy.
 
 ## Repo layout
 
-- `src/` - the pipeline: `parse_tcp.py` -> `bucket_periods.py` -> `embeddings.py` -> `network.py` -> `community.py` -> `metrics.py`, plus `pipeline_config.py` (shared config loader), `label_communities.py`/`extract_community_words.py` (see [Labeling communities](#labeling-communities)), and a one-off analysis script (`subsample_control.py`).
-- `webapp/` - the Koselleck Machine, a Flask app for exploring the results interactively: a timeline view (`/timeline`), a graph explorer (`/graph`), and a plain word-search tool (`/search`), all reading the same pre-built per-period networks.
-- `docs/` - `method.tex`/`method.pdf`, a plain-language method write-up for a mixed technical/non-technical audience.
+- `src/` - the pipeline: `parse_tcp.py` -> `bucket_periods.py` -> `embeddings.py` -> `network.py` -> `community.py` -> `metrics.py`, plus `pipeline_config.py` (shared config loader), `label_communities.py`/`extract_community_words.py` (see [Labeling communities](#labeling-communities)), `label_judge.py` (see [Auditing labels](#auditing-labels)), the `rag/` grounded-chatbot layer (see [Ask](#ask-the-discovery-chatbot)), and a one-off analysis script (`subsample_control.py`).
+- `webapp/` - the Koselleck Machine, a Flask app for exploring the results interactively: a timeline view (`/timeline`, the primary way in), an **Ask** chatbot (`/chat`), a graph explorer (`/graph`), and a plain word-search tool (`/search`), all reading the same pre-built per-period networks.
+- `docs/` - `method.tex`/`method.pdf` (the scientific case: why network-level reorganization, the resolution sweep, the labeling prompt in full, for a mixed technical/non-technical audience), `pipeline_manual.tex`/`.pdf` (a stage-by-stage internals walkthrough for a technical reader), `overview.tex`/`.pdf` (project intro and setup).
 - `labels/` - a small, citable snapshot of the current community labels (CSV + compiled JSON, per region) - copied here by `label_communities.py publish` so they travel with the repo instead of living only in the (gitignored) data directory.
 - `config.yml` - shared, versioned settings (period slices, word2vec/Leiden hyperparameters).
 
@@ -165,15 +165,28 @@ python src/metrics.py
 The webapp shows a plain-English name next to each community (e.g. "Government & Law") instead of a bare Leiden id. That's a separate, optional step - `metrics.py` above is enough to reproduce every quantitative result, labels are a reading aid layered on top:
 
 ```
-python src/extract_community_words.py          # top-25 words per community -> communities/community_words_res<X>[_region].json, X = config.yml's leiden.label_resolution
+python src/extract_community_words.py          # stratified Core/Mid-rank/Peripheral word sample per community -> communities/community_words_display[_region].json, at the auto-picked per-variant display resolution (community.py, see config.yml's leiden.max_community_size)
 python src/label_communities.py generate --region combined   # -> a CSV, blank rows for communities with no inheritable predecessor
 # fill in the blank rows by hand (or via an LLM/agent reading the same CSV) - see the CSV's "label"/"lane" columns
 python src/label_communities.py generate --region combined   # rerun once genesis rows are filled - resolves everything else for free
-python src/label_communities.py compile --region combined    # CSV -> communities/community_labels_res<X>[_region].json, what the webapp reads
+python src/label_communities.py compile --region combined    # CSV -> communities/community_labels_display[_region].json, what the webapp reads
 python src/label_communities.py publish --region combined    # copies CSV + JSON into this repo's labels/ - review before committing
 ```
 
-A community's label is inherited from its predecessor whenever the same Hungarian alignment `metrics.py` uses for `migration_fraction` says one exists (free, deterministic - most communities in most periods) and only needs a fresh read when a community is genuinely new (a region's first period, or the moved-into side of a real reorganization). `--region` also accepts `american`/`british`/`all` for the region-split variants, if built. See `src/label_communities.py`'s own module docstring for the full design.
+Filenames no longer embed a resolution number: the display resolution is picked independently per period and per region-split variant (not once globally), so a single number in the filename would be meaningless once different periods in the same run can land on different resolutions.
+
+A community's label is inherited from its predecessor whenever the same Hungarian alignment `metrics.py` uses for `migration_fraction` says one exists (free, deterministic - most communities in most periods) and only needs a fresh read when a community is genuinely new (a region's first period, or the moved-into side of a reorganization). `--region` also accepts `american`/`british`/`all` for the region-split variants, if built. See `src/label_communities.py`'s own module docstring for the full design.
+
+### Auditing labels
+
+Labeling is a single model read-through with no built-in validation, so `src/label_judge.py` adds an optional second opinion - an LLM-as-judge that checks each label against its community's own top words:
+
+```
+python src/label_judge.py audit --region combined            # flag labels that don't fit, wrong lane, or should be "Structural / Uncertain"
+python src/label_judge.py audit --region combined --out flags.csv --limit 100
+```
+
+It only ever **produces flags for a human** - it never rewrites a label and never touches `metrics.py`. It reads the freshest labels CSV in the data dir, falling back to this repo's `labels/` snapshot, so it runs from a bare clone. The module also exposes `label_still_fits()`, a content-drift check meant as a more principled re-read trigger than `label_communities.py`'s fixed inheritance-chain cap (wiring that in is left opt-in). Runs on the same model backend as Ask (below) - a local Llama by default, so no API credits.
 
 ## Running the webapp locally
 
@@ -181,11 +194,41 @@ A community's label is inherited from its predecessor whenever the same Hungaria
 python webapp/app.py
 ```
 
-Then open http://127.0.0.1:5000. Four pages: a landing page, `/timeline` (the primary view - track one word's group across every period in a single strip), `/graph` (D3 graph explorer - pick a period and a word, see its neighbourhood; toggle a full-network sampled view), and `/search` (plain word-lookup table: nearest neighbours, community, whether the word's community changed since the previous period).
+Then open http://127.0.0.1:5000. Five pages: a landing page, `/timeline` (the primary view - track one word's group across every period in a single strip), `/chat` (**Ask** - the discovery chatbot, see below, for a plain-English question instead of a chart), `/graph` (D3 graph explorer - pick a period and a word, see its neighbourhood; toggle a full-network sampled view), and `/search` (plain word-lookup table: nearest neighbours, community, whether the word's community changed since the previous period).
 
 Wherever a word is drilled into (`/search`'s own results, `/timeline`'s per-period drill-in), a Neighbours/Journey toggle switches between that same neighbour table and a chart of the word's path through the fixed lane list (see Labeling communities below) across every period - a coarser, single-word view of the same underlying data, not a second computation.
 
 If the pipeline was run for region-split data too (see Data above), every page also exposes a region toggle (combined / one option per region built) - it only appears for regions this deployment actually has built network files for, read off the data itself, never hardcoded. This adapts both ways: a deployment that only ever ran the pipeline on one or more region-split variants and never on the combined corpus does not get a "Combined" option either, and lands on a region that actually has data instead.
+
+## Ask (the discovery chatbot)
+
+`/chat` is a conversational front-end to the *measured* results - a research instrument for asking historical questions of the corpus, not a general chatbot. It exists to make the network/metrics findings queryable in plain language while staying honest about what the data does and doesn't show. The design lives in [`docs/implementation_plan.md`](docs/implementation_plan.md); the code is in `src/rag/`.
+
+How it stays trustworthy:
+
+- **Grounded.** A model answers only by calling a fixed set of tools (`src/rag/tools.py`) that read the built networks, communities, and transition metrics. It never sees raw tables - only evidence records - so it can only cite what a tool actually returned. A question the data can't answer gets a plain "the structure doesn't show that", not a guess.
+- **Tiered.** Every fact is tagged `measured` (a computed metric or Leiden assignment - the real evidence), `inferred` (an embedding-neighbour reading - suggestive, not causal), or `unreliable` (an OCR-diluted British Library period, or a "Structural / Uncertain" community). The answer must respect the tier and surface caveats; the UI lists each answer's sources as readable rows, colour-coded by tier, with the technical citation kept secondary to the plain-language claim.
+- **Plain language.** Answers describe findings the way the rest of the app already does (a "group" and its "subject area", "X% of shared words moved to a different group") rather than in the pipeline's own internal vocabulary (`community`, `migration_fraction`, `resolution`, `NMI`/`ARI`) - a historian reading an answer shouldn't need to know what any of those mean. Raw technical detail stays in the closing citations, not the prose.
+- **Never re-graded.** The chatbot only *retrieves* the quantitative findings - `migration_fraction`, NMI, ARI and community membership stay the sole product of `metrics.py`/`community.py`. No LLM scores or overrides them.
+
+Two things back it up: a grounding/honesty eval (`src/rag/eval/`) that checks answers don't invent statistics, refuse when they should, and flag unreliable material; and the label audit ([above](#auditing-labels)).
+
+**Model backend.** Runs on a local [Ollama](https://ollama.com) model by default, so it needs **no API credits**:
+
+```
+ollama serve
+ollama pull qwen2.5:14b     # config.yml's default - see why below
+python webapp/app.py        # then open /chat
+# or from the CLI:
+python src/rag/engine.py "Did word meaning change the most around 1770-1830?"
+python src/rag/eval/run.py --judge        # run the grounding eval
+```
+
+Use a tool-capable model - small models call tools less reliably, which weakens grounding. `qwen2.5:14b` (~9GB) is the current default, chosen after live-testing it against the smaller `llama3.1:8b`: the smaller model wrongly refused an answerable question outright, wrote a fake tool-call as visible text instead of retrying after a real error (the system prompt explicitly forbids this), and once described the raw tool-result JSON back to the user instead of answering the question - `qwen2.5:14b` made valid, honest tool calls throughout the same test set. Override with `ollama pull <model>` plus `rag.model` in `config.yml`/`config.local.yml` to try another. To use Claude instead, set `rag.provider: anthropic` (and optionally `rag.model`) the same way, or pass `--provider anthropic`, with `ANTHROPIC_API_KEY` set - reserve that for a private/restricted deployment, not the open build, so the project doesn't end up depending on a paid API to run.
+
+The chat layer reads a small DuckDB store built from the pipeline's existing outputs; build/refresh it with `python src/rag/build_store.py` (it's appendable - re-run after adding a period or region without a full rebuild). If the store isn't built or the model backend is unreachable, `/chat` reports why rather than failing the rest of the app.
+
+**Status: run live, 2026-09-08.** Tested end-to-end against the full corpus with two real models (`llama3.1:8b` and `qwen2.5:14b` via Ollama) and a real browser session - found and fixed three real bugs in the process (a tool-argument hallucination `dispatch()` couldn't recover from, a region-mislabeling bug in the transitions store, and a multi-transition synthesis gap traced to answer generation only ever engaging with the most recent tool result). Not yet run against Claude.
 
 ## Deployment
 
@@ -208,4 +251,4 @@ For a free/cheap host (e.g. [Render](https://render.com)):
 
 ## License
 
-MIT for the code in this repository (see `LICENSE`). The TCP corpus itself is public domain (see Corpus above) and not affected by this repo's license either way. Trained embeddings and networks are not included here at all, for size reasons, not rights ones.
+MIT for the code in this repository (see `LICENSE`). The TCP corpus itself is public domain (see Corpus above) and not affected by this repo's license either way. Trained embeddings and networks are not included here at all (see Corpus above for why).

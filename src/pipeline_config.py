@@ -9,6 +9,7 @@
 # highest-priority override - set it in the host's dashboard instead of
 # shipping a machine path in a file.
 
+import json
 import os
 from pathlib import Path
 
@@ -110,6 +111,57 @@ def combined_is_built(config):
         return False
     base_labels = {label for _, _, label in config["periods"]}
     return any(path.stem in base_labels for path in networks_dir.glob("*.graphml"))
+
+
+def resolve_label_resolution(config, variant):
+    """The display/label resolution one specific (period x region) variant
+    should use - auto-picked per variant by community.py's band-bisection
+    (see community.py's pick_variant_display_resolution) and cached to
+    <communities>/label_resolution.json's "per_variant" map so it isn't
+    recomputed by every caller. `variant` is the same "<label>" or
+    "<label>_<region>" stem variant_label() produces elsewhere.
+
+    2026-08-30 fix: this used to return one resolution shared by every
+    variant (json["resolution"]), which is what the file held before
+    2026-08-28's per-variant rework (see wiki/resolution-sweep.md,
+    "Superseded 2026-08-28"). community.py has written the new
+    {"per_variant": {variant: {"resolution": ...}}} shape since then, but
+    this function was never updated to match - every caller
+    (webapp/app.py, label_communities.py, extract_community_words.py)
+    would KeyError on the new file. A real, previously-undetected bug:
+    parse_tcp.py was found the same day to be silently running OCR Layer 2
+    against the letter of its own "off by default" documentation (see
+    wiki/ocr-refinement.md) - this is the same category of drift between
+    what a stage's real output shape is and what a downstream reader still
+    assumes, just in a different stage.
+
+    Raises with a clear message if community.py hasn't been run yet, or if
+    this specific variant isn't in the per-variant map (e.g. a variant that
+    never satisfied the size cap) - never silently falls back to a stale
+    hardcoded constant or an unrelated variant's number."""
+    path = Path(config["data_root"]) / config["paths"]["communities"] / "label_resolution.json"
+    if not path.exists():
+        raise FileNotFoundError(
+            f"{path} not found - run `python src/community.py` first to compute the "
+            "auto-picked display resolution."
+        )
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    if "per_variant" not in data:
+        raise KeyError(
+            f"{path} is in the pre-2026-08-28 single-resolution format "
+            f"(top-level \"resolution\": {data.get('resolution')!r}) - re-run "
+            "`python src/community.py` to regenerate it in the current per-variant shape "
+            "before this will work."
+        )
+    per_variant = data["per_variant"]
+    if variant not in per_variant:
+        raise KeyError(
+            f"{variant!r} has no entry in {path}'s per_variant map "
+            f"(known variants: {sorted(per_variant)}) - re-run community.py if this "
+            "variant is new, or check the spelling."
+        )
+    return per_variant[variant]["resolution"]
 
 
 def variant_label(label, region):

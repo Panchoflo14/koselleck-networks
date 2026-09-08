@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koselleck Machine &middot; ask</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="page">
+    {% include "_nav.html" %}
+    <header>
+      <h1>Ask a question, in your own words.</h1>
+      <p class="subtitle">This assistant only answers from what the tool has actually measured &mdash; it will
+      say so plainly when the data doesn&rsquo;t show something, rather than guess. Every answer ends with its
+      sources, and flags anything drawn from noisier, harder-to-read periods of text.</p>
+    </header>
+
+    <div class="chat-card">
+      <div id="chat-log" class="chat-log"></div>
+
+      <form id="chat-form" class="chat-form">
+        <textarea id="chat-input" class="chat-input" rows="2" autocomplete="off"
+          placeholder="e.g. Did word meaning change the most around the Sattelzeit? How did &lsquo;revolution&rsquo; shift?"></textarea>
+        <button type="submit" id="chat-send">Ask</button>
+      </form>
+
+      <div class="chat-examples">
+        <span class="chat-examples-label">Try:</span>
+        <button class="chat-example" type="button">Did word meaning change the most around 1770&ndash;1830?</button>
+        <button class="chat-example" type="button">How did &lsquo;revolution&rsquo;&rsquo;s group change over time?</button>
+        <button class="chat-example" type="button">Which words moved into a new group around 1770&ndash;1790?</button>
+      </div>
+    </div>
+
+    <p class="chat-footnote">
+      Each answer is color-marked by how solid it is:
+      <strong class="ev-swatch ev-swatch-measured">measured</strong> is a real, computed fact &middot;
+      <strong class="ev-swatch ev-swatch-inferred">inferred</strong> just means two words sit close together, not
+      that one caused the other &middot;
+      <strong class="ev-swatch ev-swatch-unreliable">flagged</strong> means the underlying text was noisy (usually
+      old scans) and should be read loosely.
+    </p>
+  </div>
+  <script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body>
+</html>

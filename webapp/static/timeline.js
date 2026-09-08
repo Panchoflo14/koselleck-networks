@@ -535,24 +535,42 @@ function median(values) {
 // primary page instead of duplicating the science.
 const SATTELZEIT_CLOSE_FROM = "1790-1810";
 const SATTELZEIT_CLOSE_TO = "1810-1830";
-const HEADLINE_RESOLUTION = 4.0; // mirrors config.yml's leiden.label_resolution (raised from 1.0, 2026-08-07)
 
+// 2026-09-08: reads /api/transitions-display (one row per period pair, at
+// each period's own auto-picked display resolution) instead of matching a
+// single "HEADLINE_RESOLUTION" against the 15-point sweep - that constant
+// was frozen from one seed period and, for most periods, matched none of
+// the sweep's own values, so this used to silently fall through to
+// whichever transition happened to be first in the unfiltered list. The
+// sweep (/api/transitions) is fetched too, purely as the robustness range
+// reported alongside the headline, same as app.js's updateFindingsBanner.
 async function loadHeadlineFindings() {
-  const res = await fetch("/api/transitions");
-  const allTransitions = await res.json();
-  const atHeadlineRes = allTransitions.filter((t) => t.resolution === HEADLINE_RESOLUTION);
-  const medianAtHeadlineRes = median(atHeadlineRes.map((t) => t.migration_fraction));
-  const medianPct = Math.round(medianAtHeadlineRes * 100);
+  const [displayRes, sweepRes] = await Promise.all([
+    fetch("/api/transitions-display"),
+    fetch("/api/transitions"),
+  ]);
+  const displayTransitions = await displayRes.json();
+  const sweepTransitions = await sweepRes.json();
+  const medianPct = Math.round(median(displayTransitions.map((t) => t.migration_fraction)) * 100);
 
-  const closeRows = allTransitions.filter((t) => t.period_from === SATTELZEIT_CLOSE_FROM && t.period_to === SATTELZEIT_CLOSE_TO);
-  const headline = closeRows.find((t) => t.resolution === HEADLINE_RESOLUTION);
+  const headline = displayTransitions.find(
+    (t) => t.period_from === SATTELZEIT_CLOSE_FROM && t.period_to === SATTELZEIT_CLOSE_TO);
+
+  const sweepRangeText = (from, to) => {
+    const rows = sweepTransitions.filter((t) => t.period_from === from && t.period_to === to);
+    if (!rows.length) return "";
+    const pcts = rows.map((r) => Math.round(r.migration_fraction * 100));
+    return ` Checked against a sweep of ${rows.length} other resolutions (not the one the labels use): ` +
+      `${Math.min(...pcts)}-${Math.max(...pcts)}%.`;
+  };
 
   if (headline) {
     const pct = Math.round(headline.migration_fraction * 100);
     findingsHeadlineEl.innerHTML =
       `The project's own result, combined corpus: ${escapeHtml(SATTELZEIT_CLOSE_FROM)} &rarr; ${escapeHtml(SATTELZEIT_CLOSE_TO)}, the transition that closes the Sattelzeit window - ` +
       `<strong>${pct}%</strong> of the ${headline.n_shared_words.toLocaleString()} shared words moved to a different group ` +
-      `(historical median across every other transition: ${medianPct}%).`;
+      `(historical median across every other transition: ${medianPct}%).` +
+      sweepRangeText(SATTELZEIT_CLOSE_FROM, SATTELZEIT_CLOSE_TO);
     findingsCaveatTextEl.textContent =
       `This transition shares ${headline.n_shared_words.toLocaleString()} words with the period before it - no longer ` +
       `the thinnest in the timeline, now that the British Library supplement (2026-08-06) has filled out 1800-1900. ` +
@@ -571,7 +589,7 @@ async function loadHeadlineFindings() {
   // finding: the highest migration in the timeline would happen *before*
   // the Sattelzeit, not at its close - report that honestly instead of
   // just disappearing.
-  const best = atHeadlineRes.reduce((a, b) => (b.migration_fraction > (a ? a.migration_fraction : -1) ? b : a), null);
+  const best = displayTransitions.reduce((a, b) => (b.migration_fraction > (a ? a.migration_fraction : -1) ? b : a), null);
   if (!best) return; // no transitions at all yet - genuinely nothing to show
 
   const pct = Math.round(best.migration_fraction * 100);

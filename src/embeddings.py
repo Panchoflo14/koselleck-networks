@@ -49,6 +49,30 @@ LINEBREAK_HYPHEN = "∣"
 # single/short-letter fragments ("d", "n", "th"...) instead of one real word.
 TOKEN_RE = re.compile(r"[a-z]+(?:'[a-z]+)*")
 
+# Roman-numeral citation apparatus (chapter/verse numbers: "xxiiij", "lxii")
+# is not a concept, the same reasoning network.py's STOPWORDS already applies
+# to function words - so it's dropped before training rather than only at the
+# network stage, per the 2026-09-01 decision to fix this before ECCO makes
+# reprocessing expensive. A naive charset filter (^[ivxlcdm]+$) would wrongly
+# catch real English words built entirely from roman letters ("civil",
+# "mill", "vivid") - this instead validates real positional roman-numeral
+# grammar, loosened from the textbook 3-repeat-per-place cap to 4 to allow
+# the additive-only notation early modern printers actually used ("iiii" for
+# 4, not "iv" - confirmed by "xxiiij" in the real data). The trailing "j" is
+# the period's own convention for a final "i" (also "xxiiij"). Validated
+# 2026-09-01 against the real noisy examples (10/10 caught) and against
+# real-English false-positive risk (14/15 correctly spared - the one miss,
+# "mix", is a genuine MIX=1009/mix ambiguity no grammar can resolve, and
+# occurs only 5-16 times per period in this corpus, well under min_count, so
+# it doesn't reach the trained vocabulary anyway).
+ROMAN_RE = re.compile(r"^m{0,4}(cm|cd|d?c{0,4})(xc|xl|l?x{0,4})(ix|iv|v?i{0,4})$")
+
+
+def is_roman_numeral(word):
+    if word.endswith("j"):  # archaic terminal j for final i
+        word = word[:-1] + "i"
+    return bool(word) and bool(ROMAN_RE.fullmatch(word))
+
 # A handful of documents is one book's idiosyncratic vocabulary, not a period
 # signal - and with min_count=50 gensim would likely end up with an empty
 # vocabulary and raise. Skip periods below this instead of training on noise.
@@ -78,7 +102,7 @@ class EpochProgress(CallbackAny2Vec):
 
 def tokenize(doc):
     doc = doc.replace(LINEBREAK_HYPHEN, "").lower()
-    return TOKEN_RE.findall(doc)
+    return [w for w in TOKEN_RE.findall(doc) if not is_roman_numeral(w)]
 
 
 class PeriodCorpus:

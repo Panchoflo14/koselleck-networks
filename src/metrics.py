@@ -22,7 +22,7 @@ import numpy as np
 from scipy.optimize import linear_sum_assignment
 from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score
 
-from pipeline_config import discover_regions, load_config, variant_label
+from pipeline_config import discover_regions, load_config, resolve_label_resolution, variant_label
 
 MIN_SHARED_WORDS = 20
 
@@ -35,6 +35,19 @@ def load_partitions(path, resolutions):
         for row in reader:
             partitions[row["word"]] = {res: int(row[f"res_{res}"]) for res in resolutions}
     return partitions
+
+
+def load_display_partition(path):
+    """word -> community_id at this period/variant's own auto-picked display
+    resolution (the res_display column community.py writes) - the same
+    partition community_labels_display.json's labels actually describe,
+    unlike the fixed resolution_sweep columns above."""
+    partition = {}
+    with open(path, encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            partition[row["word"]] = int(row["res_display"])
+    return partition
 
 
 def align_communities(labels_a, labels_b):
@@ -69,6 +82,53 @@ def migration_fraction(labels_a, labels_b):
     relabeling communities between the two partitions to maximize overlap."""
     _, moved = align_communities(labels_a, labels_b)
     return sum(moved) / len(labels_a)
+
+
+def compute_display_transitions(config, communities_dir, base_labels, regions):
+    """One row per consecutive period pair, computed between the two periods'
+    own display-resolution partitions (res_display) rather than a shared
+    sweep resolution - unlike the sweep (same 15 resolution values applied
+    uniformly, kept precisely so a reorganization claim can't depend on an
+    arbitrarily-chosen resolution), this is the partition
+    community_labels_display.json's labels actually describe, since
+    community.py picks that resolution independently per (period, region)
+    variant to keep the largest community under max_community_size. The
+    Hungarian alignment doesn't require the two sides to share a resolution
+    value - it only needs each side's own community-id array - so comparing
+    across two different display resolutions is well-defined. This is the
+    number that belongs next to the labeled communities shown to a reader;
+    the sweep stays the separate robustness check that it survives at all,
+    not just at whichever resolution happened to get picked for display."""
+    rows = []
+    for region in [None] + regions:
+        labels = [variant_label(label, region) for label in base_labels]
+        for label_a, label_b in zip(labels, labels[1:]):
+            path_a = communities_dir / f"{label_a}.csv"
+            path_b = communities_dir / f"{label_b}.csv"
+            if not path_a.exists() or not path_b.exists():
+                continue
+
+            part_a = load_display_partition(path_a)
+            part_b = load_display_partition(path_b)
+            shared = sorted(set(part_a) & set(part_b))
+            if len(shared) < MIN_SHARED_WORDS:
+                continue
+
+            try:
+                res_a = resolve_label_resolution(config, label_a)
+                res_b = resolve_label_resolution(config, label_b)
+            except (FileNotFoundError, KeyError):
+                res_a = res_b = None
+
+            labels_a = [part_a[w] for w in shared]
+            labels_b = [part_b[w] for w in shared]
+            nmi = normalized_mutual_info_score(labels_a, labels_b)
+            ari = adjusted_rand_score(labels_a, labels_b)
+            migration = migration_fraction(labels_a, labels_b)
+            rows.append([label_a, label_b, res_a, res_b, len(shared), nmi, ari, migration])
+            print(f"[display] {label_a} -> {label_b}: res_from={res_a} res_to={res_b} "
+                  f"n_shared={len(shared)} nmi={nmi:.4f} ari={ari:.4f} migration={migration:.4f}")
+    return rows
 
 
 def main():
@@ -118,6 +178,15 @@ def main():
                           "nmi", "ari", "migration_fraction"])
         writer.writerows(rows)
     print(f"transitions written -> {out_path}")
+
+    display_rows = compute_display_transitions(config, communities_dir, base_labels, regions)
+    display_out_path = communities_dir / "transitions_display.csv"
+    with open(display_out_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["period_from", "period_to", "res_from_display", "res_to_display",
+                          "n_shared_words", "nmi", "ari", "migration_fraction"])
+        writer.writerows(display_rows)
+    print(f"display-resolution transitions written -> {display_out_path}")
 
 
 if __name__ == "__main__":

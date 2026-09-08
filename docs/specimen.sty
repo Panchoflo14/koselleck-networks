@@ -1,42 +1,37 @@
 % ---------------------------------------------------------------------------
-% specimen.sty - shared visual system for the Koselleck Machine's PDF docs
-% (docs/method.tex and docs/overview.tex load it, so the two read as one
-% family).
+% specimen.sty - shared document style for the Koselleck Machine's PDF docs
+% (docs/method.tex, docs/overview.tex, docs/pipeline_manual.tex all load it).
 %
-% The palette and the type roles are lifted from the webapp's own shipped
-% design system, "The Specimen Reclassified" (webapp/static/style.css, the
-% :root block, which is the ground truth for this project's look - not the
-% older navy "Reading Room" pass that DESIGN.md still describes).
+% 2026-09-08 rewrite: the previous version ("Specimen Reclassified", carried
+% over from the webapp's own visual system - bone-colored page background,
+% colored section headings and table of contents, colored callout boxes with
+% a colored left bar, a decorated title page) read as over-designed for a
+% methods document - real feedback from a reviewer ("too much AI slop, too
+% much color; a plain document is better") - and the two audiences are
+% different anyway: the webapp is a public-facing tool, this is a paper.
+% Plain black-on-white academic layout now: no color anywhere, no boxes, no
+% decorated cover. Montserrat is kept - that choice itself was never the
+% complaint, and 2026-08-05's revision already settled it after an earlier
+% pairing (Roboto Slab/Roboto) read as too heavy. No author names on the
+% cover for now, authorship isn't decided yet - the interface below doesn't
+% add a byline; don't add one at a call site either until asked.
 %
-% Two-Accent Rule, carried over from the webapp unchanged:
-%   accenthist (oxidized iron red, #8C2F1C) = "the method asserts that
-%       something happened here" - the Sattelzeit claim, hard rules, honest
-%       limitations. Never used for navigation.
-%   accentnet  (deep bottle green, #2E4A34) = "this is stable, or you can
-%       act on it" - section headings, the table of contents, links,
-%       commands, file paths. Never used to make a claim.
-%
-% Type roles (2026-08-05 revision, after Panch found the Roboto Slab/Roboto
-% pairing too heavy and too large): one plain, legible sans throughout -
-% Montserrat, same choice the very first pre-redesign version of this
-% document made, differentiated only by weight and a restrained size scale,
-% not by mixing families. [webapp: Zilla Slab/Public Sans - not followed
-% here on Panch's explicit instruction, this is a deliberate departure from
-% the webapp's own type pairing for the print documents specifically.]
-%   Montserrat (\displayfont, bold) = headings, titles, run-in labels.
-%   Montserrat (default body, regular) = running text and operational prose.
-%   Roboto Mono (\ttfamily) = catalogue numbers, dates, file paths, commands.
-%       [webapp: JetBrains Mono] - unchanged, not part of this revision.
+% Every macro and environment name below is unchanged from the previous
+% version on purpose - method.tex/overview.tex/pipeline_manual.tex call
+% \runin, \claimlabel, \code, \specimencover, \coverfield, and the
+% claimbox/dobox/quotebox environments throughout; only what those names
+% *render as* changed, so the three documents needed no edits for this pass
+% beyond their own stale content (see method.tex's own changelog comment).
 % ---------------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{specimen}[2026/08/05 Specimen Reclassified document style]
+\ProvidesPackage{specimen}[2026/09/08 Plain document style]
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage{montserrat}
 \RequirePackage[scaled=0.86]{roboto-mono}
 \renewcommand{\familydefault}{\sfdefault}   % body text sets in Montserrat
-\newcommand{\displayfont}{\normalfont}      % same family as body; headings differ by weight/size/color only
+\newcommand{\displayfont}{\normalfont}      % same family as body; headings differ by weight/size only
 
 \RequirePackage{microtype}
 \RequirePackage{upquote}
@@ -45,10 +40,7 @@
 \RequirePackage{enumitem}
 \RequirePackage{setspace}
 \RequirePackage{array}
-\RequirePackage{tcolorbox}
-\tcbuselibrary{skins,breakable}
 \RequirePackage{fancyhdr}
-\RequirePackage{eso-pic}
 \RequirePackage{needspace}
 \RequirePackage{url}
 \RequirePackage{hyperref}
@@ -60,16 +52,20 @@
 \let\pathref\path
 \setlength{\emergencystretch}{1em}
 
-% --- palette ---------------------------------------------------------------
-\definecolor{paper}{HTML}{E7E8E2}       % --bg      bone/sage page ground
-\definecolor{ink}{HTML}{1B1F19}         % --ink     primary text
-\definecolor{muted}{HTML}{5C6157}       % --muted   secondary text
-\definecolor{line}{HTML}{A9AE9F}        % --line    rules and borders
-\definecolor{card}{HTML}{F4F5F0}        % --card    surfaces
-\definecolor{accenthist}{HTML}{8C2F1C}  % --accent-hist  historical claim
-\definecolor{accentnet}{HTML}{2E4A34}   % --accent-net   stable / actionable
-
-\AtBeginDocument{\color{ink}}
+% Defined but deliberately unused by any styling macro below - none of them
+% call \color{...} anymore. Kept only so a stale .aux/.toc left on disk from
+% a build under the previous (colored) version of this file - which does
+% reference these names, baked in via titlesec/tocloft/hyperref's own
+% caching - resolves harmlessly on the next compile instead of erroring
+% "Undefined color". Delete once every doc's aux/toc/out has been through a
+% clean rebuild and stayed clean.
+\definecolor{accentnet}{HTML}{2E4A34}
+\definecolor{accenthist}{HTML}{8C2F1C}
+\definecolor{muted}{HTML}{5C6157}
+\definecolor{line}{HTML}{A9AE9F}
+\definecolor{ink}{HTML}{1B1F19}
+\definecolor{card}{HTML}{F4F5F0}
+\definecolor{paper}{HTML}{E7E8E2}
 
 % --- measure and rhythm ----------------------------------------------------
 \setstretch{1.16}
@@ -78,19 +74,18 @@
 \setlist[enumerate]{itemsep=0.6em,leftmargin=*}
 \setlist[itemize]{itemsep=0.35em,leftmargin=1.2em}
 
-% --- headings --------------------------------------------------------------
-% Sized down a full step from the first pass (Panch: "too large") - \Large is
-% the biggest anything gets outside the cover, and the rule under \section
-% carries the weight a bigger size used to.
+% --- headings ----------------------------------------------------------
+% Black throughout - weight and a rule under \section carry the hierarchy
+% that color used to.
 \titleformat{\section}[block]
-  {\displayfont\Large\bfseries\color{accentnet}}
+  {\displayfont\Large\bfseries}
   {\thesection}{0.6em}{}
-  [{\vspace{0.2em}\color{line}\titlerule[0.6pt]}]
+  [{\vspace{0.2em}\hrule height 0.6pt}]
 \titleformat{\subsection}[block]
-  {\displayfont\normalsize\bfseries\color{accentnet}}
+  {\displayfont\normalsize\bfseries}
   {\thesubsection}{0.55em}{}
 \titleformat{\subsubsection}[block]
-  {\displayfont\small\bfseries\color{muted}}
+  {\displayfont\small\bfseries}
   {\thesubsubsection}{0.5em}{}
 \titlespacing*{\section}{0pt}{1.5em}{0.7em}
 \titlespacing*{\subsection}{0pt}{1.1em}{0.45em}
@@ -99,43 +94,43 @@
 % --- table of contents -----------------------------------------------------
 \renewcommand{\contentsname}{Contents}
 \RequirePackage{tocloft}
-\renewcommand{\cfttoctitlefont}{\displayfont\large\bfseries\color{accentnet}}
-\renewcommand{\cftsecfont}{\displayfont\normalsize\bfseries\color{ink}}
-\renewcommand{\cftsubsecfont}{\small\color{muted}}
-\renewcommand{\cftsecpagefont}{\ttfamily\small\color{muted}}
-\renewcommand{\cftsubsecpagefont}{\ttfamily\small\color{muted}}
-\renewcommand{\cftsecleader}{\color{line}\cftdotfill{\cftsecdotsep}}
-\renewcommand{\cftsecdotsep}{\cftdotsep}
+\renewcommand{\cfttoctitlefont}{\displayfont\large\bfseries}
+\renewcommand{\cftsecfont}{\displayfont\normalsize\bfseries}
+\renewcommand{\cftsubsecfont}{\small}
+\renewcommand{\cftsecpagefont}{\ttfamily\small}
+\renewcommand{\cftsubsecpagefont}{\ttfamily\small}
 \setlength{\cftbeforesecskip}{0.55em}
 % tocloft defaults the contents page to `plain`, which drops the running head
 % and puts a stray centred folio at the foot. Keep it in the same style as
 % every other page.
 \tocloftpagestyle{fancy}
 
-% --- links -----------------------------------------------------------------
+% --- links -------------------------------------------------------------
+% Black, not colored - a link still works, it just doesn't announce itself
+% with color on a page that otherwise has none.
 \hypersetup{
   colorlinks=true,
-  linkcolor=accentnet,
-  urlcolor=accentnet,
-  citecolor=accentnet,
+  linkcolor=black,
+  urlcolor=black,
+  citecolor=black,
 }
 
-% --- running head ----------------------------------------------------------
+% --- running head ------------------------------------------------------
 \newcommand{\runninghead}{}
 \newcommand{\setrunninghead}[1]{\renewcommand{\runninghead}{#1}}
 \pagestyle{fancy}
 \fancyhf{}
-\renewcommand{\headrule}{\color{line}\hrule height 0.5pt}
 \renewcommand{\headrulewidth}{0.5pt}
-\fancyhead[L]{\ttfamily\footnotesize\color{muted}\runninghead}
-\fancyhead[R]{\ttfamily\footnotesize\color{muted}\thepage}
+\fancyhead[L]{\ttfamily\footnotesize\runninghead}
+\fancyhead[R]{\ttfamily\footnotesize\thepage}
 
-% --- run-in labels ---------------------------------------------------------
-% A named thing you can go and use (a view of the tool, a command, a step):
-% stable/actionable, so it takes the green accent.
-\newcommand{\runin}[1]{{\displayfont\bfseries\color{accentnet}#1}}
-% Something the method is asserting or conceding: the red accent.
-\newcommand{\claimlabel}[1]{{\displayfont\bfseries\color{accenthist}#1}}
+% --- run-in labels -------------------------------------------------------
+% Bold, not colored - the old green/red split (stable-claim vs
+% historical-claim) doesn't survive a colorless page, and weight alone
+% already does the job of "this is a labeled point," the same convention a
+% "Remark."/"Assumption." run-in header uses in an ordinary paper.
+\newcommand{\runin}[1]{{\displayfont\bfseries#1}}
+\newcommand{\claimlabel}[1]{{\displayfont\bfseries#1}}
 % Inline emphasis for a term the reader should hold onto.
 \newcommand{\term}[1]{\textbf{#1}}
 % Inline code, file path, command. Written so a literal double hyphen in a
@@ -143,76 +138,54 @@
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\dd}{-\kern0pt-}
 
-% --- callout boxes ---------------------------------------------------------
-% claimbox: the method is asserting or conceding something. Red bar.
-\newtcolorbox{claimbox}[1][]{
-  enhanced, breakable,
-  colback=card, colframe=line,
-  boxrule=0.4pt, arc=1.5pt,
-  left=0.9em, right=0.9em, top=0.7em, bottom=0.7em,
-  before upper={\setlength{\parskip}{0.5em}\setlength{\parindent}{0pt}},
-  borderline west={2.2pt}{0pt}{accenthist},
-  fontupper=\normalsize,
-  #1}
-% dobox: something the reader can go and run. Green bar.
-\newtcolorbox{dobox}[1][]{
-  enhanced, breakable,
-  colback=card, colframe=line,
-  boxrule=0.4pt, arc=1.5pt,
-  left=0.9em, right=0.9em, top=0.7em, bottom=0.7em,
-  before upper={\setlength{\parskip}{0.5em}\setlength{\parindent}{0pt}},
-  borderline west={2.2pt}{0pt}{accentnet},
-  fontupper=\small,
-  #1}
-% quotebox: verbatim source material quoted from the repo. Neutral, no bar.
-\newtcolorbox{quotebox}[1][]{
-  enhanced, breakable,
-  colback=card, colframe=line,
-  boxrule=0.4pt, arc=1.5pt,
-  left=0.9em, right=0.9em, top=0.7em, bottom=0.7em,
-  before upper={\setlength{\parskip}{0.5em}\setlength{\parindent}{0pt}},
-  fontupper=\small,
-  #1}
+% --- callout "boxes" -----------------------------------------------------
+% No boxes: a bordered callout with a colored bar down one side is the
+% single most recognizable "styled document" tell, and the whole point of
+% this pass is to stop looking styled. claimbox/dobox keep their names (both
+% call sites already open with a bold \claimlabel{...} run-in, e.g. "Hard
+% rule.") but render as an ordinary paragraph, with \needspace so the run-in
+% label doesn't orphan at a page break. quotebox (verbatim material quoted
+% from the repo) becomes a standard indented quotation - the plain, correct
+% LaTeX convention for exactly this content, nothing invented.
+\newenvironment{claimbox}{\par\needspace{4\baselineskip}}{\par}
+\newenvironment{dobox}{\par\needspace{3\baselineskip}}{\par}
+\newenvironment{quotebox}{\begin{quote}\small}{\end{quote}}
 
-% --- cover page ------------------------------------------------------------
-% \specimencover{title}{subtitle}{catalogue rows}
-% Revised 2026-08-05: the first pass (left-aligned, a huge dead \vfill gap
-% between subtitle and the metadata block) read as unbalanced, not designed.
-% This version centers on both axes - a plain, classic title-page
-% composition (kicker, title, rule, subtitle, then a compact colophon) - and
-% keeps the specimen-card metadata idea, but as a narrow centered block
-% instead of a full-width table that read like a spec sheet.
+% --- cover page ----------------------------------------------------------
+% \specimencover{title}{subtitle}{catalogue rows} - plain title-page
+% composition, no color, no decorated background, no author line (authorship
+% isn't decided yet - leave the interface as title/subtitle/metadata only
+% until that changes, don't add a byline at a call site in the meantime).
 \newcommand{\coverfield}[2]{%
-  {\ttfamily\footnotesize\color{muted}\MakeUppercase{#1}} &
-  {\ttfamily\footnotesize\color{ink}#2} \\[0.32em]}
+  {\ttfamily\footnotesize\MakeUppercase{#1}} &
+  {\ttfamily\footnotesize#2} \\[0.32em]}
 
 \newcommand{\specimencover}[3]{%
   \begin{titlepage}
-  \AddToShipoutPictureBG*{\AtPageLowerLeft{\color{paper}\rule{\paperwidth}{\paperheight}}}
   \thispagestyle{empty}
   \begin{center}
   \vspace*{\fill}
 
-  {\ttfamily\small\color{muted}\MakeUppercase{The Koselleck Machine}}
+  {\ttfamily\small\MakeUppercase{The Koselleck Machine}}
 
   \vspace{2.4em}
   \begin{minipage}{0.82\textwidth}
   \centering
-  {\displayfont\bfseries\fontsize{23}{28}\selectfont\color{ink}#1\par}
+  {\displayfont\bfseries\fontsize{23}{28}\selectfont#1\par}
   \end{minipage}
 
   \vspace{0.85em}
-  {\color{accenthist}\rule{2.6cm}{1.3pt}}
+  \rule{2.6cm}{1.3pt}
 
   \vspace{1.3em}
   \begin{minipage}{0.62\textwidth}
   \centering
-  {\fontsize{10.5}{15}\selectfont\color{muted}#2\par}
+  {\fontsize{10.5}{15}\selectfont#2\par}
   \end{minipage}
 
   \vspace*{\fill}
 
-  {\color{line}\rule{0.5\textwidth}{0.5pt}}
+  \rule{0.5\textwidth}{0.5pt}
 
   \vspace{0.9em}
   \begin{tabular}{@{}r@{\hspace{0.85em}}l@{}}

@@ -1,0 +1,696 @@
+{
+  "1650-1670": {
+    "0": {
+      "label": "Religious Authority & Judgment",
+      "n_words": 840,
+      "lane": "Religion, Theology & the Church"
+    }
+  },
+  "1670-1690": {
+    "1": {
+      "label": "Religious Authority & Judgment",
+      "n_words": 1245,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1650-1670#0",
+      "fit_check_rationale": "Core/Mid maintain religious vocabulary (sanctification, piety, etc.)."
+    },
+    "0": {
+      "label": "Nature, Mountains & Water",
+      "n_words": 1256,
+      "lane": "Nature, Landscape & Weather"
+    },
+    "2": {
+      "label": "Colonial Administration & Government",
+      "n_words": 625,
+      "lane": "Government, Law & Administration"
+    },
+    "3": {
+      "label": "Imperative Verbs & Exhortation",
+      "n_words": 466,
+      "lane": "Rhetoric & Persuasion"
+    }
+  },
+  "1690-1710": {
+    "0": {
+      "label": "Religious Authority & Judgment",
+      "n_words": 1257,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1670-1690#1",
+      "fit_check_rationale": "Core maintains religious vocabulary."
+    },
+    "3": {
+      "label": "Colonial Administration & Government",
+      "n_words": 561,
+      "lane": "Government, Law & Administration",
+      "inherited_from": "1670-1690#2",
+      "fit_check_rationale": "Core maintains administrative/governmental vocabulary (commissioners, sheriffs, assessments, etc.)."
+    },
+    "6": {
+      "label": "Names, Family & Kinship",
+      "n_words": 399,
+      "lane": "History, Genealogy, Nobility & Kinship"
+    },
+    "1": {
+      "label": "Biblical & Warfare Imagery",
+      "n_words": 1089,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1670-1690#0",
+      "reclassified": true,
+      "fit_check_rationale": "Drift to other domain (warfare/religious); nature vocabulary diminished."
+    },
+    "5": {
+      "label": "Past Actions & Judgment",
+      "n_words": 449,
+      "lane": "Structural / Uncertain"
+    },
+    "8": {
+      "label": "Comparative Adverbs & Forms",
+      "n_words": 19,
+      "lane": "Structural / Uncertain"
+    },
+    "7": {
+      "label": "Months, Geography & Colonial Space",
+      "n_words": 334,
+      "lane": "Geography & Territory"
+    },
+    "2": {
+      "label": "Imperative Verbs & Exhortation",
+      "n_words": 620,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1670-1690#3",
+      "fit_check_rationale": "Core maintains imperative/exhortatory verbs (expose, propose, conform, etc.)."
+    },
+    "4": {
+      "label": "Action Verbs & Motion",
+      "n_words": 471,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1710-1730": {
+    "0": {
+      "label": "Church Administration & Clergy",
+      "n_words": 1462,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1690-1710#0",
+      "reclassified": true,
+      "fit_check_rationale": "No religious vocabulary in core."
+    },
+    "9": {
+      "label": "Numbers & Ordinals",
+      "n_words": 161,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#7",
+      "reclassified": true,
+      "fit_check_rationale": "Drift detected: geographical language absent."
+    },
+    "2": {
+      "label": "Vices & Moral Failings",
+      "n_words": 798,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1690-1710#1",
+      "reclassified": true,
+      "fit_check_rationale": "Drift: biblical/warfare language absent."
+    },
+    "4": {
+      "label": "Imperative Verbs & Exhortation",
+      "n_words": 625,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1690-1710#2",
+      "fit_check_rationale": "Core maintains imperative/exhortatory verbs."
+    },
+    "8": {
+      "label": "Trade, Commerce & Currency",
+      "n_words": 228,
+      "lane": "Trade, Finance & Commerce",
+      "inherited_from": "1690-1710#3",
+      "reclassified": true,
+      "fit_check_rationale": "Drift: administrative language absent."
+    },
+    "3": {
+      "label": "Past Actions & Judgment",
+      "n_words": 628,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#5",
+      "fit_check_rationale": "Structural category; maintain as inherited."
+    },
+    "7": {
+      "label": "Comparative Adverbs & Forms",
+      "n_words": 496,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#8",
+      "fit_check_rationale": "Structural category; maintain as inherited."
+    },
+    "1": {
+      "label": "Maritime & Natural Disaster",
+      "n_words": 800,
+      "lane": "Nature, Landscape & Weather"
+    },
+    "6": {
+      "label": "Action Verbs & Motion",
+      "n_words": 560,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1690-1710#4",
+      "fit_check_rationale": "Structural category; maintain as inherited."
+    },
+    "5": {
+      "label": "Military Ranks & Titles",
+      "n_words": 609,
+      "lane": "Military & Warfare",
+      "inherited_from": "1690-1710#6",
+      "reclassified": true,
+      "fit_check_rationale": "Drift detected: kinship/noble terms absent."
+    },
+    "10": {
+      "label": "Colloquial Speech & Contractions",
+      "n_words": 63,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1730-1750": {
+    "0": {
+      "label": "Church Administration & Clergy",
+      "n_words": 1312,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1710-1730#0",
+      "fit_check_rationale": "Inherited label continues to describe community."
+    },
+    "10": {
+      "label": "Military Numbers & Rank",
+      "n_words": 173,
+      "lane": "Military & Warfare",
+      "inherited_from": "1710-1730#7",
+      "reclassified": true,
+      "fit_check_rationale": "Drift: comparative adverbs absent."
+    },
+    "6": {
+      "label": "Imperative Verbs & Exhortation",
+      "n_words": 628,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1710-1730#4",
+      "fit_check_rationale": "Core maintains imperative verbs."
+    },
+    "1": {
+      "label": "Vices & Moral Failings",
+      "n_words": 1188,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1710-1730#2",
+      "fit_check_rationale": "Core maintains vice vocabulary."
+    },
+    "4": {
+      "label": "Names & Editorial Markers",
+      "n_words": 716,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1710-1730#5",
+      "reclassified": true,
+      "fit_check_rationale": "Drift: military terms absent."
+    },
+    "5": {
+      "label": "Trade, Commerce & Currency",
+      "n_words": 684,
+      "lane": "Trade, Finance & Commerce",
+      "inherited_from": "1710-1730#8",
+      "fit_check_rationale": "Core maintains commerce/trade vocabulary."
+    },
+    "7": {
+      "label": "Geography & Exploration",
+      "n_words": 587,
+      "lane": "Geography & Territory",
+      "inherited_from": "1710-1730#9",
+      "reclassified": true,
+      "fit_check_rationale": "Drift: numbers absent."
+    },
+    "3": {
+      "label": "Past Actions & Judgment",
+      "n_words": 849,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#3",
+      "fit_check_rationale": "Structural category; maintain as inherited."
+    },
+    "9": {
+      "label": "Colloquial Speech & Contractions",
+      "n_words": 272,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#10",
+      "fit_check_rationale": "Structural category; maintain as inherited."
+    },
+    "8": {
+      "label": "Action Verbs & Motion",
+      "n_words": 381,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1710-1730#6",
+      "fit_check_rationale": "Core maintains action verbs."
+    },
+    "2": {
+      "label": "Maritime & Natural Disaster",
+      "n_words": 893,
+      "lane": "Nature, Landscape & Weather",
+      "inherited_from": "1710-1730#1",
+      "fit_check_rationale": "Structural category; maintain as inherited."
+    }
+  },
+  "1750-1770": {
+    "6": {
+      "label": "Geography & Exploration",
+      "n_words": 762,
+      "lane": "Geography & Territory",
+      "inherited_from": "1730-1750#7",
+      "fit_check_rationale": "Core maintains geographical vocabulary."
+    },
+    "2": {
+      "label": "Church Administration & Clergy",
+      "n_words": 945,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1730-1750#0",
+      "fit_check_rationale": "Label continues to fit inherited community."
+    },
+    "7": {
+      "label": "Imperative Verbs & Exhortation",
+      "n_words": 705,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1730-1750#6",
+      "fit_check_rationale": "Inherited label continues to describe community."
+    },
+    "0": {
+      "label": "Vices & Moral Failings",
+      "n_words": 1209,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1730-1750#1",
+      "fit_check_rationale": "Inherited label continues to describe community."
+    },
+    "4": {
+      "label": "Literature, Memoirs & Geography",
+      "n_words": 791,
+      "lane": "Literature, Drama & Poetic Diction",
+      "inherited_from": "1730-1750#8",
+      "reclassified": true,
+      "fit_check_rationale": "Action verbs absent."
+    },
+    "12": {
+      "label": "Comparative Descriptives",
+      "n_words": 37,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#10",
+      "reclassified": true,
+      "fit_check_rationale": "Military vocabulary absent."
+    },
+    "1": {
+      "label": "Past Actions & Judgment",
+      "n_words": 1094,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#3",
+      "fit_check_rationale": "Structural category; maintain as inherited."
+    },
+    "10": {
+      "label": "Biblical Books & Citations",
+      "n_words": 251,
+      "lane": "Religion, Theology & the Church"
+    },
+    "9": {
+      "label": "Names & Editorial Markers",
+      "n_words": 602,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1730-1750#4",
+      "fit_check_rationale": "Names/structural category; maintain as inherited."
+    },
+    "5": {
+      "label": "Medicinal Herbs & Remedies",
+      "n_words": 768,
+      "lane": "Medicine, Body & Health"
+    },
+    "8": {
+      "label": "Trade, Commerce & Currency",
+      "n_words": 616,
+      "lane": "Trade, Finance & Commerce",
+      "inherited_from": "1730-1750#5",
+      "fit_check_rationale": "Inherited label continues to describe community."
+    },
+    "3": {
+      "label": "Poetic Nature & Beauty",
+      "n_words": 883,
+      "lane": "Literature, Drama & Poetic Diction",
+      "inherited_from": "1730-1750#2",
+      "reclassified": true,
+      "fit_check_rationale": "Drift: maritime language absent."
+    },
+    "11": {
+      "label": "Archaic Verb Forms",
+      "n_words": 221,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1730-1750#9",
+      "reclassified": true,
+      "fit_check_rationale": "Drift: colloquial forms absent."
+    }
+  },
+  "1770-1790": {
+    "16": {
+      "label": "Temporal Language & Dates",
+      "n_words": 249,
+      "lane": "Structural / Uncertain"
+    },
+    "11": {
+      "label": "Biblical Books & Citations",
+      "n_words": 464,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1750-1770#10",
+      "fit_check_rationale": "Core maintains biblical book abbreviations and references."
+    },
+    "5": {
+      "label": "Imperative Verbs & Exhortation",
+      "n_words": 751,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1750-1770#7",
+      "fit_check_rationale": "Label continues to fit inherited community."
+    },
+    "7": {
+      "label": "Trade, Commerce & Currency",
+      "n_words": 675,
+      "lane": "Trade, Finance & Commerce",
+      "inherited_from": "1750-1770#8",
+      "fit_check_rationale": "Label continues to fit inherited community."
+    },
+    "2": {
+      "label": "Vices & Moral Failings",
+      "n_words": 1087,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1750-1770#0",
+      "fit_check_rationale": "Label continues to fit inherited community."
+    },
+    "21": {
+      "label": "Comparative Descriptives",
+      "n_words": 57,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#12",
+      "fit_check_rationale": "Inherited label continues to describe community."
+    },
+    "9": {
+      "label": "Geography & Exploration",
+      "n_words": 556,
+      "lane": "Geography & Territory",
+      "inherited_from": "1750-1770#6",
+      "fit_check_rationale": "Inherited label continues to describe community."
+    },
+    "1": {
+      "label": "Literature, Memoirs & Geography",
+      "n_words": 1266,
+      "lane": "Literature, Drama & Poetic Diction",
+      "inherited_from": "1750-1770#4",
+      "fit_check_rationale": "Inherited label continues to describe community."
+    },
+    "12": {
+      "label": "Dramatic Characters & Names",
+      "n_words": 461,
+      "lane": "Literature, Drama & Poetic Diction"
+    },
+    "4": {
+      "label": "Past Actions & Judgment",
+      "n_words": 1013,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#1",
+      "fit_check_rationale": "Inherited label continues to describe community."
+    },
+    "18": {
+      "label": "Emotional Distress & Anguish",
+      "n_words": 226,
+      "lane": "Literature, Drama & Poetic Diction"
+    },
+    "8": {
+      "label": "Names & Editorial Markers",
+      "n_words": 603,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1750-1770#9",
+      "fit_check_rationale": "Inherited label continues to describe community."
+    },
+    "14": {
+      "label": "Church Administration & Clergy",
+      "n_words": 383,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1750-1770#2",
+      "fit_check_rationale": "Label fits inherited community words."
+    },
+    "10": {
+      "label": "Action & Motion Verbs",
+      "n_words": 485,
+      "lane": "Structural / Uncertain"
+    },
+    "3": {
+      "label": "Food Preparation & Cooking",
+      "n_words": 1042,
+      "lane": "Domestic Life, Dress & Household",
+      "inherited_from": "1750-1770#5",
+      "reclassified": true,
+      "fit_check_rationale": "Drift detected: medical language absent."
+    },
+    "0": {
+      "label": "Poetic Language & Imagery",
+      "n_words": 1447,
+      "lane": "Literature, Drama & Poetic Diction",
+      "inherited_from": "1750-1770#3",
+      "reclassified": true,
+      "fit_check_rationale": "Poetic vocabulary absent."
+    },
+    "6": {
+      "label": "Vices & Moral Failings",
+      "n_words": 682,
+      "lane": "Morality: Virtue & Vice"
+    },
+    "15": {
+      "label": "Archaic Verb Forms",
+      "n_words": 345,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1750-1770#11",
+      "fit_check_rationale": "Core maintains archaic verb forms."
+    },
+    "19": {
+      "label": "Separation & Derivation",
+      "n_words": 86,
+      "lane": "Structural / Uncertain"
+    },
+    "20": {
+      "label": "Emotional Reactions & Surprise",
+      "n_words": 57,
+      "lane": "Literature, Drama & Poetic Diction"
+    },
+    "17": {
+      "label": "Structural / Uncertain",
+      "n_words": 234,
+      "lane": "Structural / Uncertain"
+    },
+    "13": {
+      "label": "Medical Symptoms & Treatment",
+      "n_words": 391,
+      "lane": "Medicine, Body & Health"
+    },
+    "22": {
+      "label": "Archaic English Verb Forms",
+      "n_words": 18,
+      "lane": "Structural / Uncertain"
+    }
+  },
+  "1790-1810": {
+    "24": {
+      "label": "Temporal Language & Dates",
+      "n_words": 309,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#16",
+      "fit_check_rationale": "Structural category; maintain as inherited."
+    },
+    "7": {
+      "label": "Trade, Commerce & Currency",
+      "n_words": 945,
+      "lane": "Trade, Finance & Commerce",
+      "inherited_from": "1770-1790#7",
+      "fit_check_rationale": "Label fits inherited community words."
+    },
+    "26": {
+      "label": "Comparative Descriptives",
+      "n_words": 78,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#21",
+      "fit_check_rationale": "Label continues to fit inherited community."
+    },
+    "6": {
+      "label": "Vices & Moral Failings",
+      "n_words": 961,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1770-1790#2",
+      "fit_check_rationale": "Label fits inherited community words."
+    },
+    "8": {
+      "label": "Biblical Books & Citations",
+      "n_words": 916,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1770-1790#11",
+      "fit_check_rationale": "Core maintains biblical references."
+    },
+    "12": {
+      "label": "Dramatic Characters & Names",
+      "n_words": 872,
+      "lane": "Literature, Drama & Poetic Diction",
+      "inherited_from": "1770-1790#12",
+      "fit_check_rationale": "Core maintains character names and theatrical vocabulary."
+    },
+    "20": {
+      "label": "Separation & Derivation",
+      "n_words": 406,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#19",
+      "fit_check_rationale": "Structural category; maintain as inherited."
+    },
+    "0": {
+      "label": "Past Actions & Judgment",
+      "n_words": 1454,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#4",
+      "fit_check_rationale": "Label continues to fit inherited community."
+    },
+    "16": {
+      "label": "Landscape & Architecture",
+      "n_words": 647,
+      "lane": "Geography & Territory"
+    },
+    "22": {
+      "label": "History, Kinship & Noble Rank",
+      "n_words": 344,
+      "lane": "History, Genealogy, Nobility & Kinship"
+    },
+    "14": {
+      "label": "Church Administration & Clergy",
+      "n_words": 726,
+      "lane": "Religion, Theology & the Church",
+      "inherited_from": "1770-1790#14",
+      "fit_check_rationale": "Label fits community."
+    },
+    "10": {
+      "label": "Names & Editorial Markers",
+      "n_words": 902,
+      "lane": "Books, Learning & Scholarship",
+      "inherited_from": "1770-1790#8",
+      "fit_check_rationale": "Label continues to fit inherited community."
+    },
+    "5": {
+      "label": "Imperative Verbs & Exhortation",
+      "n_words": 988,
+      "lane": "Rhetoric & Persuasion",
+      "inherited_from": "1770-1790#5",
+      "fit_check_rationale": "Label fits inherited community words."
+    },
+    "18": {
+      "label": "Geography & Exploration",
+      "n_words": 533,
+      "lane": "Geography & Territory",
+      "inherited_from": "1770-1790#9",
+      "fit_check_rationale": "Label continues to fit inherited community."
+    },
+    "4": {
+      "label": "Literature, Memoirs & Geography",
+      "n_words": 1031,
+      "lane": "Literature, Drama & Poetic Diction",
+      "inherited_from": "1770-1790#1",
+      "fit_check_rationale": "Label continues to fit inherited community."
+    },
+    "15": {
+      "label": "Clothing & Textiles",
+      "n_words": 717,
+      "lane": "Domestic Life, Dress & Household",
+      "inherited_from": "1770-1790#20",
+      "reclassified": true,
+      "fit_check_rationale": "Drift detected: emotional language absent."
+    },
+    "13": {
+      "label": "Action & Motion Verbs",
+      "n_words": 841,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#10",
+      "fit_check_rationale": "Structural category; maintain as inherited."
+    },
+    "9": {
+      "label": "Political Corruption & Treachery",
+      "n_words": 902,
+      "lane": "Morality: Virtue & Vice",
+      "inherited_from": "1770-1790#6",
+      "reclassified": true,
+      "fit_check_rationale": "Drift detected: vice language absent."
+    },
+    "3": {
+      "label": "Medical Pathology & Disease",
+      "n_words": 1038,
+      "lane": "Medicine, Body & Health",
+      "inherited_from": "1770-1790#13",
+      "reclassified": true,
+      "fit_check_rationale": "Drift detected: medical language absent."
+    },
+    "25": {
+      "label": "Structural / Uncertain",
+      "n_words": 253,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#17",
+      "fit_check_rationale": "Structural category; maintain as inherited."
+    },
+    "2": {
+      "label": "Food & Chemistry",
+      "n_words": 1060,
+      "lane": "Domestic Life, Dress & Household",
+      "inherited_from": "1770-1790#3",
+      "reclassified": true,
+      "fit_check_rationale": "Drift: food language absent."
+    },
+    "1": {
+      "label": "Poetic Language & Imagery",
+      "n_words": 1361,
+      "lane": "Literature, Drama & Poetic Diction",
+      "inherited_from": "1770-1790#0",
+      "fit_check_rationale": "Inherited label continues to describe community."
+    },
+    "17": {
+      "label": "Archaic Verb Forms",
+      "n_words": 604,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#15",
+      "fit_check_rationale": "Inherited label continues to describe community."
+    },
+    "11": {
+      "label": "Emotional Distress & Anguish",
+      "n_words": 885,
+      "lane": "Literature, Drama & Poetic Diction",
+      "inherited_from": "1770-1790#18",
+      "fit_check_rationale": "Core maintains emotional/distress vocabulary."
+    },
+    "27": {
+      "label": "Archaic English Verb Forms",
+      "n_words": 38,
+      "lane": "Structural / Uncertain",
+      "inherited_from": "1770-1790#22",
+      "fit_check_rationale": "Structural category; maintain as inherited."
+    },
+    "21": {
+      "label": "Foreign Language Text - French",
+      "n_words": 383,
+      "lane": "Structural / Uncertain"
+    },
+    "19": {
+      "label": "Governance & Political Action",
+      "n_words": 488,
+      "lane": "Government, Law & Administration"
+    },
+    "23": {
+      "label": "Military & Naval Organization",
+      "n_words": 311,
+      "lane": "Military & Warfare"
+    }
+  },
+  "_meta": {
+    "region": "american",
+    "n_communities": 100,
+    "n_human_edited": 0,
+    "n_inherited": 53,
+    "method": "Generated by a single LLM read-through of each community's top words, not an empirically validated taxonomy - a reading aid, not a checked ground truth. Rerunning `generate` on an unchanged input is not guaranteed to reproduce the same label text or lane for every community, since LLM sampling is not bitwise-deterministic even against an unchanged prompt.",
+    "compiled_at": "2026-09-05T11:55:44+00:00",
+    "model": "claude-haiku-4-5-20251001",
+    "prompt_file": "src/prompts/community_labeling_v3.md",
+    "prompt_version": "v3",
+    "prompt_sha256_16": "75905e00b4a8621e",
+    "source_words_file": "community_words_display_american.json",
+    "source_words_sha256_16": "be2fb1d4398c050b",
+    "generated_at": "2026-09-05T11:55:30+00:00"
+  }
+}
