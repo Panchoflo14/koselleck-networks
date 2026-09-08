@@ -235,11 +235,19 @@ leiden:
 # these are the defaults, so an absent `rag` block behaves exactly as below.
 rag:
   # "ollama" runs a local model (no API credits, needs `ollama serve` and a
-  # tool-capable model pulled, e.g. `ollama pull llama3.1`). "anthropic" uses
-  # Claude and needs ANTHROPIC_API_KEY. Override per-run with --provider.
+  # tool-capable model pulled). "anthropic" uses Claude and needs
+  # ANTHROPIC_API_KEY. Override per-run with --provider.
   provider: ollama
-  # Model name for the chosen provider. Leave unset to take the provider's own
-  # default (llama3.1 for ollama, a current Sonnet for anthropic). A
-  # tool-capable model is required - small models call tools less reliably,
-  # which directly weakens answer grounding.
-  # model: llama3.1
+  # Model name for the chosen provider. Was unset (falling back to
+  # engine.py's own default, llama3.1) until 2026-09-08, when live-testing it
+  # against qwen2.5:14b (`ollama pull qwen2.5:14b`, ~9GB, still free) found
+  # llama3.1 unreliable in ways that go past "smaller model, weaker prose":
+  # it wrongly refused an answerable question outright, wrote a fake
+  # tool-call JSON block into its visible answer instead of retrying after a
+  # real error (the system prompt explicitly forbids this), and separately
+  # produced an answer that just described the tool result's JSON schema
+  # back to the user instead of answering the question. qwen2.5:14b made
+  # valid, honest tool calls across every test question in the same session.
+  # A tool-capable model is required either way - small models call tools
+  # less reliably, which directly weakens answer grounding.
+  model: qwen2.5:14b

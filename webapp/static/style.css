@@ -1504,35 +1504,43 @@ h1 {
   font-size: 0.78rem;
   padding: 0.3rem 0.6rem;
   border: 1px dashed var(--line);
-  border-radius: 999px;
+  border-radius: var(--radius-md);
   background: transparent;
   color: var(--muted);
   cursor: pointer;
 }
 .chat-example:hover { color: var(--ink); border-color: var(--ink); }
 
-/* Evidence panel + chips */
-.ev-panel { border-left: 3px solid var(--line); padding: 0.35rem 0 0.35rem 0.75rem; margin: 0.1rem 0 0.4rem; }
-.ev-panel-title { font-family: var(--font-label); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.35rem; }
-.ev-list { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-.ev-chip {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.4rem;
-  padding: 0.2rem 0.5rem;
-  border-radius: var(--radius-sm);
+/* Evidence panel - one readable row per source. The claim is Body text and
+   comes first; the reliability swatch and citation are a quiet meta line
+   underneath, not the headline (see chat.js's evidenceItem for why). */
+.ev-panel { border-top: 1px dashed var(--line); padding-top: 0.6rem; margin-top: 0.3rem; }
+.ev-panel-title { font-family: var(--font-label); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+.ev-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.ev-item {
+  padding: 0.55rem 0.7rem;
+  border-radius: var(--radius-md);
   border: 1px solid var(--line);
-  background: var(--bg);
-  cursor: help;
+  border-top: 3px solid var(--line);
+  background: var(--card);
 }
-.ev-tier { font-family: var(--font-label); font-size: 0.62rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
-.ev-cite { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink); }
-.ev-measured { border-color: var(--accent-net); }
-.ev-measured .ev-tier { color: var(--accent-net); }
-.ev-inferred { border-color: #9A6B1E; }
-.ev-inferred .ev-tier { color: #9A6B1E; }
-.ev-unreliable { border-color: var(--accent-hist); background: #F3E7E3; }
-.ev-unreliable .ev-tier { color: var(--accent-hist); }
+.ev-claim { margin: 0; font-family: var(--font-body); font-size: var(--type--1); color: var(--ink); line-height: 1.45; }
+.ev-meta { display: flex; align-items: baseline; gap: 0.5rem; margin-top: 0.35rem; }
+.ev-swatch {
+  font-family: var(--font-label);
+  font-size: var(--type--2);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.ev-cite { font-family: var(--font-mono); font-size: var(--type--2); color: var(--muted); }
+.ev-measured { border-top-color: var(--accent-net); }
+.ev-swatch-measured { color: var(--accent-net); }
+.ev-inferred { border-top-color: #9A6B1E; }
+.ev-swatch-inferred { color: #9A6B1E; }
+.ev-unreliable { border-top-color: var(--accent-hist); background: #F3E7E3; }
+.ev-swatch-unreliable { color: var(--accent-hist); }
+.ev-caveat { margin-top: 0.4rem; padding-top: 0.4rem; }
 
 .chat-footnote { font-family: var(--font-body); font-size: 0.78rem; color: var(--muted); margin-top: 0.85rem; }
-.chat-footnote strong { color: var(--ink); font-weight: 600; }
+.chat-footnote .ev-swatch { font-size: 0.72rem; }

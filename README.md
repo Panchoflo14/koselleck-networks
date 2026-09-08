@@ -35,7 +35,7 @@ Primary: the Text Creation Partnership (TCP) - EEBO-TCP (1500-1700, both release
 ## Repo layout
 
 - `src/` - the pipeline: `parse_tcp.py` -> `bucket_periods.py` -> `embeddings.py` -> `network.py` -> `community.py` -> `metrics.py`, plus `pipeline_config.py` (shared config loader), `label_communities.py`/`extract_community_words.py` (see [Labeling communities](#labeling-communities)), `label_judge.py` (see [Auditing labels](#auditing-labels)), the `rag/` grounded-chatbot layer (see [Ask](#ask-the-discovery-chatbot)), and a one-off analysis script (`subsample_control.py`).
-- `webapp/` - the Koselleck Machine, a Flask app for exploring the results interactively: an **Ask** chatbot (`/chat`), a timeline view (`/timeline`), a graph explorer (`/graph`), and a plain word-search tool (`/search`), all reading the same pre-built per-period networks.
+- `webapp/` - the Koselleck Machine, a Flask app for exploring the results interactively: a timeline view (`/timeline`, the primary way in), an **Ask** chatbot (`/chat`), a graph explorer (`/graph`), and a plain word-search tool (`/search`), all reading the same pre-built per-period networks.
 - `docs/` - `method.tex`/`method.pdf` (the scientific case: why network-level reorganization, the resolution sweep, the labeling prompt in full, for a mixed technical/non-technical audience), `pipeline_manual.tex`/`.pdf` (a stage-by-stage internals walkthrough for a technical reader), `overview.tex`/`.pdf` (project intro and setup).
 - `labels/` - a small, citable snapshot of the current community labels (CSV + compiled JSON, per region) - copied here by `label_communities.py publish` so they travel with the repo instead of living only in the (gitignored) data directory.
 - `config.yml` - shared, versioned settings (period slices, word2vec/Leiden hyperparameters).
@@ -194,7 +194,7 @@ It only ever **produces flags for a human** - it never rewrites a label and neve
 python webapp/app.py
 ```
 
-Then open http://127.0.0.1:5000. Five pages: a landing page, `/chat` (**Ask** - the discovery chatbot, see below), `/timeline` (the primary view - track one word's group across every period in a single strip), `/graph` (D3 graph explorer - pick a period and a word, see its neighbourhood; toggle a full-network sampled view), and `/search` (plain word-lookup table: nearest neighbours, community, whether the word's community changed since the previous period).
+Then open http://127.0.0.1:5000. Five pages: a landing page, `/timeline` (the primary view - track one word's group across every period in a single strip), `/chat` (**Ask** - the discovery chatbot, see below, for a plain-English question instead of a chart), `/graph` (D3 graph explorer - pick a period and a word, see its neighbourhood; toggle a full-network sampled view), and `/search` (plain word-lookup table: nearest neighbours, community, whether the word's community changed since the previous period).
 
 Wherever a word is drilled into (`/search`'s own results, `/timeline`'s per-period drill-in), a Neighbours/Journey toggle switches between that same neighbour table and a chart of the word's path through the fixed lane list (see Labeling communities below) across every period - a coarser, single-word view of the same underlying data, not a second computation.
 
@@ -207,7 +207,8 @@ If the pipeline was run for region-split data too (see Data above), every page a
 How it stays trustworthy:
 
 - **Grounded.** A model answers only by calling a fixed set of tools (`src/rag/tools.py`) that read the built networks, communities, and transition metrics. It never sees raw tables - only evidence records - so it can only cite what a tool actually returned. A question the data can't answer gets a plain "the structure doesn't show that", not a guess.
-- **Tiered.** Every fact is tagged `measured` (a computed metric or Leiden assignment - the real evidence), `inferred` (an embedding-neighbour reading - suggestive, not causal), or `unreliable` (an OCR-diluted British Library period, or a "Structural / Uncertain" community). The answer must respect the tier and surface caveats; the UI shows each answer's evidence as chips coloured by tier.
+- **Tiered.** Every fact is tagged `measured` (a computed metric or Leiden assignment - the real evidence), `inferred` (an embedding-neighbour reading - suggestive, not causal), or `unreliable` (an OCR-diluted British Library period, or a "Structural / Uncertain" community). The answer must respect the tier and surface caveats; the UI lists each answer's sources as readable rows, colour-coded by tier, with the technical citation kept secondary to the plain-language claim.
+- **Plain language.** Answers describe findings the way the rest of the app already does (a "group" and its "subject area", "X% of shared words moved to a different group") rather than in the pipeline's own internal vocabulary (`community`, `migration_fraction`, `resolution`, `NMI`/`ARI`) - a historian reading an answer shouldn't need to know what any of those mean. Raw technical detail stays in the closing citations, not the prose.
 - **Never re-graded.** The chatbot only *retrieves* the quantitative findings - `migration_fraction`, NMI, ARI and community membership stay the sole product of `metrics.py`/`community.py`. No LLM scores or overrides them.
 
 Two things back it up: a grounding/honesty eval (`src/rag/eval/`) that checks answers don't invent statistics, refuse when they should, and flag unreliable material; and the label audit ([above](#auditing-labels)).
@@ -216,18 +217,18 @@ Two things back it up: a grounding/honesty eval (`src/rag/eval/`) that checks an
 
 ```
 ollama serve
-ollama pull llama3.1        # or any tool-capable model
+ollama pull qwen2.5:14b     # config.yml's default - see why below
 python webapp/app.py        # then open /chat
 # or from the CLI:
-python src/rag/engine.py "Did reorganization peak around 1770-1830, and does it survive the sweep?"
+python src/rag/engine.py "Did word meaning change the most around 1770-1830?"
 python src/rag/eval/run.py --judge        # run the grounding eval
 ```
 
-Use a tool-capable model - small models call tools less reliably, which weakens grounding. To use Claude instead, set `rag.provider: anthropic` (and optionally `rag.model`) in `config.yml`/`config.local.yml`, or pass `--provider anthropic`, with `ANTHROPIC_API_KEY` set.
+Use a tool-capable model - small models call tools less reliably, which weakens grounding. `qwen2.5:14b` (~9GB) is the current default, chosen after live-testing it against the smaller `llama3.1:8b`: the smaller model wrongly refused an answerable question outright, wrote a fake tool-call as visible text instead of retrying after a real error (the system prompt explicitly forbids this), and once described the raw tool-result JSON back to the user instead of answering the question - `qwen2.5:14b` made valid, honest tool calls throughout the same test set. Override with `ollama pull <model>` plus `rag.model` in `config.yml`/`config.local.yml` to try another. To use Claude instead, set `rag.provider: anthropic` (and optionally `rag.model`) the same way, or pass `--provider anthropic`, with `ANTHROPIC_API_KEY` set - reserve that for a private/restricted deployment, not the open build, so the project doesn't end up depending on a paid API to run.
 
 The chat layer reads a small DuckDB store built from the pipeline's existing outputs; build/refresh it with `python src/rag/build_store.py` (it's appendable - re-run after adding a period or region without a full rebuild). If the store isn't built or the model backend is unreachable, `/chat` reports why rather than failing the rest of the app.
 
-**Status: not yet run live.** The plumbing is verified offline (evidence tiering, the tools, the grounding checks, the label audit), but the feature has not yet been exercised end-to-end against a live model and the full corpus - see the tracking pull request.
+**Status: run live, 2026-09-08.** Tested end-to-end against the full corpus with two real models (`llama3.1:8b` and `qwen2.5:14b` via Ollama) and a real browser session - found and fixed three real bugs in the process (a tool-argument hallucination `dispatch()` couldn't recover from, a region-mislabeling bug in the transitions store, and a multi-transition synthesis gap traced to answer generation only ever engaging with the most recent tool result). Not yet run against Claude.
 
 ## Deployment
 
