@@ -45,7 +45,6 @@ from pipeline_config import (
     combined_is_built,
     discover_built_regions,
     load_config,
-    resolve_label_resolution,
     variant_label,
 )
 
@@ -72,20 +71,23 @@ REGIONS = discover_built_regions(config)
 COMBINED_BUILT = combined_is_built(config)
 DEFAULT_K = 12  # words kept per community in "full network" mode
 SEED_PERIOD = "1810-1830"  # the literal Sattelzeit-closing edge (after the 2026-08-04 boundary shift) - was "1790-1810" while this period had no data (pre British Library supplement); now populated, so /graph and /search default onto the edge itself instead of just before it
-# HEADLINE_RES: the resolution shown by default before a user has picked a
-# specific period - anchored to SEED_PERIOD's own auto-picked resolution
-# (Combined region) since 2026-08-28's rework made display resolution a
-# per-variant value, not one global number (see pipeline_config's
-# resolve_label_resolution docstring for the real bug this fixes: this call
-# used to be resolve_label_resolution(config) with no variant arg at all,
-# which KeyErrors against the current label_resolution.json shape).
-# A real, acknowledged simplification, not a full fix: routes that already
-# know which period/region they're serving still fall back to this one
-# site-wide default (via resolve_resolution() below) rather than looking up
-# that specific variant's own resolution - doing that properly would mean
-# touching every route that takes a period/region param, out of scope for
-# "make the config reader work with the new JSON shape" alone.
-HEADLINE_RES = resolve_label_resolution(config, variant_label(SEED_PERIOD, None))
+# HEADLINE_RES/LABELS_RESOLUTION removed 2026-09-08: both used to be a single
+# global constant (the seed period's own auto-picked display resolution),
+# used as the fallback every route's `res` query param defaulted to. That was
+# wrong: since 2026-08-28's per-variant rework, each (period, region) variant
+# has its OWN display resolution, so treating one seed period's number as a
+# site-wide constant meant every other period's /api/graph request built a
+# "res_<that number>" column name that usually doesn't exist in that period's
+# CSV at all (e.g. 1810-1830's own resolution, 12.0, isn't even one of the
+# swept values) - silently returning no community data - while
+# /api/community-labels happened to still find labels whenever the
+# *requested* res matched the constant by coincidence, so the two endpoints
+# could disagree with each other and with what the assistant
+# (src/rag/tools.py, which already looked up each variant's own resolution)
+# reported for the same word. Fixed by giving every route a "display"
+# sentinel (see resolve_resolution) meaning "this variant's own auto-picked
+# resolution", resolved per-request instead of frozen at startup from one
+# period.
 # One seed word everywhere (2026-08-04) - /graph and /search used to default
 # to "reason" while /timeline defaulted to "system"; Panch flagged that as
 # arbitrary and confusing across pages that are otherwise meant to feel like
@@ -101,8 +103,8 @@ _graph_cache = {}
 _community_df_cache = {}
 _community_cache = {}
 _transitions_cache = None
+_display_transitions_cache = None
 _labels_cache = {}  # keyed by region (None = combined)
-LABELS_RESOLUTION = HEADLINE_RES  # the resolution community_labels_display.json's labels were generated at
 
 # The grounded discovery chatbot (src/rag/engine.py) is constructed lazily and
 # once: it needs the DuckDB store built and an Anthropic key present, neither of
@@ -129,15 +131,27 @@ def resolve_resolution(value):
     """Snap a client-supplied resolution to the exact float from config.yml's
     sweep, so f"res_{res}" always matches a real CSV column regardless of how
     JS serialized the number (e.g. the JS number 1 stringifies to "1", not
-    "1.0", which would otherwise miss the "res_1.0" column entirely)."""
+    "1.0", which would otherwise miss the "res_1.0" column entirely).
+
+    Anything else - no value given, an explicit "display", or a value that
+    isn't one of the swept floats - resolves to the string "display": this
+    variant's own auto-picked display resolution (community.py's res_display
+    column), looked up per (period, region) rather than assumed to be some
+    fixed number. This is the default every route below actually wants: the
+    one partition community_labels_display.json's labels were generated
+    against, which differs per variant and is frequently not a sweep value at
+    all (e.g. 12.0 for 1810-1830, or 24.0/28.0 for the later, higher-cap
+    periods - both outside the sweep's own 0.1-16.0 range)."""
+    if value is None:
+        return "display"
     try:
         value = float(value)
     except (TypeError, ValueError):
-        return HEADLINE_RES
+        return "display"
     for r in RESOLUTIONS:
         if abs(r - value) < 1e-9:
             return r
-    return HEADLINE_RES
+    return "display"
 
 
 def resolve_region(value):
@@ -182,15 +196,21 @@ def get_community_df(label, region=None):
     return _community_df_cache[key]
 
 
-def get_communities(label, res=HEADLINE_RES, region=None):
+def get_communities(label, res="display", region=None):
     """Cached as a plain {word: community_id} dict, not a DataFrame - this
     gets looked up once per vertex (tens of thousands per period), and a
     pandas .loc scalar lookup in that loop is slow enough to make the graph
-    endpoint take the better part of a minute; a dict lookup is O(1))."""
+    endpoint take the better part of a minute; a dict lookup is O(1)).
+
+    res="display" (the default - see resolve_resolution) reads the
+    res_display column: this variant's own auto-picked resolution, the same
+    partition its labels describe. Any other value reads the matching swept
+    res_<value> column instead, for the (currently unused by the frontend,
+    but still valid) case of inspecting the raw sweep directly."""
     key = (label, res, region)
     if key not in _community_cache:
         df = get_community_df(label, region)
-        col = f"res_{res}"
+        col = "res_display" if res == "display" else f"res_{res}"
         if df is None or col not in df.columns:
             _community_cache[key] = None
         else:
@@ -266,21 +286,67 @@ def _all_transition_rows():
 def get_transitions(region=None):
     """This one variant's own transition rows, filtered out of the shared
     cache by matching consecutive-period label pairs (see
-    _all_transition_rows) - so the frontend can show the headline number
-    *and* the full resolution sweep next to it, per the project's hard rule
-    that a reorganization claim must survive that sweep, without ever mixing
-    one region's chain with another's or with the combined one. Rows come
-    back with plain period labels (period_from/period_to stripped of any
-    _<region> suffix) regardless of which region was requested - the
-    frontend already keys everything (its periods array, prevPopulatedLabel,
-    ...) off plain labels, and the region is already implied by which
-    endpoint/query param was used to fetch this list in the first place."""
+    _all_transition_rows) - the full resolution sweep, per the project's hard
+    rule that a reorganization claim must survive that sweep. 2026-09-08: no
+    longer what the frontend shows as its headline number (see
+    get_display_transitions) - this stays the robustness check surfaced
+    alongside it, without ever mixing one region's chain with another's or
+    with the combined one. Rows come back with plain period labels
+    (period_from/period_to stripped of any _<region> suffix) regardless of
+    which region was requested - the frontend already keys everything (its
+    periods array, prevPopulatedLabel, ...) off plain labels, and the region
+    is already implied by which endpoint/query param was used to fetch this
+    list in the first place."""
     variants = [variant_label(label, region) for label in PERIODS]
     plain_of = dict(zip(variants, PERIODS))
     pairs = set(zip(variants, variants[1:]))
     return [
         {**r, "period_from": plain_of[r["period_from"]], "period_to": plain_of[r["period_to"]]}
         for r in _all_transition_rows() if (r["period_from"], r["period_to"]) in pairs
+    ]
+
+
+def _all_display_transition_rows():
+    """communities/transitions_display.csv, cached, unfiltered - one row per
+    consecutive period pair (not one per swept resolution), computed between
+    each side's own auto-picked display resolution by src/metrics.py's
+    compute_display_transitions. This is the partition the labels shown next
+    to it actually describe, unlike _all_transition_rows' fixed sweep."""
+    global _display_transitions_cache
+    if _display_transitions_cache is None:
+        rows = []
+        path = communities_dir / "transitions_display.csv"
+        if path.exists():
+            with open(path, encoding="utf-8") as f:
+                for row in csv.DictReader(f):
+                    rows.append({
+                        "period_from": row["period_from"],
+                        "period_to": row["period_to"],
+                        "res_from_display": float(row["res_from_display"]) if row["res_from_display"] else None,
+                        "res_to_display": float(row["res_to_display"]) if row["res_to_display"] else None,
+                        "n_shared_words": int(row["n_shared_words"]),
+                        "nmi": float(row["nmi"]),
+                        "ari": float(row["ari"]),
+                        "migration_fraction": float(row["migration_fraction"]),
+                    })
+        _display_transitions_cache = rows
+    return _display_transitions_cache
+
+
+def get_display_transitions(region=None):
+    """This one variant's own display-resolution transition rows - the
+    number that belongs next to the labeled communities a reader actually
+    sees, since it's computed from the exact same res_display partition
+    those labels describe (see compute_display_transitions in
+    src/metrics.py). Exactly one row per consecutive period pair, so unlike
+    get_transitions there's no resolution to match against - "the" headline
+    number for a transition is just the one row for it."""
+    variants = [variant_label(label, region) for label in PERIODS]
+    plain_of = dict(zip(variants, PERIODS))
+    pairs = set(zip(variants, variants[1:]))
+    return [
+        {**r, "period_from": plain_of[r["period_from"]], "period_to": plain_of[r["period_to"]]}
+        for r in _all_display_transition_rows() if (r["period_from"], r["period_to"]) in pairs
     ]
 
 
@@ -297,9 +363,9 @@ def get_labels(region=None):
     assigns different ids to different word groups than the combined run -
     reusing the combined file for a region would attach a confidently wrong
     name. The filename carries no resolution number: the display resolution
-    (LABELS_RESOLUTION) is picked per period/variant by community.py, not
-    globally, so a single number in the filename would be meaningless (see
-    resolve_label_resolution). Missing file (not generated yet for that
+    is picked per period/variant by community.py, not globally, so a single
+    number in the filename would be meaningless (see resolve_label_resolution
+    and get_communities' res="display"). Missing file (not generated yet for that
     region) degrades to no labels, not an error - labels are a reading aid
     layered on top of a fully working tool, never a dependency for it."""
     global _labels_cache
@@ -371,8 +437,7 @@ def home():
 
 @app.route("/graph")
 def graph_page():
-    return render_template("graph.html", seed_period=SEED_PERIOD, seed_word=SEED_WORD,
-                            label_resolution=HEADLINE_RES, active="graph")
+    return render_template("graph.html", seed_period=SEED_PERIOD, seed_word=SEED_WORD, active="graph")
 
 
 @app.route("/search")
@@ -382,8 +447,7 @@ def search_page():
 
 @app.route("/timeline")
 def timeline_page():
-    return render_template("timeline.html", seed_word=TIMELINE_SEED_WORD,
-                            label_resolution=HEADLINE_RES, active="timeline")
+    return render_template("timeline.html", seed_word=TIMELINE_SEED_WORD, active="timeline")
 
 
 @app.route("/chat")
@@ -446,22 +510,37 @@ def regions():
 
 @app.route("/api/transitions")
 def transitions():
+    """The full resolution-sweep transitions (see get_transitions) - the
+    robustness check, not the frontend's primary headline number since
+    2026-09-08 (see /api/transitions-display)."""
     region = resolve_region(request.args.get("region"))
     return jsonify(get_transitions(region))
+
+
+@app.route("/api/transitions-display")
+def transitions_display():
+    """The display-resolution transitions (see get_display_transitions) -
+    one row per period pair, computed from the exact partition the labels
+    shown alongside it describe. This is the primary number the frontend
+    reports as its headline finding."""
+    region = resolve_region(request.args.get("region"))
+    return jsonify(get_display_transitions(region))
 
 
 @app.route("/api/community-labels/<label>")
 def community_labels(label):
     """{raw community id (string) -> plain-English label} for one period (and
-    region, if given), at the fixed resolution the labels were generated for.
+    region, if given), at that variant's own display resolution - the only
+    partition community_labels_display.json's labels actually describe.
     Empty (not missing - still 200) if the labels file doesn't exist yet for
-    that region or the requested resolution isn't LABELS_RESOLUTION, so the
+    that region, or if the caller explicitly asked for a raw sweep resolution
+    instead of "display" (labels were never generated for those), so the
     frontend can just skip rendering labels rather than special-casing an
     error."""
     if label not in PERIODS:
         return jsonify({"error": "unknown period"}), 404
-    res = resolve_resolution(request.args.get("res", HEADLINE_RES))
-    if abs(res - LABELS_RESOLUTION) > 1e-9:
+    res = resolve_resolution(request.args.get("res"))
+    if res != "display":
         return jsonify({})
     region = resolve_region(request.args.get("region"))
     return jsonify({cid: entry["label"] for cid, entry in get_labels(region).get(label, {}).items()})
@@ -486,7 +565,7 @@ def changed(label):
     if label not in PERIODS:
         return jsonify({"error": "unknown period"}), 404
 
-    res = resolve_resolution(request.args.get("res", HEADLINE_RES))
+    res = resolve_resolution(request.args.get("res"))
     region = resolve_region(request.args.get("region"))
     prev_label = prev_populated_label(label, region)
     empty = {"period_from": prev_label, "period_to": label,
@@ -537,7 +616,7 @@ def graph(label):
     full = request.args.get("full", "").strip().lower() in ("1", "true", "yes")
     k = request.args.get("k", DEFAULT_K, type=int)
     align_to = request.args.get("align_to", "").strip()
-    res = resolve_resolution(request.args.get("res", HEADLINE_RES))
+    res = resolve_resolution(request.args.get("res"))
 
     comm_map = get_communities(label, res, region)
     focused_word = None
@@ -681,7 +760,7 @@ def search(label, word):
         return jsonify({"error": "unknown period"}), 404
 
     word = word.strip().lower()
-    res = resolve_resolution(request.args.get("res", HEADLINE_RES))
+    res = resolve_resolution(request.args.get("res"))
     region = resolve_region(request.args.get("region"))
     g = get_graph(label, region)
     if g is None:
@@ -766,7 +845,7 @@ def timeline(word):
     the same "read it off the data, don't hardcode a period name" pattern
     already used for regions and resolutions elsewhere in this file."""
     word = word.strip().lower()
-    res = resolve_resolution(request.args.get("res", HEADLINE_RES))
+    res = resolve_resolution(request.args.get("res"))
     region = resolve_region(request.args.get("region"))
 
     rows = []

@@ -6,12 +6,21 @@
 // wants to browse rather than start from a word. Node color persists and
 // re-aligns across periods (align_to, see backend) so the same color
 // across a transition means "same community lineage", not a coincidence.
-// Resolution is fixed at 1.0 app-wide, for traceability - only 1.0 has
-// labels/community assignments this app displays, and it's the only
-// setting shown or switchable anywhere in the UI. The 7-resolution sweep
-// behind the headline finding still exists (see resolution-sweep notes /
-// docs/method.tex) but is a paper-level robustness check, not something
-// this app renders.
+//
+// Resolution, 2026-09-08 rework: every graph/labels/changed fetch below asks
+// the backend for res="display" (see webapp/app.py's resolve_resolution),
+// this period's own auto-picked display resolution rather than one fixed
+// number app-wide. That used to be a real, live bug: this file assumed a
+// single global "labelResolution" (frozen from one seed period, stale for
+// every other period since 2026-08-28 made display resolution per-variant),
+// so most periods' /api/graph calls silently missed their community column
+// while /api/community-labels still returned real labels for a different
+// partition than the one being colored - see git history for the
+// HEADLINE_RES/activeResolution/LABELS_RESOLUTION constants this replaced.
+// The 15-resolution sweep behind the paper's robustness claim still exists
+// (see resolution-sweep notes / docs/method.tex, /api/transitions) but is no
+// longer what this page reports as its headline number - see
+// updateFindingsBanner, which now reads /api/transitions-display instead.
 
 const svg = d3.select("#graph-svg");
 const tooltip = document.getElementById("tooltip");
@@ -80,14 +89,14 @@ let COMBINED_BUILT = true; // whether the combined (un-suffixed) network was eve
 let activeRegion = null; // null = combined; otherwise one of REGIONS
 let currentIndex = 0;
 let focusWord = SEED_WORD || "";
-const activeResolution = parseFloat(document.body.dataset.labelResolution); // the only Leiden resolution this app displays, fixed project-wide - auto-picked by community.py (see config.yml's leiden.max_community_size), served via app.py's HEADLINE_RES
 const positions = new Map(); // word -> {x, y}, persists layout across periods
 const communityColorMap = new Map(); // community id -> color
 let currentNodesById = new Map();
 let similarityToFocus = new Map(); // neighbour word -> cosine similarity to focusWord, rebuilt on every renderGraph
-let communityLabels = new Map(); // raw community id (this period's actual Leiden id) -> plain-English label, refetched per period/resolution
-let allTransitions = [];
-let medianByResolution = new Map(); // resolution -> historical median migration_fraction
+let communityLabels = new Map(); // raw community id (this period's actual Leiden id, at its own display resolution) -> plain-English label, refetched per period
+let displayTransitions = []; // one row per period pair, from /api/transitions-display - the headline number's source
+let sweepTransitions = []; // the 15-resolution sweep per pair, from /api/transitions - the robustness confirmation shown alongside the headline, not the headline itself
+let historicalMedianPct = 0; // median migration_fraction across every other display transition, same region
 let lastHeadlinePct = null; // set by updateFindingsBanner, read by updateChangedPanel's copy
 
 let width = 0;
@@ -236,12 +245,13 @@ async function setRegion(region) {
 
 async function loadTransitions() {
   const params = activeRegion ? `?region=${encodeURIComponent(activeRegion)}` : "";
-  const res = await fetch(`/api/transitions${params}`);
-  allTransitions = await res.json();
-  const resolutions = [...new Set(allTransitions.map((t) => t.resolution))];
-  medianByResolution = new Map(resolutions.map((r) => [
-    r, median(allTransitions.filter((t) => t.resolution === r).map((t) => t.migration_fraction)),
-  ]));
+  const [displayRes, sweepRes] = await Promise.all([
+    fetch(`/api/transitions-display${params}`),
+    fetch(`/api/transitions${params}`),
+  ]);
+  displayTransitions = await displayRes.json();
+  sweepTransitions = await sweepRes.json();
+  historicalMedianPct = median(displayTransitions.map((t) => t.migration_fraction));
 }
 
 // Runs once at load, not per period - the mixed-fraction is a property of
@@ -415,7 +425,7 @@ async function loadPeriod(index) {
   kRow.style.display = full ? "" : "none";
 
   const params = new URLSearchParams();
-  params.set("res", String(activeResolution));
+  params.set("res", "display");
   if (full) {
     params.set("full", "1");
     params.set("k", kInput.value || "12");
@@ -430,7 +440,7 @@ async function loadPeriod(index) {
   // whichever region's own labels file the backend has (tooltip/legend
   // already fall back to "#<id>" when communityLabels has nothing for
   // that id, e.g. a region whose labels haven't been generated yet).
-  const labelsParams = new URLSearchParams({ res: String(activeResolution) });
+  const labelsParams = new URLSearchParams({ res: "display" });
   if (activeRegion) labelsParams.set("region", activeRegion);
   const [res, labelsRes] = await Promise.all([
     fetch(`/api/graph/${encodeURIComponent(period.label)}?${params.toString()}`),
@@ -690,21 +700,35 @@ function updateFindingsBanner(period, prevLabel) {
     lastHeadlinePct = null;
     return;
   }
-  const rows = allTransitions.filter((t) => t.period_from === prevLabel && t.period_to === period.label);
-  if (!rows.length) {
+  const headline = displayTransitions.find((t) => t.period_from === prevLabel && t.period_to === period.label);
+  if (!headline) {
     findingsBanner.classList.add("hidden");
     lastHeadlinePct = null;
     return;
   }
   findingsBanner.classList.remove("hidden");
-  const headline = rows.find((r) => r.resolution === activeResolution) || rows[0];
   const pct = Math.round(headline.migration_fraction * 100);
-  const medianPct = Math.round((medianByResolution.get(activeResolution) || 0) * 100);
+  const medianPct = Math.round(historicalMedianPct * 100);
   lastHeadlinePct = pct;
   findingsHeadlineEl.innerHTML =
     `${escapeHtml(prevLabel)} &rarr; ${escapeHtml(period.label)}: <strong>${pct}%</strong> of the ` +
     `${headline.n_shared_words.toLocaleString()} shared words moved to a different group ` +
     `(historical median across every other transition: ${medianPct}%).`;
+
+  // Robustness confirmation, not the headline itself: the same transition
+  // re-measured at each of the 15 swept resolutions (see /api/transitions),
+  // independent of whichever resolution community.py picked for display -
+  // shown as a range so a reader can see the finding isn't an artifact of
+  // the one resolution the labels above happen to use.
+  const sweepRows = sweepTransitions.filter((t) => t.period_from === prevLabel && t.period_to === period.label);
+  if (sweepRows.length) {
+    const sweepPcts = sweepRows.map((r) => Math.round(r.migration_fraction * 100));
+    const sweepMin = Math.min(...sweepPcts);
+    const sweepMax = Math.max(...sweepPcts);
+    findingsHeadlineEl.innerHTML +=
+      ` Checked against a sweep of ${sweepRows.length} other resolutions (not the one the labels above use): ` +
+      `${sweepMin}-${sweepMax}%.`;
+  }
 
   const isSattelzeitClose = prevLabel === "1790-1810" && period.label === "1810-1830";
   // This transition's caveat used to warn that its ~42k shared words were
@@ -733,7 +757,7 @@ async function updateChangedPanel(period, prevLabel) {
     return;
   }
   const regionParam = activeRegion ? `&region=${encodeURIComponent(activeRegion)}` : "";
-  const res = await fetch(`/api/changed/${encodeURIComponent(period.label)}?res=${activeResolution}${regionParam}`);
+  const res = await fetch(`/api/changed/${encodeURIComponent(period.label)}?res=display${regionParam}`);
   const data = await res.json();
   if (!data.n_changed) {
     changedPanel.classList.add("hidden");
