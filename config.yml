@@ -171,7 +171,20 @@ leiden:
   # resolutions down to ~0.58 by 16.0). 2500 is the largest value that's
   # both genuinely satisfied by the current sweep (not a fallback) and
   # still within the range this cap was originally meant to enforce.
-  max_community_size: 2500
+  #
+  # 2026-09-04: lowered to 1500, tested in isolation first against 4 real
+  # periods (1650-1670_american, 1510-1530, 1790-1810, 1870-1890) before
+  # touching production. Real before/after check, same pattern as the
+  # original 1.0->4.0 decision: the community containing "system" in
+  # 1870-1890 goes from 1,149 words (vague: calamities, fictions,
+  # tendencies...) to 246 (specific: investigations, inquiry, analysis,
+  # research, methods...) at 1500. 1000 was also tested and gives a similar
+  # community (170 words) but at real cost - total communities in
+  # 1870-1890 roughly triple (310 -> 1,010) against only ~1.6x at 1500
+  # (310 -> 488), and needs resolution 48 (well past this sweep's own
+  # ceiling) against 24 for 1500. 1500 captures most of the specificity
+  # gain at a fraction of the labeling-volume and resolution-range cost.
+  max_community_size: 1500
   n_iterations: 10
   seed: 42
 
