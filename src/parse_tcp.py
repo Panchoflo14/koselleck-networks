@@ -333,7 +333,7 @@ def main():
         # iter_xml_members() above; it gets its own reader, per this repo's
         # documented "Case B" contract in README.md, but still lands in the
         # exact same all_docs.jsonl/manifest.csv.
-        bl_root = data_root / config["paths"].get("corpus_bl", "corpus/bl")
+        bl_root = data_root / config["paths"].get("corpus_bl", "corpus/british/bl")
         bl_needs_ocr = ("british", "bl_19c") in ocr_sources
         for doc_id, year, text in iter_bl_records(bl_root):
             if bl_needs_ocr:

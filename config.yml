@@ -8,22 +8,30 @@ data_root: "../koselleck-data"
 
 paths:
   # corpus_tcp is the one corpus tree, for every source - not just TCP's own
-  # releases despite the name (kept as-is to avoid renaming an already-
-  # populated multi-GB local folder for a cosmetic win). discover_sources()
-  # scans <corpus_tcp>/<region>/<source>/*.zip so a new TCP-format source
-  # needs zero config changes - just drop zips under a region folder and
-  # rerun. That folder layout is only a convenience for auto-discovery,
-  # though, not what actually keeps sources or periods apart: parse_tcp.py
-  # tags every record with its region/source/year regardless of where the
-  # raw file physically sat, and bucket_periods.py buckets purely on that
-  # year - so a corpus in a different raw format (e.g. the planned
-  # Gutenberg 1800-1900 supplement) just needs its own reader in
+  # releases despite the name. discover_sources() scans
+  # <corpus_tcp>/<region>/<source>/*.zip, region folder first, so the layout
+  # on disk reads the way the pipeline actually thinks about the corpus (per
+  # region, not per dataset-type) - e.g. corpus/british/eebo_phase1/*.zip,
+  # corpus/american/evans/*.zip. A new TCP-format source needs zero config
+  # changes - just drop zips under <region>/<a-new-source-name>/ and rerun.
+  # That folder layout is only a convenience for auto-discovery, though, not
+  # what actually keeps sources or periods apart: parse_tcp.py tags every
+  # record with its region/source/year regardless of where the raw file
+  # physically sat, and bucket_periods.py buckets purely on that year - so a
+  # corpus in a different raw format just needs its own reader in
   # parse_tcp.py; where its raw files happen to live on disk doesn't matter
   # once that reader produces the same tagged record everything downstream
-  # already expects. Anything outside this "regions" folder (old format
-  # variants, reference files) is ignored by the pipeline.
-  corpus_tcp:      corpus/tcp/regions
-  corpus_bl:       corpus/bl              # British Library 19th-century JSONL, see parse_tcp.py's iter_bl_records
+  # already expects. Only using one region? Nothing to do - discover_regions()
+  # (pipeline_config.py) only reports regions once there are at least two,
+  # so the pipeline builds just the combined run and skips the redundant
+  # region-split variant on its own (see README's "Using a single region").
+  # Restructured 2026-09-08 from the old dataset-type-first layout
+  # (corpus/tcp/regions/<region>/<source>) to this region-first one, and BL
+  # folded in as just another source under british/ rather than a sibling of
+  # corpus_tcp - a reader migrating an existing local corpus can move a
+  # region's source folders up one level and fold bl/ into british/.
+  corpus_tcp:      corpus
+  corpus_bl:       corpus/british/bl      # British Library 19th-century JSONL, see parse_tcp.py's iter_bl_records
   extracted:       processed             # flat per-document extraction (parse_tcp.py)
   processed:       processed/periods     # per-period bucketed text (bucket_periods.py)
   vocab:           processed/vocab

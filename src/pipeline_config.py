@@ -48,11 +48,26 @@ def discover_regions(config):
     "british"] - read straight off the folder structure discover_sources()
     scans in parse_tcp.py, not hardcoded, so a clone with only some regions
     downloaded (or a differently-named set of regions entirely) just sees
-    fewer/different variant labels below instead of broken ones."""
+    fewer/different variant labels below instead of broken ones.
+
+    Returns [] when exactly one region is present, not [that region]: every
+    caller (bucket_periods.py, variant_labels() below, metrics.py) uses this
+    list purely to decide which region-split variants to build alongside the
+    combined run, and a single region's split variant would train on the
+    exact same document set the combined run already covers - there is
+    nothing to compare it against yet, so building it is pure redundant
+    compute/storage and a "Combined vs. <region>" webapp toggle over
+    identical underlying text. Region-split only starts paying for itself
+    once a second region exists to make the comparison meaningful; the
+    webapp's REGIONS/COMBINED_BUILT logic already treats an empty region
+    list as "just show the combined view" (the same fallback a corpus that
+    never ran region-split at all already hits), so this needs no webapp
+    change to take effect."""
     corpus_root = Path(config["data_root"]) / config["paths"]["corpus_tcp"]
     if not corpus_root.exists():
         return []
-    return sorted(p.name for p in corpus_root.iterdir() if p.is_dir())
+    regions = sorted(p.name for p in corpus_root.iterdir() if p.is_dir())
+    return regions if len(regions) > 1 else []
 
 
 def variant_labels(config):

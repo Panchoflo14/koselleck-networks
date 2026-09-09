@@ -111,7 +111,7 @@ def main():
         print(f"skip pyccle tables: {pyccle_dir} not found "
               f"(download pyccle-ecco.tgz - see wiki/pos-filter.md)")
 
-    bl_root = data_root / config["paths"].get("corpus_bl", "corpus/bl")
+    bl_root = data_root / config["paths"].get("corpus_bl", "corpus/british/bl")
     if not bl_root.exists():
         print(f"skip BL/spaCy tables: {bl_root} not found")
         return

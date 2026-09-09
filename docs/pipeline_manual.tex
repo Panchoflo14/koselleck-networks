@@ -39,7 +39,9 @@ those three walks through what each stage of the pipeline does inside,
 or why it is built that way and not some simpler alternative. This
 document is that walkthrough, stage by stage, in run order: parse,
 repair OCR, bucket into periods, train embeddings, build the network,
-detect communities, label communities, measure change.
+detect communities, label communities, measure change - plus the
+region-split variant these eight stages loop over, and the grounded
+chatbot built on top of their output once they have run.
 
 Two things apply across several stages. Every stage is a standalone
 script under \code{src/} that
@@ -124,7 +126,7 @@ noise this stage does not try to solve.
 A corpus in neither format can still be added without touching anything
 downstream of this stage. Already-valid TCP P4 XML needs no code change
 at all: drop the zip files under
-\pathref{<data\_root>/corpus/tcp/regions/<a-region-name>/<a-source-name>/}
+\pathref{<data_root>/corpus/<a-region-name>/<a-source-name>/}
 and rerun the pipeline, since \code{discover\_sources} finds new regions
 and sources by scanning the folder tree, not from a hardcoded list. Any
 other raw format needs one new reader function beside
@@ -149,7 +151,9 @@ stage, contrary to what \code{config.yml}'s own comment implies. TCP is
 hand-transcribed and never reaches this stage regardless. The module
 runs three repair steps in a fixed order.
 
-\runin{Layer 1a, line-break hyphen repair,} rejoins a page's line-break
+\subsection{Layer 1a: Line-break hyphen repair}
+
+Rejoins a page's line-break
 hyphen where it survived into the plain text as a literal \code{-}
 followed by whitespace (\code{"utrum- que"}). A hyphenated compound
 never has whitespace between the hyphen and the next letter, so this is
@@ -157,7 +161,9 @@ a plain regular expression with no wordlist involved, and it cannot
 mistake a compound for a spacing artifact. A sampled decade archive
 showed roughly 28\% of pages carrying at least one instance.
 
-\runin{Layer 1b, bare-space split repair,} handles the harder case where
+\subsection{Layer 1b: Bare-space split repair}
+
+Handles the harder case where
 the OCR engine dropped the hyphen entirely and left a bare space
 (\code{"par ticulars"}), with no marker left to detect it by. It merges
 two adjacent words only if the merged form is a real word in a reference
@@ -176,14 +182,16 @@ an empty-wordlist call's text unchanged: Layer 1b does nothing across
 most of where the British Library's OCR damage actually sits. It was
 validated by hand in the one period a wordlist existed to test it
 against, 1790-1810, after temporarily adding a small TCP slice so that
-bucket would have coverage at all: 142 correct merges confirmed in the
-first 120 changed documents, following a first validation attempt that
+bucket would have coverage at all: 142 merges made in the first 120
+changed documents, all confirmed correct, following a first validation attempt that
 turned out to be a false positive, a detection script checking whether
 two fragments existed anywhere in a document rather than whether they
 sat adjacent at the claimed merge site. Periods entirely after 1800
 remain both unrepaired by Layer 1b and untested.
 
-\runin{Layer 1c, long-s misreads,} is a named, called function that does
+\subsection{Layer 1c: Long-s misreads}
+
+This is a named, called function that does
 nothing. The one OCR'd source in this pipeline postdates the long s's
 disappearance from English printing, so there is no text anywhere in the
 corpus to calibrate a character-confusion rule against; a rule guessed
@@ -393,7 +401,14 @@ later stage in this document now describes.
 \code{src/label\_communities.py} turn each period's bare Leiden
 communities into plain-English labels a historian can read, through a
 CSV-based workflow meant to be run, and corrected, by a person rather
-than trusted blindly from a single model call.
+than trusted blindly from a single model call. The system prompt these
+scripts send lives in the repository as
+\pathref{src/prompts/community_labeling_v3.md}, parsed at runtime
+rather than duplicated as a string constant in code; the fit-check
+prompt referenced below lives at
+\pathref{src/prompts/label_fit_check_v2.md}.
+
+\subsection{Label inheritance and the \emph{system}/\emph{stayed} contradiction}
 
 A community's label is not generated independently every time its
 period comes up. \code{generate} walks periods in chronological order
@@ -416,6 +431,8 @@ says the community is the same makes \emph{the label changed} and
 \emph{the word moved} the same event by construction, not two
 independent judgments that can disagree.
 
+\subsection{The two-reader fit check}
+
 Verbatim inheritance on its own then created the opposite failure: with
 no mechanism to force a fresh read, a label could ride unchanged for a
 community's entire lifetime while its content drifted completely away
@@ -432,6 +449,8 @@ the identical plain yes-or-no question, does this label still fit,
 independently of each other, so agreement is a genuine redundancy
 check. Only unanimous agreement skips a fresh read; either reader
 saying no, or the two disagreeing, forces one immediately.
+
+\subsection{Stratified word sampling}
 
 The word sample a community shows, to both the fresh-labeling prompt and
 the fit-check prompt, changed on 2026-08-31. It used to be a flat list
@@ -471,6 +490,8 @@ three regions' aggregate rate moved in the expected direction; the case
 for the change rests on the three named communities, not the aggregate
 numbers.
 
+\subsection{Lane taxonomy and reproducibility}
+
 Every fresh label names exactly one lane from a fixed list of fifteen,
 decided 2026-08-03 from 707 labels already produced across earlier runs,
 instead of inventing a category per community. The fifteenth lane,
@@ -485,6 +506,8 @@ its internal documentation calls Tier 1 or 2: the same input produces a
 comparable label, not the same label token-for-token, since a model call
 is not bitwise-deterministic even against an unchanged prompt. It does
 not claim Tier 3, exact reproducibility.
+
+\subsection{Forcing reasoning before the label}
 
 The prompt each fresh read is given changed again on 2026-09-02,
 independently of the word-sample change above. Reviewing labels at scale
@@ -502,9 +525,11 @@ old and new wording, found the old prompt defaulting to \emph{Structural
 real theme, and the new prompt reaching a concrete, evidence-grounded
 lane both times instead.
 
+\subsection{The 2026-09-08 full relabel}
+
 A full relabel followed, all three regions, against the fresh community
 structure the 2026-09-08 rebuild produced (the display-resolution cap
-lowered to 1{,}500 words, \S\ref{sec:webapp} again): 100 communities in
+lowered to 1{,}500 words, \S\ref{sec:communities} again): 100 communities in
 American, 47 read fresh and 53 inherited, 32 in \emph{Structural /
 Uncertain}; 3{,}099 in British, 1{,}319 fresh and 1{,}780 inherited,
 1{,}227 in \emph{Structural / Uncertain}; 2{,}981 in Combined, 1{,}091
@@ -589,5 +614,189 @@ British English are dialects worth comparing on their own terms; the
 American variant, in particular, is too thin across most of the corpus's
 span to support that kind of comparison even had it been intended as
 one.
+
+\section{Layer 2/3: The Grounded Chatbot (Ask)}
+\label{sec:rag}
+
+Everything above produces the measurement; this layer answers a
+question about it in plain language, without retraining anything or
+re-deriving a number the pipeline already computed. It lives in
+\code{src/rag/}, reachable from the webapp's \code{/chat} route
+(\term{Ask}) or directly from the command line via
+\code{src/rag/engine.py}. Built and merged 2026-09-08, on top of the
+fully rebuilt corpus and relabeled communities described above.
+
+\subsection{Evidence and reliability tiers}
+
+\code{src/rag/evidence.py} defines the one honesty boundary the whole
+layer is built around: every fact retrieved for the model to cite is
+wrapped in an \code{Evidence} record before synthesis ever sees it,
+tagged one of three tiers. \term{MEASURED} is a computed quantity or a
+community assignment - anything out of \code{metrics.py} or the Leiden
+partition itself, the project's actual evidence, never graded or
+overridden by an LLM. \term{INFERRED} is an embedding-neighbour
+reading - cosine-kNN similarity edges, directional and suggestive, not
+causal, and not co-occurrence. \term{UNRELIABLE} is a fact drawn from
+OCR-diluted material (\S\ref{sec:ocr}) or a community the labeler
+routed to \emph{Structural / Uncertain} (\S\ref{sec:labeling}); it must
+be shown with its caveat, never laundered into a clean claim. The
+downgrade rule is data-derived, not a hand-maintained list: any period
+whose window starts at or after 1800 rests on the British Library's
+OCR text (\code{OCR\_CORPUS\_START\_YEAR}), and any community in the
+\emph{Structural / Uncertain} lane is unreliable regardless of how
+clean the attached number looks. Both checks run in exactly one place,
+\code{apply\_reliability}, called by the tools layer right after
+constructing each fact, so the honesty boundary is applied once rather
+than re-remembered per query. One tier does not map onto its own
+definition as cleanly as the other two: \code{label\_lookup} (below)
+is tagged INFERRED not because it is a nearest-neighbour computation,
+but because a label is one LLM's read of a community's top words, not
+a checked ground truth (\S\ref{sec:labeling}) - the weakest thing this
+tier covers, kept here rather than promoted to its own fourth tier.
+
+\subsection{The grounded tools}
+
+\code{src/rag/tools.py}'s \code{Store} class exposes six tools, each
+backed by a real DuckDB query rather than free generation:
+\code{reorganization\_metrics} (MEASURED - NMI, ARI, and
+\code{migration\_fraction} across the full resolution sweep,
+\S\ref{sec:metrics}), \code{word\_neighbors} (INFERRED - cosine-kNN
+neighbours in one period), \code{community\_trajectory} (MEASURED - a
+word's community in every period it appears, not just two named ones),
+\code{words\_that\_moved} (MEASURED - the concrete words behind one
+transition's \code{migration\_fraction}), \code{compare\_neighbors}
+(INFERRED - neighbour churn between two periods), and
+\code{label\_lookup} (INFERRED - one community's reading-aid label and
+lane, \S\ref{sec:labeling}). Every tool's own schema description
+states its tier directly, so the model is told, not left to infer, how
+much weight a fact can carry.
+
+Only \code{reorganization\_metrics} reads the fifteen-value sweep
+(\S\ref{sec:communities}) - the figure a reorganization claim is
+actually tested against. The other five all resolve a period's
+community structure at that variant's own auto-picked \term{display}
+resolution instead (\S\ref{sec:communities} again), the same partition
+its labels are computed from: \code{Store.\_resolution} looks this up
+per (region, period) from \code{label\_resolution.json}'s per-variant
+map, returning \code{None} - treated as no data, never a silent
+fallback to an unrelated variant's number - for a pair that never
+satisfied the size cap. Region defaults to \code{combined} on every
+tool but is an optional argument throughout, exactly as its own schema
+declares.
+
+\subsection{The engine loop}
+
+\code{src/rag/engine.py}'s \code{Engine.run()} is a
+decompose-retrieve-synthesize loop, capped at eight turns
+(\code{MAX\_TURNS}): the model reads the question, calls one or more
+tools, gets back Evidence dicts - never raw tables - and either calls
+again or writes a final answer. The loop itself is model-provider
+agnostic: \code{OllamaProvider} and \code{AnthropicProvider} both turn
+a neutral transcript into the same \code{\{text, tool\_calls, stop\}}
+shape, so swapping providers touches no other file. A new tool needs
+two things added together, both in \code{engine.py}: a
+\code{TOOL\_SCHEMAS} entry (name, description, and an
+\code{input\_schema} naming its parameters) and a same-named method on
+\code{tools.py}'s \code{Store} class - \code{dispatch()} binds the two
+purely by name, so the schema and the method are the only two places
+that need to agree.
+
+\code{dispatch()}, the pure function mapping one tool call onto a
+\code{Store} method, is the offline-testable half of the engine - no
+model needed to unit-test it. A real bug found testing
+\code{qwen2.5:14b} against \code{llama3.1:8b}: the model called
+\code{community\_trajectory} with \code{period\_from}/\code{period\_to},
+parameters that belong to \code{reorganization\_metrics} instead, got
+back Python's own ``unexpected keyword argument'' message, and rather
+than retrying with the right shape it abandoned
+\code{community\_trajectory} entirely for the weaker, INFERRED-tier
+\code{word\_neighbors} and built the whole answer on that. Fixed by
+validating a call's arguments against its own schema before it reaches
+the method at all, and - for an argument that belongs to a different
+tool - naming which one, turning a dead end a model could not parse
+into a fixable one. A related fix the same day: a numeric argument
+arriving as the string \code{"10"} instead of the integer \code{10}
+(seen for real from \code{llama3.1:8b}) is now coerced before it can
+raise an opaque, unattributable \code{TypeError} deep inside a
+slice or \code{LIMIT}.
+
+\subsection{The DuckDB store and a real region-mislabeling bug}
+
+\code{src/rag/build\_store.py} builds the store the engine queries from
+the pipeline's own output - one ingestion function per table
+(provenance, membership, edges, transitions, labels), each reusable to
+refresh the store after a period or region is added, without a full
+rebuild. \code{ingest\_transitions} shipped with a real bug found
+2026-09-08: \code{metrics.py} (\S\ref{sec:metrics}) writes exactly one
+\pathref{transitions.csv}, covering every region together, with the
+region tag embedded in \code{period\_from}/\code{period\_to}'s own
+\code{\_british}/\code{\_american} suffix - but the ingestion function
+assumed the opposite layout, looking for separate
+\code{transitions\_british.csv}/\code{transitions\_american.csv} files
+that never existed. The result: every row it did read was tagged
+\code{region='combined'} regardless of its real suffix, so a
+\code{region='combined'} query got flooded with irrelevant
+British/American rows on top of the real combined ones, while
+\code{region='british'}/\code{'american'} queries found nothing at
+all. Fixed by reading the one real file and re-deriving each region's
+rows via the same period-pair mapping \code{metrics.py} used to write
+them in the first place - the identical pattern
+\code{webapp/app.py}'s \code{get\_transitions()} already used.
+
+\subsection{Multi-transition questions}
+
+\code{reorganization\_metrics} takes an optional
+\code{window\_from}/\code{window\_to} pair, distinct from an exact
+\code{period\_from}/\code{period\_to} transition, specifically for a
+vague question like ``did it peak around 1770-1830.'' One call resolves
+the whole comparison: every transition inside or closing the named
+window, plus baseline transitions from well outside it, each already
+reduced to a summary row (median and range) ahead of its full detail.
+This exists because of a real, observed failure mode: a model asked to
+compare several transitions, given one tool call per transition, kept
+building its answer from only the most recently retrieved evidence,
+silently dropping the earlier calls' results rather than synthesising
+across all of them. A single call that already contains the full
+comparison removes the chance for that failure to happen at all,
+rather than asking the model to remember to look back.
+
+\subsection{Model choice}
+
+The chosen model is \code{qwen2.5:14b} (via Ollama, no API credits),
+not the smaller \code{llama3.1:8b} first tried. Live-tested against
+the same real questions, \code{llama3.1:8b} wrongly refused an
+answerable question outright, wrote a fake tool-call JSON block into
+its own visible answer instead of retrying after a real error (the
+system prompt explicitly forbids this), and separately answered by
+describing the tool result's JSON schema back to the user instead of
+actually answering. \code{qwen2.5:14b} made valid, honest tool calls
+throughout the same test set. \code{AnthropicProvider} is built and
+available as an optional stronger provider (\code{ANTHROPIC\_API\_KEY}
+required) but has not yet been tested against this corpus.
+
+\subsection{The grounding eval}
+
+\code{src/rag/eval/} runs a small, deliberately pointed set of real
+test questions (\code{cases.py}, six of them: the headline sweep
+question, a word's trajectory, the words behind one transition, an
+OCR-period caveat, a nonsense word, and a question the data cannot
+answer at all) against the live engine, not a benchmark - each case
+targets one specific behaviour the tool must get right, including
+questions the built data genuinely cannot answer, where the correct
+behaviour is a stated refusal rather than an invented finding.
+\code{checks.py} grades each result without a model and without the
+corpus - purely by comparing the answer text against the Evidence it
+was given: every number the answer states must trace to a number
+actually present in the Evidence (\code{numbers\_grounded}), a
+question with no data must be refused, not answered confidently
+(\code{refusal\_honoured}), and any UNRELIABLE evidence used must be
+surfaced with its caveat, not laundered into a clean claim
+(\code{caveats\_surfaced}). An optional \code{--judge} flag adds an
+LLM-as-judge pass on top of these deterministic checks, run via
+\code{src/rag/eval/run.py}. The harness itself is built and was used
+during the live testing that surfaced the bugs above; no full
+\code{run.py} pass-rate has been recorded anywhere in the repository
+as of this writing, unlike the specific counts reported for every
+other stage in this document.
 
 \end{document}

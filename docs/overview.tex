@@ -19,7 +19,7 @@
   {%
   \coverfield{Repository}{koselleck-networks}
   \coverfield{Document}{docs/overview.tex $\rightarrow$ docs/overview.pdf}
-  \coverfield{Companion}{docs/method.pdf (the method in full)}
+  \coverfield{Companion}{docs/method.pdf (the method and result in full); docs/pipeline\_manual.pdf (internals)}
   \coverfield{Status}{research instrument, local only, not yet deployed}
   \coverfield{Compiled}{\today}
   }
@@ -51,6 +51,15 @@ each period, runs community detection on it, and measures whether the
 \term{grouping structure itself} reorganizes at the Sattelzeit, rather
 than only measuring individual words.
 
+One real example from the built data: in the 1770-1790 network,
+\emph{nation} sits in a community of civic-administration words, while
+\emph{revolution} sits in an unrelated community of shape and
+measurement terms. By 1790-1810, both words - along with
+\emph{constitution} - have moved into a single new community of
+abstract systemic and governmental terms, exactly at the transition
+into the French Revolutionary period. \code{docs/method.pdf} covers
+this example, and the full result, in detail.
+
 The full argument, the algorithms, and the exact measurements are set out
 in the companion document, \code{docs/method.pdf}. This overview does not
 repeat them. Its job is orientation: what the thing is, who it is for,
@@ -63,7 +72,7 @@ Two readers are in scope.
 \runin{A historian or intellectual historian} who wants to interrogate
 the result rather than take a summary statistic on faith. For that
 reader, the web tool is the product: type a word, see which semantic
-community it belonged to in every twenty-year window from 1500 onward,
+community it belonged to in every twenty-year window from 1510 onward,
 see explicitly where it moved and where it stayed, and drill into any
 period to read the actual nearest neighbours behind that judgement.
 
@@ -91,21 +100,28 @@ evidence to cite.
 (records to 20-year text windows), \code{embeddings.py} (one word2vec
 model per window), \code{network.py} (each word linked to its 15 nearest
 neighbours by cosine similarity), \code{community.py} (Leiden community
-detection at seven resolution settings), and \code{metrics.py} (how much
-the grouping changed between consecutive periods: migration fraction,
-NMI, adjusted Rand). Alongside them sit \code{pipeline\_config.py}, the
+detection at fifteen resolution settings), and \code{metrics.py} (how much
+the grouping changed between consecutive periods: migration fraction
+(the share of shared words that ended up in a different community),
+plus NMI and adjusted Rand, two standard scores for how similar two
+groupings of the same words are). Alongside them sit
+\code{pipeline\_config.py}, the
 shared configuration loader, and the two optional labeling scripts
 described below.
 
 \runin{\code{webapp/}} is the Koselleck Machine itself, a Flask
-application with a landing page and three views onto the same pre-built
+application with a landing page and four views onto the same pre-built
 networks: \code{/timeline} (the primary view: one word's community across
-every period, in a single strip), \code{/graph} (a D3 force-directed
-explorer for one word's neighbourhood in one period, plus a sampled
-full-network mode), and \code{/search} (a plain lookup table: nearest
-neighbours, community, and whether the word's community changed since the
-previous period). Where the pipeline was also run per region, every page
-gains a region toggle, listing only the regions that were actually built.
+every period, in a single strip), \code{/chat} (\term{Ask}: a
+conversational front end that answers a plain-language question by
+calling tools that read the same built networks and metrics, never
+freehand generation, backed by \code{src/rag/}), \code{/graph} (a D3
+force-directed explorer for one word's neighbourhood in one period,
+plus a sampled full-network mode), and \code{/search} (a plain lookup
+table: nearest neighbours, community, and whether the word's community
+changed since the previous period). Where the pipeline was also run
+per region, every page gains a region toggle, listing only the regions
+that were actually built.
 
 \runin{\code{docs/}} holds this overview and the method note.
 
@@ -128,9 +144,14 @@ The contribution is the measurement, not the data.
 \section{Where it stands}
 \label{sec:status}
 
-Six limitations bound what can be claimed today. All six are stated
+Five limitations bound what can be claimed today. All five are stated
 in full in \code{docs/method.pdf} and surfaced inside the tool itself
-rather than hidden; they are summarised here without softening.
+rather than hidden; they are summarised here without softening. (A
+separate, unrelated mechanism worth knowing about: the webapp displays
+and labels communities at a resolution picked automatically per period
+and region, kept small enough for a human to read - not a fixed value,
+and not what the resolution sweep below is tested against.
+\code{docs/method.pdf} covers it in full.)
 
 \begin{claimbox}
 \claimlabel{Corpus coverage.} The corpus is the Text Creation
@@ -150,8 +171,9 @@ reorganization signal survives across two provenance sources rather than
 one, and the combined corpus stays the headline result. A direct
 consequence: the \code{american} region has no data past 1800 at all,
 since Evans-TCP stops there and the supplement is British-only. ECCO's
-own thinness after 1780 also still means the 1780-1810 window leans
-American-heavy even with the supplement in place. Per-region results
+own thinness after 1780 also still means the 1770-1790 window leans
+American-heavy even with the supplement in place, which only starts
+closing the gap in the window after it, 1790-1810. Per-region results
 carry wider uncertainty than the combined ones, and the American arm
 specifically cannot speak to anything after the Sattelzeit's closing
 edge.
@@ -159,71 +181,55 @@ edge.
 
 \begin{claimbox}
 \claimlabel{OCR artifacts.} Unlike TCP, the British Library supplement
-is OCR-derived, and OCR text carries its own artifacts. One class - an
-original line-break hyphen left sitting in the text (\emph{``utrum-
-que''} for \emph{utrumque}) - was found and fixed. A second, distinct
-class was not: the OCR sometimes drops the line-break hyphen entirely
-and leaves a bare space instead (\emph{``par ticulars''} for
-\emph{particulars}), with no punctuation signal left to detect it by.
-This produces whole communities that are nothing but word fragments
-rather than a real topic - confirmed directly in the 1810-1830 period,
-at least fifteen such communities, some several hundred words large. The
-labeling pass handles this honestly (routed to ``Structural /
-Uncertain,'' not mislabeled), but the underlying vocabulary and network
-metrics for 1810-1830, 1830-1850, and 1870-1890 are still diluted by it.
-A real fix, not yet built, most plausibly needs a dictionary check
-rather than a punctuation pattern.
+is OCR-derived, and OCR text carries its own artifacts. Two classes are
+repaired: an original line-break hyphen left sitting in the text
+(\emph{``utrum- que''} for \emph{utrumque}); and the harder case of the
+OCR dropping that hyphen entirely and leaving a bare space instead
+(\emph{``par ticulars''} for \emph{particulars}), fixed by merging two
+adjacent words only when the merged form is real and at least one half
+isn't independently real on its own - checked by hand against the one
+period a reference wordlist covers, 1790-1810 (142 merges made in the
+first 120 changed documents, all confirmed correct). That wordlist is
+built only from that period's own TCP text, so periods entirely after
+1800 remain unrepaired and untested by this fix.
 \end{claimbox}
 
 \begin{claimbox}
-\claimlabel{A separate, unconfirmed TCP artifact.} A third word-splitting
-pattern, distinct from the OCR issue above, turned up in a handful of
-TCP-covered periods (1510-1650) while raising the labeling resolution
-(next box) - TCP is manually keyed, not scanned, so it cannot be the
-same bug. Words are missing a ``con-''/``com-'' prefix (\emph{mytted}
-for \emph{committed}, \emph{uersation} for \emph{conversation}), most
-likely from how TCP's own markup for a scribal abbreviation mark gets
-handled during extraction - not confirmed, not fixed, flagged rather
-than guessed at.
-\end{claimbox}
-
-\begin{claimbox}
-\claimlabel{Labeling resolution, raised once already.} The webapp
-displays and labels communities at one fixed resolution, separate from
-the sweep every quantitative claim is tested across. It was 1.0 until
-the British Library supplement pushed some periods' vocabularies past
-170{,}000 words and the largest community past 24{,}000 words - too
-large and mixed for any label to describe. Raised to 4.0 after a
-concrete check: the community holding ``system'' in the worst-affected
-period stayed an unstructured mix at 1.0 through 3.0, and only split into
-a real, nameable theme (civil administration and property law) at 4.0.
-The resolution sweep used for the actual claim was extended to match (up
-to 4.0). Expect this to need raising again as the corpus grows further -
-it scales with vocabulary size, it is not a fixed constant.
+\claimlabel{Word-level noise in the network.} Two further patterns
+pass through into the trained networks and cluster tightly enough to
+form their own communities, neither yet fixed at the stage that would
+need to change (which word becomes a node): Latin citation-apparatus
+abbreviations (\emph{capvt}, \emph{deute}, \emph{regu}) - correctly
+transcribed originals, not damage, but carrying no topical content
+either; and a distinct, unconfirmed TCP transcription pattern in a
+handful of communities from 1510-1650 - words missing a
+``con-''/``com-'' prefix (\emph{mytted} for \emph{committed},
+\emph{uersation} for \emph{conversation}), most likely a scribal
+abbreviation mark mishandled during extraction, not confirmed against
+the raw XML, and no fix attempted.
 \end{claimbox}
 
 \begin{claimbox}
 \claimlabel{Label reliability.} Every community carries a short
 plain-English name, generated by reading the community's most
-representative words. A label is inherited, not re-read, for as long as
-the same alignment that decides ``moved''/``stayed'' maps a community
-back to a predecessor - but only for up to three consecutive periods
-(\code{MAX\_INHERITANCE\_CHAIN}), a cap added 2026-08-07 after a
-collaborator-reported case: a community genuinely Dutch/German text at
-1510-1530 was still labeled that way fifteen periods (~300 years) later,
-by which point its real content had passed through seven unrelated
-themes and landed on church governance - the structural ``stayed'' claim
-was correct every step, only the unread label was wrong. Past the cap, a
-fresh read is forced, keeping the same tracked lineage (\code{stayed}
-still means what it always meant) while updating the description - shown
-in the tool as a ``stayed'' transition whose label was just
-re-examined, distinct from one that genuinely never changed. Every fresh
-read, capped or genesis, is still a single, unvalidated pass - useful
-for orientation, not for citation. Separately, roughly half of
-communities carry the ``Structural / Uncertain'' lane rather than a
-topical one (down from 70\% before the labeling resolution was raised,
-see below), because the corpus is multilingual (English, Latin, Law
-French, Welsh, Scots, and more) and early modern, and a detected
+representative words. A label is a candidate to inherit from its
+predecessor only after two independent model reads, given the
+inherited label and the community's current words, agree it still
+fits; either reader saying no forces a fresh read instead. This
+replaced an earlier, blunter safeguard - a fixed cap on how many
+periods a label could inherit before a forced re-read - built after a
+real case: a community genuinely holding Dutch and German text at
+1510-1530 was still labeled that way fifteen periods (roughly 300
+years) later, by which point its content had passed through seven
+unrelated themes and landed on church governance, all unread. Checking
+the actual words on every candidate inheritance, rather than counting
+periods, catches that kind of drift directly instead of just bounding
+how long it can go unnoticed. Every fresh read, forced or genesis, is
+still a single, unvalidated pass - useful for orientation, not for
+citation. Separately, two-fifths to a third of
+communities in every region carry the ``Structural / Uncertain'' lane
+rather than a topical one, because the corpus is multilingual (English,
+Latin, Law French, Welsh, Scots, and more) and early modern, and a detected
 community sometimes groups words by shared grammar or shared language
 rather than by shared topic. The tool shows that lane next to the label
 rather than presenting every label as equally reliable.
@@ -237,11 +243,11 @@ one step earlier, in training, which uses multiple parallel threads and
 is therefore not bit-for-bit repeatable even with a fixed seed, because
 thread scheduling varies. Small differences in the vectors cascade into
 slightly different edges and then into a structurally similar but not
-identical partition: one full rerun found 304 communities in the combined
-corpus where an earlier run found 308. That is a real difference, not a
+identical partition: two full reruns of the same combined corpus have
+produced community counts a few apart. That is a real difference, not a
 bug, and it is not worth trading away the threefold speed of parallel
 training to chase, because the claim under test is whether reorganization
-concentrates at the Sattelzeit and holds across the seven resolution
+concentrates at the Sattelzeit and holds across the fifteen resolution
 settings within a run, not whether a specific community keeps its id
 across two independently retrained copies. The one thing designed to stay
 comparable across reruns is the fixed lane list, because it is authored by
@@ -252,11 +258,15 @@ There is also a standing methodological rule worth repeating here,
 because it governs everything the project will ever report:
 
 \begin{claimbox}
-\claimlabel{Hard rule.} Community detection resolution changes the
-answer. Every network is therefore processed at seven resolution
-settings, and no finding is reported if it holds only at a single,
-convenient one. The sweep exists to test that a conclusion survives
-across settings, not to pick the setting that agrees with the hypothesis.
+\claimlabel{Hard rule.} \emph{Resolution} is the one parameter that
+controls how many communities the detection step finds and how large
+they are - a higher resolution means more, smaller, more tightly-defined
+communities; a lower one means fewer, larger, looser ones - and it
+changes the answer. Every network is therefore processed at fifteen
+resolution settings, and no finding is reported if it holds only at a
+single, convenient one. The sweep exists to test that a conclusion
+survives across settings, not to pick the setting that agrees with the
+hypothesis.
 \end{claimbox}
 
 Finally, on availability: the Koselleck Machine currently runs locally
@@ -289,7 +299,7 @@ anything is renamed.
 The corpus itself is fetched separately. All three TCP components used
 here are public domain, and the bulk P4 XML zip shards are downloaded
 directly from the Text Creation Partnership. They are laid out under
-\pathref{corpus/tcp/regions/<region>/<source>/*.zip}, for example
+\pathref{corpus/<region>/<source>/*.zip}, for example
 \code{british/eebo\_phase1/}, \code{british/ecco/},
 \code{american/evans/}. Both folder levels are free-form:
 \code{parse\_tcp.py} reads the zips in place, without unpacking them, and
@@ -330,7 +340,7 @@ fill in; \code{compile} turns the CSV into the JSON the webapp reads; and
 \code{publish} copies the CSV and JSON into the repository's
 \code{labels/} directory as a citable snapshot. \code{{\dd}region} also
 accepts a region name or \code{all}. The prompt the model is given lives
-in the repository as \pathref{src/prompts/community_labeling_v1.md}, and
+in the repository as \pathref{src/prompts/community_labeling_v3.md}, and
 \code{docs/method.pdf} quotes and documents it in full.
 
 \subsection{Running the web tool locally}
@@ -356,7 +366,7 @@ two cases, and only one of them touches code.
 \runin{Case A: the material is already in TCP's P4 XML format} (another
 TCP release, or a repackaged TCP subset). No code change at all. Drop the
 zip files at
-\pathref{<data_root>/corpus/tcp/regions/<a-region-name>/<a-source-name>/*.zip}
+\pathref{<data_root>/corpus/<a-region-name>/<a-source-name>/*.zip}
 and rerun the pipeline from \code{src/parse\_tcp.py}. Nothing needs
 registering anywhere: both folder names are free-form, the region level
 becomes the region tag carried through the pipeline and the webapp, the
@@ -394,9 +404,13 @@ files in the right folder, rerun the scripts in order.
 
 \code{docs/method.pdf} is the full method note: the argument, the
 algorithms, the resolution sweep and why it is non-negotiable, the
-labeling prompt and workflow in full, and the limitations in their
-unabridged form. The repository's \code{README.md} carries the
-operational detail: corpus download links and licensing, the exact
-expected data layout, and deployment notes.
+actual result and what it does and does not show for Koselleck's
+claim, the labeling prompt and workflow in full, and the limitations
+in their unabridged form. \code{docs/pipeline\_manual.pdf} covers the
+implementation stage by stage, for a reader who wants to see exactly
+what each script does or is troubleshooting a specific one. The
+repository's \code{README.md} carries the operational detail: corpus
+download links and licensing, the exact expected data layout, and
+deployment notes.
 
 \end{document}

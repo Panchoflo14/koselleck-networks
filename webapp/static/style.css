@@ -1511,36 +1511,80 @@ h1 {
 }
 .chat-example:hover { color: var(--ink); border-color: var(--ink); }
 
-/* Evidence panel - one readable row per source. The claim is Body text and
-   comes first; the reliability swatch and citation are a quiet meta line
-   underneath, not the headline (see chat.js's evidenceItem for why). */
+/* Evidence panel - one compact row per source, not a card. A response with
+   many similar-shaped facts (a word's per-period trajectory, say) used to
+   stack full bordered boxes - a paragraph-height claim plus its own meta
+   line - and the repetition compounded badly past a handful of items. Rows
+   share one thin divider between them instead of a border+background each,
+   so density scales with how much the answer actually needs to say, not
+   with fixed per-item chrome. The claim stays Body text and stays the
+   headline; tier is now a small letter badge (color + letter, never color
+   alone) instead of a repeated word, and citation drops the period - already
+   in the claim sentence - to cut the redundancy that was most of the
+   "reads the same every time" complaint. */
 .ev-panel { border-top: 1px dashed var(--line); padding-top: 0.6rem; margin-top: 0.3rem; }
-.ev-panel-title { font-family: var(--font-label); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
-.ev-list { display: flex; flex-direction: column; gap: 0.5rem; }
-.ev-item {
-  padding: 0.55rem 0.7rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--line);
-  border-top: 3px solid var(--line);
-  background: var(--card);
+/* The panel is a <summary>, not a label sitting above always-visible
+   content - it needs to read as clickable (cursor, hover color) the same
+   way .caveat's nested "why this one needs care" summary already does. The
+   browser's own disclosure triangle is kept for the same reason it's kept
+   there: it's the one marker every browser already teaches a reader to
+   read as "click to expand," so there's no reason to hide it and reinvent
+   it as a custom chevron. */
+.ev-panel-title {
+  display: list-item;
+  cursor: pointer;
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
-.ev-claim { margin: 0; font-family: var(--font-body); font-size: var(--type--1); color: var(--ink); line-height: 1.45; }
-.ev-meta { display: flex; align-items: baseline; gap: 0.5rem; margin-top: 0.35rem; }
+.ev-panel-title:hover { color: var(--ink); }
+.ev-panel[open] .ev-panel-title { margin-bottom: 0.5rem; }
+.ev-list { display: flex; flex-direction: column; }
+.ev-item {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 0.55rem;
+  row-gap: 0.15rem;
+  padding: 0.4rem 0.1rem;
+  border-bottom: 1px solid var(--line);
+}
+.ev-list .ev-item:last-child { border-bottom: none; }
+.ev-claim { margin: 0; font-family: var(--font-body); font-size: var(--type--1); color: var(--ink); line-height: 1.45; flex: 1 1 20rem; }
+.ev-cite { font-family: var(--font-mono); font-size: var(--type--2); color: var(--muted); white-space: nowrap; }
 .ev-swatch {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
   font-family: var(--font-label);
   font-size: var(--type--2);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
+  font-weight: 700;
+  border: 1px solid currentColor;
+  cursor: default;
 }
-.ev-cite { font-family: var(--font-mono); font-size: var(--type--2); color: var(--muted); }
-.ev-measured { border-top-color: var(--accent-net); }
 .ev-swatch-measured { color: var(--accent-net); }
-.ev-inferred { border-top-color: #9A6B1E; }
 .ev-swatch-inferred { color: #9A6B1E; }
-.ev-unreliable { border-top-color: var(--accent-hist); background: #F3E7E3; }
 .ev-swatch-unreliable { color: var(--accent-hist); }
-.ev-caveat { margin-top: 0.4rem; padding-top: 0.4rem; }
+.ev-unreliable { background: #F3E7E3; }
+.ev-caveat { flex-basis: 100%; margin-top: 0.15rem; padding-top: 0.35rem; }
+
+/* Visually hidden but present for screen readers - the swatch's title
+   attribute covers pointer/hover, this covers everyone else. */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 .chat-footnote { font-family: var(--font-body); font-size: 0.78rem; color: var(--muted); margin-top: 0.85rem; }
 .chat-footnote .ev-swatch { font-size: 0.72rem; }

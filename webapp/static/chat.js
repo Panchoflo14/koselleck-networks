@@ -28,30 +28,40 @@
     return wrap;
   }
 
-  // One Evidence record -> a readable row. The claim (already plain-language
-  // from tools.py, see src/rag/tools.py's 2026-09-08 rewrite) is the primary,
-  // always-visible text - it used to be the *only* thing hidden behind a
-  // hover tooltip, with the raw tier name and technical citation as the only
-  // visible content, exactly backwards for a historian reader (and useless
-  // on touch, where hover doesn't exist). Tier is now a small color-coded
-  // swatch + word (still the project's own measured/inferred/unreliable
-  // vocabulary - that's an established epistemic framework, not jargon to
-  // rename), the citation moves to a quiet mono tag, and a caveat - when
-  // present - uses the same <details class="caveat"> disclosure pattern the
-  // rest of the app already uses (see graph.html/timeline.html) instead of
-  // only surfacing in a tooltip.
+  // Tier letters for the compact swatch - never color-only (a deuteranope
+  // or screen-reader user needs the letter/aria-label too), but a full word
+  // repeated on every one of a dozen rows was most of the readability
+  // problem this rewrite fixes. Full word still lives in the title tooltip
+  // and an sr-only span.
+  const TIER_LETTER = { measured: "M", inferred: "I", unreliable: "F" };
+  const TIER_WORD = { measured: "measured", inferred: "inferred", unreliable: "flagged" };
+
+  // One Evidence record -> one compact row. The claim (already plain-language
+  // from tools.py, see src/rag/tools.py's 2026-09-08 rewrite) is the primary
+  // text on the line; the tier is a small color+letter badge (not a repeated
+  // word) and the citation drops the period (already in the claim text) to
+  // cut redundancy. A response with many similar-shaped facts (e.g. a word's
+  // per-period trajectory) used to render each as its own bordered,
+  // multi-line card - readable alone, but a wall of near-identical boxes once
+  // stacked. Rows fix the compounding case without losing anything: same
+  // claim, same tier, same citation, just far less chrome per line.
   function evidenceItem(ev) {
     const tier = ev.tier || "inferred";
     const item = el("div", "ev-item ev-" + tier);
 
+    const swatch = el("span", "ev-swatch ev-swatch-" + tier);
+    swatch.textContent = TIER_LETTER[tier] || "?";
+    swatch.title = TIER_WORD[tier] || tier;
+    const swatchLabel = el("span", "sr-only", (TIER_WORD[tier] || tier) + ": ");
+    swatch.appendChild(swatchLabel);
+    item.appendChild(swatch);
+
     item.appendChild(el("p", "ev-claim", ev.claim || ""));
 
-    const meta = el("div", "ev-meta");
-    const swatch = el("span", "ev-swatch ev-swatch-" + tier);
-    swatch.textContent = tier === "unreliable" ? "flagged" : tier;
-    meta.appendChild(swatch);
-    meta.appendChild(el("span", "ev-cite", ev.citation || ev.source || ""));
-    item.appendChild(meta);
+    const citeParts = (ev.citation || ev.source || "")
+      .split(" · ")
+      .filter((p) => !/^\d{4}-\d{4}$/.test(p));
+    item.appendChild(el("span", "ev-cite", citeParts.join(" · ")));
 
     if (ev.caveat) {
       const details = el("details", "caveat ev-caveat");
@@ -62,13 +72,20 @@
     return item;
   }
 
+  // The whole panel is one <details> disclosure, closed by default - the
+  // Perplexity/Claude/ChatGPT pattern this is headed toward: the answer
+  // reads on its own, and "how do I know that" is a single deliberate click
+  // away rather than a wall of citations sitting under every reply whether
+  // you asked for them or not.
   function addEvidence(evidence) {
     if (!evidence || !evidence.length) return;
-    const panel = el("div", "ev-panel");
-    panel.appendChild(el("div", "ev-panel-title", "Sources for this answer"));
+    const panel = el("details", "ev-panel");
+    const summary = el("summary", "ev-panel-title", `Sources (${evidence.length})`);
+    panel.appendChild(summary);
     const list = el("div", "ev-list");
     evidence.forEach((ev) => list.appendChild(evidenceItem(ev)));
     panel.appendChild(list);
+
     log.appendChild(panel);
     log.scrollTop = log.scrollHeight;
   }

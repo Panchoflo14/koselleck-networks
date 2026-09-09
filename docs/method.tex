@@ -35,7 +35,7 @@ The historian Reinhart Koselleck argued that the period 1770-1830 (the
 \term{Sattelzeit}, German for ``saddle period'') was not simply an era
 in which many words happened to change meaning at the same time. He
 claimed it was a moment when the whole vocabulary of politics and society
-reorganized \term{as a system}: concepts shifted together, in
+reorganized \emph{as a system}: concepts shifted together, in
 relation to one another, rather than drifting independently one at a
 time. This has always been argued in prose, from close reading of texts.
 It has never been tested computationally.
@@ -46,16 +46,32 @@ period and measured how far each individual word moves from one period
 to the next. He found that this movement is unusually large around
 1770-1830, which supports the idea that something real happened in that
 window. But his method looks at one word at a time. It cannot say
-whether words moved \term{together}, as a system reorganizing around a
+whether words moved \emph{together}, as a system reorganizing around a
 shared structure, or whether each word's shift is its own independent
 event that simply happens to cluster in time.
 
 This project adds that second, missing test. Instead of asking how far a
-single word moves, it asks whether the \term{groupings} among words, the
+single word moves, it asks whether the groupings among words, the
 way the whole vocabulary is organized into clusters of related meaning,
 change unusually around the same decades. If Koselleck is right, we
 should see the cluster structure itself reorganize at the Sattelzeit, not
 just individual words drifting off on their own.
+
+One real example from the built data shows what this looks like
+concretely. In the network for 1770-1790, \emph{nation} sits in a
+community of civic-administration words (\emph{treasurer, sheriffs,
+electors, burgesses}), while \emph{revolution} sits in an unrelated
+community of shape and measurement terms (\emph{oval, oblong,
+compressed, bushels}). By the very next window, 1790-1810, both words
+- along with \emph{constitution} - have moved into a single new
+community built around abstract systemic and governmental process
+words (\emph{government, arrangements, processes, phenomena}). Three
+politically central words, previously scattered across unrelated
+communities, land in the same one at exactly the transition into the
+French Revolutionary period. This is one concrete instance of the
+pattern the \term{migration fraction} (item 6 below) measures in
+aggregate across the whole vocabulary - not proof on its own, but a
+picture of what ``moved together'' actually looks like in the data.
 
 \section{Method}
 
@@ -85,7 +101,10 @@ layer on top that a word-by-word approach cannot produce.
     a model (\term{word2vec}) is trained independently, learning a
     numeric representation of every word from how it is actually used in
     that period's text: words that appear in similar contexts end up with
-    similar representations. Training a separate model per period, rather
+    similar representations. For example, if ``king'' and ``queen'' both
+    tend to appear near words like ``crown'' and ``reign'' in a period's
+    text, the model gives them similar numeric representations. Training
+    a separate model per period, rather
     than one model updated continuously, is what makes it possible to
     later measure both individual word drift and whole-system
     reorganization: a word's meaning only makes sense relative to the
@@ -98,14 +117,25 @@ layer on top that a word-by-word approach cannot produce.
     representations are). A fixed number of nearest neighbours is used
     instead of a similarity threshold, because at this vocabulary scale a
     fixed threshold produces networks too dense to cluster meaningfully:
-    at a 0.3 threshold, roughly one in ten possible word pairs was
-    linked, tens to hundreds of millions of edges per period. Purely
-    grammatical words (articles,
-    prepositions, pronouns) and single-letter tokens are excluded as
-    network nodes, since the interest is in words that carry conceptual
-    content, not the grammatical scaffolding of the language (those
-    grammatical words are still used during training itself, since they
-    help place every other word correctly).
+    in early testing, on a then-smaller corpus, a 0.3 threshold linked
+    roughly one in ten possible word pairs, tens to hundreds of millions
+    of edges per period - a density that only gets worse now that
+    per-period vocabularies reach up to 170{,}000 words.
+
+    A fixed, hand-curated list of about ninety common function words -
+    articles, prepositions, conjunctions, the standard pronoun forms,
+    auxiliary verbs, plus early-modern spelling variants (\emph{hath},
+    \emph{doth}, \emph{thou}, \emph{ye}, \emph{unto}) that EEBO/ECCO/Evans
+    spelling keeps unmodernized - is excluded from the network as nodes,
+    along with every single-letter token (always either one of these
+    words, a Latin citation abbreviation, or an OCR artifact).
+
+    These words still take part in training, where they help place every
+    other word's meaning correctly; they are left out only at this
+    network-building stage, since the interest here is in words that
+    carry conceptual content. The exclusion is this specific list, not a
+    part-of-speech rule - it does not remove every pronoun as a
+    grammatical category, only the particular forms named above.
 
   \item \term{Detect communities.} A \term{community detection}
     algorithm (\term{Leiden}) is run on each network, grouping words
@@ -114,10 +144,10 @@ layer on top that a word-by-word approach cannot produce.
     used in similar ways to each other more than to the rest of the
     vocabulary.
 
-    This differs from familiar clustering methods such as $k$-means in a
-    basic way. $k$-means fixes a number of groups in advance and assigns
-    each item to whichever group's average position it sits closest to.
-    Leiden does neither: it does not fix the number of groups beforehand,
+    This differs from other clustering methods in a basic way. Some
+    methods, $k$-means among them, fix a number of groups in advance and
+    assign each item to whichever group's average position it sits
+    closest to. Leiden does neither: it does not fix the number of groups beforehand,
     and it never compares a word to a group's ``average'', it only ever
     asks a relational question about a word's actual connections. For any
     word, and any group it is already directly connected to, Leiden checks
@@ -142,12 +172,14 @@ layer on top that a word-by-word approach cannot produce.
   \item \term{Repeat detection at several levels of detail.} Community
     detection does not have one single ``correct'' answer: a parameter
     called \term{resolution} controls how many groups appear and how
-    large they are, by changing how large a word's own connections have to
-    be, relative to chance, before joining a group is judged worthwhile.
-    For that reason every network is processed at fifteen fixed
-    resolution settings, 0.1 to 16.0, and any claim about reorganization
-    has to hold up across all of them, not just one chosen after the
-    fact.
+    large they are. Raising resolution produces more, smaller, more
+    tightly-defined groups; lowering it produces fewer, larger, more
+    loosely-defined ones - by changing how large a word's own connections
+    have to be, relative to chance, before joining a group is judged
+    worthwhile. For that reason every network is processed at fifteen fixed
+    resolution settings, currently 0.1 to 16.0, and any claim about
+    reorganization has to hold up across all of them, not just one
+    chosen after the fact.
 
     \begin{claimbox}
     \claimlabel{Hard rule.} No single setting among the fifteen is ever
@@ -158,13 +190,27 @@ layer on top that a word-by-word approach cannot produce.
     convenient resolution.
     \end{claimbox}
 
+    These fifteen values are calibrated to this project's current
+    corpus, not a fixed universal range: the sweep has already been
+    extended once before as the corpus grew, raised in two steps to
+    reach today's ceiling of 16.0 once the British Library supplement
+    pushed per-period vocabularies past what the earlier range could
+    meaningfully resolve (that extension's full detail lives in
+    ``Choosing the labeling resolution'' below, alongside the related
+    display-resolution history). A substantially larger future corpus
+    would likely need this range extended again the same way.
+
     A second, separate resolution decides only which single partition is
     displayed and labeled in the interactive explorer below - a reading
     convenience, with no bearing on which finding gets reported. It is
-    picked per period and per region automatically, from the same swept
-    values, as the lowest one at which no community grows past a
-    1{,}500-word cap; \S\ref{sec:webapp} covers the mechanism and why it
-    replaced an earlier fixed choice.
+    picked per period and per region automatically, by a bisection
+    search independent of the sweep's fifteen values - starting from
+    resolution 1.0 and doubling or halving to bracket, then narrowing,
+    the lowest resolution at which no community grows past a
+    1{,}500-word cap. Unlike the sweep, it has no fixed ceiling or
+    floor: a given period and region can land above 16.0 or below 0.1.
+    ``Choosing the labeling resolution'' below covers the mechanism and
+    why it replaced an earlier fixed choice.
 
   \item \term{Compare consecutive periods.} For each pair of
     consecutive periods, the comparison is restricted to words that
@@ -172,86 +218,133 @@ layer on top that a word-by-word approach cannot produce.
     possible match between one period's groups and the next period's
     groups is found first, because group numbers do not mean the same
     thing from one period to the next, so the correspondence has to be
-    established before anything can be compared. Concretely
-    (\code{metrics.py}'s \code{align\_communities}): build a contingency
-    table counting, for every (old group, new group) pair, how many
-    shared words fall in that pair, then solve it as a single global
-    assignment problem (the Hungarian algorithm, via SciPy's
-    \code{linear\_sum\_assignment}) that picks the one-to-one relabeling
-    of new group numbers onto old ones maximizing the total word count
-    matched. This is a fixed, deterministic optimum over all groups at
-    once, computed once per period pair -- there is no
-    percentage-overlap threshold anywhere in it, and no per-group
-    decision made independently of the others. A single shared word then
-    counts as \term{moved} if, under that one relabeling, its new
-    group's mapped-back old identity differs from the old group it was
-    actually in; otherwise it counts as \term{stayed}. Then the fraction
-    of shared words that still ended up in a different group, despite
-    that best match, is measured. That fraction, how much of the shared
-    vocabulary ``migrated'' to a new group, is what this project calls
-    the \term{migration fraction}: its central measurement of how
-    much reorganization happened between two periods. The interactive
-    explorer's per-word ``moved''/``stayed'' arrows (Section
-    \ref{sec:webapp}) are read off this exact same per-word classification,
-    not a separate or looser check, so a single word's arrow and the
-    aggregate migration fraction can never disagree about what counts as
-    moving.
+    established before anything can be compared.
+
+    Concretely (\code{metrics.py}'s \code{align\_communities}): build a
+    contingency table (a grid of counts crossing every old group against
+    every new group) counting, for every (old group, new group) pair,
+    how many shared words fall in that pair, then solve it as a single
+    global assignment problem (the \term{Hungarian algorithm}, a standard
+    way to find the best one-to-one matching between two groupings, run
+    via SciPy) that picks the one-to-one relabeling of new group numbers
+    onto old ones maximizing the total word count matched. This is a
+    fixed, deterministic optimum over all groups at once, computed once
+    per period pair -- there is no percentage-overlap threshold anywhere
+    in it, and no per-group decision made independently of the others.
+
+    A single shared word then counts as \emph{moved} if, under that one
+    relabeling, its new group's mapped-back old identity differs from
+    the old group it was actually in; otherwise it counts as
+    \emph{stayed}. The fraction of shared words that still ended up in a
+    different group, despite that best match, is what this project calls
+    the \term{migration fraction}. For example, if 100 words appear in
+    both period A and period B, and 40 of them end up in a different
+    group even after the best possible matching, the migration fraction
+    for that pair is 0.40. It is this project's central measurement of
+    how much reorganization happened between two periods, computed once
+    per period pair at each of the fifteen sweep resolutions -- this is
+    the figure item 7 tests the hypothesis against.
+
+    The interactive explorer (Section \ref{sec:webapp}) shows a second,
+    separate version of the same measurement, computed the identical
+    way but between each period pair's own auto-picked \term{display
+    resolution} (item 5) rather than a shared sweep value -- since
+    different periods can land on different display resolutions, this
+    is its own alignment, not a lookup into the sweep result. This is
+    the number, and the per-word ``moved''/``stayed'' arrow, that
+    belongs next to a community a reader is actually looking at; it is
+    never what a reorganization claim is tested against, which is
+    always the sweep-based figure above.
 
   \item \term{Test whether reorganization concentrates at the
     Sattelzeit.} The hypothesis predicts that the migration fraction
     should be unusually high specifically for the transitions that fall
     inside or close out the 1770-1830 window, compared to every other
-    transition across the full 1510-1910 timeline. This measurement has
-    been run against the current corpus; results are reported separately
-    (\code{docs/pipeline\_manual.pdf}'s Stage 8 section) and are not
-    summarized here.
+    transition across the full 1510-1910 timeline.
 
-  \item \term{Repeat the whole measurement per region.} The corpus is not
-    evenly British across the timeline, and the imbalance is worst exactly
-    where it matters most: in 1770-1790 the American material
-    (Evans-TCP, 1{,}030 documents) outweighs the British (mostly
-    ECCO-TCP, 792 documents), because ECCO's public transcriptions thin
-    out sharply at the end of the eighteenth century. A change in the
-    cluster structure
-    across that boundary could therefore reflect a change in \emph{who was
-    writing} rather than a change in the language. To separate the two,
-    every step above (training, network construction, community
-    detection, the resolution sweep, and the migration fraction) is also
-    run on each region's documents alone, in addition to the combined
-    corpus. If the reorganization is real, it should show up inside the
-    British-only and the American-only timelines as well, not only in the
-    mixture of them; if it shows up only in the combined run, it is an
-    artifact of corpus composition rather than semantic history. Nothing
-    here hardcodes which regions exist: a document's region is simply the
-    top-level folder its source was filed under, so the same check extends
-    to any other split of the corpus.
+    \begin{claimbox}
+    \claimlabel{Result.} Averaged across the fifteen-resolution sweep,
+    the transitions bracketing the Sattelzeit do rise -- combined
+    region: 1750-1770 to 1770-1790 at 0.41, 1770-1790 to 1790-1810 at
+    0.45, 1790-1810 to 1810-1830 at 0.52 -- but this is a gradual
+    climb, not a spike isolated to the window: 1810-1830 to 1830-1850
+    stays elevated at 0.50 rather than falling back afterward, and the
+    single highest transition in the entire 1510-1910 series falls
+    before the Sattelzeit, not inside it. For a sense of scale, the
+    migration fraction across the full 1510-1910 series spans a range
+    from transitions where the partition stays roughly consistent to
+    ones, like the pre-Sattelzeit peak below, where more than half of
+    the shared vocabulary changes group; the Sattelzeit-adjacent numbers
+    above sit toward the high end of that range without being its
+    maximum. (Exact figures below are the fifteen-resolution average
+    for one pipeline run; see Reproducibility under Current limitations
+    for how much they can be expected to shift on an independent
+    rerun.)
 
-  \item \term{Dictionary cross-check (not yet implemented).} As a
-    second line of evidence, independent of the network entirely, the
-    plan is to take the words that change group right at the pivot and
-    check whether the OED or other period dictionaries independently
-    record a dated sense change at the same moment. This layer is not yet
-    designed: the corpus mixes British and American sources, and matching
-    each source against the wrong regional dictionary would invalidate
-    the comparison, so the choice of dictionary per source has to be
-    resolved first.
+    1690-1710 to 1710-1730 measures 0.55 in the combined corpus and 0.62
+    in the British-only split (see the region-split check below) --
+    both above every transition the Sattelzeit window itself produces.
+    That pre-Sattelzeit peak coincides with a real, isolated drop in
+    shared vocabulary between those two periods, consistent with a
+    corpus-coverage artifact -- ECCO-TCP thins out precisely in this
+    range (see Corpus below) -- rather than a genuine reorganization
+    signal, though this has not been confirmed either way.
+
+    Taken together, this measurement does not show a clean, isolated
+    reorganization spike at 1770-1830: the pattern is a modest, gradual
+    rise that survives the region-split check but does not stand out
+    from at least one earlier, likely-artifactual transition. Full
+    per-resolution numbers and the complete period series are in
+    \code{docs/pipeline\_manual.pdf}'s Stage 8 section.
+    \end{claimbox}
+
+  \item \term{Repeat the whole measurement per region.} The corpus is
+    not evenly British across the timeline, and the imbalance is worst
+    exactly where it matters most (the real numbers are in ``Corpus
+    coverage'' under Current limitations, below): a change in the
+    cluster structure at that boundary could therefore reflect a
+    change in \emph{who was writing} rather than a change in the
+    language.
+
+    To separate the two, every step above (training, network
+    construction, community detection, the resolution sweep, and the
+    migration fraction) is also run on each region's documents alone, in
+    addition to the combined corpus. If the reorganization is real, it
+    should show up inside the British-only and the American-only
+    timelines as well, not only in the mixture of them; if it shows up
+    only in the combined run, it is an artifact of corpus composition
+    rather than semantic history. Nothing here hardcodes which regions
+    exist: a document's region is simply the top-level folder its
+    source was filed under, so the same check extends to any other
+    split of the corpus.
+
 
 \end{enumerate}
 
 \subsection{Corpus}
 
-The primary source is the \term{Text Creation Partnership (TCP)}:
-curated, manually corrected transcriptions with no OCR noise, covering
-1500-1800 (EEBO-TCP, ECCO-TCP, Evans-TCP). Since the Sattelzeit extends
-to 1830 and TCP stops at 1800, the 1800-1900 gap is filled by the
-\term{British Library}'s digitised 19th-century books collection
-(49{,}455 books, roughly 65{,}000 volumes, OCR-derived text with
-catalogue metadata already attached, public domain). Project Gutenberg
-was considered first and dropped: its metadata carries only its own
-digitisation date, not the original print publication date, which makes
-it unusable for a method that buckets every document by the year it was
-actually written. HistWords (pre-trained historical embeddings) is used
-only as an independent sanity check, not as primary evidence.
+Four sources were considered for the corpus; only the first two are
+actually used:
+
+\begin{itemize}
+  \item \term{Primary source.} The \term{Text Creation Partnership
+    (TCP)}: curated, manually corrected transcriptions with no OCR
+    noise, covering 1500-1800 (EEBO-TCP, ECCO-TCP, Evans-TCP).
+  \item \term{Supplement.} Since the Sattelzeit extends to 1830 and TCP
+    stops at 1800, the 1800-1900 gap is filled by the \term{British
+    Library}'s digitised 19th-century books collection (49{,}455 books,
+    roughly 65{,}000 volumes, OCR-derived text with catalogue metadata
+    already attached, public domain).
+  \item \term{Considered and rejected.} Project Gutenberg was considered
+    first and dropped: its metadata carries only its own digitisation
+    date, not the original print publication date, which makes it
+    unusable for a method that buckets every document by the year it
+    was actually written.
+  \item \term{Considered, not used.} HistWords (pre-trained historical
+    embeddings) was identified as a possible independent check against
+    this project's own result, but no such comparison has actually
+    been run - nothing in the pipeline reads or depends on it.
+\end{itemize}
 
 Each source is filed under a region: \code{british} for EEBO-TCP,
 ECCO-TCP, and now the British Library supplement; \code{american} for
@@ -259,17 +352,17 @@ Evans-TCP, which stops at 1800 along with the rest of TCP. The region
 tag is not a claim about two different English-language communities -
 for most of this timeline, American print culture and British print
 culture share the same language, and treating them as linguistically
-distinct would not be defensible. It tracks archive provenance instead:
+distinct would not be defensible.
+
+It tracks archive provenance instead:
 EEBO/ECCO and the British Library are one continuous British-print
 lineage, Evans is an independently curated American-print archive.
-Read this way, the region split is a robustness check, not a dialect
-comparison: if the reorganization signal this project measures shows up
-independently in both archives, that is evidence it is not an artifact
-of one archive's quirks; the combined corpus stays the headline result
-either way. A direct consequence of this design: since the British
-Library supplement is tagged \code{british}, the \code{american} region
-has no data past 1800 at all, an honest asymmetry rather than a gap to
-paper over.
+As item 8 above explains, that is what makes the region split a
+robustness check rather than a dialect comparison; the combined corpus
+stays the headline result either way. A direct consequence of this
+design: since the British Library supplement is tagged \code{british},
+the \code{american} region has no data past 1800 at all, an honest
+asymmetry rather than a gap to paper over.
 
 \subsection{Not a closed dataset}
 
@@ -291,23 +384,48 @@ right folder, rerun the pipeline scripts in order.
 \section{The interactive explorer}
 \label{sec:webapp}
 
+The historical argument is complete at this point: every quantitative
+claim above, including whether reorganization concentrates at the
+Sattelzeit, is produced by \code{src/metrics.py} and needs no labels or
+web interface at all. What follows describes optional tooling for
+reading and browsing that result, not further evidence for or against
+the hypothesis.
+
 Alongside the pipeline, a small web tool, the \term{Koselleck
 Machine}, makes the per-period networks directly explorable, without
-reading raw numbers. It has three views of the same underlying data.
+reading raw numbers. It has four views of the same underlying data.
 
 \runin{Timeline.} The primary view. Type a word and see, in one
 continuous strip, which community it belonged to in every period it
-appears in: the community's plain-English label and its lane (below)
-as a secondary colour cue, an explicit gap where the word is simply
-absent from that period's vocabulary, and a marked step wherever the
-word's community actually changed from the period before, versus stayed
-the same. Earlier drafts of this tool led with the graph explorer below,
+appears in. Three encodings carry that information:
+
+\begin{enumerate}[itemsep=0.15em,label=\arabic*.]
+  \item the community's plain-English label, with its lane (below) as a
+    secondary colour cue;
+  \item an explicit gap where the word is simply absent from that
+    period's vocabulary;
+  \item a marked step wherever the word's community actually changed
+    from the period before, versus stayed the same.
+\end{enumerate}
+
+Earlier drafts of this tool led with the graph explorer below,
 but historian collaborators who reviewed it found a force-directed
 diagram hard to read at a glance; what they consistently asked for
 instead was exactly this, which domain a word belonged to, over time,
 read directly rather than inferred from a picture. Clicking any period
 in the strip opens that word's full neighbourhood there, reusing the
 word search view below.
+
+\runin{Ask.} A conversational front end to the same measured results,
+for a question in plain language instead of a chart: type something
+like ``did word meaning change the most around 1770-1830?'' and get an
+answer grounded in the same networks, communities, and metrics
+described above, never freehand generation. A model answers only by
+calling a fixed set of tools that read the built data - it never sees
+raw tables, only what those tools return - so a question the data
+cannot answer gets an honest ``the structure doesn't show that''
+instead of a guess, and every claim is tagged by how reliable that
+evidence actually is.
 
 \runin{Word search.} The same underlying data, presented as a plain
 table instead of a diagram: type a word and a period, and get back its
@@ -337,22 +455,38 @@ the sub-corpora directly, and a shift can be checked against the possibility
 that it only exists in the mixture. The switch lists only the regions that
 were actually built, read off the data itself rather than assumed.
 
+\claimlabel{Interface scope, going forward.} Of the four views above,
+Timeline and Ask carry the most weight in practice: Timeline for
+tracking one word's story across periods, Ask for querying the
+measured findings directly in plain language. The graph explorer gives
+comparatively little insight by comparison - a force-directed layout
+of hundreds or thousands of nodes doesn't tell a viewer much more than
+the same neighbourhood already shown as a table, and it becomes less
+useful, not more, exactly as the network grows large enough that the
+full graph can no longer be usefully viewed at once. Simplifying the
+interface down to Timeline and Ask, dropping or de-emphasizing the
+graph explorer, is under consideration.
+
 Every community shown in any view carries a short, plain-English label
 (for example ``Government \& Law'', ``Moral Character \& Virtue''), read
 by a language model from each community's most representative words: a
-convenience for a human reader, not a finding in itself. A label is not
+convenience for a human reader, not a finding in itself.
+
+A label is not
 re-read independently every period. Whenever the same correspondence
 step the migration fraction is built on maps a community back to a
 predecessor with a label, that label is a candidate to carry forward -
 but only after two independent model reads, given the inherited label
 and the community's current words, both agree it still fits; either
 reader saying no forces a fresh read instead. Across the three current
-snapshots (\S\ref{sec:webapp}'s ``Where the published labels live''),
-58--63\% of labels in the combined and British runs carry forward this
+snapshots (``Where the published labels live'' below), 58--63\% of
+labels in the combined and British runs carry forward this
 way; in the thinner American run, where more periods are a lineage's own
-first appearance, fresh reads are the majority instead. Roughly half of
-communities in the combined and British runs, and a third in American,
-are sorted into the \term{``Structural / Uncertain''} lane rather than a
+first appearance, fresh reads are the majority instead.
+
+Two-fifths to a
+third of communities in every region are sorted into the
+\term{``Structural / Uncertain''} lane rather than a
 topical one: the corpus is multilingual (English, Latin, Law French,
 Welsh, Scots, and more) and early modern, and a community detected by
 this method sometimes groups words by shared grammar (verb
@@ -374,62 +508,73 @@ a community's plain-English label and number stay the primary signal;
 its lane is a secondary colour cue layered on top, not a replacement for
 reading the actual label.
 
-\subsection{How the labels are actually produced}
+The paragraphs above describe what the labels are for. The following
+four subsections give the mechanics, so that a technical reader can
+see exactly what the model was asked to do and reproduce or replace
+it.
 
-The paragraphs above describe what the labels are for. This subsection
-gives the mechanics, so that a technical reader can see exactly what the
-model was asked to do and reproduce or replace it. Labeling is an
-optional, clearly separable stage: every quantitative result in this
-document is produced by \code{src/metrics.py} and needs no labels at all.
-
-\subsubsection{Choosing the labeling resolution}
+\subsection{Choosing the labeling resolution}
 
 Community detection produces a partition at every resolution in the
 sweep; the webapp displays and labels only one of them, a choice
-separate from the sweep itself and revisited once already. It was
-originally 1.0. Adding the British Library supplement grew some
-periods' vocabularies past 170{,}000 words, and at 1.0 the largest
-community in the latest periods had grown with them to 24{,}608 words
-(14\% of that period's vocabulary) - a size at which no label, model or
-human, can describe what is actually inside it. This was not a new
-failure mode introduced by the supplement, only a more visible one: the
-largest community was already a stable 12-15\% of the vocabulary at
-every period size tested, small and unremarkable at 70{,}000 words,
-absurd at 170{,}000.
+separate from the sweep itself. Today that display resolution is
+picked automatically: for every period and region-split variant
+independently, a bisection search - starting from resolution 1.0 and
+doubling or halving to bracket, then narrowing - finds the lowest
+resolution at which no community grows past a fixed 1{,}500-word cap.
+This search is independent of the fifteen-setting sweep described in
+item 5 above, not restricted to picking one of those fifteen values,
+so a given period or region can land anywhere, including above 16.0 or
+below 0.1. \code{docs/pipeline\_manual.pdf}'s Stage 6 section covers
+the search mechanism and the one edge case it took a full production
+run to surface.
+
+That automatic rule replaced an earlier, manually-tuned fixed value,
+used the same way for every period and region. The display resolution
+was originally set to 1.0 project-wide. Adding the British Library
+supplement later grew some periods' vocabularies past 170{,}000 words,
+and at 1.0 the largest community in the latest periods had grown with
+them to 24{,}608 words (14\% of that period's vocabulary) - a size at
+which no label, model or human, could describe what was actually
+inside it. This was not a new failure mode introduced by the
+supplement, only a more visible one: the largest community had already
+been a stable 12-15\% of the vocabulary at every period size tested,
+small and unremarkable at 70{,}000 words, absurd at 170{,}000.
 
 Modularity falls off smoothly as resolution rises, with no sharp elbow
-in the tested range, so there is no purely statistical answer for the
-right resolution - the real ceiling is practical, how many communities
-per period stay browsable, not mathematical. The choice was settled by a
-concrete before/after check rather than a formula. Take the community
-containing the word ``system'' in 1870-1890, the single worst offender:
-at resolution 1.0 its top words read as an unstructured mix (\emph{
-perjury, arrogance, indigestion, sensuality, bronchitis, extortions,
-dyspepsia}); at 2.0 and 3.0 the same words are still there, effectively
-unchanged; only at \textbf{4.0} does the community actually split, and
-the half that keeps ``system'' becomes a real, nameable theme
-(\emph{arrable, assessments, registration, payment, loans, forfeitures,
-coroners, judiciary, treasurers, sheriffs, freehold, manors, copyhold}) -
-civil administration and property law. The same check on two other
-periods at 4.0 (one small, one mid-sized) produced equally coherent
-results (philosophy/rhetoric/mathematics; church governance and clergy),
-so the resolution was raised project-wide rather than only for the
-largest periods. \code{leiden.resolution\_sweep}, the range every
-quantitative claim is actually tested across, was extended to match (up
-to 4.0, from 2.0), so the display choice and the tested range stay
-aligned. Growing the corpus further should be expected to call for
-raising this again - the right resolution scales with vocabulary size,
-it is not a constant.
+in the tested range, so there was no purely statistical answer for the
+right resolution - the real ceiling was practical, how many communities
+per period stay browsable, not mathematical. The fixed value was raised
+by a concrete before/after check rather than a formula. Take the
+community containing the word ``system'' in 1870-1890, the single worst
+offender at the time: at resolution 1.0 its top words read as an
+unstructured mix (\emph{perjury, arrogance, indigestion, sensuality,
+bronchitis, extortions, dyspepsia}); at 2.0 and 3.0 the same words were
+still there, effectively unchanged; only at \textbf{4.0} did the
+community actually split, and the half that kept ``system'' became a
+real, nameable theme (\emph{arrable, assessments, registration,
+payment, loans, forfeitures, coroners, judiciary, treasurers, sheriffs,
+freehold, manors, copyhold}) - civil administration and property law.
 
-This manual check was later turned into an automatic rule, picked
-separately for every period and region-split variant against the same
-criterion (does the worst-case community actually stay readable, now a
-1{,}500-word cap) rather than once for the whole corpus.
-\code{docs/pipeline\_manual.pdf}'s Stage 6 section covers the search
-mechanism and the one edge case it took a full production run to
-surface.
+The same check on two other periods at 4.0 (one small, one mid-sized)
+produced equally coherent results (philosophy/rhetoric/mathematics;
+church governance and clergy), so the fixed value was raised
+project-wide to 4.0 rather than only for the largest periods, and
+\code{leiden.resolution\_sweep} was extended to match at the time (up
+to 4.0, from 2.0) so the manually-chosen display value and the tested
+range stayed aligned.
 
-\subsubsection{The prompt}
+That manual approach was itself a stopgap: growing the corpus further
+would only have called for raising the fixed value again and again,
+since the right resolution scales with vocabulary size rather than
+being a constant. It was later replaced entirely by the automatic,
+per-variant rule described above, and \code{leiden.resolution\_sweep}
+was extended again to its current range, fifteen settings from 0.1 to
+16.0 (item 5), as part of that same move - so today's display choice
+and the tested range stay aligned by construction rather than by manual
+bookkeeping.
+
+\subsection{The prompt}
 
 The prompt lives in the repository as a single Markdown file, currently
 \pathref{src/prompts/community_labeling_v3.md}, which is parsed at runtime
@@ -462,15 +607,22 @@ and expected outcomes when they are genuinely what the community is, not
 a failure to avoid.}''
 
 It then asks the model to work through, in order, before deciding
-anything: what the community's most central (\emph{Core}) words suggest
-on their own; whether its less-central (\emph{Mid-rank} and
-\emph{Peripheral}) words support or undercut that reading, naming at
-least one specific word from each tier; and only then, whether a genuine
-topic holds across all three, or whether the community is better
-described as grammatical, foreign-language, or name-driven. That
-ordering is itself the point of a required \code{reasoning} field, added
-2026-09-02 (see below). Once that reasoning is done, it asks for exactly
-three decisions:
+anything:
+
+\begin{enumerate}[itemsep=0.3em]
+  \item what the community's most central (\emph{Core}) words suggest
+    on their own;
+  \item whether its less-central (\emph{Mid-rank} and \emph{Peripheral})
+    words support or undercut that reading, naming at least one
+    specific word from each tier; and
+  \item only then, whether a genuine topic holds across all three, or
+    whether the community is better described as grammatical,
+    foreign-language, or name-driven.
+\end{enumerate}
+
+That ordering is itself the point of a required \code{reasoning} field,
+a later addition to the prompt made for exactly this reason (see below).
+Once that reasoning is done, it asks for exactly three decisions:
 
 \begin{enumerate}[itemsep=0.3em]
   \item ``Whether most of the words shown - across every tier given, not
@@ -497,9 +649,9 @@ and too often reached for an easy grammatical or ``Structural /
 Uncertain'' read from the Core tier alone, without evidence the Mid-rank
 and Peripheral words had been weighed at all. Ordering \code{reasoning}
 before \code{label} and \code{lane} in the tool schema the model must
-call forces that weighing to happen, the same way a person asked to show
-their work is less likely to skip a step than one asked only for a final
-answer. A blind check on two real communities, each sent to a fresh,
+call forces that weighing to happen.
+
+A blind check on two real communities, each sent to a fresh,
 context-free model twice, once with each version of the prompt, found
 the earlier version defaulting to ``Structural / Uncertain'' both times
 despite its own draft label already naming a real theme, and the current
@@ -514,7 +666,9 @@ words with the highest degree in the community, its most central
 members, until a real gap surfaced: a flat top-slice only ever shows
 words tightly bound to a community's core, hiding a community whose
 core looks coherent but whose lower-degree tail has drifted to a
-different topic entirely. The sample is now stratified instead: up to
+different topic entirely.
+
+The sample is now stratified instead: up to
 15 words each from the top (Core), middle (Mid-rank), and bottom
 (Peripheral) of the ranked membership list, 45 words in total for any
 community large enough to split three ways; a smaller community is
@@ -557,7 +711,7 @@ fifteen lanes parsed out of the prompt file. A returned lane outside that
 list is rejected and the call retried, so a label with an out-of-taxonomy
 lane can never reach the data files.
 
-\subsubsection{Generating and checking labels}
+\subsection{Generating and checking labels}
 
 \code{extract\_community\_words.py} writes, for each populated period at
 the configured display resolution, every community's size and its
@@ -577,7 +731,9 @@ independent model reads, given that inherited label and the community's
 current words, are asked the same yes-or-no question, does this label
 still fit. Only unanimous agreement carries the label forward
 unchanged; either reader saying no forces a fresh read, exactly as a
-genesis community (no predecessor at all) gets one. This replaced an
+genesis community (no predecessor at all) gets one.
+
+This replaced an
 earlier, blunter safeguard, a fixed cap on how many periods a label
 could inherit before a forced re-read, itself built after a real case:
 a community genuinely holding Dutch and German text at 1510-1530 was
@@ -607,7 +763,7 @@ could not settle on one.
 the data directory and into this repository. \code{{\dd}region} also
 accepts a region name or \code{all} at every subcommand.
 
-\subsubsection{Where the published labels live}
+\subsection{Where the published labels live}
 
 The label files that the pipeline writes live in the data directory,
 which is gitignored and does not travel with the repository. That is why
@@ -638,26 +794,40 @@ snapshot is reviewed by hand before it is added to version control.
 \section{Current limitations}
 
 \claimlabel{Corpus coverage.} 1800-1900 is now covered by the British
-Library supplement described above, but not evenly: ECCO is thin after
-1780, so 1770-1790 leans on more American than British documents
-(Evans-TCP, 1{,}030, against mostly-ECCO's 792); the British Library
-supplement brings the next window, 1790-1810, close to parity instead.
-The \code{american} region has no data at all past 1800, since Evans-TCP
-stops there and the supplement is British-only (see Corpus above).
-Per-region results carry wider uncertainty than the combined headline
-numbers, and the \code{american} region specifically cannot speak to
-anything past the Sattelzeit's closing edge.
+Library supplement described above, but coverage is uneven in four
+ways:
+
+\begin{enumerate}[itemsep=0.15em,label=\arabic*.]
+  \item ECCO is thin after 1780, so 1770-1790 leans on more American
+    than British documents (Evans-TCP, 1{,}030, against mostly-ECCO's
+    792).
+  \item The British Library supplement brings the next window,
+    1790-1810, close to parity instead.
+  \item The \code{american} region has no data at all past 1800, since
+    Evans-TCP stops there and the supplement is British-only (see
+    Corpus above).
+  \item Per-region results carry wider uncertainty than the combined
+    headline numbers, and the \code{american} region specifically
+    cannot speak to anything past the Sattelzeit's closing edge.
+\end{enumerate}
 
 \claimlabel{OCR artifacts.} The British Library text is OCR-derived,
 unlike TCP's manually corrected transcription. \code{ocr\_refinement.py}
-repairs two classes of damage: an original line-break hyphen left
-sitting in the text (\emph{``utrum- que''} for \emph{utrumque}); and the
-harder case of the OCR dropping that hyphen entirely and leaving a bare
-space instead (\emph{``par ticulars''} for \emph{particulars}), fixed by
-merging two adjacent words only when the merged form is real and at
-least one half isn't independently real on its own - checked by hand
-against the one period a reference wordlist covers, 1790-1810 (142
-correct merges in the first 120 changed documents). That wordlist is
+repairs two classes of damage:
+
+\begin{enumerate}[itemsep=0.15em,label=\arabic*.]
+  \item an original line-break hyphen left sitting in the text
+    (\emph{``utrum- que''} for \emph{utrumque});
+  \item the harder case of the OCR dropping that hyphen entirely and
+    leaving a bare space instead (\emph{``par ticulars''} for
+    \emph{particulars}), fixed by merging two adjacent words only when
+    the merged form is real and at least one half isn't independently
+    real on its own - checked by hand against the one period a
+    reference wordlist covers, 1790-1810 (142 merges made in the first
+    120 changed documents, all confirmed correct).
+\end{enumerate}
+
+That wordlist is
 built only from that period's own TCP text, so periods entirely after
 1800 remain unrepaired and untested by this fix. A different, unrelated
 source of noise - French and Welsh text surfacing as its own network
@@ -667,22 +837,29 @@ classifier is at least 90\% confident it isn't English.
 \claimlabel{Word-level noise in the network.} Two further patterns pass
 through into the trained networks and cluster tightly enough by
 co-occurrence to form their own communities, neither yet fixed at the
-stage that would need to change (which word becomes a node). Latin
-citation-apparatus abbreviations (\emph{capvt}, \emph{deute},
-\emph{regu}) are correctly transcribed originals, not damage of any
-kind, but carry no topical content either; \code{docs/pipeline\_manual.pdf}'s
-Stage 5 section has the detail. Separately, raising the labeling
-resolution surfaced a distinct, unconfirmed TCP transcription pattern in
-a handful of communities from 1510-1650: a missing ``con-''/``com-''
-prefix on otherwise-recognizable words (\emph{mytted} for
-\emph{committed}, \emph{uersation} for \emph{conversation},
-\emph{monwealth} for \emph{commonwealth}), most likely a scribal
-abbreviation mark mishandled during text extraction - not confirmed
-against the raw XML, and no fix attempted.
+stage that would need to change (which word becomes a node):
+
+\begin{enumerate}[itemsep=0.15em,label=\arabic*.]
+  \item Latin citation-apparatus abbreviations (\emph{capvt},
+    \emph{deute}, \emph{regu}), correctly transcribed originals, not
+    damage of any kind, but carrying no topical content either.
+  \item A distinct, unconfirmed TCP transcription pattern, surfaced
+    separately when the labeling resolution was raised, in a handful of
+    communities from 1510-1650: a missing ``con-''/``com-'' prefix on
+    otherwise-recognizable words (\emph{mytted} for \emph{committed},
+    \emph{uersation} for \emph{conversation}, \emph{monwealth} for
+    \emph{commonwealth}), most likely a scribal abbreviation mark
+    mishandled during text extraction - not confirmed against the raw
+    XML, and no fix attempted.
+\end{enumerate}
+
+\code{docs/pipeline\_manual.pdf}'s Stage 5 section has more detail on
+the first of these.
 
 \claimlabel{Label reliability.} A label is a candidate to inherit from
 its predecessor only after two independent model reads agree it still
-fits the community's current words (\S\ref{sec:webapp} above); either
+fits the community's current words (``Generating and checking labels''
+above); either
 reader saying no forces a fresh read. Across the current label
 snapshots, that leaves 37--42\% of labels in the combined and British
 runs, and the majority in American, as an independent read for a given
@@ -702,13 +879,33 @@ differences in the trained word vectors cascade into a similarity
 network with slightly different edges, which cascades into a
 structurally similar but not identical community partition - in one
 earlier comparison, two full reruns of the same combined corpus produced
-community counts a few apart. This does not bear on the claim under
+community counts a few apart.
+
+This does not bear on the claim under
 test: reorganization is measured by whether \code{migration\_fraction}
 concentrates at the Sattelzeit, checked across all fifteen resolutions
 within a single run, never by whether a specific community keeps its id
 or exact member words across two independently retrained copies of the
-pipeline. The one thing meant to stay comparable across independent
+pipeline. The specific migration-fraction figures reported in the
+Result above (0.41 through 0.62) are exactly this kind of point
+estimate: expect them to drift somewhat, not to reproduce bit-for-bit,
+on an independent rerun. The one thing meant to stay comparable across independent
 reruns is the fixed fifteen-lane list, precisely because it is authored
 once by hand and never reinvented per run.
+
+\section{Where this leaves the hypothesis}
+
+Koselleck's claim was that the Sattelzeit was a moment when concepts
+reorganized \emph{as a system}, not just individual words drifting
+independently. The network test built here finds a real, gradual rise
+in migration fraction across the transitions that open and close the
+1770-1830 window - a direction consistent with that claim - but not a
+spike isolated to the window: the rise continues past 1830 rather than
+falling back, and a larger, likely-artifactual rise appears earlier,
+at 1690-1730 (item 7). That combination is what ``does not show a
+clean, isolated reorganization spike'' means in practice: the evidence
+leans toward Koselleck being right about direction, without being
+strong enough on its own to call the case closed. The result is
+suggestive, not confirming, and rests on this network test alone.
 
 \end{document}
